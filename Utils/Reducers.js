@@ -1,5 +1,5 @@
 import {combineReducers} from 'redux'
-import ReportReducer from './ReportProblem'
+import ReportReducer from '../ducks/ReportProblem'
 
 const combine = combineReducers({
     ReportReducer
