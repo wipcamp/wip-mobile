@@ -1,4 +1,4 @@
-import InitState from "./InitState";
+import InitState from "../utils/InitState"
 
 const ADD_PROBLEM = "ADD_PROBLEM"
 
