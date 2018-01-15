@@ -1,8 +1,9 @@
 import React from 'react'
+import { createStore } from 'redux'
 import { Provider } from 'react-redux'
 
-import MainNavigator from './Utils/MainNavigator'
-import Reducers from './Utils/Reducers'
+import MainNavigator from './utils/MainNavigator'
+import Reducers from './utils/Reducers'
 
 const store = createStore(Reducers)
 
