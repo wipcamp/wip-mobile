@@ -1,10 +1,17 @@
-import { TabNavigator } from "react-navigation"
-import ComingSoon from "../Pages/ComingSoonPage"
+import { TabNavigator } from 'react-navigation'
 
-const MainNavigator = TabNavigator({
-    ComingSoon: {
-        screen: ComingSoon
+import ComingSoonPage from '../pages/ComingSoonPage'
+import LoginPage from '../pages/LoginPage'
+
+const MainNavigator = TabNavigator(
+    {
+        ComingSoon: {
+            screen: ComingSoonPage
+        },
+        Login: {
+            screen: LoginPage
+        }
     }
-})
+)
 
 export default MainNavigator
