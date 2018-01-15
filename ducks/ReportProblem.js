@@ -1,20 +1,22 @@
-import InitState from "../utils/InitState"
+import InitState from '../utils/InitState'
 
 const ADD_PROBLEM = "ADD_PROBLEM"
 
-export const addProblem = problem => ({
-    type : ADD_PROBLEM,
-    problem
-})
-
-export default reducer(state = InitState, action) {
+export default function reducer (state = InitState, action) {
     switch (action.type) {
         case ADD_PROBLEM : 
             return {
-                ...state.problem,
-                action.problem
+                problem: [
+                    ...state.problem,
+                    action.problem
+                ]
             }
         default : 
             return state
     }
 }
+
+export const addProblem = problem => ({
+    type : ADD_PROBLEM,
+    problem
+})
