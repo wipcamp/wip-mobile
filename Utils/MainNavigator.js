@@ -1,9 +1,9 @@
-import { TabNavigator } from 'react-navigation'
+import { StackNavigator } from 'react-navigation'
 
 import ComingSoonPage from '../pages/ComingSoonPage'
 import LoginPage from '../pages/LoginPage'
 
-const MainNavigator = TabNavigator(
+const MainNavigator = StackNavigator(
     {
         ComingSoon: {
             screen: ComingSoonPage
