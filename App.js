@@ -1,27 +1,16 @@
-import React, {Component} from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react'
+import { createStore } from 'redux'
+import { Provider } from 'react-redux'
 
-class App extends Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text style={styles.header}>WIP Mobile</Text>
-        <Text style={styles.header}>Coming soon</Text>
-      </View>
-    );
-  }
-}
+import MainNavigator from './utils/MainNavigator'
+import Reducers from './utils/Reducers'
+
+const store = createStore(Reducers)
+
+const App = () => (
+  <Provider store={store}>
+    <MainNavigator />
+  </Provider>
+)
 
 export default App
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  header: {
-    fontSize: 24,
-  }
-});
