@@ -2,11 +2,17 @@ import React, {Component} from 'react'
 import { View, Text, Button, StyleSheet } from 'react-native'
 
 class ComingSoon extends Component {
+    constructor(props) {
+        super(props)
+    }
+
     static navigationOptions = {
-        tabBarVisible: true
+        header: null
     }
 
     render() {
+        const { navigate } = this.props.navigation
+
         return (
             <View style={styles.container}>
                 <Text style={styles.header}>WIP Mobile</Text>
@@ -17,7 +23,8 @@ class ComingSoon extends Component {
     }
 
     goToLogin() {
-        this.props.navigation.navigate('Login')
+        const { navigate } = this.props.navigation
+        navigate('Login')
     }
 }
   
