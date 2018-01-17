@@ -1,4 +1,5 @@
 import { StackNavigator } from 'react-navigation'
+import { connect } from 'react-redux'
 
 import ComingSoonPage from '../pages/ComingSoonPage'
 import LoginPage from '../pages/LoginPage'
@@ -18,4 +19,4 @@ const MainNavigator = StackNavigator(
     }
 )
 
-export default MainNavigator
+export default connect()(MainNavigator)

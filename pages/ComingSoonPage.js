@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import { View, Text, Button, StyleSheet } from 'react-native'
+import { connect } from 'react-redux'
 
 class ComingSoon extends Component {
     static navigationOptions = {
@@ -7,30 +8,28 @@ class ComingSoon extends Component {
     }
 
     render() {
-        const { navigate } = this.props.navigation
-
         return (
             <View style={styles.container}>
                 <Text style={styles.header}>WIP Mobile</Text>
                 <Text style={styles.header}>Coming soon</Text>
-                <Button title='Login' onPress={this.goToLogin.bind(this)} />
-                <Button title='ReportProblem' onPress={this.goToReport.bind(this)} />
+                <Button
+                    title='Login'
+                    onPress={() => {
+                        this.props.navigation.navigate('Login')
+                    }} 
+                />
+                <Button
+                    title='ReportProblem'
+                    onPress={() => {
+                        this.props.navigation.navigate('ReportProblem')
+                    }}
+                />
             </View>
         )
     }
-
-    goToLogin() {
-        const { navigate } = this.props.navigation
-        navigate('Login')
-    }
-
-    goToReport() {
-        const { navigate } = this.props.navigation
-        navigate('ReportProblem')
-    }
 }
   
-export default ComingSoon
+export default connect()(ComingSoon)
 
 const styles = StyleSheet.create({
     container: {
