@@ -5,29 +5,26 @@ import { connect } from 'react-redux'
 
 import { setNewProblemTopic } from '../ducks/NewProblem'
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
     return {
-        topic : state.newProblem.topic
+        topic : state.NewProblemReducer.newProblem.topic
     }
 }
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = dispatch => {
     return {
         setTopic : bindActionCreators(setNewProblemTopic, dispatch)
     }
 }
 
 class TopicInput extends Component {
-    componentWillMount() {
-        console.log(this.props.topic)
-    }
-
     render() {
         return (
             <TextInput
                 placeholder='Topic'
                 value={this.props.topic}
                 onChangeText={(text) => {
+                    console.log(this.props.topic)
                     this.props.setTopic(text)
                 }}
             />
