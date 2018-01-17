@@ -2,10 +2,6 @@ import React, {Component} from 'react'
 import { View, Text, Button, StyleSheet } from 'react-native'
 
 class ComingSoon extends Component {
-    constructor(props) {
-        super(props)
-    }
-
     static navigationOptions = {
         header: null
     }
@@ -18,6 +14,7 @@ class ComingSoon extends Component {
                 <Text style={styles.header}>WIP Mobile</Text>
                 <Text style={styles.header}>Coming soon</Text>
                 <Button title='Login' onPress={this.goToLogin.bind(this)} />
+                <Button title='ReportProblem' onPress={this.goToReport.bind(this)} />
             </View>
         )
     }
@@ -25,6 +22,11 @@ class ComingSoon extends Component {
     goToLogin() {
         const { navigate } = this.props.navigation
         navigate('Login')
+    }
+
+    goToReport() {
+        const { navigate } = this.props.navigation
+        navigate('ReportProblem')
     }
 }
   
