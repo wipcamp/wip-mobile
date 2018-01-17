@@ -6,9 +6,7 @@ const initState = {
         problemTypeId: null,
         description: null,
         isSolve: false,
-        reportId: null,
-        created_at: null,
-        updated_at: null
+        reportId: null
     } // for report problem any input
 }
 
