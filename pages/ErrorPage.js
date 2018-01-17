@@ -1,12 +1,14 @@
-import React,{ Component } from 'react'
-import { Button ,Text ,View , StyleSheet} from 'react-native'
+import React, { Component } from 'react'
+import { View, Text} from 'react-native'
 
-export default class PagrOfError extends React.Component{
-    rander(){
-        return{
+class ErrorPage extends Component {
+    render() {
+        return (
             <View>
                 <Text>You don't have permission to access</Text>
             </View>
-        }
+        )
     }
 }
+
+export default ErrorPage
