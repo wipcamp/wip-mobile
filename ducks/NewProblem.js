@@ -1,11 +1,11 @@
-import InitState from '../utils/InitState'
+import { initState } from './InitState'
 
 const SET_NEW_TOPIC = "SET_NEW_TOPIC"
 const SET_NEW_ID = "SET_NEW_ID"
 const SET_NEW_DESCRIPTION = "SET_NEW_DESCRIPTION"
 const SET_NEW_REPORTID = "SET_NEW_REPORTID"
 
-export default function reducer (state = InitState, action) {
+export default function reducer (state = initState, action) {
     switch (action.type) {
         case SET_NEW_TOPIC : 
             return {
