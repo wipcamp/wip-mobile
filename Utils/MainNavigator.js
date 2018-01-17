@@ -2,6 +2,7 @@ import { StackNavigator } from 'react-navigation'
 
 import ComingSoonPage from '../pages/ComingSoonPage'
 import LoginPage from '../pages/LoginPage'
+import ReportProblemPage from '../pages/ReportProblemPage'
 
 const MainNavigator = StackNavigator(
     {
@@ -10,6 +11,9 @@ const MainNavigator = StackNavigator(
         },
         Login: {
             screen: LoginPage
+        },
+        ReportProblem: {
+            screen: ReportProblemPage
         }
     }
 )
