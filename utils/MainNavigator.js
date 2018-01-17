@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import ComingSoonPage from '../pages/ComingSoonPage'
 import LoginPage from '../pages/LoginPage'
 import ReportProblemPage from '../pages/ReportProblemPage'
+import ErrorPage from '../pages/ErrorPage'
 
 const MainNavigator = StackNavigator(
     {
@@ -15,6 +16,9 @@ const MainNavigator = StackNavigator(
         },
         ReportProblem: {
             screen: ReportProblemPage
+        },
+        Error: {
+            screen: ErrorPage
         }
     }
 )
