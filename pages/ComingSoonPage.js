@@ -24,6 +24,12 @@ class ComingSoon extends Component {
                         this.props.navigation.navigate('ReportProblem')
                     }}
                 />
+                <Button
+                    title='Error'
+                    onPress={() => {
+                        this.props.navigation.navigate('Error')
+                    }}
+                />
             </View>
         )
     }
