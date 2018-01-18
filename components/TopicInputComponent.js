@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
-import { TextInput } from 'react-native'
+import { View, TextInput } from 'react-native'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
 import { setNewProblemTopic } from '../ducks/NewProblem'
+import Styles from '../styles/reportProblemStyle'
 
 const mapStateToProps = state => {
     return {
@@ -20,14 +21,16 @@ const mapDispatchToProps = dispatch => {
 class TopicInput extends Component {
     render() {
         return (
-            <TextInput
-                placeholder='Topic'
-                value={this.props.topic}
-                onChangeText={(text) => {
-                    console.log(this.props.topic)
-                    this.props.setTopic(text)
-                }}
-            />
+            <View style={ Styles.bgWhite }>
+                <TextInput
+                    placeholder='Topic Name'
+                    value={this.props.topic}
+                    onChangeText={(text) => {
+                        this.props.setTopic(text)
+                    }}
+                    style={[Styles.topic, Styles.border]}
+                />
+            </View>
         )
     }
 }
