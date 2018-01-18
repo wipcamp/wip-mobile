@@ -10,24 +10,28 @@ export default function reducer (state = initState, action) {
         case SET_NEW_TOPIC : 
             return {
                 newProblem : {
+                    ...state.newProblem,
                     topic : action.topic
                 }
             }
         case SET_NEW_ID :
             return {
                 newProblem : {
+                    ...state.newProblem,
                     problemTypeId : action.id
                 }
             }
         case SET_NEW_DESCRIPTION : 
             return {
                 newProblem : {
+                    ...state.newProblem,
                     description : action.description
                 }
             }
         case SET_NEW_REPORTID : 
             return {
                 newProblem : {
+                    ...state.newProblem,
                     reportId : action.id
                 }
             }
