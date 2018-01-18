@@ -3,6 +3,7 @@ import { View,Text } from 'react-native'
 import { connect } from 'react-redux'
 
 import TopicInput from '../components/TopicInputComponent'
+import Catagory from '../components/CatagoryComponent'
 
 class ReportProblem extends Component {
     static navigationOptions = {
@@ -14,6 +15,7 @@ class ReportProblem extends Component {
         return (
             <View>
                 <TopicInput />
+                <Catagory />
             </View>
         )
     }
