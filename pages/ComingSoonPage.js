@@ -30,6 +30,12 @@ class ComingSoon extends Component {
                         this.props.navigation.navigate('Error')
                     }}
                 />
+                <Button
+                    title="A Problem"
+                    onPress={() => {
+                        this.props.navigation.navigate('AProblem')
+                    }}
+                />
             </View>
         )
     }
