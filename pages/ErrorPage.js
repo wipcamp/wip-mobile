@@ -1,14 +1,20 @@
 import React, { Component } from 'react'
-import { View, Text} from 'react-native'
+import { View, Text, StyleSheet,Button} from 'react-native'
+
+import Styles from '../styles/ErrorPageStyle'
 
 class ErrorPage extends Component {
     render() {
         return (
-            <View>
-                <Text>You don't have permission to access</Text>
+            <View style={Styles.container}>
+                <Text style={Styles.textTop}>You don't have</Text>
+                <Text style={Styles.textBottom}>permission to access</Text>
+                <Button title='BACK'/>
             </View>
         )
     }
 }
 
 export default ErrorPage
+
+
