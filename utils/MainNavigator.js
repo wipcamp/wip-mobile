@@ -5,6 +5,7 @@ import ComingSoonPage from '../pages/ComingSoonPage'
 import LoginPage from '../pages/LoginPage'
 import ReportProblemPage from '../pages/ReportProblemPage'
 import ErrorPage from '../pages/ErrorPage'
+import AProblemPage from '../pages/ViewAProblemPage'
 
 const MainNavigator = StackNavigator(
     {
@@ -19,6 +20,9 @@ const MainNavigator = StackNavigator(
         },
         Error: {
             screen: ErrorPage
+        },
+        AProblem: {
+            screen: AProblemPage
         }
     }
 )
