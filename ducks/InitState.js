@@ -3,7 +3,7 @@ export const initState = {
     problem : [], // for all problem in database
     newProblem : {
         topic: null,
-        problemTypeId: null,
+        problemType: 0,
         description: null,
         isSolve: false,
         reportId: null
