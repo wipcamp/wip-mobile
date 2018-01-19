@@ -1,7 +1,7 @@
 import { initState } from './InitState'
 
 const SET_NEW_TOPIC = "SET_NEW_TOPIC"
-const SET_NEW_ID = "SET_NEW_ID"
+const SET_NEW_TYPE = "SET_NEW_TYPE"
 const SET_NEW_DESCRIPTION = "SET_NEW_DESCRIPTION"
 const SET_NEW_REPORTID = "SET_NEW_REPORTID"
 
@@ -14,11 +14,11 @@ export default function reducer (state = initState, action) {
                     topic : action.topic
                 }
             }
-        case SET_NEW_ID :
+        case SET_NEW_TYPE :
             return {
                 newProblem : {
                     ...state.newProblem,
-                    problemTypeId : action.id
+                    problemType : action.catagory
                 }
             }
         case SET_NEW_DESCRIPTION : 
@@ -45,9 +45,9 @@ export const setNewProblemTopic = topic => ({
     topic
 })
 
-export const setNewProblemTypeId = id => ({
-    type : SET_NEW_ID,
-    id
+export const setNewProblemType = catagory => ({
+    type : SET_NEW_TYPE,
+    catagory
 })
 
 export const setNewProblemDescription = description => ({
