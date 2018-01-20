@@ -2,12 +2,13 @@ export const initState = {
     filter : "ALL", 
     problem : [], // for all problem in database
     newProblem : {
-        topic: null,
+        topic: "",
         problemType: 0,
-        description: null,
+        description: "",
         isSolve: false,
         reportId: null
-    } // for report problem any input
+    }, // for report problem any input
+    catagoryProblem : []
 }
 
 const INIT_STATE = "INIT_STATE"

@@ -6,6 +6,8 @@ import TopicInput from '../components/TopicInputComponent'
 import Catagory from '../components/CatagoryComponent'
 import Desciption from '../components/DescriptionInputComponent'
 
+import Styles from '../styles/reportProblemStyle'
+
 const mapStateToProps = state => {
     return {
         state: state
@@ -15,7 +17,12 @@ const mapStateToProps = state => {
 class ReportProblem extends Component {
     static navigationOptions = {
         title: 'ReportProblem',
-        headerRight: <Text>ADD</Text>
+        headerRight: <Text
+                        style={Styles.addButon}
+                        onPress={() => {}}
+                    >
+                        ADD
+                    </Text>
     }
     
     componentDidUpdate() {

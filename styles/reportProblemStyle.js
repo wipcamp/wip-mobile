@@ -1,6 +1,6 @@
 import { StyleSheet, Dimensions } from 'react-native'
 
-const style = StyleSheet.create({
+const styles = StyleSheet.create({
     bgWhite: {
         backgroundColor: "#FFF"
     },
@@ -11,7 +11,11 @@ const style = StyleSheet.create({
     },
     topic: {
         height : Dimensions.get('screen').height * 0.1
+    },
+    addButon: {
+        color: "#1b94f1",
+        marginRight: 10
     }
 })
 
-export default style
+export default styles
