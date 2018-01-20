@@ -7,7 +7,8 @@ export const initState = {
         description: "",
         isSolve: false,
         reportId: null
-    } // for report problem any input
+    }, // for report problem any input
+    catagoryProblem : []
 }
 
 const INIT_STATE = "INIT_STATE"
