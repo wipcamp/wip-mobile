@@ -3,23 +3,28 @@ import { View, Text } from 'react-native'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { Dropdown } from 'react-native-material-dropdown'
+import axios from 'axios'
 
+import { addCatagory } from '../ducks/CatagoryProblem'
 import { setNewProblemType } from '../ducks/NewProblem'
 import Styles from '../styles/reportProblemStyle'
 
 const mapStateToProps = state => {
     return {
+        catagoryProblem : state.CatagoryReducer.catagoryProblem,
         catagory : state.NewProblemReducer.newProblem.problemType
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
+        addCatagory : bindActionCreators(addCatagory, dispatch),
         setCatagory : bindActionCreators(setNewProblemType, dispatch)
     }
 }
 
 class Catagory extends Component {
+
     componentWillMount() {
 
     }
