@@ -6,6 +6,7 @@ import LoginPage from '../pages/LoginPage'
 import ReportProblemPage from '../pages/ReportProblemPage'
 import ErrorPage from '../pages/ErrorPage'
 import AProblemPage from '../pages/ViewAProblemPage'
+import AllProblemPage from '../pages/ViewAllProblemPage'
 
 const MainNavigator = StackNavigator(
     {
@@ -23,6 +24,9 @@ const MainNavigator = StackNavigator(
         },
         AProblem: {
             screen: AProblemPage
+        },
+        AllProblemPage: {
+            screen: AllProblemPage
         }
     }
 )
