@@ -9,7 +9,6 @@ class ErrorPage extends Component {
             <View style={Styles.container}>
                 <Text style={Styles.textTop}>You don't have</Text>
                 <Text style={Styles.textBottom}>permission to access</Text>
-                <Button title='BACK'/>
             </View>
         )
     }
