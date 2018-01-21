@@ -1,19 +1,38 @@
 import React, { Component } from 'react'
-import { View, Text, StyleSheet,Button} from 'react-native'
+import { View, Text, StyleSheet, Button } from 'react-native'
 
-
+import Styles from '../styles/ViewAProblemStyle'
 
 class AProblem extends Component {
+    static navigationOptions = {
+        title: 'Details'
+    }
+
     render() {
         return (
-            <View >
-                <Text >Topic :</Text>
-                <Text >Type :</Text>
-                <Text >Note :</Text>
-                <Text >Post by </Text>
-                    <View>
-                        <input type='checkbox'/>
-                        <Text >EDIT DONE!!</Text>
+            <View style={ Styles.bg }>
+                <Text style={[ Styles.boxGray , Styles.topicGray, Styles.border]}> </Text>
+                <View style={[ Styles.boxWhite, Styles.topicWhite, Styles.border]}>
+                    <Text style={ Styles.text }>  Topic Name</Text>
+                </View>
+                <View style={[ Styles.boxWhite, Styles.topicWhite, Styles.border]}>
+                        <Text style={ Styles.text }>  Category</Text>
+                </View>
+                <Text style={[ Styles.boxGray , Styles.topicGray, Styles.border]}> </Text>
+                <View style={[ Styles.boxWhite, Styles.topicWhite, Styles.border]}>
+                        <Text style={ Styles.text }>  Date</Text>
+                </View>
+                <Text style={[ Styles.boxGray , Styles.topicGray, Styles.border]}> </Text>
+                <View style={[ Styles.boxWhite, Styles.topicWhite, Styles.border]}>
+                        <Text style={ Styles.text }>  Detail</Text>
+                </View>
+                <Text style={[ Styles.boxGray , Styles.topicGray, Styles.border]}> </Text>
+                <View style={[ Styles.boxWhite, Styles.topicWhite, Styles.border]}>
+                        <Text style={ Styles.text }>  Reporter</Text>
+                    </View>
+                <Text style={[ Styles.boxGray , Styles.topicGray, Styles.border]}> </Text>
+                    <View style={[ Styles.boxWhite, Styles.topicWhite, Styles.border]}>
+                        <Text style={ Styles.text }>  Solved</Text>
                     </View>
             </View>
         )
