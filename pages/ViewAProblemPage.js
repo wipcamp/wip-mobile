@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { View, Text, StyleSheet, Button } from 'react-native'
+import { View, Text, StyleSheet } from 'react-native'
+
 
 import Styles from '../styles/ViewAProblemStyle'
 
@@ -24,7 +25,7 @@ class AProblem extends Component {
                 </View>
                 <Text style={[ Styles.boxGray , Styles.topicGray, Styles.border]}> </Text>
                 <View style={[ Styles.boxWhite, Styles.topicWhite, Styles.border]}>
-                        <Text style={ Styles.text }>  Detail</Text>
+                        <Text style={ Styles.text2 }>  Detail</Text>
                 </View>
                 <Text style={[ Styles.boxGray , Styles.topicGray, Styles.border]}> </Text>
                 <View style={[ Styles.boxWhite, Styles.topicWhite, Styles.border]}>

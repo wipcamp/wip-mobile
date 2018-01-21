@@ -20,6 +20,11 @@ const style = StyleSheet.create({
         fontSize: 17,
         flexDirection: 'row'
     },
+    text2: {
+        fontSize: 17,
+        flexDirection: 'row',
+        color: '#c8c8c8'
+    },
     border: {
         borderStyle : "solid",
         borderWidth : 1,
