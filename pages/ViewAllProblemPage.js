@@ -6,6 +6,14 @@ import CatagoryComponent from '../components/CatagoryComponent';
 import TopicInputComponent from '../components/TopicInputComponent';
 
 class ViewAllProblemPage extends Component {
+  static navigationOptions = {
+    title: 'Problem',
+    headerRight: <Text>+</Text>
+}
+
+    componentDidUpdate() {
+    console.log(this.props.state)
+}
     componentWillMount() {
       const ds = new ListView.DataSource({
         rowHasChanged: (problem1, problem2) => problem1 !== problem2
@@ -20,6 +28,9 @@ class ViewAllProblemPage extends Component {
    
     render() {
       return (
+        <View>
+          <CatagoryComponent/>
+        </View>
         <ListView
           dataSource={this.dataSource}
           renderRow={this.renderRow}
