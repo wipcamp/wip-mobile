@@ -17,7 +17,7 @@ class ViewAllProblemPage extends Component {
     componentWillMount() {
       const ds = new ListView.DataSource({
         rowHasChanged: (problem1, problem2) => problem1 !== problem2
-      });
+      })
    
       this.dataSource = ds.cloneWithRows(this.props.allproblem);
     }
@@ -26,21 +26,12 @@ class ViewAllProblemPage extends Component {
       return <ViewAllProblemComponent problem = {TopicInputComponent} category = {CatagoryComponent}/>        
     }
    
-    render() {
-      return (
-        <View>
-          <CatagoryComponent/>
-        </View>
-        <ListView
-          dataSource={this.dataSource}
-          renderRow={this.renderRow}
-        />
-      );
-    }
+    
+    
   }
    
   const mapStateToProps = (state) => {
-    return { allproblem: state.allproblem };
-  };
+    return { allproblem: state.allproblem }
+  }
    
-  export default connect(mapStateToProps)(ViewAllProblemPage);
+  export default connect(mapStateToProps)(ViewAllProblemPage)
