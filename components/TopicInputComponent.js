@@ -29,7 +29,7 @@ class TopicInput extends Component {
                     onChangeText={(text) => {
                         this.props.setTopic(text)
                     }}
-                    style={[Styles.topic, Styles.border]}
+                    style={[Styles.topicWhite, Styles.border]}
                 />
             </View>
         )

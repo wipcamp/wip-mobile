@@ -9,12 +9,20 @@ const styles = StyleSheet.create({
         borderWidth : 1,
         borderColor : "#efefef"
     },
-    topic: {
-        height : Dimensions.get('screen').height * 0.1
+    topicGray: {
+        height : Dimensions.get('screen').height * 0.05,
+    },
+    topicWhite: {
+        height : Dimensions.get('screen').height * 0.07,
+        justifyContent: 'center'
     },
     addButon: {
         color: "#1b94f1",
         marginRight: 10
+    },
+    bg: {
+        backgroundColor: '#ECEFF1',
+        flex:1
     }
 })
 
