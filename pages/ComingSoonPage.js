@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 
 class ComingSoon extends Component {
     static navigationOptions = {
-        header: null
+        title: ''
     }
 
     render() {
