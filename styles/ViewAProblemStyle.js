@@ -11,16 +11,11 @@ const style = StyleSheet.create({
         backgroundColor: '#ECEFF1',
         flex:1
     },
-    border: {
-        borderStyle : 'solid',
-        borderWidth : 1,
-        borderColor : '#efefef'
-    },
     text: {
         fontSize: 17,
         flexDirection: 'row'
     },
-    text2: {
+    textBold: {
         fontSize: 17,
         flexDirection: 'row',
         color: '#c8c8c8'
