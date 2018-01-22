@@ -29,5 +29,6 @@
 ```
   npm install
 ```
+3. check your ```config.example.js``` what does it have different from your ```config.js``` in your code. If it's differenct, please copy ```config.example.js``` to ```config.js``` and change your value in file again.
 
 # Goodluck for Coding
