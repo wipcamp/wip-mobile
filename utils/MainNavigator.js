@@ -25,7 +25,7 @@ const MainNavigator = StackNavigator(
         AProblem: {
             screen: AProblemPage
         },
-        AllProblemPage: {
+        AllProblem: {
             screen: AllProblemPage
         }
     }

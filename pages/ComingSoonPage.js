@@ -36,6 +36,12 @@ class ComingSoon extends Component {
                         this.props.navigation.navigate('AProblem')
                     }}
                 />
+                <Button
+                    title="AllProblem"
+                    onPress={() => {
+                        this.props.navigation.navigate('AllProblem')
+                    }}
+                />
             </View>
         )
     }
