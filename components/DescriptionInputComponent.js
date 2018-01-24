@@ -22,16 +22,19 @@ const mapDispatchToProps = dispatch => {
 class DescriptionInput extends Component {
     render() {
         return (
+            
             <View style={ Styles.bgWhite }>
-                <TextField
+                <TextField  multiline={true}
                     label='Detail'
                     value={this.props.description}
                     onChangeText={(text) => {
                         this.props.setDescription(text)
+                        
                     }}
-                    style={[Styles.topicWhite,Styles.border]}
+                    style={[Styles.topicWhite,Styles.borderDetail]}
                 />
             </View>
+            
         )
     }
 }
