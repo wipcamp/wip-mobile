@@ -24,12 +24,12 @@ class DescriptionInput extends Component {
         return (
             <View style={ Styles.bgWhite }>
                 <TextField
-                    label="Detail"
+                    label='Detail'
                     value={this.props.description}
                     onChangeText={(text) => {
                         this.props.setDescription(text)
                     }}
-                    style={[Styles.border]}
+                    style={[Styles.topicWhite,Styles.border]}
                 />
             </View>
         )

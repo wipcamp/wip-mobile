@@ -7,7 +7,9 @@ const styles = StyleSheet.create({
     border: {
         borderStyle : "solid",
         borderWidth : 1,
-        borderColor : "#efefef"
+        borderColor : "#FFF",
+        padding: 10,
+    
     },
     topicGray: {
         height : Dimensions.get('screen').height * 0.05,
