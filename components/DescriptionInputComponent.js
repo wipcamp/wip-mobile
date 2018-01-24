@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
-import { View } from 'react-native'
+import { View, TextInput } from 'react-native'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { TextField } from 'react-native-material-textfield'
 
 import { setNewProblemDescription } from '../ducks/NewProblem'
 import Styles from '../styles/reportProblemStyle'
@@ -24,13 +23,15 @@ class DescriptionInput extends Component {
         return (
             
             <View style={ Styles.bgWhite }>
-                <TextField  multiline={true}
-                    label='Detail'
+                <TextInput  
+                    multiline={true}
+                    placeholder='Detail'
                     value={this.props.description}
                     onChangeText={(text) => {
                         this.props.setDescription(text)
                         
                     }}
+                    
                     style={[Styles.topicWhite,Styles.borderDetail]}
                 />
             </View>
