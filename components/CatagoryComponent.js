@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import { Dropdown } from 'react-native-material-dropdown'
 import axios from 'axios'
 
+import env from '../config'
 import { addCatagory } from '../ducks/CatagoryProblem'
 import { setNewProblemType } from '../ducks/NewProblem'
 import Styles from '../styles/reportProblemStyle'
@@ -25,24 +26,24 @@ const mapDispatchToProps = dispatch => {
 
 class Catagory extends Component {
 
-    componentWillMount() {
-
+    async componentWillMount() {
+        let api = await axios.get(`${env.API_URL}:8000/api/v1/problemtype/`)
+        let datas = api.data
+        datas.map(data => {
+            let catagory = {
+                value: data.id,
+                label: data.name
+            }
+            this.props.addCatagory(catagory)
+        })
     }
 
     render() {
-        let mockData = [
-            { value: 1, label: "Banana" },
-            { value: 2, label: "Mango" },
-            { value: 3, label: "Pear" },
-            { value: 4, label: "Apple" },
-            { value: 5, label: "Pineapple" }
-        ]
-
         return (
             <View style={Styles.bgWhite}>
                 <Dropdown
                     label="Catagory"
-                    data={mockData}
+                    data={this.props.catagoryProblem}
                     onChangeText={(value, index, data) => {
                         this.props.setCatagory(value)
                     }}
