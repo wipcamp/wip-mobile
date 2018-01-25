@@ -13,7 +13,7 @@ import Styles from '../styles/reportProblemStyle'
 const mapStateToProps = state => {
     return {
         catagoryProblem : state.CatagoryReducer.catagoryProblem,
-        catagory : state.NewProblemReducer.newProblem.problemType
+        catagory : state.NewProblemReducer.newProblem.problem_type_id
     }
 }
 

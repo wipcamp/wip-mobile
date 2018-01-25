@@ -3,10 +3,9 @@ export const initState = {
     problem : [], // for all problem in database
     newProblem : {
         topic: "",
-        problemType: 0,
+        problem_type_id: 0,
         description: "",
-        isSolve: false,
-        reportId: null
+        report_id: null
     }, // for report problem any input
     catagoryProblem : []
 }
