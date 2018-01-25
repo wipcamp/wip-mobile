@@ -14,7 +14,7 @@ class AProblem extends Component {
             <View style={ Styles.bg }>
                 <Text style={[ Styles.boxGray , Styles.topicGray, Styles.border]}> </Text>
                 <View style={[ Styles.boxWhite, Styles.topicWhite, Styles.border]}>
-                    <Text style={ Styles.text }>  Topic Name</Text>
+                    <Text style={ Styles.text }>  Topic</Text>
                 </View>
                 <View style={[ Styles.boxWhite, Styles.topicWhite, Styles.border]}>
                         <Text style={ Styles.text }>  Category</Text>
@@ -25,7 +25,7 @@ class AProblem extends Component {
                 </View>
                 <Text style={[ Styles.boxGray , Styles.topicGray, Styles.border]}> </Text>
                 <View style={[ Styles.boxWhite, Styles.topicWhite, Styles.border]}>
-                        <Text style={ Styles.text2 }>  Detail</Text>
+                        <Text style={ Styles.textBold }>  Detail</Text>
                 </View>
                 <Text style={[ Styles.boxGray , Styles.topicGray, Styles.border]}> </Text>
                 <View style={[ Styles.boxWhite, Styles.topicWhite, Styles.border]}>

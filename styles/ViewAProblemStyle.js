@@ -24,7 +24,8 @@ const style = StyleSheet.create({
         borderStyle : "solid",
         borderWidth : 1,
         borderColor : "#efefef",
-        justifyContent: 'center'
+        justifyContent: 'center',
+        borderBottomColor: '#c8c8c8'
     },
     topicWhite: {
         height : Dimensions.get('screen').height * 0.07
