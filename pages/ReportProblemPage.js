@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { View,Text } from 'react-native'
 import { connect } from 'react-redux'
 
-
 import TopicInput from '../components/TopicInputComponent'
 import Catagory from '../components/CatagoryComponent'
 import Desciption from '../components/DescriptionInputComponent'
@@ -33,10 +32,8 @@ class ReportProblem extends Component {
     render() {
         return (
             <View style={Styles.bg}>
-                <View style={Styles.topicGray} />
                 <TopicInput />
                 <Catagory />
-                <View style={Styles.topicGray} />
                 <Desciption />
             </View>
         )
