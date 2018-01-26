@@ -22,10 +22,8 @@ class ReportProblem extends Component {
     render() {
         return (
             <View style={Styles.bg}>
-                <View style={Styles.topicGray} />
                 <TopicInput />
                 <Catagory />
-                <View style={Styles.topicGray} />
                 <Desciption />
             </View>
         )

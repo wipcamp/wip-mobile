@@ -2,28 +2,19 @@ import { StyleSheet, Dimensions } from 'react-native'
 
 const styles = StyleSheet.create({
     bgWhite: {
-        backgroundColor: "#FFF",
+        backgroundColor: "#FFF"
     },
     borderTopic: {
-        borderStyle : "solid",
-        borderBottomColor: '#c8c8c8', 
-        borderWidth : 1,
-        borderColor : "#FFF",
         padding: 10,
-        paddingBottom: 1,
+        paddingBottom: 10,
+        height : 15,
         fontSize: 18
     },
     borderDetail: {
-        borderStyle : "solid",
-        borderWidth : 1,
-        borderColor : "#FFF",
         padding: 10,
         paddingBottom: 10,
-        height: 300,
+        height: 100,
         fontSize: 18
-    },
-    topicGray: {
-        height : Dimensions.get('screen').height * 0.05
     },
     topicWhite: {
         height : Dimensions.get('screen').height * 0.08
@@ -35,6 +26,9 @@ const styles = StyleSheet.create({
     bg: {
         backgroundColor: '#ECEFF1',
         flex:1
+    },
+    spaces: {
+        marginTop: 40
     }
 })
 
