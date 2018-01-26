@@ -28,9 +28,9 @@ const styles = StyleSheet.create({
     topicWhite: {
         height : Dimensions.get('screen').height * 0.08
     },
-    addButon: {
+    addButton: {
         color: "#1b94f1",
-        marginRight: 10
+        marginRight: 20
     },
     bg: {
         backgroundColor: '#ECEFF1',

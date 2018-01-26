@@ -32,7 +32,7 @@ export default function reducer (state = initState, action) {
             return {
                 newProblem : {
                     ...state.newProblem,
-                    reportId : action.id
+                    report_id : action.id
                 }
             }
         default : 
