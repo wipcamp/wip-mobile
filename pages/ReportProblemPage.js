@@ -2,32 +2,21 @@ import React, { Component } from 'react'
 import { View,Text } from 'react-native'
 import { connect } from 'react-redux'
 
-
+import AddButton from '../components/AddButtonComponent'
 import TopicInput from '../components/TopicInputComponent'
 import Catagory from '../components/CatagoryComponent'
 import Desciption from '../components/DescriptionInputComponent'
 
 import Styles from '../styles/reportProblemStyle'
 
-const mapStateToProps = state => {
-    return {
-        state: state
-    }
-}
-
 class ReportProblem extends Component {
-    static navigationOptions = {
+    static navigationOptions = ({ navigation }) => ({
         title: 'ReportProblem',
-        headerRight: <Text
-                        style={Styles.addButon}
-                        onPress={() => {}}
-                    >
-                        ADD
-                    </Text>
-    }
-    
+        headerRight: <AddButton navigation={navigation} />
+    })
+
     componentDidUpdate() {
-        console.log(this.props.state)
+        console.log('newProblem state : ', this.props.newproblem)
     }
 
     render() {
@@ -43,4 +32,4 @@ class ReportProblem extends Component {
     }
 }
 
-export default connect(mapStateToProps)(ReportProblem)
+export default connect()(ReportProblem)
