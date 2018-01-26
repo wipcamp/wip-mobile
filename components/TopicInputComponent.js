@@ -22,16 +22,16 @@ const mapDispatchToProps = dispatch => {
 class TopicInput extends Component {
     render() {
         return (
-            <View style={ [Styles.bgWhite, Styles.spaces ] }>       
+            <View style={[Styles.bgWhite, Styles.spaces ]}>       
                 <TextField
-                    multiline={true}
                     label ='Topic'
                     value={this.props.topic}
                     onChangeText={(text) => {
                         this.props.setTopic(text)
                     }}
-                    
-                    style={[Styles.topicWhite, Styles.borderTopic]}
+                    labelFontSize={20}
+                    fontSize={18}
+                    containerStyle={Styles.inputPadding}
                 />
             </View>
         )

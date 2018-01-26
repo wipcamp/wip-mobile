@@ -1,34 +1,24 @@
 import { StyleSheet, Dimensions } from 'react-native'
 
 const styles = StyleSheet.create({
+    bg: {
+        backgroundColor: '#F3F3F3',
+        flex:1
+    },
     bgWhite: {
         backgroundColor: "#FFF"
     },
-    borderTopic: {
-        padding: 10,
-        paddingBottom: 10,
-        height : 15,
-        fontSize: 18
-    },
-    borderDetail: {
-        padding: 10,
-        paddingBottom: 10,
-        height: 100,
-        fontSize: 18
-    },
-    topicWhite: {
-        height : Dimensions.get('screen').height * 0.08
+    inputPadding: {
+        paddingLeft: 10
     },
     addButton: {
         color: "#1b94f1",
+        fontSize: 18,
+        fontWeight: "bold",
         marginRight: 20
     },
-    bg: {
-        backgroundColor: '#ECEFF1',
-        flex:1
-    },
     spaces: {
-        marginTop: 40
+        marginTop: 35
     }
 })
 

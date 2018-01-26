@@ -47,6 +47,10 @@ class Catagory extends Component {
                     onChangeText={(value, index, data) => {
                         this.props.setCatagory(value)
                     }}
+                    itemCount={6}
+                    labelFontSize={20}
+                    fontSize={18}
+                    containerStyle={Styles.inputPadding}
                 />
             </View>
         )
