@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Text } from 'react-native'
+import { Text, Alert } from 'react-native'
 import { connect } from 'react-redux'
 import axios from 'axios'
 
@@ -23,12 +23,25 @@ class AddButton extends Component {
             <Text
                 style={Styles.addButton}
                 onPress={async () => {
-                    let api = await axios.post(`${env.API_URL}:8000/api/v1/problem/`, this.props.newproblem)
-                    if (api.data == 'true') {
-                        this.props.navigation.navigate('ComingSoon')
+                    let topic = this.props.newproblem.topic
+                    let problem_type_id = this.props.newproblem.problem_type_id
+                    let description = this.props.newproblem.description
+                    if( topic != "" && problem_type_id != 0 && description != "") {
+                        let api = await axios.post(`${env.API_URL}:8000/api/v1/problem/`, this.props.newproblem)
+                        if (api.data == 'true') {
+                            this.props.navigation.navigate('ComingSoon')
+                        }
+                        else {
+                            Alert.alert(
+                                'API Error'
+                            )
+                        }
                     }
                     else {
-                        console.log('Fail')
+                        Alert.alert(
+                            'Error',
+                            'กรุณากรอกข้อมูลให้ครบถ้วน'
+                        )
                     }
                 }}
             >
@@ -39,32 +52,3 @@ class AddButton extends Component {
 }
 
 export default connect(mapStateToProps)(AddButton)
-
-
-{/* <Text
-style={Styles.addButon}
-onPress={() => {
-console.log(this.props)
-}}
-// onPress={async (_this) => {
-//     try {
-//         console.log('before state')
-//         console.log('this object > ', _this )
-//         let myprop = _this.props.newproblem
-//         console.log('thisprops > ', myprop)
-//         // console.log(api.data)
-//         // let api = await axios.post(`${env.API_URL}:8000/api/v1/problem/`, myprop)                                                                
-//         // let api = await axios.post(`${env.API_URL}:8000/api/v1/problem/`, {
-//         //     topic: "Mobile",
-//         //     problem_type_id: 1,
-//         //     description: "test",
-//         //     report_id: 1
-//         // })
-//     }
-//     catch (error) {
-//         console.log(error)    
-//     }
-// }}
->
-ADD
-</Text> */}
