@@ -4,7 +4,18 @@
 ```
   npm install
 ```
-2. run program with exp with this command.
+2. copy file ```config.example.js``` to ```config.js``` with this command.
+```
+  cp config.example.js config.js
+```
+3. change value in file config.js to your data
+```
+  env = {
+    API_URL = your api url from wip-api repository,
+    FB_APP_ID = your facebook app id
+  }
+```
+4. run program with exp with this command.
 ```
   exp start
 ```
@@ -18,5 +29,6 @@
 ```
   npm install
 ```
+3. check your ```config.example.js``` what does it have different from your ```config.js``` in your code. If it's differenct, please copy ```config.example.js``` to ```config.js``` and change your value in file again.
 
-<h1 style="text-align:center">Goodluck for Coding</h1>
+# Goodluck for Coding

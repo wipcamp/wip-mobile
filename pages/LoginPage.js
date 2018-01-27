@@ -2,6 +2,9 @@ import React, { Component } from 'react'
 import { View, Text, Button, Image, StyleSheet } from 'react-native'
 import { AuthSession } from 'expo'
 
+import Styles from '../styles/LoginStyle'
+import WipLogo from '../src/images/Logo_WIPCamp.png'
+
 const FB_APP_ID = '911632835680936';
 
 class Login extends Component {
@@ -15,10 +18,13 @@ class Login extends Component {
 
     render() {
         return (
-            <View style={styles.container}>
-                <Text style={styles.header}>Login Facebook</Text>
+            <View style = {Styles.container}>
+                <Image 
+                    source = { WipLogo }
+                    style = { Styles.logo }
+                />
                 {!this.state.userInfo ? (
-                    <Button title="Open FB Auth" onPress={this._handlePressAsync} />
+                    <Button title="Facebook Login" onPress={this._handlePressAsync} />
                 ) : (
                     this._renderUserInfo()
                 )}
@@ -75,15 +81,3 @@ class Login extends Component {
 }
 
 export default Login
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    header: {
-        fontSize: 24,
-    }
-})
