@@ -15,10 +15,6 @@ class ReportProblem extends Component {
         headerRight: <AddButton navigation={navigation} />
     })
 
-    componentDidUpdate() {
-        console.log('newProblem state : ', this.props.newproblem)
-    }
-
     render() {
         return (
             <View style={Styles.bg}>

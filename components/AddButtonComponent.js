@@ -14,10 +14,6 @@ const mapStateToProps = state => {
 }
 
 class AddButton extends Component {
-    componentWillMount() {
-        console.log(this.props)
-    }
-
     render() {
         return (
             <Text
