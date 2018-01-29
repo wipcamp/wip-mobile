@@ -2,29 +2,22 @@ import React, { Component } from 'react'
 import { View,Text } from 'react-native'
 import { connect } from 'react-redux'
 
+import AddButton from '../components/AddButtonComponent'
 import TopicInput from '../components/TopicInputComponent'
 import Catagory from '../components/CatagoryComponent'
 import Desciption from '../components/DescriptionInputComponent'
 
-const mapStateToProps = state => {
-    return {
-        state: state
-    }
-}
+import Styles from '../styles/reportProblemStyle'
 
 class ReportProblem extends Component {
-    static navigationOptions = {
+    static navigationOptions = ({ navigation }) => ({
         title: 'ReportProblem',
-        headerRight: <Text>ADD</Text>
-    }
-    
-    componentDidUpdate() {
-        console.log(this.props.state)
-    }
+        headerRight: <AddButton navigation={navigation} />
+    })
 
     render() {
         return (
-            <View>
+            <View style={Styles.bg}>
                 <TopicInput />
                 <Catagory />
                 <Desciption />
@@ -33,4 +26,4 @@ class ReportProblem extends Component {
     }
 }
 
-export default connect(mapStateToProps)(ReportProblem)
+export default connect()(ReportProblem)

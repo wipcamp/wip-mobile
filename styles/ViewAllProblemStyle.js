@@ -7,8 +7,11 @@ const style = StyleSheet.create({
     },
     textright: {
         alignContent: 'end',
-    }
-      
+    },
+    titleStyle: {
+        fontSize: 18,
+        paddingLeft: 15
+    } 
 })
 
 export default style

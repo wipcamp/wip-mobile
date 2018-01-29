@@ -18,7 +18,7 @@ export default function reducer (state = initState, action) {
             return {
                 newProblem : {
                     ...state.newProblem,
-                    problemType : action.catagory
+                    problem_type_id : action.catagory
                 }
             }
         case SET_NEW_DESCRIPTION : 
@@ -32,7 +32,7 @@ export default function reducer (state = initState, action) {
             return {
                 newProblem : {
                     ...state.newProblem,
-                    reportId : action.id
+                    report_id : action.id
                 }
             }
         default : 
