@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View } from 'react-native'
+import { View, ActivityIndicator } from 'react-native'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import axios from 'axios'
@@ -7,6 +7,8 @@ import axios from 'axios'
 import env from '../config'
 import { addProblem } from '../ducks/ReportProblem'
 import FilterView from '../components/FilterViewComponent'
+import ReportStyle from '../styles/reportProblemStyle'
+import Test from '../components/ProblemCardComponent'
 
 const mapStateToProps = state => {
     return {
@@ -25,18 +27,40 @@ class ViewAllProblem extends Component {
         title: 'Problem'
     }
 
+    constructor(props) {
+        super(props)
+        this.state = {
+            success: false
+        }
+    }
+
     async componentWillMount() {
         let api = await axios.get(`${env.API_URL}/problem/`)
         let datas = api.data
         datas.map(data => {
             this.props.addProblem(data)
         })
+        if(this.props.problem.length == datas.length) {
+            this.setState({success: true})
+        }
     }
 
     render() {
         return (
-            <View>
+            <View style={ReportStyle.bg}>
                 <FilterView />
+                {this.state.success
+                    ? <Test data={this.props.problem[0]} navigation={this.props.navigation} />
+                    : this.__renderLoading()
+                }
+            </View>
+        )
+    }
+
+    __renderLoading() {
+        return (
+            <View style={ReportStyle.bg}>
+                <ActivityIndicator size="large" color="#ff8214" />
             </View>
         )
     }
