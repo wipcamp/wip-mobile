@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 
 
-import Styles from '../styles/ViewAProblemStyle'
+import Styles from '../styles/MockViewAProblemStyle'
 
 class AProblem extends Component {
     static navigationOptions = {
