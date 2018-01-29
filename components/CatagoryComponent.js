@@ -27,7 +27,7 @@ const mapDispatchToProps = dispatch => {
 class Catagory extends Component {
 
     async componentWillMount() {
-        let api = await axios.get(`${env.API_URL}:8000/api/v1/problemtype/`)
+        let api = await axios.get(`${env.API_URL}/problemtype/`)
         let datas = api.data
         datas.map(data => {
             let catagory = {
