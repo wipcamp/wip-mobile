@@ -2,7 +2,7 @@ import { StyleSheet, Dimensions } from 'react-native'
 
 const styles = StyleSheet.create({
     bg: {
-        backgroundColor: '#F3F3F3',
+        backgroundColor: '#EFEFEF',
         flex:1
     },
     bgWhite: {
