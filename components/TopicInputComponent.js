@@ -22,7 +22,7 @@ const mapDispatchToProps = dispatch => {
 class TopicInput extends Component {
     render() {
         return (
-            <View style={[Styles.bgWhite, Styles.spaces ]}>       
+            <View style={[Styles.bgWhite, Styles.spacesTop ]}>       
                 <TextField
                     label ='Topic'
                     value={this.props.topic}

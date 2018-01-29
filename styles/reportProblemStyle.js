@@ -17,8 +17,11 @@ const styles = StyleSheet.create({
         fontWeight: "bold",
         marginRight: 20
     },
-    spaces: {
+    spacesTop: {
         marginTop: 35
+    },
+    spacesBottom: {
+        marginBottom: 35
     }
 })
 

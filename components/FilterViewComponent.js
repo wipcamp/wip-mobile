@@ -39,7 +39,7 @@ class FilterView extends Component {
 
     render() {
         return (
-            <View>
+            <View style={[ ReportStyles.bgWhite, ReportStyles.spacesTop, ReportStyles.spacesBottom ]}>
                 <Dropdown
                     label="Catagory"
                     data={this.props.filterView}

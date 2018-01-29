@@ -23,7 +23,7 @@ class DescriptionInput extends Component {
     render() {
         return (
             
-            <View style={[Styles.bgWhite, Styles.spaces]}>
+            <View style={[Styles.bgWhite, Styles.spacesTop]}>
                 <TextField  
                     multiline={true}
                     label='Detail'
