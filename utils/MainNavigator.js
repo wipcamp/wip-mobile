@@ -6,6 +6,7 @@ import LoginPage from '../pages/LoginPage'
 import ReportProblemPage from '../pages/ReportProblemPage'
 import ErrorPage from '../pages/ErrorPage'
 import AllProblemPage from '../pages/ViewAllProblemPage'
+import AProblemPage from '../pages/ViewAProblem'
 import MockAProblemPage from '../pages/MockViewAProblemPage'
 import MockAllProblemPage from '../pages/MockViewAllProblemPage'
 
@@ -25,6 +26,10 @@ const MainNavigator = StackNavigator(
         },
         AllProblem: {
             screen: AllProblemPage
+        },
+        AProblem: {
+            path: 'problem/:id',
+            screen: AProblemPage
         },
         MockAProblem: {
             screen: MockAProblemPage
