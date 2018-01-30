@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, ActivityIndicator } from 'react-native'
+import { ScrollView, View, FlatList, ActivityIndicator } from 'react-native'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import axios from 'axios'
@@ -7,8 +7,8 @@ import axios from 'axios'
 import env from '../config'
 import { addProblem } from '../ducks/ReportProblem'
 import FilterView from '../components/FilterViewComponent'
+import ProblemCard from '../components/ProblemCardComponent'
 import ReportStyle from '../styles/reportProblemStyle'
-import Test from '../components/ProblemCardComponent'
 
 const mapStateToProps = state => {
     return {
@@ -47,13 +47,17 @@ class ViewAllProblem extends Component {
 
     render() {
         return (
-            <View style={ReportStyle.bg}>
+            <ScrollView style={ReportStyle.bg}>
                 <FilterView />
                 {this.state.success
-                    ? <Test data={this.props.problem[0]} navigation={this.props.navigation} />
+                    ? <FlatList
+                        data={this.props.problem.reverse()}
+                        keyExtractor={(item) => item.id}
+                        renderItem={({item}) => <ProblemCard key={item.id} data={item} navigation={this.props.navigation} />}
+                      />
                     : this.__renderLoading()
                 }
-            </View>
+            </ScrollView>
         )
     }
 
