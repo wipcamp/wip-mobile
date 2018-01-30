@@ -12,7 +12,8 @@ import ReportStyle from '../styles/reportProblemStyle'
 
 const mapStateToProps = state => {
     return {
-        problem : state.ReportReducer.problem
+        problem : state.ReportReducer.problem,
+        filter : state.FilterReducer.filter
     }
 }
 
@@ -52,8 +53,15 @@ class ViewAllProblem extends Component {
                 {this.state.success
                     ? <FlatList
                         data={this.props.problem.reverse()}
+                        extraData={this.props.filter}
                         keyExtractor={(item) => item.id}
-                        renderItem={({item}) => <ProblemCard key={item.id} data={item} navigation={this.props.navigation} />}
+                        renderItem={({item}) => {
+                            if(this.props.filter == item.problem_type_id || this.props.filter == 0) {
+                                return (
+                                    <ProblemCard key={item.id} data={item} navigation={this.props.navigation} />
+                                )
+                            }
+                        }}
                       />
                     : this.__renderLoading()
                 }
