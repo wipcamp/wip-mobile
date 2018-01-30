@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import axios from 'axios'
 
-import env from '../config'
+
 import { addProblem } from '../ducks/ReportProblem'
 import FilterView from '../components/FilterViewComponent'
 import ProblemCard from '../components/ProblemCardComponent'

@@ -5,7 +5,7 @@ const style = StyleSheet.create({
         backgroundColor: '#FFFFFF'
     },
     boxGray: {
-        backgroundColor: '#ECEFF1'
+        backgroundColor: '#efefef'
     },
     bg: {
         backgroundColor: '#ECEFF1',
@@ -32,6 +32,9 @@ const style = StyleSheet.create({
     },
     topicGray: {
         height : Dimensions.get('screen').height * 0.05
+    },
+    spaces: {
+        marginTop: 35
     }
 })
 
