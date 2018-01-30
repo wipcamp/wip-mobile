@@ -6,7 +6,7 @@ import LoginPage from '../pages/LoginPage'
 import ReportProblemPage from '../pages/ReportProblemPage'
 import ErrorPage from '../pages/ErrorPage'
 import AllProblemPage from '../pages/ViewAllProblemPage'
-import AProblemPage from '../pages/ViewAProblem'
+import AProblemPage from '../pages/ViewAProblemPage'
 import MockAProblemPage from '../pages/MockViewAProblemPage'
 import MockAllProblemPage from '../pages/MockViewAllProblemPage'
 
