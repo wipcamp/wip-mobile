@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import ViewAllProblemComponent from '../components/ViewAllProblemComponent';
 import CatagoryComponent from '../components/CatagoryComponent';
 import TopicInputComponent from '../components/TopicInputComponent';
+import styles from '../styles/MockViewAllProblemStyle';
 
 class ViewAllProblemPage extends Component {
   static navigationOptions = {
@@ -26,12 +27,48 @@ class ViewAllProblemPage extends Component {
       return <ViewAllProblemComponent problem = {TopicInputComponent} category = {CatagoryComponent}/>        
     }
    
-    
+    render() {
+      return (
+        <View style={styles.bg}>
+          <View style={styles.boxgray}></View>
+          <CatagoryComponent/>
+          <View style={styles.boxgray}></View>
+            <View style={styles.boxwhite}>
+              <View style={styles.flexrow}>
+                <Text>Topic Name</Text>
+                <Text>Sunday</Text>
+              </View>
+              <View>
+                <Text>Category : Category Name</Text>
+              </View>
+              </View>
+            <View style={styles.boxwhite}>
+              <View style={styles.flexrow}>
+                <Text>Topic Name</Text>
+                <Text>Monday</Text>
+              </View>
+              <View>
+                <Text>Category : Category Name</Text>
+              </View>
+            </View>
+            <View style={styles.boxwhite}>
+              <View style={styles.flexrow}>
+                <Text>Topic Name</Text>
+                <Text>Monday</Text>
+              </View>
+              <View>
+                <Text>Category : Category Name</Text>
+              </View>
+            </View>
+        </View>
+      );
+    }
     
   }
    
   const mapStateToProps = (state) => {
     return { allproblem: state.allproblem }
   }
+
    
   export default connect(mapStateToProps)(ViewAllProblemPage)
