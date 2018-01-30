@@ -3,7 +3,7 @@ import { initState } from './InitState'
 const ADD_PROBLEM = "ADD_PROBLEM"
 const REVERSE_PROBLEM = "REVERSE_PROBLEM"
 const UPDATE_PROBLEM = "UPDATE_PROBLEM"
-const RESET_PROBLEM = "RESET_PROBELM"
+const RESET_PROBLEM = "RESET_PROBLEM"
 
 export default function reducer (state = initState, action) {
     switch (action.type) {
@@ -27,7 +27,7 @@ export default function reducer (state = initState, action) {
                     return problem
                 })
             }
-        case RESET_PROBELM :
+        case RESET_PROBLEM :
             return {
                 problem : []
             }
@@ -51,5 +51,5 @@ export const reverseProblem = () => ({
 })
 
 export const resetProblem = () => ({
-    type : RESET_PROBELM
+    type : RESET_PROBLEM
 })
