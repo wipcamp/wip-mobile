@@ -2,13 +2,20 @@ import { StyleSheet } from 'react-native'
 
 const style = StyleSheet.create({
     topic: {
-        fontSize: 16
+        fontSize: 18,
+        fontWeight: "bold"
     },
     description: {
         fontSize: 14
     },
     date: {
         fontSize: 10
+    },
+    border: {
+        borderColor: "#aaa",
+        borderBottomWidth: 1,
+        paddingTop: 10,
+        paddingBottom: 10        
     },
     column: {
         flexDirection: 'column'
