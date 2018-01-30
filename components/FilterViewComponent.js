@@ -35,6 +35,7 @@ class FilterView extends Component {
             }
             this.props.addFilter(filter)
         })
+        this.props.setFilter(0)
     }
 
     render() {
