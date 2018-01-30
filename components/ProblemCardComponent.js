@@ -6,10 +6,6 @@ import Styles from '../styles/ViewProblemStyle'
 import ReportStyle from '../styles/reportProblemStyle'
 
 class ProblemCard extends Component {
-    async componentWillMount() {
-        console.log("this props : ", this.props)
-    }
-
     render() {
         return (
             <TouchableOpacity
