@@ -47,7 +47,6 @@ class FilterView extends Component {
                     onChangeText={(value, index, data) => {
                         this.props.setFilter(value)
                     }}
-                    itemCount={7}
                     labelFontSize={20}
                     fontSize={18}
                     containerStyle={ReportStyles.inputPadding}
