@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import axios from 'axios'
 
 import env from '../config'
-import { addProblem } from '../ducks/ReportProblem'
+import { addProblem, reverseProblem } from '../ducks/ReportProblem'
 import FilterView from '../components/FilterViewComponent'
 import ProblemCard from '../components/ProblemCardComponent'
 import ReportStyle from '../styles/reportProblemStyle'
@@ -19,7 +19,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        addProblem : bindActionCreators(addProblem, dispatch)
+        addProblem : bindActionCreators(addProblem, dispatch),
+        reverseProblem : bindActionCreators(reverseProblem, dispatch)
     }
 }
 
@@ -43,6 +44,7 @@ class ViewAllProblem extends Component {
         })
         if(this.props.problem.length == datas.length) {
             this.setState({success: true})
+            this.props.reverseProblem()
         }
     }
 
@@ -52,7 +54,7 @@ class ViewAllProblem extends Component {
                 <FilterView />
                 {this.state.success
                     ? <FlatList
-                        data={this.props.problem.reverse()}
+                        data={this.props.problem}
                         extraData={this.props.filter}
                         keyExtractor={(item) => item.id}
                         renderItem={({item}) => {
@@ -63,17 +65,9 @@ class ViewAllProblem extends Component {
                             }
                         }}
                       />
-                    : this.__renderLoading()
+                    : <ActivityIndicator size="large" color="#ff8214" />
                 }
             </ScrollView>
-        )
-    }
-
-    __renderLoading() {
-        return (
-            <View style={ReportStyle.bg}>
-                <ActivityIndicator size="large" color="#ff8214" />
-            </View>
         )
     }
 }
