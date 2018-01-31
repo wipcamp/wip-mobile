@@ -13,8 +13,7 @@ const styles = StyleSheet.create({
     },
     addButton: {
         color: "#1b94f1",
-        fontSize: 18,
-        fontWeight: "bold",
+        fontSize: 16,
         marginRight: 20
     },
     spacesTop: {
