@@ -7,6 +7,7 @@ import axios from 'axios'
 import env from '../config'
 import { updateProblem } from '../ducks/ReportProblem'
 import Topic from '../components/TopicInputComponent'
+import Description from '../components/DescriptionInputComponent'
 import ReportStyle from '../styles/reportProblemStyle'
 
 const mapStateToProps = state => {
@@ -32,6 +33,7 @@ class ViewAProblem extends Component {
         return (
             <ScrollView style={ReportStyle.bg}>
                 <Topic id={this.props.navigation.state.params.id} view={true} />
+                <Description  id={this.props.navigation.state.params.id} view={true} />
             </ScrollView>
         )
     }
