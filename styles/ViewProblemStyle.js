@@ -13,9 +13,11 @@ const style = StyleSheet.create({
     },
     border: {
         borderColor: "#aaa",
-        borderBottomWidth: 1,
+        borderBottomWidth: 1
+    },
+    padTopBot10: {
         paddingTop: 10,
-        paddingBottom: 10        
+        paddingBottom: 10
     },
     column: {
         flexDirection: 'column'
@@ -34,6 +36,9 @@ const style = StyleSheet.create({
     },
     itemCenter: {
         alignItems: 'center'
+    },
+    itemRight: {
+        alignItems: 'flex-end'
     },
     disable: {
         backgroundColor: '#E4E4E4'
