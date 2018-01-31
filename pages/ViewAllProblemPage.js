@@ -1,11 +1,11 @@
 import React, { Component } from 'react'
-import { ScrollView, View, FlatList, ActivityIndicator } from 'react-native'
+import { AsyncStorage, ScrollView, View, FlatList, ActivityIndicator } from 'react-native'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import axios from 'axios'
 
 import env from '../config'
-import { addProblem, reverseProblem } from '../ducks/ReportProblem'
+import { addProblem, reverseProblem, resetProblem } from '../ducks/ReportProblem'
 import FilterView from '../components/FilterViewComponent'
 import ProblemCard from '../components/ProblemCardComponent'
 import ReportStyle from '../styles/reportProblemStyle'
@@ -20,7 +20,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         addProblem : bindActionCreators(addProblem, dispatch),
-        reverseProblem : bindActionCreators(reverseProblem, dispatch)
+        reverseProblem : bindActionCreators(reverseProblem, dispatch),
+        resetProblem : bindActionCreators(resetProblem, dispatch)
     }
 }
 
@@ -39,13 +40,16 @@ class ViewAllProblem extends Component {
     async componentWillMount() {
         let api = await axios.get(`${env.API_URL}/problem/`)
         let datas = api.data
-        datas.map(data => {
-            this.props.addProblem(data)
-        })
-        if(this.props.problem.length == datas.length) {
-            this.setState({success: true})
+        let problemCount =  await AsyncStorage.getItem('problemCount')
+        if(problemCount == null | datas.length >= parseInt(problemCount)) {
+            this.props.resetProblem()
+            datas.map(data => {
+                this.props.addProblem(data)
+            })
             this.props.reverseProblem()
+            this.setState({success: true})
         }
+        await AsyncStorage.setItem('problemCount', `${datas.length}`)
     }
 
     render() {
