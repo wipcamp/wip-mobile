@@ -15,6 +15,7 @@ class ProblemCard extends Component {
                     style={[
                         Styles.row,
                         Styles.border,
+                        Styles.padTopBot10,
                         (this.props.data.is_solve || this.props.data.not_solve)
                             ? Styles.disable
                             : ReportStyle.bgWhite
