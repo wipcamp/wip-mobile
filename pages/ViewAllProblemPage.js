@@ -4,8 +4,13 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import axios from 'axios'
 
+<<<<<<< HEAD
+
+import { addProblem } from '../ducks/ReportProblem'
+=======
 import env from '../config'
 import { addProblem, reverseProblem } from '../ducks/ReportProblem'
+>>>>>>> 085a1da5414d3a93ec509489c18fd4f938c4bca4
 import FilterView from '../components/FilterViewComponent'
 import ProblemCard from '../components/ProblemCardComponent'
 import ReportStyle from '../styles/reportProblemStyle'
