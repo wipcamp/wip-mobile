@@ -42,7 +42,7 @@ class FilterView extends Component {
         return (
             <View style={[ ReportStyles.bgWhite, ReportStyles.spacesTop, ReportStyles.spacesBottom ]}>
                 <Dropdown
-                    label="Catagory"
+                    label="Category"
                     data={this.props.filterView}
                     value={this.props.filter}
                     onChangeText={(value, index, data) => {

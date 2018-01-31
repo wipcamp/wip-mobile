@@ -5,24 +5,24 @@ import { connect } from 'react-redux'
 import axios from 'axios'
 
 import env from '../config'
-import { addCatagory } from '../ducks/CatagoryProblem'
+import { addCategory } from '../ducks/CategoryProblem'
 import Styles from '../styles/ViewProblemStyle'
 import ReportStyle from '../styles/reportProblemStyle'
 
 const mapStateToProps = state => {
     return {
-        catagoryProblem : state.CatagoryReducer.catagoryProblem,
+        categoryProblem : state.CategoryReducer.categoryProblem,
         problem : state.ReportReducer.problem
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        addCatagory : bindActionCreators(addCatagory, dispatch)
+        addCategory : bindActionCreators(addCategory, dispatch)
     }
 }
 
-class ViewCatagory extends Component {
+class ViewCategory extends Component {
 
     constructor(props) {
         super(props)
@@ -32,15 +32,15 @@ class ViewCatagory extends Component {
     }
 
     async componentWillMount() {
-        if(this.props.catagoryProblem.length == 0) {
+        if(this.props.categoryProblem.length == 0) {
             let api = await axios.get(`${env.API_URL}/problemtype/`)
             let datas = api.data
             datas.map(data => {
-                let catagory = {
+                let category = {
                     value: data.id,
                     label: data.name
                 }
-                this.props.addCatagory(catagory)
+                this.props.addCategory(category)
             })
             this.setState({success: true})
         }
@@ -58,26 +58,26 @@ class ViewCatagory extends Component {
                 ]}
             >
                 <View style={[Styles.flex1]}>
-                    <Text>Catagory</Text>
+                    <Text>Category</Text>
                 </View>
                 <View style={[Styles.flex1, Styles.itemRight]}>
-                    <Text>{this.__renderCatagoryValue()}</Text>
+                    <Text>{this.__renderCategoryValue()}</Text>
                 </View>
             </View>
         )
     }
 
-    __renderCatagoryValue() {
-        let catagoryId = this.props.problem
+    __renderCategoryValue() {
+        let categoryId = this.props.problem
                             .filter(problem => problem.id == this.props.id)
                             [0].problem_type_id
         if(this.state.success) {
-            let catagoryValue = this.props.catagoryProblem
-                            .filter(catagory => catagory.value == catagoryId)
+            let categoryValue = this.props.categoryProblem
+                            .filter(category => category.value == categoryId)
                             [0].label
-            return catagoryValue
+            return categoryValue
         }
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ViewCatagory)
+export default connect(mapStateToProps, mapDispatchToProps)(ViewCategory)

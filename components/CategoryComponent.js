@@ -6,36 +6,36 @@ import { Dropdown } from 'react-native-material-dropdown'
 import axios from 'axios'
 
 import env from '../config'
-import { addCatagory } from '../ducks/CatagoryProblem'
+import { addCategory } from '../ducks/CategoryProblem'
 import { setNewProblemType } from '../ducks/NewProblem'
 import Styles from '../styles/reportProblemStyle'
 
 const mapStateToProps = state => {
     return {
-        catagoryProblem : state.CatagoryReducer.catagoryProblem,
-        catagory : state.NewProblemReducer.newProblem.problem_type_id
+        categoryProblem : state.CategoryReducer.categoryProblem,
+        category : state.NewProblemReducer.newProblem.problem_type_id
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-        addCatagory : bindActionCreators(addCatagory, dispatch),
-        setCatagory : bindActionCreators(setNewProblemType, dispatch)
+        addCategory : bindActionCreators(addCategory, dispatch),
+        setCategory : bindActionCreators(setNewProblemType, dispatch)
     }
 }
 
-class Catagory extends Component {
+class Category extends Component {
 
     async componentWillMount() {
-        if(this.props.catagoryProblem.length == 0) {
+        if(this.props.categoryProblem.length == 0) {
             let api = await axios.get(`${env.API_URL}/problemtype/`)
             let datas = api.data
             datas.map(data => {
-                let catagory = {
+                let category = {
                     value: data.id,
                     label: data.name
                 }
-                this.props.addCatagory(catagory)
+                this.props.addCategory(category)
             })
         }
     }
@@ -44,10 +44,10 @@ class Catagory extends Component {
         return (
             <View style={Styles.bgWhite}>
                 <Dropdown
-                    label="Catagory"
-                    data={this.props.catagoryProblem}
+                    label="Category"
+                    data={this.props.categoryProblem}
                     onChangeText={(value, index, data) => {
-                        this.props.setCatagory(value)
+                        this.props.setCategory(value)
                     }}
                     labelFontSize={20}
                     fontSize={18}
@@ -58,4 +58,4 @@ class Catagory extends Component {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Catagory)
+export default connect(mapStateToProps, mapDispatchToProps)(Category)

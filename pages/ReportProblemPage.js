@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 
 import AddButton from '../components/AddButtonComponent'
 import TopicInput from '../components/TopicInputComponent'
-import Catagory from '../components/CatagoryComponent'
+import Category from '../components/CategoryComponent'
 import Desciption from '../components/DescriptionInputComponent'
 
 import Styles from '../styles/reportProblemStyle'
@@ -19,7 +19,7 @@ class ReportProblem extends Component {
         return (
             <View style={Styles.bg}>
                 <TopicInput />
-                <Catagory />
+                <Category />
                 <Desciption />
             </View>
         )

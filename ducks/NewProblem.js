@@ -18,7 +18,7 @@ export default function reducer (state = initState, action) {
             return {
                 newProblem : {
                     ...state.newProblem,
-                    problem_type_id : action.catagory
+                    problem_type_id : action.category
                 }
             }
         case SET_NEW_DESCRIPTION : 
@@ -45,9 +45,9 @@ export const setNewProblemTopic = topic => ({
     topic
 })
 
-export const setNewProblemType = catagory => ({
+export const setNewProblemType = category => ({
     type : SET_NEW_TYPE,
-    catagory
+    category
 })
 
 export const setNewProblemDescription = description => ({

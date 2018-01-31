@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {  View, Text, ListView, } from 'react-native';
 import { connect } from 'react-redux'
 import ViewAllProblemComponent from '../components/ViewAllProblemComponent';
-import CatagoryComponent from '../components/CatagoryComponent';
+import CategoryComponent from '../components/CategoryComponent';
 import TopicInputComponent from '../components/TopicInputComponent';
 import styles from '../styles/MockViewAllProblemStyle';
 
@@ -24,14 +24,14 @@ class ViewAllProblemPage extends Component {
     }
    
     renderRow(TopicProblem) {
-      return <ViewAllProblemComponent problem = {TopicInputComponent} category = {CatagoryComponent}/>        
+      return <ViewAllProblemComponent problem = {TopicInputComponent} category = {CategoryComponent}/>        
     }
    
     render() {
       return (
         <View style={styles.bg}>
           <View style={styles.boxgray}></View>
-          <CatagoryComponent/>
+          <CategoryComponent/>
           <View style={styles.boxgray}></View>
             <View style={styles.boxwhite}>
               <View style={styles.flexrow}>

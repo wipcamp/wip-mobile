@@ -7,7 +7,7 @@ export const initState = {
         description: "",
         report_id: null
     }, // for report problem any input
-    catagoryProblem : [],
+    categoryProblem : [],
     filterView : [{
         value: 0,
         label: "ทั้งหมด"
