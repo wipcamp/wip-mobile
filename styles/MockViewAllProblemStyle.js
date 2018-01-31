@@ -5,7 +5,7 @@ const style = StyleSheet.create({
       flex: 1, 
       flexDirection: 'row',
       width: 50,
-      hight: 50
+      // hight: 50
     },
     boxwhite: {
       backgroundColor: '#ffffff',
