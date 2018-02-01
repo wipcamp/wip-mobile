@@ -8,6 +8,7 @@ import env from '../config'
 import { updateProblem } from '../ducks/ReportProblem'
 import Topic from '../components/TopicInputComponent'
 import Category from '../components/ViewCategoryConponent'
+import Date from '../components/ViewDateComponent'
 import Description from '../components/DescriptionInputComponent'
 import ReportStyle from '../styles/reportProblemStyle'
 
@@ -35,6 +36,7 @@ class ViewAProblem extends Component {
             <ScrollView style={ReportStyle.bg}>
                 <Topic id={this.props.navigation.state.params.id} view={true} />
                 <Category id={this.props.navigation.state.params.id} />
+                <Date id={this.props.navigation.state.params.id} />
                 <Description  id={this.props.navigation.state.params.id} view={true} />
             </ScrollView>
         )
