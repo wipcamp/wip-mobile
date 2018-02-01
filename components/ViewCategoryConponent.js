@@ -53,8 +53,7 @@ class ViewCategory extends Component {
                     ReportStyle.bgWhite,
                     ReportStyle.inputPadding,
                     Styles.row,
-                    Styles.border,
-                    Styles.padTopBot10
+                    Styles.border
                 ]}
             >
                 <View style={[Styles.flex1]}>
