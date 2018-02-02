@@ -6,7 +6,7 @@ const style = StyleSheet.create({
         fontWeight: "bold"
     },
     description: {
-        fontSize: 14
+        fontSize: 16
     },
     date: {
         fontSize: 10

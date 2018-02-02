@@ -32,7 +32,7 @@ class DescriptionInput extends Component {
                     onChangeText={(text) => {
                         this.props.setDescription(text)
                     }}
-                    labelFontSize={20}
+                    labelFontSize={14}
                     fontSize={18}
                     containerStyle={Styles.inputPadding}
                     disabled={this.props.view ? true : false}

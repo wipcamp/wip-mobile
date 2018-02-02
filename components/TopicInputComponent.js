@@ -30,7 +30,7 @@ class TopicInput extends Component {
                     onChangeText={(text) => {
                         this.props.setTopic(text)
                     }}
-                    labelFontSize={20}
+                    labelFontSize={14}
                     fontSize={18}
                     containerStyle={Styles.inputPadding}
                     disabled={this.props.view ? true : false}
