@@ -6,7 +6,7 @@ import axios from 'axios'
 
 import env from '../config'
 import { updateProblem } from '../ducks/ReportProblem'
-import Topic from '../components/TopicInputComponent'
+import Topic from '../components/ConnectTopicInputComponent'
 import Category from '../components/ViewCategoryConponent'
 import Date from '../components/ViewDateComponent'
 import Description from '../components/DescriptionInputComponent'

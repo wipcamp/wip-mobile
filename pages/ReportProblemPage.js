@@ -3,7 +3,7 @@ import { View,Text } from 'react-native'
 import { connect } from 'react-redux'
 
 import AddButton from '../components/AddButtonComponent'
-import TopicInput from '../components/TopicInputComponent'
+import TopicInput from '../components/ConnectTopicInputComponent'
 import Category from '../components/CategoryComponent'
 import Desciption from '../components/DescriptionInputComponent'
 
