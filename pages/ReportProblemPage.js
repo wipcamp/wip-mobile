@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 
 import AddButton from '../components/AddButtonComponent'
 import TopicInput from '../components/ConnectTopicInputComponent'
-import Category from '../components/CategoryComponent'
+import Category from '../components/ConnectCategoryCoponent'
 import Desciption from '../components/DescriptionInputComponent'
 
 import Styles from '../styles/reportProblemStyle'
