@@ -28,7 +28,7 @@ class Category extends Component {
 
     async componentWillMount() {
         if(this.props.categoryProblem.length == 0) {
-            let api = await axios.get(`${env.API_URL}/problemtype/`)
+            let api = await axios.get(`${env.API_URL}/problemtypes/`)
             let datas = api.data
             datas.map(data => {
                 let category = {

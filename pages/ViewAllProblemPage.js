@@ -38,7 +38,7 @@ class ViewAllProblem extends Component {
     }
 
     async componentWillMount() {
-        let api = await axios.get(`${env.API_URL}/problem/`)
+        let api = await axios.get(`${env.API_URL}/problems/`)
         let datas = api.data
         let problemCount =  await AsyncStorage.getItem('problemCount')
         if(problemCount == null | datas.length >= parseInt(problemCount)) {

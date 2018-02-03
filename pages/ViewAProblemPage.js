@@ -27,7 +27,7 @@ const mapDispatchToProps = dispatch => {
 
 class ViewAProblem extends Component {
     async componentWillMount() {
-        let api = await axios.get(`${env.API_URL}/problem/${this.props.navigation.state.params.id}`)
+        let api = await axios.get(`${env.API_URL}/problems/${this.props.navigation.state.params.id}`)
         let data = api.data
         this.props.updateProblem(data)
     }
