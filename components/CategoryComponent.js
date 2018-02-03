@@ -1,28 +1,10 @@
 import React, { Component } from 'react'
 import { View } from 'react-native'
-import { bindActionCreators } from 'redux'
-import { connect } from 'react-redux'
 import { Dropdown } from 'react-native-material-dropdown'
 import axios from 'axios'
 
 import env from '../config'
-import { addCategory } from '../ducks/CategoryProblem'
-import { setNewProblemType } from '../ducks/NewProblem'
 import Styles from '../styles/reportProblemStyle'
-
-const mapStateToProps = state => {
-    return {
-        categoryProblem : state.CategoryReducer.categoryProblem,
-        category : state.NewProblemReducer.newProblem.problem_type_id
-    }
-}
-
-const mapDispatchToProps = dispatch => {
-    return {
-        addCategory : bindActionCreators(addCategory, dispatch),
-        setCategory : bindActionCreators(setNewProblemType, dispatch)
-    }
-}
 
 class Category extends Component {
 
@@ -58,4 +40,4 @@ class Category extends Component {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Category)
+export default Category
