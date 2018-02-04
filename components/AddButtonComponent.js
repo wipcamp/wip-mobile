@@ -1,17 +1,9 @@
 import React, { Component } from 'react'
 import { Text, Alert } from 'react-native'
-import { connect } from 'react-redux'
 import axios from 'axios'
 
 import env from '../config'
-
 import Styles from '../styles/reportProblemStyle'
-
-const mapStateToProps = state => {
-    return {
-        newproblem: state.NewProblemReducer.newProblem
-    }
-}
 
 class AddButton extends Component {
     render() {
@@ -47,4 +39,4 @@ class AddButton extends Component {
     }
 }
 
-export default connect(mapStateToProps)(AddButton)
+export default AddButton
