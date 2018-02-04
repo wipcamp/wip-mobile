@@ -20,8 +20,7 @@ describe('rendering', () => {
         let wrapper
         beforeEach(() => {
             props = {
-                store: mockStore(storeStateMock),
-                view: false
+                store: mockStore(storeStateMock)
             }
             wrapper = shallow(<ConnectTopicInput {...props} />)
         })
