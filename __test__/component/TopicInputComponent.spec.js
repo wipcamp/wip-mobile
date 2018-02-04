@@ -6,6 +6,7 @@ import React from 'react'
 import { shallow } from 'enzyme'
 
 import { problem } from '../../mocks/data'
+import { setNewProblemTopic } from '../../ducks/NewProblem'
 import TopicInput from '../../components/TopicInputComponent'
 import styles from '../../styles/reportProblemStyle'
 
@@ -27,6 +28,9 @@ describe('rendering', () => {
                 expect(wrapper.find('View').props('style').style).toEqual([
                     styles.bgWhite, styles.spacesTop
                 ])
+            })
+            it('should have TextField', () => {
+                expect(wrapper.find('TextField')).toHaveLength(1)
             })
             it('should have disabled false', () => {
                 expect(wrapper.find('TextField').props('disabled').disabled).toBeFalsy()
@@ -58,6 +62,27 @@ describe('rendering', () => {
             it('should have multiline true', () => {
                 expect(wrapper.find('TextField').props('multiline').multiline).toBeTruthy()
             })
+        })
+    })
+
+    describe('function', () => {
+        let props
+        let wrapper
+        beforeEach(() => {
+            props = {
+                view: false,
+                setTopic: setNewProblemTopic
+            }
+            wrapper = shallow(<TopicInput {...props} />)
+        })
+        it('should use an action to set topic', () => {
+            const test = 'Test'
+            const onChangeText = (text) => {
+                setNewProblemTopic(text)
+            }
+            expect(wrapper.find('TextField').props('onChangeText').onChangeText(test)).toEqual(
+                onChangeText(test)
+            )
         })
     })
 })
