@@ -8,18 +8,8 @@ import Styles from '../styles/reportProblemStyle'
 
 class Category extends Component {
 
-    async componentWillMount() {
-        if(this.props.categoryProblem.length == 0) {
-            let api = await axios.get(`${env.API_URL}/problemtypes/`)
-            let datas = api.data
-            datas.map(data => {
-                let category = {
-                    value: data.id,
-                    label: data.name
-                }
-                this.props.addCategory(category)
-            })
-        }
+    componentWillMount() {
+        this.props.problemTypeGetAll()
     }
 
     render() {
