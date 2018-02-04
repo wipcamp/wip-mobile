@@ -2,10 +2,10 @@ import React, { Component } from 'react'
 import { View,Text } from 'react-native'
 import { connect } from 'react-redux'
 
-import AddButton from '../components/AddButtonComponent'
+import AddButton from '../components/ConnectAddButtonComponent'
 import TopicInput from '../components/ConnectTopicInputComponent'
 import Category from '../components/ConnectCategoryCoponent'
-import Desciption from '../components/DescriptionInputComponent'
+import Desciption from '../components/ConnectDescriptionInputComponent'
 
 import Styles from '../styles/reportProblemStyle'
 

@@ -9,7 +9,7 @@ import { updateProblem } from '../ducks/ReportProblem'
 import Topic from '../components/ConnectTopicInputComponent'
 import Category from '../components/ViewCategoryConponent'
 import Date from '../components/ViewDateComponent'
-import Description from '../components/DescriptionInputComponent'
+import Description from '../components/ConnectDescriptionInputComponent'
 import SolveSwitch from '../components/ViewSwitchComponent'
 import ReportStyle from '../styles/reportProblemStyle'
 
