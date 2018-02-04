@@ -1,6 +1,7 @@
 import { StyleSheet, Dimensions } from 'react-native'
 
 const style = StyleSheet.create({
+    
     boxWhite: {
         backgroundColor: '#FFFFFF'
     },
@@ -35,6 +36,16 @@ const style = StyleSheet.create({
     },
     spaces: {
         marginTop: 35
+    },
+    rigthSwitch: {
+        borderStyle : "solid",
+        borderWidth : 1,
+        borderColor : "#efefef",
+        borderBottomColor: '#c8c8c8',
+        justifyContent: 'space-between',
+        flexDirection: 'row',
+        padding: 10
+        
     }
 })
 
