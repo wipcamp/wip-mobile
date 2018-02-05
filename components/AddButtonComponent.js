@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import { Text, Alert } from 'react-native'
-import axios from 'axios'
 
-import env from '../config'
 import Styles from '../styles/reportProblemStyle'
 
 class AddButton extends Component {
@@ -15,7 +13,7 @@ class AddButton extends Component {
                     let problem_type_id = this.props.newproblem.problem_type_id
                     let description = this.props.newproblem.description
                     if( topic != "" && problem_type_id != 0 && description != "") {
-                        let api = await axios.post(`${env.API_URL}/problems/`, this.props.newproblem)
+                        let api = this.props.problemPost(this.props.newproblem)
                         if (api.data == 'true') {
                             this.props.navigation.navigate('ComingSoon')
                         }
