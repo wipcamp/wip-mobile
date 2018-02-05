@@ -3288,6 +3288,16 @@ jest-message-util@^21.2.1:
     micromatch "^2.3.11"
     slash "^1.0.0"
 
+jest-mock-axios@^1.0.21:
+  version "1.0.21"
+  resolved "https://registry.yarnpkg.com/jest-mock-axios/-/jest-mock-axios-1.0.21.tgz#9a530f6b2a17f03121ba77c39fea0bb4b421b2a2"
+  dependencies:
+    jest-mock-promise "^1.0.20"
+
+jest-mock-promise@^1.0.20:
+  version "1.0.22"
+  resolved "https://registry.yarnpkg.com/jest-mock-promise/-/jest-mock-promise-1.0.22.tgz#a1b152d0a1982c0807825322710513b6dcc6686a"
+
 jest-mock@^21.2.0:
   version "21.2.0"
   resolved "https://registry.yarnpkg.com/jest-mock/-/jest-mock-21.2.0.tgz#7eb0770e7317968165f61ea2a7281131534b3c0f"
