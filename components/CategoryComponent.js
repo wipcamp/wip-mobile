@@ -9,7 +9,7 @@ import Styles from '../styles/reportProblemStyle'
 class Category extends Component {
 
     componentWillMount() {
-        this.props.problemTypeGetAll()
+        this.props.problemTypeGetAllForCategory()
     }
 
     render() {

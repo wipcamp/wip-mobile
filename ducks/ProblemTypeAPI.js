@@ -4,7 +4,7 @@ import { addCategory, resetCategory } from './CategoryProblem'
 
 import env from '../config'
 
-export function getAll() {
+export function getAllForCategory() {
     return async dispatch => {
         dispatch(resetCategory())
         let api = await axios.get(`${env.API_URL}/problemtypes/`)

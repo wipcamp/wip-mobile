@@ -2,7 +2,7 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
 import { setNewProblemType } from '../ducks/NewProblem'
-import { getAll } from '../ducks/ProblemTypeAPI'
+import { getAllForCategory } from '../ducks/ProblemTypeAPI'
 import Category from './CategoryComponent'
 
 const mapStateToProps = state => {
@@ -14,7 +14,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        problemTypeGetAll : bindActionCreators(getAll, dispatch),
+        problemTypeGetAllForCategory : bindActionCreators(getAllForCategory, dispatch),
         setCategory : bindActionCreators(setNewProblemType, dispatch)
     }
 }

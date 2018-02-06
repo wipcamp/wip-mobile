@@ -7,7 +7,7 @@ import { shallow } from 'enzyme'
 
 import { categoryProblem } from '../../mocks/data'
 import { setNewProblemType } from '../../ducks/NewProblem'
-import { getAll } from '../../ducks/ProblemTypeAPI'
+import { getAllForCategory } from '../../ducks/ProblemTypeAPI'
 import Category from '../../components/CategoryComponent'
 import styles from '../../styles/reportProblemStyle'
 
@@ -18,7 +18,7 @@ describe('rendering', () => {
         beforeEach(() => {
             props = {
                 categoryProblem: categoryProblem,
-                problemTypeGetAll: getAll()
+                problemTypeGetAllForCategory: getAllForCategory()
             }
             wrapper = shallow(<Category {...props} />)
         })
@@ -40,7 +40,7 @@ describe('rendering', () => {
         let wrapper
         beforeEach(() => {
             props = {
-                problemTypeGetAll: getAll(),
+                problemTypeGetAllForCategory: getAllForCategory(),
                 categoryProblem: categoryProblem,
                 setCategory : setNewProblemType
             }
