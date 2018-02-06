@@ -1,9 +1,7 @@
 import React, { Component } from 'react'
 import { View } from 'react-native'
 import { Dropdown } from 'react-native-material-dropdown'
-import axios from 'axios'
 
-import env from '../config'
 import Styles from '../styles/reportProblemStyle'
 
 class Category extends Component {
