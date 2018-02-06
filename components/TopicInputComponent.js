@@ -1,24 +1,8 @@
 import React, { Component } from 'react'
 import { View } from 'react-native'
-import { bindActionCreators } from 'redux'
-import { connect } from 'react-redux'
 import { TextField } from 'react-native-material-textfield'
 
-import { setNewProblemTopic } from '../ducks/NewProblem'
 import Styles from '../styles/reportProblemStyle'
-
-const mapStateToProps = state => {
-    return {
-        topic : state.NewProblemReducer.newProblem.topic,
-        problem : state.ReportReducer.problem
-    }
-}
-
-const mapDispatchToProps = dispatch => {
-    return {
-        setTopic : bindActionCreators(setNewProblemTopic, dispatch)
-    }
-}
 
 class TopicInput extends Component {
     render() {
@@ -54,4 +38,4 @@ class TopicInput extends Component {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(TopicInput)
+export default TopicInput

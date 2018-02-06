@@ -26,7 +26,7 @@ const mapDispatchToProps = dispatch => {
 class FilterView extends Component {
 
     async componentWillMount() {
-        let api = await axios.get(`${env.API_URL}/problemtype/`)
+        let api = await axios.get(`${env.API_URL}/problemtypes/`)
         let datas = api.data
         datas.map(data => {
             let filter = {

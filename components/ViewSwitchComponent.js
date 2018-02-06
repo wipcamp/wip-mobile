@@ -58,9 +58,9 @@ class ViewSwitch extends Component {
                                 else {
                                     value.not_solve = true
                                 }
-                                let api = await axios.put(`${env.API_URL}/problem/${this.props.id}`, value)
+                                let api = await axios.put(`${env.API_URL}/problems/${this.props.id}`, value)
                                 if(api.data == "true") {
-                                    let api = await axios.get(`${env.API_URL}/problem/${this.props.id}`)
+                                    let api = await axios.get(`${env.API_URL}/problems/${this.props.id}`)
                                     let data = api.data
                                     this.props.updateProblem(data)
                                 }

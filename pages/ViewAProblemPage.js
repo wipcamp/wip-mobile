@@ -6,10 +6,10 @@ import axios from 'axios'
 
 import env from '../config'
 import { updateProblem } from '../ducks/ReportProblem'
-import Topic from '../components/TopicInputComponent'
+import Topic from '../components/ConnectTopicInputComponent'
 import Category from '../components/ViewCategoryConponent'
 import Date from '../components/ViewDateComponent'
-import Description from '../components/DescriptionInputComponent'
+import Description from '../components/ConnectDescriptionInputComponent'
 import SolveSwitch from '../components/ViewSwitchComponent'
 import ReportStyle from '../styles/reportProblemStyle'
 
@@ -27,7 +27,7 @@ const mapDispatchToProps = dispatch => {
 
 class ViewAProblem extends Component {
     async componentWillMount() {
-        let api = await axios.get(`${env.API_URL}/problem/${this.props.navigation.state.params.id}`)
+        let api = await axios.get(`${env.API_URL}/problems/${this.props.navigation.state.params.id}`)
         let data = api.data
         this.props.updateProblem(data)
     }
