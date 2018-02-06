@@ -6,7 +6,7 @@ import axios from 'axios'
 
 import env from '../config'
 import { addProblem, reverseProblem, resetProblem } from '../ducks/ReportProblem'
-import FilterView from '../components/FilterViewComponent'
+import FilterView from '../components/ConnectFilterViewComponent'
 import ListCardProblem from '../components/ListCardProblemComponent'
 import ReportStyle from '../styles/reportProblemStyle'
 
