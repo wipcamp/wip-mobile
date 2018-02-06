@@ -1,8 +1,9 @@
 import axios from 'axios'
 
-import { addCategory, resetCategory } from './CategoryProblem'
-
 import env from '../config'
+
+import { addCategory, resetCategory } from './CategoryProblem'
+import { addFilter, setFilter } from './Filter'
 
 export function getAllForCategory() {
     return async dispatch => {
@@ -16,5 +17,20 @@ export function getAllForCategory() {
             }
             dispatch(addCategory(category))
         })
+    }
+}
+
+export function getAllForFilter() {
+    return async dispatch => {
+        let api = await axios.get(`${env.API_URL}/problemtypes/`)
+        let datas = api.data
+        datas.map(data => {
+            let filter = {
+                value: data.id,
+                label: data.name
+            }
+            dispatch(addFilter(filter))
+        })
+        dispatch(setFilter(0))
     }
 }
