@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 
 import ComingSoonPage from '../pages/ComingSoonPage'
 import LoginPage from '../pages/LoginPage'
-import ReportProblemPage from '../pages/ReportProblemPage'
+import ReportProblemPage from '../pages/ConnectReportProblemPage'
 import ErrorPage from '../pages/ErrorPage'
 import AllProblemPage from '../pages/ViewAllProblemPage'
 import AProblemPage from '../pages/ViewAProblemPage'
