@@ -39,14 +39,20 @@ describe('rendering', () => {
             let wrapper
             beforeEach(() => {
                 props = {
-                    newproblem: newProblem,
-                    problemPost: () => {
-                        mockAxios.mockResponse({ data: 'true' })
+                    newproblem: {
+                        topic: "Test new problem",
+                        problem_type_id: 1,
+                        description: "Test new problem",
+                        report_id: 1
                     },
-                    navigation: jest.fn()
+                    problemPost: () => {
+                        return { data: 'true' }
+                    },
+                    navigation: {
+                        navigate: jest.fn()
+                    }
                 }
                 wrapper = shallow(<AddButton {...props} />)
-                wrapper.find('Text').simulate('press')
             })
             it('should navigate', () => {
             })
