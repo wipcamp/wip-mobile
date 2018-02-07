@@ -1,26 +1,8 @@
 import React, { Component } from 'react'
 import { View, Text } from 'react-native'
-import { bindActionCreators } from 'redux'
-import { connect } from 'react-redux'
-import axios from 'axios'
 
-import env from '../config'
-import { addCategory } from '../ducks/CategoryProblem'
 import Styles from '../styles/ViewProblemStyle'
 import ReportStyle from '../styles/reportProblemStyle'
-
-const mapStateToProps = state => {
-    return {
-        categoryProblem : state.CategoryReducer.categoryProblem,
-        problem : state.ReportReducer.problem
-    }
-}
-
-const mapDispatchToProps = dispatch => {
-    return {
-        addCategory : bindActionCreators(addCategory, dispatch)
-    }
-}
 
 class ViewCategory extends Component {
 
@@ -31,19 +13,9 @@ class ViewCategory extends Component {
         }
     }
 
-    async componentWillMount() {
-        if(this.props.categoryProblem.length == 0) {
-            let api = await axios.get(`${env.API_URL}/problemtypes/`)
-            let datas = api.data
-            datas.map(data => {
-                let category = {
-                    value: data.id,
-                    label: data.name
-                }
-                this.props.addCategory(category)
-            })
-            this.setState({success: true})
-        }
+    componentWillMount() {
+        this.props.problemTypeGetAllForCategory()
+        this.setState({success: true})
     }
 
     render() {
@@ -79,4 +51,4 @@ class ViewCategory extends Component {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ViewCategory)
+export default ViewCategory
