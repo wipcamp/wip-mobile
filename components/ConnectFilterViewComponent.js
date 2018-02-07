@@ -2,6 +2,7 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
 import { getAllForFilter } from '../ducks/ProblemTypeAPI'
+import { setFilter } from '../ducks/Filter'
 import FilterView from './FilterViewComponent'
 
 const mapStateToProps = state => {
@@ -13,7 +14,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-        problemTypeGetAllForFilter : bindActionCreators(getAllForFilter, dispatch)
+        problemTypeGetAllForFilter : bindActionCreators(getAllForFilter, dispatch),
+        setFilter : bindActionCreators(setFilter, dispatch)
     }
 }
 
