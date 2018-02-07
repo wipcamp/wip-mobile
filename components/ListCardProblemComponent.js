@@ -1,15 +1,7 @@
 import React, { Component } from 'react'
 import { FlatList } from 'react-native'
-import { connect } from 'react-redux'
 
 import ProblemCard from './ProblemCardComponent'
-
-const mapStateToProps = state => {
-    return {
-        problem : state.ReportReducer.problem,
-        filter : state.FilterReducer.filter
-    }
-}
 
 class ListCardProblem extends Component {
     render() {
@@ -30,4 +22,4 @@ class ListCardProblem extends Component {
     }
 }
 
-export default connect(mapStateToProps)(ListCardProblem)
+export default ListCardProblem
