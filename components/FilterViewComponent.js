@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { View } from 'react-native'
 import { Dropdown } from 'react-native-material-dropdown'
 
-import { setFilter, addFilter } from '../ducks/Filter'
 import ReportStyles from '../styles/reportProblemStyle'
 
 class FilterView extends Component {
