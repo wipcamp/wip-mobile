@@ -32,6 +32,23 @@ export const problem = [
 
 export const categoryProblem = [
     {
+        value: 1,
+        label: "Test 1"
+    },
+    {
+        value: 2,
+        label: "Test 2"
+    }
+]
+
+export const filter = 0
+
+export const filterView = [
+    {
+        value: 0,
+        label: "ทั้งหมด"
+    },
+    {
         label: 1,
         value: "Test 1"
     },
