@@ -7,7 +7,7 @@ import axios from 'axios'
 import env from '../config'
 import { addProblem, reverseProblem, resetProblem } from '../ducks/ReportProblem'
 import FilterView from '../components/ConnectFilterViewComponent'
-import ListCardProblem from '../components/ListCardProblemComponent'
+import ListCardProblem from '../components/ConnectListCardProblemComponent'
 import ReportStyle from '../styles/reportProblemStyle'
 
 const mapStateToProps = state => {
