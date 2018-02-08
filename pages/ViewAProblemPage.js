@@ -8,9 +8,9 @@ import env from '../config'
 import { updateProblem } from '../ducks/ReportProblem'
 import Topic from '../components/ConnectTopicInputComponent'
 import Category from '../components/ConnectViewCategoryComponent'
-import Date from '../components/ViewDateComponent'
+import Date from '../components/ConnectViewDateComponent'
 import Description from '../components/ConnectDescriptionInputComponent'
-import SolveSwitch from '../components/ViewSwitchComponent'
+import SolveSwitch from '../components/ConnectViewSwitchComponent'
 import ReportStyle from '../styles/reportProblemStyle'
 
 const mapStateToProps = state => {
