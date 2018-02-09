@@ -13,8 +13,8 @@ class ViewCategory extends Component {
         }
     }
 
-    componentWillMount() {
-        this.props.problemTypeGetAllForCategory()
+    async componentWillMount() {
+        await this.props.problemTypeGetAllForCategory()
         this.setState({success: true})
     }
 
