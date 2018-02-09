@@ -10,6 +10,7 @@ import Topic from '../components/ConnectTopicInputComponent'
 import Category from '../components/ConnectViewCategoryComponent'
 import Date from '../components/ConnectViewDateComponent'
 import Description from '../components/ConnectDescriptionInputComponent'
+import Reporter from '../components/ConnectViewReporterComponent'
 import SolveSwitch from '../components/ConnectViewSwitchComponent'
 import ReportStyle from '../styles/reportProblemStyle'
 
@@ -39,6 +40,7 @@ class ViewAProblem extends Component {
                 <Category id={this.props.navigation.state.params.id} />
                 <Date id={this.props.navigation.state.params.id} />
                 <Description id={this.props.navigation.state.params.id} view={true} />
+                <Reporter id={this.props.navigation.state.params.id} />
                 <SolveSwitch id={this.props.navigation.state.params.id} is_solve={true} />
                 <SolveSwitch id={this.props.navigation.state.params.id} not_solve={true} />                
             </ScrollView>
