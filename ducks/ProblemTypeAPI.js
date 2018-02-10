@@ -1,14 +1,12 @@
-import axios from 'axios'
-
-import env from '../config'
-
+import Api from '../utils/api'
+import { getToken } from '../utils/apiAuth'
 import { addCategory, resetCategory } from './CategoryProblem'
 import { addFilter, setFilter } from './Filter'
 
 export function getAllForCategory() {
     return async dispatch => {
         dispatch(resetCategory())
-        let api = await axios.get(`${env.API_URL}/problemtypes/`)
+        let api = await Api.get('/problemtypes/', {Authorization: `Bearer ${getToken()}`})
         let datas = api.data
         datas.map(data => {
             let category = {
@@ -22,7 +20,7 @@ export function getAllForCategory() {
 
 export function getAllForFilter() {
     return async dispatch => {
-        let api = await axios.get(`${env.API_URL}/problemtypes/`)
+        let api = await Api.get('/problemtypes/', {Authorization: `Bearer ${getToken()}`})
         let datas = api.data
         datas.map(data => {
             let filter = {
