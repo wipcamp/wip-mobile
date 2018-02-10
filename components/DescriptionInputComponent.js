@@ -33,8 +33,14 @@ class DescriptionInput extends Component {
                         this.props.setDescription(text)
                     }}
                     labelFontSize={14}
+                    labelPadding={0}                    
+                    labelHeight={20}
+                    inputContainerPadding={5}
                     fontSize={18}
+                    multiline={true}
+                    inputContainerStyle={Styles.inputField}
                     containerStyle={Styles.inputPadding}
+                    labelTextStyle={Styles.inputLabel}
                     disabled={this.props.view ? true : false}
                 />
             </View>

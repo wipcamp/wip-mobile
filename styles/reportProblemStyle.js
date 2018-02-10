@@ -22,6 +22,10 @@ const styles = StyleSheet.create({
     },
     spacesBottom: {
         marginBottom: 35
+    },
+    inputField: {
+        flexWrap: 'wrap',
+        paddingBottom: 100
     }
 })
 
