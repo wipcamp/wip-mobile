@@ -2,7 +2,7 @@ import { StyleSheet, Dimensions } from 'react-native'
 
 const styles = StyleSheet.create({
     bg: {
-        backgroundColor: '#F3F3F3',
+        backgroundColor: '#EFEFEF',
         flex:1
     },
     bgWhite: {
@@ -13,12 +13,14 @@ const styles = StyleSheet.create({
     },
     addButton: {
         color: "#1b94f1",
-        fontSize: 18,
-        fontWeight: "bold",
+        fontSize: 16,
         marginRight: 20
     },
-    spaces: {
+    spacesTop: {
         marginTop: 35
+    },
+    spacesBottom: {
+        marginBottom: 35
     }
 })
 

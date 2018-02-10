@@ -1,5 +1,5 @@
 export const initState = {
-    filter : "ALL", 
+    filter : 0, 
     problem : [], // for all problem in database
     newProblem : {
         topic: "",
@@ -7,7 +7,11 @@ export const initState = {
         description: "",
         report_id: null
     }, // for report problem any input
-    catagoryProblem : []
+    categoryProblem : [],
+    filterView : [{
+        value: 0,
+        label: "ทั้งหมด"
+    }]
 }
 
 const INIT_STATE = "INIT_STATE"

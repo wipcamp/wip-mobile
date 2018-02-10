@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {  View, Text,CardSection } from 'react-native';
-import ViewAllProblemStyle from '../styles/ViewAllProblemStyle'
+import ViewAllProblemStyle from '../styles/MockViewAllProblemStyle'
 
 const ListItem = (props) => {
     const { titleStyle } = styles
