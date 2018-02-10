@@ -1,5 +1,3 @@
-import { AsyncStorage } from 'react-native'
-
 import api from '../utils/api'
 import { getToken } from '../utils/apiAuth'
 
