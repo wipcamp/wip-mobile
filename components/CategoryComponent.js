@@ -50,6 +50,9 @@ class Category extends Component {
                         this.props.setCategory(value)
                     }}
                     labelFontSize={14}
+                    labelPadding={0}
+                    labelHeight={20}
+                    inputContainerPadding={5}
                     fontSize={18}
                     containerStyle={Styles.inputPadding}
                 />
