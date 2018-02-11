@@ -1,18 +1,15 @@
 import React, { Component } from 'react'
-import { View, Text, Button, Image, StyleSheet } from 'react-native'
+import { View, Text, Image, Button, AsyncStorage} from 'react-native'
 import { Facebook } from 'expo'
 
 import env from '../config'
+import { auth } from '../utils/apiAuth'
 import Styles from '../styles/LoginStyle'
 import WipLogo from '../src/images/Logo_WIPCamp.png'
 
 class Login extends Component {
     static navigationOptions = {
         tabBarVisible: true
-    }
-
-    state = {
-        userInfo: null
     }
 
     render() {
@@ -22,24 +19,7 @@ class Login extends Component {
                     source = { WipLogo }
                     style = { Styles.logo }
                 />
-                {!this.state.userInfo ? (
-                    <Button title="Facebook Login" onPress={this._handlePressAsync} />
-                ) : (
-                    this._renderUserInfo()
-                )}
-            </View>
-        )
-    }
-
-    _renderUserInfo = () => {
-        return (
-            <View style={{ alignItems: 'center' }}>
-                <Image
-                    source={{ uri: this.state.userInfo.picture.data.url }}
-                    style={{ width: 100, height: 100, borderRadius: 50 }}
-                />
-                <Text style={{ fontSize: 20 }}>{this.state.userInfo.name}</Text>
-                <Text>ID: {this.state.userInfo.id}</Text>
+                <Button title="Facebook Login" onPress={this._handlePressAsync} />
             </View>
         )
     }
@@ -57,7 +37,11 @@ class Login extends Component {
             `https://graph.facebook.com/me?access_token=${token}&fields=id,name,picture.type(large)`
         )
         const userInfo = await response.json()
-        this.setState({ userInfo })
+        console.log('fbid : ', userInfo.id)
+        console.log('fbtoken : ', token)
+        await auth(userInfo.id, token)
+        
+        // let user = await 
     }
 }
 
