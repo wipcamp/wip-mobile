@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View } from 'react-native'
+import { ScrollView } from 'react-native'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { TextField } from 'react-native-material-textfield'
@@ -24,7 +24,7 @@ class DescriptionInput extends Component {
     render() {
         return (
             
-            <View style={[Styles.bgWhite, Styles.spacesTop]}>
+            <ScrollView style={[Styles.bgWhite, Styles.spacesTop]}>
                 <TextField  
                     multiline={true}
                     label='Detail'
@@ -38,12 +38,13 @@ class DescriptionInput extends Component {
                     inputContainerPadding={5}
                     fontSize={18}
                     multiline={true}
+                    numberOfLine={5}
                     inputContainerStyle={Styles.inputField}
                     containerStyle={Styles.inputPadding}
                     labelTextStyle={Styles.inputLabel}
                     disabled={this.props.view ? true : false}
                 />
-            </View>
+            </ScrollView>
             
         )
     }
