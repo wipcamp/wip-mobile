@@ -47,18 +47,6 @@ class ComingSoon extends Component {
                         this.props.navigation.navigate('AllProblem')
                     }}
                 />
-                <Button
-                    title="Mock A Problem"
-                    onPress={() => {
-                        this.props.navigation.navigate('MockAProblem')
-                    }}
-                />
-                <Button
-                    title="Mock AllProblem"
-                    onPress={() => {
-                        this.props.navigation.navigate('MockAllProblem')
-                    }}
-                />
             </View>
         )
     }
