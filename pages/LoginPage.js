@@ -4,6 +4,9 @@ import { Facebook } from 'expo'
 
 import env from '../config'
 import { auth } from '../utils/apiAuth'
+import { get as getUser } from '../utils/apiUser'
+import { get as getProfile } from '../utils/apiProfile'
+import { getByUserId as getRoleByUserId } from '../utils/apiUserRole'
 import Styles from '../styles/LoginStyle'
 import WipLogo from '../src/images/Logo_WIPCamp.png'
 
@@ -25,23 +28,40 @@ class Login extends Component {
     }
 
     _handlePressAsync = async () => {
-        const { type, token } = await Facebook.logInWithReadPermissionsAsync(`${env.FB_APP_ID}`, {
-            permissions: ['public_profile']
-          })
+        const { type, token } = await Facebook.logInWithReadPermissionsAsync(
+            `${env.FB_APP_ID}`, 
+            {
+                permissions: ['public_profile'],
+                behavior: 'web'
+            }
+        )
 
         if (type !== 'success') {
             alert('Uh oh, something went wrong')
             return
         }
+        
         const response = await fetch(
             `https://graph.facebook.com/me?access_token=${token}&fields=id,name,picture.type(large)`
         )
+        
         const userInfo = await response.json()
-        console.log('fbid : ', userInfo.id)
-        console.log('fbtoken : ', token)
         await auth(userInfo.id, token)
         
-        // let user = await 
+        let user = await getUser(userInfo.id, token)
+        let profile = await getProfile(user.id)
+        
+        profile.pic = userInfo.picture.data.url
+        profile.roles = []
+        
+        let role = await getRoleByUserId(profile.user_id)
+        role.map(data => {
+            profile.roles.push(data.role_id)
+        })
+
+        await AsyncStorage.setItem('user', JSON.stringify(profile))
+
+        this.props.navigation.navigate('ComingSoon')
     }
 }
 
