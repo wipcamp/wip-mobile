@@ -17,13 +17,17 @@ class Login extends Component {
 
     render() {
         return (
-            <View style = {Styles.container}>
+            <View style = { Styles.container }>
                 <Image 
                     source = { WipLogo }
                     style = { Styles.logo }
                 />
                 {!this.state.userInfo ? (
-                    <Button title="Facebook Login" onPress={this._handlePressAsync} />
+                    <Button
+                        color = "#4867ad"
+                        title = "Facebook Login"
+                        onPress={ this._handlePressAsync } 
+                    />
                 ) : (
                     this._renderUserInfo()
                 )}
