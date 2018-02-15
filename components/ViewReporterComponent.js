@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { View, Text } from 'react-native'
 
+import { get as getProfile } from '../utils/apiProfile'
 import Styles from '../styles/ViewProblemStyle'
 import ReportStyle from '../styles/reportProblemStyle'
 
@@ -14,8 +15,7 @@ class ViewReporter extends Component {
     }
 
     async componentWillMount() {
-        let api = await this.props.profileGet(this.__renderReporterId())
-        let data = api.data
+        let data = await profileGet(this.__renderReporterId())
         this.setState({report: data.nickname})
     }
 
