@@ -5,7 +5,7 @@ const style = StyleSheet.create({
         flex: 1,
         backgroundColor: '#efefef',
         alignItems: 'center',
-        justifyContent: 'center',
+        justifyContent: 'center'
     },
     logo: {
         height : Dimensions.get('screen').height / 5,
@@ -16,17 +16,21 @@ const style = StyleSheet.create({
         backgroundColor: '#4867AD',
         paddingTop: 10,
         paddingBottom: 10,
-        paddingLeft: 50,
-        paddingRight: 50,
+        paddingLeft: 60,
+        paddingRight: 60,
         borderRadius: 20,
     },
+    viewFBButton: {
+        justifyContent: 'flex-start'
+    },
     loginText: {
+        marginTop: 5,
         color: '#ffffff'
     },
     facebookLogo: {
-        height: Dimensions.get('screen').height / 12,
-        resizeMode: Image.resizeMode.contain,
-        alignItems: 'flex-start'
+        height: Dimensions.get('screen').height / 25,
+        width: Dimensions.get('screen').height / 25,
+        marginRight: 20,
     }
 })
 

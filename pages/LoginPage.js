@@ -4,6 +4,7 @@ import { Facebook } from 'expo'
 
 import env from '../config'
 import Styles from '../styles/LoginStyle'
+import ViewProblemStyle from '../styles/ViewProblemStyle'
 import WipLogo from '../src/images/Logo_WIPCamp.png'
 import FacebookLogo from '../src/images/facebook-logo.png'
 
@@ -25,14 +26,16 @@ class Login extends Component {
                 />
                 {!this.state.userInfo ? (
                     <TouchableOpacity
-                        style = { Styles.facebookButton }
+                        style = { [Styles.facebookButton, Styles.viewFBButton, ViewProblemStyle.row] }
                         onPress={ this._handlePressAsync } 
                     >
-                        <Image 
-                            source = { FacebookLogo }
-                            style = {Styles.facebookLogo}
-                        />
-                        <Text style = { Styles.loginText }>Facebook Login</Text>
+                        {/* <View style={[ViewProblemStyle.row]}> */}
+                            <Image 
+                                source = { FacebookLogo }
+                                style = { [Styles.facebookLogo]}
+                            />
+                            <Text style={ [Styles.loginText] }>Facebook Login</Text>
+                        {/* </View> */}
                     </TouchableOpacity>
                 ) : (
                     this._renderUserInfo()
