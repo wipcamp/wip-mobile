@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
-import { View, Text, Button, Image, StyleSheet } from 'react-native'
+import { View, Text, TouchableOpacity, Image, StyleSheet } from 'react-native'
 import { Facebook } from 'expo'
 
 import env from '../config'
 import Styles from '../styles/LoginStyle'
 import WipLogo from '../src/images/Logo_WIPCamp.png'
+import FacebookLogo from '../src/images/facebook-logo.png'
 
 class Login extends Component {
     static navigationOptions = {
@@ -23,11 +24,16 @@ class Login extends Component {
                     style = { Styles.logo }
                 />
                 {!this.state.userInfo ? (
-                    <Button
-                        color = "#4867ad"
-                        title = "Facebook Login"
+                    <TouchableOpacity
+                        style = { Styles.facebookButton }
                         onPress={ this._handlePressAsync } 
-                    />
+                    >
+                        <Image 
+                            source = { FacebookLogo }
+                            style = {Styles.facebookLogo}
+                        />
+                        <Text style = { Styles.loginText }>Facebook Login</Text>
+                    </TouchableOpacity>
                 ) : (
                     this._renderUserInfo()
                 )}
