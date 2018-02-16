@@ -1,5 +1,4 @@
 import { StyleSheet, Dimensions, Image } from 'react-native'
-import { start } from 'repl';
 
 const style = StyleSheet.create({
     container: {
@@ -25,9 +24,9 @@ const style = StyleSheet.create({
         color: '#ffffff'
     },
     facebookLogo: {
-        height: Dimensions.get('screen').height / 10,
-        // resizeMode: Image.resizeMode.contain,
-        // alignItems: 'flex-start'
+        height: Dimensions.get('screen').height / 12,
+        resizeMode: Image.resizeMode.contain,
+        alignItems: 'flex-start'
     }
 })
 
