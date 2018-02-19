@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Text, Alert } from 'react-native'
 
+import { post as problemPost } from '../utils/apiProblem'
 import Styles from '../styles/reportProblemStyle'
 
 class AddButton extends Component {
@@ -13,8 +14,8 @@ class AddButton extends Component {
                     let problem_type_id = this.props.newproblem.problem_type_id
                     let description = this.props.newproblem.description
                     if( topic != "" && problem_type_id != 0 && description != "") {
-                        let api = this.props.problemPost(this.props.newproblem)
-                        if (api.data == 'true') {
+                        let result = await problemPost(this.props.newproblem)
+                        if (result == 'true') {
                             this.props.navigation.navigate('ComingSoon')
                         }
                         else {

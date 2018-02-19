@@ -1,13 +1,11 @@
-import Api from '../utils/api'
-import { getToken } from '../utils/apiAuth'
+import { getAll as getAllProblemType } from '../utils/apiProblemType'
 import { addCategory, resetCategory } from './CategoryProblem'
 import { addFilter, setFilter } from './Filter'
 
 export function getAllForCategory() {
     return async dispatch => {
         dispatch(resetCategory())
-        let api = await Api.get('/problemtypes/', {Authorization: `Bearer ${getToken()}`})
-        let datas = api.data
+        let datas = await getAllProblemType()
         datas.map(data => {
             let category = {
                 value: data.id,
@@ -20,8 +18,7 @@ export function getAllForCategory() {
 
 export function getAllForFilter() {
     return async dispatch => {
-        let api = await Api.get('/problemtypes/', {Authorization: `Bearer ${getToken()}`})
-        let datas = api.data
+        let datas = await getAllProblemType()
         datas.map(data => {
             let filter = {
                 value: data.id,

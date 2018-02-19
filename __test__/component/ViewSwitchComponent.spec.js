@@ -77,45 +77,4 @@ describe('rendering', () => {
             })
         })
     })
-
-    describe('function', () => {
-        let props
-        let wrapper
-        let mockGet = jest.fn().mockReturnValue({
-            data: {
-                id: 1,
-                is_solve: true,
-                not_solve: false,
-            }
-        })
-        let mockPut = jest.fn().mockReturnValue({
-            data: 'true'
-        })
-        beforeEach(() => {
-            props = {
-                problem: [{
-                    id: 1,
-                    is_solve: false,
-                    not_solve: false,
-                }],
-                id: 1,
-                problemGet: mockGet,
-                problemPut: mockPut,
-                updateProblem: updateProblem
-            }
-            wrapper = shallow(<ViewSwitch {...props} />)
-        })
-        it('switch onValueChange should work for is_solve', () => {
-            wrapper.setProps({ is_solve: true })
-            wrapper.find('Switch').props('onValueChange').onValueChange()
-            expect(mockPut).toBeCalled()
-            expect(mockGet).toBeCalled()
-        })
-        it('switch onValueChange should work for not_solve', () => {
-            wrapper.setProps({ is_solve: false })
-            wrapper.find('Switch').props('onValueChange').onValueChange()
-            expect(mockPut).toBeCalled()
-            expect(mockGet).toBeCalled()
-        })
-    })
 })

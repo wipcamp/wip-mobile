@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { View, Text, Switch } from 'react-native'
 
+import { get as problemGet, put as problemPut } from '../utils/apiProblem'
 import Styles from '../styles/ViewProblemStyle'
 import ReportStyle from '../styles/reportProblemStyle'
 
@@ -41,10 +42,9 @@ class ViewSwitch extends Component {
                                 else {
                                     value.not_solve = true
                                 }
-                                let api = this.props.problemPut(this.props.id, value)
-                                if(api.data == "true") {
-                                    let api = this.props.problemGet(this.props.id)
-                                    let data = api.data
+                                let result = await problemPut(this.props.id, value)
+                                if(result == "true") {
+                                    let data = await problemGet(this.props.id)
                                     this.props.updateProblem(data)
                                 }
                             }
