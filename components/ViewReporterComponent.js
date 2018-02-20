@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { View, Text } from 'react-native'
 
-import { get as getProfile } from '../utils/apiProfile'
+import { get as profileGet } from '../utils/apiProfile'
 import Styles from '../styles/ViewProblemStyle'
 import ReportStyle from '../styles/reportProblemStyle'
 

@@ -55,6 +55,7 @@ class Login extends Component {
         profile.roles = []
         
         let role = await getRoleByUserId(profile.user_id)
+        console.log('role : ', role)
         role.map(data => {
             profile.roles.push(data.role_id)
         })

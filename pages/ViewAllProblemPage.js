@@ -2,10 +2,9 @@ import React, { Component } from 'react'
 import { AsyncStorage, ScrollView, View, ActivityIndicator } from 'react-native'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import axios from 'axios'
 
-import env from '../config'
 import { addProblem, reverseProblem, resetProblem } from '../ducks/ReportProblem'
+import { getAll as problemGetAll } from '../utils/apiProblem'
 import FilterView from '../components/ConnectFilterViewComponent'
 import ListCardProblem from '../components/ConnectListCardProblemComponent'
 import ReportStyle from '../styles/reportProblemStyle'
@@ -38,8 +37,7 @@ class ViewAllProblem extends Component {
     }
 
     async componentWillMount() {
-        let api = await axios.get(`${env.API_URL}/problems/`)
-        let datas = api.data
+        let datas = await problemGetAll()
         let problemCount =  await AsyncStorage.getItem('problemCount')
         if(problemCount == null | datas.length >= parseInt(problemCount)) {
             this.props.resetProblem()

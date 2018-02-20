@@ -2,9 +2,8 @@ import React, { Component } from 'react'
 import { ScrollView, View } from 'react-native'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import axios from 'axios'
 
-import env from '../config'
+import { get as problemGet } from '../utils/apiProblem'
 import { updateProblem } from '../ducks/ReportProblem'
 import Topic from '../components/ConnectTopicInputComponent'
 import Category from '../components/ConnectViewCategoryComponent'
@@ -28,8 +27,7 @@ const mapDispatchToProps = dispatch => {
 
 class ViewAProblem extends Component {
     async componentWillMount() {
-        let api = await axios.get(`${env.API_URL}/problems/${this.props.navigation.state.params.id}`)
-        let data = api.data
+        let data = await problemGet(this.props.navigation.state.params.id)
         this.props.updateProblem(data)
     }
 
