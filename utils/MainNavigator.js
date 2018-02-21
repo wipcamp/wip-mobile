@@ -3,7 +3,8 @@ import { connect } from 'react-redux'
 
 import ComingSoonPage from '../pages/ComingSoonPage'
 import LoginPage from '../pages/LoginPage'
-import ReportProblemPage from '../pages/ConnectReportProblemPage'
+import MainPage from '../pages/ConnectMainPage'
+import ReportProblemPage from '../pages/ReportProblemPage'
 import ErrorPage from '../pages/ErrorPage'
 import AllProblemPage from '../pages/ViewAllProblemPage'
 import AProblemPage from '../pages/ViewAProblemPage'
@@ -15,6 +16,9 @@ const MainNavigator = StackNavigator(
         },
         Login: {
             screen: LoginPage
+        },
+        Main: {
+            screen: MainPage
         },
         ReportProblem: {
             screen: ReportProblemPage
