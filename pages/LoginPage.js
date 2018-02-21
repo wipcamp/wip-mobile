@@ -16,12 +16,10 @@ class Login extends Component {
     }
 
     async componentWillMount() {
-        // let user = await AsyncStorage.getItem('user')
-        // if(user) {
-        //     this.props.navigation.navigate('Main')
-        // }
-        console.log('apiToken : ', await AsyncStorage.getItem('apiToken'))
-        console.log('user : ', await AsyncStorage.getItem('user'))
+        let user = await AsyncStorage.getItem('user')
+        if(user) {
+            this.props.navigation.navigate('Main')
+        }
     }
 
     render() {
