@@ -1,27 +1,9 @@
 import React, {Component} from 'react'
 import { View, Text, Button, StyleSheet } from 'react-native'
-import { bindActionCreators } from 'redux'
-import { connect } from 'react-redux'
-
-import { setNewProblemReportId } from '../ducks/NewProblem'
-
-const mapStateToProps = state => {
-    return {}
-}
-
-const mapDispatchToProps = dispatch => {
-    return {
-        setReportId : bindActionCreators(setNewProblemReportId, dispatch)
-    }
-}
 
 class ComingSoon extends Component {
     static navigationOptions = {
         header: null
-    }
-
-    componentWillMount() {
-        this.props.setReportId(1);
     }
 
     render() {
@@ -34,6 +16,12 @@ class ComingSoon extends Component {
                     onPress={() => {
                         this.props.navigation.navigate('Login')
                     }} 
+                />
+                <Button
+                    title='Main'
+                    onPress={() => {
+                        this.props.navigation.navigate('Main')
+                    }}
                 />
                 <Button
                     title='ReportProblem'
@@ -52,7 +40,7 @@ class ComingSoon extends Component {
     }
 }
   
-export default connect(mapStateToProps, mapDispatchToProps)(ComingSoon)
+export default ComingSoon
 
 const styles = StyleSheet.create({
     container: {
