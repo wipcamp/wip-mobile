@@ -1,7 +1,6 @@
 import { StackNavigator } from 'react-navigation'
 import { connect } from 'react-redux'
 
-import ComingSoonPage from '../pages/ComingSoonPage'
 import LoginPage from '../pages/LoginPage'
 import MainPage from '../pages/ConnectMainPage'
 import ReportProblemPage from '../pages/ReportProblemPage'
@@ -11,9 +10,6 @@ import AProblemPage from '../pages/ViewAProblemPage'
 
 const MainNavigator = StackNavigator(
     {
-        ComingSoon: {
-            screen: ComingSoonPage
-        },
         Login: {
             screen: LoginPage
         },
@@ -23,15 +19,15 @@ const MainNavigator = StackNavigator(
         ReportProblem: {
             screen: ReportProblemPage
         },
-        Error: {
-            screen: ErrorPage
-        },
         AllProblem: {
             screen: AllProblemPage
         },
         AProblem: {
             path: 'problem/:id',
             screen: AProblemPage
+        },
+        Error: {
+            screen: ErrorPage
         }
     }
 )
