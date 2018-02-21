@@ -15,6 +15,15 @@ class Login extends Component {
         tabBarVisible: true
     }
 
+    async componentWillMount() {
+        // let user = await AsyncStorage.getItem('user')
+        // if(user) {
+        //     this.props.navigation.navigate('Main')
+        // }
+        console.log('apiToken : ', await AsyncStorage.getItem('apiToken'))
+        console.log('user : ', await AsyncStorage.getItem('user'))
+    }
+
     render() {
         return (
             <View style = {Styles.container}>
@@ -55,14 +64,13 @@ class Login extends Component {
         profile.roles = []
         
         let role = await getRoleByUserId(profile.user_id)
-        console.log('role : ', role)
         role.map(data => {
             profile.roles.push(data.role_id)
         })
 
         await AsyncStorage.setItem('user', JSON.stringify(profile))
 
-        this.props.navigation.navigate('ComingSoon')
+        this.props.navigation.navigate('Main')
     }
 }
 
