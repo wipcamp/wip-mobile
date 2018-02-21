@@ -11,7 +11,10 @@ const createInstance = (headers) => {
 
 const handleResponse = res => res.data ? Promise.resolve(res) : Promise.reject(res)
 
-const catchError = err => Promise.reject(err.message)
+const catchError = error => Promise.reject({
+  status: error.response.status,
+  message: error.message
+})
 
 export default {
   get: (path, headers = {}) => (
