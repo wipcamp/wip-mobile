@@ -7,6 +7,7 @@ class ErrorPage extends Component {
     static navigationOptions = {
         title: ''
     }
+    
     render() {
         return (
             <View style={Styles.container}>
