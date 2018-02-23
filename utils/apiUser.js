@@ -1,5 +1,5 @@
 import Api from './api'
-import { getToken } from './apiAuth'
+import { refresh, getToken } from './apiAuth'
 
 export async function get(fbid, fbtoken) {
     let api

@@ -1,5 +1,5 @@
 import Api from './api'
-import { refresh ,getToken } from './apiAuth'
+import { refresh, getToken } from './apiAuth'
 
 export async function getAll() {
     let api
