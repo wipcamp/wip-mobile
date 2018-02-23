@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { AsyncStorage, View, Text, Image } from 'react-native'
 
+import { getByName as roleGetByName } from '../utils/apiRole'
+
 import Menu from '../components/MenuComponent'
 import Styles from '../styles/MainPageStyle'
 import ReportStyle from '../styles/reportProblemStyle'
@@ -46,15 +48,25 @@ class MainPage extends Component {
                 <Menu
                     leftIcon = { require('../src/images/calendar.png') }
                     leftText = "TIME SCHEDULE"
-                    // leftFunction = {() => this.props.navigation.navigate('Timetable')}
+                    leftFunction = {() => this.props.navigation.navigate('NotAvailable')}
                     rightIcon = { require('../src/images/megaphone.png') }
                     rightText = "ANNOUNCEMENT"
-                    // rightFunction = {() => this.props.navigation.navigate('Announce')}
+                    rightFunction = {() => this.props.navigation.navigate('NotAvailable')}
                 />
                 <Menu
                     leftIcon = { require('../src/images/file.png') }
                     leftText = "VIEW PROBLEM"
-                    // leftFunction = {() => this.props.navigation.navigate('AllProblem')}
+                    leftFunction = {async () => {
+                        let { roles } = await AsyncStorage.getItem('user')
+                        let seniorId = await roleGetByName('camp_staffs_senior')
+                        let senior = false
+                        for (let i = 0; i < roles.length; i++) {
+                            if (roles[i] == seniorId) {                                
+                                this.props.navigation.navigate('AllProblem')
+                            }
+                        }
+                        this.props.navigation.navigate('Error')
+                    }}
                     rightIcon = { require('../src/images/pen.png') }
                     rightText = "REPORT PROBLEM"
                     rightFunction = {() => this.props.navigation.navigate('ReportProblem')}
@@ -62,11 +74,13 @@ class MainPage extends Component {
                 <Menu
                     leftIcon = { require('../src/images/gear.png') }
                     leftText = "SETTING"
-                    // leftFunction = {() => this.props.navigation.navigate('Timetable')}
+                    leftFunction = {() => this.props.navigation.navigate('NotAvailable')}
                     rightIcon = { require('../src/images/log-out.png') }
                     rightText = "LOGOUT"
                     rightFunction = {async () => {
                         await AsyncStorage.removeItem('user')
+                        await AsyncStorage.removeItem('loginFBID')
+                        await AsyncStorage.removeItem('loginFBToken')
                         this.props.navigation.navigate('Login')
                     }}
                     end
