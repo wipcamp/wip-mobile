@@ -8,7 +8,6 @@ export async function getAll() {
     }
     catch (error) {
         if(error.status == 401) {
-            console.log('in error 401')
             await refresh()
             api = await Api.get('/problemtypes/', {Authorization: `Bearer ${await getToken()}`})   
         }
