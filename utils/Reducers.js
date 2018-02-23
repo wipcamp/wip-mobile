@@ -5,13 +5,15 @@ import ReportReducer from '../ducks/ReportProblem'
 import NewProblemReducer from '../ducks/NewProblem'
 import CategoryReducer from '../ducks/CategoryProblem'
 import FilterReducer from '../ducks/Filter'
+import TimetableReducer from '../ducks/Timetable'
 
 const combine = combineReducers({
     InitReducer,
     ReportReducer,
     NewProblemReducer,
     CategoryReducer,
-    FilterReducer
+    FilterReducer,
+    TimetableReducer
 })
 
 export default combine
