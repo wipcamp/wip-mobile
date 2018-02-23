@@ -4,9 +4,10 @@ import { connect } from 'react-redux'
 import LoginPage from '../pages/LoginPage'
 import MainPage from '../pages/ConnectMainPage'
 import ReportProblemPage from '../pages/ReportProblemPage'
-import ErrorPage from '../pages/ErrorPage'
 import AllProblemPage from '../pages/ViewAllProblemPage'
 import AProblemPage from '../pages/ViewAProblemPage'
+import ErrorPage from '../pages/ErrorPage'
+import NotAvailablePage from '../pages/NotAvailablePage'
 
 const MainNavigator = StackNavigator(
     {
@@ -28,6 +29,9 @@ const MainNavigator = StackNavigator(
         },
         Error: {
             screen: ErrorPage
+        },
+        NotAvailable: {
+            screen: NotAvailablePage
         }
     }
 )
