@@ -25,7 +25,6 @@ class MainPage extends Component {
         let user = await AsyncStorage.getItem('user')
         user = JSON.parse(user)
         this.setState({userProfile: user})
-        console.log('user : ', this.state.userProfile)
         this.props.setReportId(this.state.userProfile.user_id)
     }
 
