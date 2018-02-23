@@ -54,6 +54,9 @@ class Login extends Component {
         
         const userInfo = await response.json()
         await auth(userInfo.id, token)
+
+        await AsyncStorage.setItem('loginFBID', `${userInfo.id}`)
+        await AsyncStorage.setItem('loginFBToken', `${token}`)
         
         let user = await getUser(userInfo.id, token)
         let profile = await getProfile(user.id)
