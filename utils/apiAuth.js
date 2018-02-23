@@ -8,14 +8,13 @@ export const auth = async (facebookId, facebookToken) => {
         accessToken: facebookToken
     }
     let { data } = await api.post('/auth/login', sendData, null)
-    console.log('API Token : ', data.accessToken)
     await AsyncStorage.setItem('apiToken', `${data.accessToken}`)
 }
 
 export const refresh = async () => {
     const fbid = await AsyncStorage.getItem('loginFBID')
     const fbtoken = await AsyncStorage.getItem('loginFBToken')
-    await auth(intval(fbid), fbtoken)
+    await auth(fbid, fbtoken)
 }
 
 export const getToken = async () => (
