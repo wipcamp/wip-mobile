@@ -12,7 +12,7 @@ import WipLogo from '../src/images/Logo_WIPCamp.png'
 
 class Login extends Component {
     static navigationOptions = {
-        tabBarVisible: true
+        header: null
     }
 
     async componentWillMount() {
