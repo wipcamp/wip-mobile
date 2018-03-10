@@ -33,12 +33,12 @@ export default function reducer (state = initState, action) {
 
 export const addTimetable = timetable => ({
     type : ADD_TIMETABLE,
-    problem
+    timetable
 })
 
 export const updateTimetable = timetable => ({
     type : UPDATE_TIMETABLE,
-    problem
+    timetable
 })
 
 export const resetTimetable = () => ({
