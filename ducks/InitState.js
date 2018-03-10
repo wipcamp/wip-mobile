@@ -12,7 +12,8 @@ export const initState = {
         value: 0,
         label: "ทั้งหมด"
     }],
-    timetable: []
+    timetable: [],
+    date: "30-May"
 }
 
 const INIT_STATE = "INIT_STATE"
