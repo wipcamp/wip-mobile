@@ -27,7 +27,7 @@ const mapDispatchToProps = dispatch => {
 
 class ViewAProblem extends Component {
     static navigationOptions = {
-        title: 'Problem'
+        title: 'Details'
     }
 
     async componentWillMount() {
