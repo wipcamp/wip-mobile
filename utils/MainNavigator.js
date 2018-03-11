@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import LoginPage from '../pages/LoginPage'
 import MainPage from '../pages/ConnectMainPage'
 import TimetableRolePage from '../pages/TimetableRolePage'
+import TimetablePage from '../pages/TimetablePage'
 import AllProblemPage from '../pages/ViewAllProblemPage'
 import AProblemPage from '../pages/ViewAProblemPage'
 import ReportProblemPage from '../pages/ReportProblemPage'
@@ -20,6 +21,10 @@ const MainNavigator = StackNavigator(
         },
         TimetableRole: {
             screen: TimetableRolePage
+        },
+        Timetable: {
+            path: 'timetable/:id',
+            screen: TimetablePage
         },
         AllProblem: {
             screen: AllProblemPage
