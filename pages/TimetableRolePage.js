@@ -65,7 +65,6 @@ class TimetableRole extends Component {
                             }
                         }
                         if (senior) {
-                            console.log('senior')
                             let id = await roleTeamGetByName('WIPPER')
                             this.props.navigation.navigate('Timetable', {id: id}) 
                         } 
