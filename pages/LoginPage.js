@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
-import { View, Text, Button, Image, StyleSheet } from 'react-native'
-import { AuthSession } from 'expo'
+import { View, Text, TouchableOpacity, Image, StyleSheet } from 'react-native'
+import { Facebook } from 'expo'
 
+import env from '../config'
 import Styles from '../styles/LoginStyle'
+import ViewProblemStyle from '../styles/ViewProblemStyle'
 import WipLogo from '../src/images/Logo_WIPCamp.png'
-
-const FB_APP_ID = '911632835680936';
+import FacebookLogo from '../src/images/facebook-logo.png'
 
 class Login extends Component {
     static navigationOptions = {
@@ -18,13 +19,24 @@ class Login extends Component {
 
     render() {
         return (
-            <View style = {Styles.container}>
+            <View style = { Styles.container }>
                 <Image 
                     source = { WipLogo }
                     style = { Styles.logo }
                 />
                 {!this.state.userInfo ? (
-                    <Button title="Facebook Login" onPress={this._handlePressAsync} />
+                    <TouchableOpacity
+                        style = { [Styles.facebookButton, Styles.viewFBButton, ViewProblemStyle.row] }
+                        onPress={ this._handlePressAsync } 
+                    >
+                        {/* <View style={[ViewProblemStyle.row]}> */}
+                            <Image 
+                                source = { FacebookLogo }
+                                style = { [Styles.facebookLogo]}
+                            />
+                            <Text style={ [Styles.loginText] }>Facebook Login</Text>
+                        {/* </View> */}
+                    </TouchableOpacity>
                 ) : (
                     this._renderUserInfo()
                 )}
@@ -46,36 +58,18 @@ class Login extends Component {
     }
 
     _handlePressAsync = async () => {
-        let redirectUrl = AuthSession.getRedirectUrl()
+        const { type, token } = await Facebook.logInWithReadPermissionsAsync(`${env.FB_APP_ID}`, {
+            permissions: ['public_profile']
+          })
 
-        // You need to add this url to your authorized redirect urls on your Facebook app
-        console.log({ redirectUrl })
-
-        // NOTICE: Please do not actually request the token on the client (see:
-        // response_type=token in the authUrl), it is not secure. Request a code
-        // instead, and use this flow:
-        // https://developers.facebook.com/docs/facebook-login/manually-build-a-login-flow/#confirm
-        // The code here is simplified for the sake of demonstration. If you are
-        // just prototyping then you don't need to concern yourself with this and
-        // can copy this example, but be aware that this is not safe in production.
-
-        let result = await AuthSession.startAsync({
-            authUrl:
-            `https://www.facebook.com/v2.8/dialog/oauth?response_type=token` +
-            `&client_id=${FB_APP_ID}` +
-            `&redirect_uri=${encodeURIComponent(redirectUrl)}`,
-        })
-
-        if (result.type !== 'success') {
+        if (type !== 'success') {
             alert('Uh oh, something went wrong')
             return
         }
-
-        let accessToken = result.params.access_token;
-        let userInfoResponse = await fetch(
-            `https://graph.facebook.com/me?access_token=${accessToken}&fields=id,name,picture.type(large)`
+        const response = await fetch(
+            `https://graph.facebook.com/me?access_token=${token}&fields=id,name,picture.type(large)`
         )
-        const userInfo = await userInfoResponse.json()
+        const userInfo = await response.json()
         this.setState({ userInfo })
     }
 }

@@ -23,7 +23,7 @@ class AddButton extends Component {
                     let problem_type_id = this.props.newproblem.problem_type_id
                     let description = this.props.newproblem.description
                     if( topic != "" && problem_type_id != 0 && description != "") {
-                        let api = await axios.post(`${env.API_URL}:8000/api/v1/problem/`, this.props.newproblem)
+                        let api = await axios.post(`${env.API_URL}/problem/`, this.props.newproblem)
                         if (api.data == 'true') {
                             this.props.navigation.navigate('ComingSoon')
                         }

@@ -42,15 +42,21 @@ class ComingSoon extends Component {
                     }}
                 />
                 <Button
-                    title='Error'
+                    title="All Problem"
                     onPress={() => {
-                        this.props.navigation.navigate('Error')
+                        this.props.navigation.navigate('AllProblem')
                     }}
                 />
                 <Button
-                    title="A Problem"
+                    title="Mock A Problem"
                     onPress={() => {
-                        this.props.navigation.navigate('AProblem')
+                        this.props.navigation.navigate('MockAProblem')
+                    }}
+                />
+                <Button
+                    title="Mock AllProblem"
+                    onPress={() => {
+                        this.props.navigation.navigate('MockAllProblem')
                     }}
                 />
             </View>
