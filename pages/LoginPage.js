@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Text, Image, Button, AsyncStorage} from 'react-native'
+import { View, Text, TouchableOpacity, Image, AsyncStorage } from 'react-native'
 import { Facebook } from 'expo'
 
 import env from '../config'
@@ -8,7 +8,9 @@ import { get as getUser } from '../utils/apiUser'
 import { get as getProfile } from '../utils/apiProfile'
 import { getByUserId as getRoleByUserId } from '../utils/apiUserRole'
 import Styles from '../styles/LoginStyle'
+import ViewProblemStyle from '../styles/ViewProblemStyle'
 import WipLogo from '../src/images/Logo_WIPCamp.png'
+import FacebookLogo from '../src/images/facebook-logo.png'
 
 class Login extends Component {
     static navigationOptions = {
@@ -24,12 +26,21 @@ class Login extends Component {
 
     render() {
         return (
-            <View style = {Styles.container}>
+            <View style = { Styles.container }>
                 <Image 
                     source = { WipLogo }
                     style = { Styles.logo }
                 />
-                <Button title="Facebook Login" onPress={this._handlePressAsync} />
+                <TouchableOpacity
+                    style = { [Styles.facebookButton, Styles.viewFBButton, ViewProblemStyle.row] }
+                    onPress={ this._handlePressAsync } 
+                >
+                    <Image
+                        source = { FacebookLogo }
+                        style = { [Styles.facebookLogo]}
+                    />
+                    <Text style={ [Styles.loginText] }>Facebook Login</Text>
+                </TouchableOpacity>
             </View>
         )
     }
