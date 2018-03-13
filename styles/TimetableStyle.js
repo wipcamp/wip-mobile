@@ -1,6 +1,9 @@
-import { StyleSheet, Image } from 'react-native'
+import { StyleSheet, Dimensions, Image } from 'react-native'
 
 const style = StyleSheet.create({
+    flex1: {
+        flex: 1
+    },
     row: {
         flexDirection: 'row'
     },
@@ -9,6 +12,9 @@ const style = StyleSheet.create({
     },
     justifySpaceBet: {
         justifyContent: 'space-between'
+    },
+    textWhite: {
+        color: '#fff'
     },
     card: {
         backgroundColor: '#fff',
@@ -21,6 +27,13 @@ const style = StyleSheet.create({
     arrow: {
         height: '100%',
         resizeMode: Image.resizeMode.contain,
+    },
+    currentDate: {
+        backgroundColor: "#ff8214"
+    },
+    dateBorder: {
+        borderColor: "#ff8214",
+        borderRightWidth: 1
     }
 })
 
