@@ -1,17 +1,8 @@
 import React, { Component } from 'react'
 import { Text, Alert } from 'react-native'
-import { connect } from 'react-redux'
-import axios from 'axios'
 
-import env from '../config'
-
+import { post as problemPost } from '../utils/apiProblem'
 import Styles from '../styles/reportProblemStyle'
-
-const mapStateToProps = state => {
-    return {
-        newproblem: state.NewProblemReducer.newProblem
-    }
-}
 
 class AddButton extends Component {
     render() {
@@ -23,8 +14,8 @@ class AddButton extends Component {
                     let problem_type_id = this.props.newproblem.problem_type_id
                     let description = this.props.newproblem.description
                     if( topic != "" && problem_type_id != 0 && description != "") {
-                        let api = await axios.post(`${env.API_URL}/problem/`, this.props.newproblem)
-                        if (api.data == 'true') {
+                        let result = await problemPost(this.props.newproblem)
+                        if (result == 'true') {
                             this.props.navigation.navigate('ComingSoon')
                         }
                         else {
@@ -47,4 +38,4 @@ class AddButton extends Component {
     }
 }
 
-export default connect(mapStateToProps)(AddButton)
+export default AddButton

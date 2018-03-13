@@ -1,8 +1,12 @@
 import React, { Component } from 'react'
-import { View, Text, TouchableOpacity, Image, StyleSheet } from 'react-native'
+import { View, Text, TouchableOpacity, Image, AsyncStorage } from 'react-native'
 import { Facebook } from 'expo'
 
 import env from '../config'
+import { auth } from '../utils/apiAuth'
+import { get as getUser } from '../utils/apiUser'
+import { get as getProfile } from '../utils/apiProfile'
+import { getByUserId as getRoleByUserId } from '../utils/apiUserRole'
 import Styles from '../styles/LoginStyle'
 import ViewProblemStyle from '../styles/ViewProblemStyle'
 import WipLogo from '../src/images/Logo_WIPCamp.png'
@@ -13,8 +17,11 @@ class Login extends Component {
         tabBarVisible: true
     }
 
-    state = {
-        userInfo: null
+    async componentWillMount() {
+        let user = await AsyncStorage.getItem('user')
+        if(user) {
+            this.props.navigation.navigate('Main')
+        }
     }
 
     render() {
@@ -24,53 +31,58 @@ class Login extends Component {
                     source = { WipLogo }
                     style = { Styles.logo }
                 />
-                {!this.state.userInfo ? (
-                    <TouchableOpacity
-                        style = { [Styles.facebookButton, Styles.viewFBButton, ViewProblemStyle.row] }
-                        onPress={ this._handlePressAsync } 
-                    >
-                        {/* <View style={[ViewProblemStyle.row]}> */}
-                            <Image 
-                                source = { FacebookLogo }
-                                style = { [Styles.facebookLogo]}
-                            />
-                            <Text style={ [Styles.loginText] }>Facebook Login</Text>
-                        {/* </View> */}
-                    </TouchableOpacity>
-                ) : (
-                    this._renderUserInfo()
-                )}
-            </View>
-        )
-    }
-
-    _renderUserInfo = () => {
-        return (
-            <View style={{ alignItems: 'center' }}>
-                <Image
-                    source={{ uri: this.state.userInfo.picture.data.url }}
-                    style={{ width: 100, height: 100, borderRadius: 50 }}
-                />
-                <Text style={{ fontSize: 20 }}>{this.state.userInfo.name}</Text>
-                <Text>ID: {this.state.userInfo.id}</Text>
+                <TouchableOpacity
+                    style = { [Styles.facebookButton, Styles.viewFBButton, ViewProblemStyle.row] }
+                    onPress={ this._handlePressAsync } 
+                >
+                    <Image
+                        source = { FacebookLogo }
+                        style = { [Styles.facebookLogo]}
+                    />
+                    <Text style={ [Styles.loginText] }>Facebook Login</Text>
+                </TouchableOpacity>
             </View>
         )
     }
 
     _handlePressAsync = async () => {
-        const { type, token } = await Facebook.logInWithReadPermissionsAsync(`${env.FB_APP_ID}`, {
-            permissions: ['public_profile']
-          })
+        const { type, token } = await Facebook.logInWithReadPermissionsAsync(
+            `${env.FB_APP_ID}`, 
+            {
+                permissions: ['public_profile'],
+                behavior: 'web'
+            }
+        )
 
         if (type !== 'success') {
             alert('Uh oh, something went wrong')
             return
         }
+        
         const response = await fetch(
             `https://graph.facebook.com/me?access_token=${token}&fields=id,name,picture.type(large)`
         )
+        
         const userInfo = await response.json()
-        this.setState({ userInfo })
+        await auth(userInfo.id, token)
+
+        await AsyncStorage.setItem('loginFBID', `${userInfo.id}`)
+        await AsyncStorage.setItem('loginFBToken', `${token}`)
+        
+        let user = await getUser(userInfo.id, token)
+        let profile = await getProfile(user.id)
+        
+        profile.pic = userInfo.picture.data.url
+        profile.roles = []
+        
+        let role = await getRoleByUserId(profile.user_id)
+        role.map(data => {
+            profile.roles.push(data.role_id)
+        })
+
+        await AsyncStorage.setItem('user', JSON.stringify(profile))
+
+        this.props.navigation.navigate('Main')
     }
 }
 

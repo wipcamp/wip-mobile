@@ -1,11 +1,10 @@
 import React, { Component } from 'react'
 import { View,Text } from 'react-native'
-import { connect } from 'react-redux'
 
-import AddButton from '../components/AddButtonComponent'
-import TopicInput from '../components/TopicInputComponent'
-import Category from '../components/CategoryComponent'
-import Desciption from '../components/DescriptionInputComponent'
+import AddButton from '../components/ConnectAddButtonComponent'
+import TopicInput from '../components/ConnectTopicInputComponent'
+import Category from '../components/ConnectCategoryCoponent'
+import Desciption from '../components/ConnectDescriptionInputComponent'
 
 import Styles from '../styles/reportProblemStyle'
 
@@ -26,4 +25,4 @@ class ReportProblem extends Component {
     }
 }
 
-export default connect()(ReportProblem)
+export default ReportProblem

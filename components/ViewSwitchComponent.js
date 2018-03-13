@@ -1,25 +1,9 @@
 import React, { Component } from 'react'
 import { View, Text, Switch } from 'react-native'
-import { bindActionCreators } from 'redux'
-import { connect } from 'react-redux'
-import axios from 'axios'
 
-import env from '../config'
-import { updateProblem } from '../ducks/ReportProblem'
+import { get as problemGet, put as problemPut } from '../utils/apiProblem'
 import Styles from '../styles/ViewProblemStyle'
 import ReportStyle from '../styles/reportProblemStyle'
-
-const mapStateToProps = state => {
-    return {
-        problem : state.ReportReducer.problem
-    }
-}
-
-const mapDispatchToProps = dispatch => {
-    return {
-        updateProblem : bindActionCreators(updateProblem, dispatch)
-    }
-}
 
 class ViewSwitch extends Component {
     render() {
@@ -58,10 +42,9 @@ class ViewSwitch extends Component {
                                 else {
                                     value.not_solve = true
                                 }
-                                let api = await axios.put(`${env.API_URL}/problem/${this.props.id}`, value)
-                                if(api.data == "true") {
-                                    let api = await axios.get(`${env.API_URL}/problem/${this.props.id}`)
-                                    let data = api.data
+                                let result = await problemPut(this.props.id, value)
+                                if(result == "true") {
+                                    let data = await problemGet(this.props.id)
                                     this.props.updateProblem(data)
                                 }
                             }
@@ -105,4 +88,4 @@ class ViewSwitch extends Component {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ViewSwitch)
+export default ViewSwitch

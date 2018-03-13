@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { TouchableOpacity, View, Image, Text } from 'react-native'
-import { connect } from 'react-redux'
 
 import Styles from '../styles/ViewProblemStyle'
 import ReportStyle from '../styles/reportProblemStyle'
@@ -60,4 +59,4 @@ class ProblemCard extends Component {
     }
 }
 
-export default connect()(ProblemCard)
+export default ProblemCard

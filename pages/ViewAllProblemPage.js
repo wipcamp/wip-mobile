@@ -1,13 +1,12 @@
 import React, { Component } from 'react'
-import { AsyncStorage, ScrollView, View, FlatList, ActivityIndicator } from 'react-native'
+import { AsyncStorage, ScrollView, View, ActivityIndicator } from 'react-native'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import axios from 'axios'
 
-import env from '../config'
 import { addProblem, reverseProblem, resetProblem } from '../ducks/ReportProblem'
-import FilterView from '../components/FilterViewComponent'
-import ProblemCard from '../components/ProblemCardComponent'
+import { getAll as problemGetAll } from '../utils/apiProblem'
+import FilterView from '../components/ConnectFilterViewComponent'
+import ListCardProblem from '../components/ConnectListCardProblemComponent'
 import ReportStyle from '../styles/reportProblemStyle'
 
 const mapStateToProps = state => {
@@ -38,8 +37,7 @@ class ViewAllProblem extends Component {
     }
 
     async componentWillMount() {
-        let api = await axios.get(`${env.API_URL}/problem/`)
-        let datas = api.data
+        let datas = await problemGetAll()
         let problemCount =  await AsyncStorage.getItem('problemCount')
         if(problemCount == null | datas.length >= parseInt(problemCount)) {
             this.props.resetProblem()
@@ -56,19 +54,8 @@ class ViewAllProblem extends Component {
         return (
             <ScrollView style={ReportStyle.bg}>
                 <FilterView />
-                {this.state.success
-                    ? <FlatList
-                        data={this.props.problem}
-                        extraData={this.props.filter}
-                        keyExtractor={(item) => item.id}
-                        renderItem={({item}) => {
-                            if(this.props.filter == item.problem_type_id || this.props.filter == 0) {
-                                return (
-                                    <ProblemCard key={item.id} data={item} navigation={this.props.navigation} />
-                                )
-                            }
-                        }}
-                      />
+                { this.state.success
+                    ? <ListCardProblem navigation={this.props.navigation} />
                     : <ActivityIndicator size="large" color="#ff8214" />
                 }
             </ScrollView>

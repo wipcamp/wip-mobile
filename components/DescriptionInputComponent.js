@@ -1,24 +1,9 @@
 import React, { Component } from 'react'
-import { ScrollView } from 'react-native'
-import { bindActionCreators } from 'redux'
-import { connect } from 'react-redux'
+import { ScrollView, View } from 'react-native'
 import { TextField } from 'react-native-material-textfield'
 
-import { setNewProblemDescription } from '../ducks/NewProblem'
 import Styles from '../styles/reportProblemStyle'
 
-const mapStateToProps = state => {
-    return {
-        description : state.NewProblemReducer.newProblem.description,
-        problem : state.ReportReducer.problem
-    }
-}
-
-const mapDispatchToProps = dispatch => {
-    return {
-        setDescription : bindActionCreators(setNewProblemDescription, dispatch)
-    }
-}
 
 class DescriptionInput extends Component {
     render() {
@@ -63,4 +48,4 @@ class DescriptionInput extends Component {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(DescriptionInput)
+export default DescriptionInput
