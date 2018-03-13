@@ -1,5 +1,8 @@
 import { StyleSheet, Dimensions, Image } from 'react-native'
 
+const height = Dimensions.get('screen').height
+const width = Dimensions.get('screen').width
+
 const style = StyleSheet.create({
     flex1: {
         flex: 1
@@ -34,6 +37,18 @@ const style = StyleSheet.create({
     dateBorder: {
         borderColor: "#ff8214",
         borderRightWidth: 1
+    },
+    hourHeight: {
+        height: height*0.12
+    },
+    timeWidth: {
+        flex: 0.1
+    },
+    hourLine: {
+        flex: 0.9,
+        borderColor: "#aaa",
+        borderTopWidth: 1,
+        marginTop: 8
     }
 })
 
