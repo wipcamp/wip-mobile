@@ -47,7 +47,7 @@ class MainPage extends Component {
                 <Menu
                     leftIcon = { require('../src/images/calendar.png') }
                     leftText = "TIME SCHEDULE"
-                    leftFunction = {() => this.props.navigation.navigate('NotAvailable')}
+                    leftFunction = {() => this.props.navigation.navigate('TimetableRole')}
                     rightIcon = { require('../src/images/megaphone.png') }
                     rightText = "ANNOUNCEMENT"
                     rightFunction = {() => this.props.navigation.navigate('NotAvailable')}
@@ -56,15 +56,19 @@ class MainPage extends Component {
                     leftIcon = { require('../src/images/file.png') }
                     leftText = "VIEW PROBLEM"
                     leftFunction = {async () => {
-                        let { roles } = await AsyncStorage.getItem('user')
                         let seniorId = await roleGetByName('camp_staffs_senior')
                         let senior = false
-                        for (let i = 0; i < roles.length; i++) {
-                            if (roles[i] == seniorId) {                                
-                                this.props.navigation.navigate('AllProblem')
+                        for (let i = 0; i < this.state.userProfile.roles.length; i++) {
+                            if (this.state.userProfile.roles[i] == seniorId) {                                
+                                senior = true
                             }
                         }
-                        this.props.navigation.navigate('Error')
+                        if (senior) {
+                            this.props.navigation.navigate('AllProblem')    
+                        } 
+                        else {                            
+                            this.props.navigation.navigate('Error')
+                        }
                     }}
                     rightIcon = { require('../src/images/pen.png') }
                     rightText = "REPORT PROBLEM"

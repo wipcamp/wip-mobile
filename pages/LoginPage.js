@@ -14,7 +14,7 @@ import FacebookLogo from '../src/images/facebook-logo.png'
 
 class Login extends Component {
     static navigationOptions = {
-        tabBarVisible: true
+        header: null
     }
 
     async componentWillMount() {

@@ -26,6 +26,10 @@ const mapDispatchToProps = dispatch => {
 }
 
 class ViewAProblem extends Component {
+    static navigationOptions = {
+        title: 'Details'
+    }
+
     async componentWillMount() {
         let data = await problemGet(this.props.navigation.state.params.id)
         this.props.updateProblem(data)

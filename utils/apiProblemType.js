@@ -12,6 +12,5 @@ export async function getAll() {
             api = await Api.get('/problemtypes/', {Authorization: `Bearer ${await getToken()}`})   
         }
     }
-    console.log('after catch')
     return api.data
 }
