@@ -22,7 +22,7 @@ export default function reducer (state = initState, action) {
                     return timetable
                 })
             }
-        case ADD_TIMETABLE :
+        case RESET_TIMETABLE :
             return {
                 timetable : []
             }
