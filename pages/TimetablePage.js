@@ -2,9 +2,12 @@ import React, { Component } from 'react'
 import { ScrollView, View } from 'react-native'
 
 import { getByName as roleTeamGetByName } from '../utils/apiRoleTeam'
+import { getAll as timetableGetAll } from '../utils/apiTimetable'
 
 import DayBar from '../components/DayBarComponent'
 import HourBG from '../components/HourBGComponent'
+import ListCardEvent from '../components/ConnectListCardEventComponent'
+import EventCard from '../components/EventCardComponent'
 
 import Styles from '../styles/TimetableStyle'
 import ReportStyles from '../styles/reportProblemStyle'
@@ -17,14 +20,20 @@ class Timetable extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            roleWipper: 0
+            roleWipper: false
         }
     }
 
     async componentWillMount() {
         let id = await roleTeamGetByName('WIPPER')
-        this.setState({
-            roleWipper: id
+        this.props.navigation.state.params.id == id
+            ? this.setState({ roleWipper: true })
+            : this.setState({ roleWipper: false })
+
+        let datas = await timetableGetAll()
+        this.props.resetTimetable()
+        datas.map(data => {
+            this.props.addTimetable(data)
         })
     }
 
@@ -34,7 +43,11 @@ class Timetable extends Component {
                 <DayBar />
                 <View>
                     <HourBG
-                        half={ this.props.navigation.state.params.id == this.state.roleWipper ? true : false }
+                        half = { this.state.roleWipper }
+                    />
+                    <ListCardEvent
+                        roleId = {this.props.navigation.state.params.id}
+                        half = { this.state.roleWipper }
                     />
                 </View>
             </ScrollView>
