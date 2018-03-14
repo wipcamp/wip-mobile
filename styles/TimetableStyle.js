@@ -49,6 +49,14 @@ const style = StyleSheet.create({
         borderColor: "#aaa",
         borderTopWidth: 1,
         marginTop: 8
+    },
+    eventContainer: {
+        position: "absolute",
+        zIndex: 50
+    },
+    eventCard: {
+        backgroundColor: "#ff8214",
+        marginLeft: width*0.1
     }
 })
 
