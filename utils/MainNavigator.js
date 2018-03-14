@@ -3,9 +3,11 @@ import { connect } from 'react-redux'
 
 import LoginPage from '../pages/LoginPage'
 import MainPage from '../pages/ConnectMainPage'
-import ReportProblemPage from '../pages/ReportProblemPage'
+import TimetableRolePage from '../pages/TimetableRolePage'
+import TimetablePage from '../pages/ConnectTimetablePage'
 import AllProblemPage from '../pages/ViewAllProblemPage'
 import AProblemPage from '../pages/ViewAProblemPage'
+import ReportProblemPage from '../pages/ReportProblemPage'
 import ErrorPage from '../pages/ErrorPage'
 import NotAvailablePage from '../pages/NotAvailablePage'
 
@@ -17,8 +19,12 @@ const MainNavigator = StackNavigator(
         Main: {
             screen: MainPage
         },
-        ReportProblem: {
-            screen: ReportProblemPage
+        TimetableRole: {
+            screen: TimetableRolePage
+        },
+        Timetable: {
+            path: 'timetable/:id',
+            screen: TimetablePage
         },
         AllProblem: {
             screen: AllProblemPage
@@ -26,6 +32,9 @@ const MainNavigator = StackNavigator(
         AProblem: {
             path: 'problem/:id',
             screen: AProblemPage
+        },
+        ReportProblem: {
+            screen: ReportProblemPage
         },
         Error: {
             screen: ErrorPage

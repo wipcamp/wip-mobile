@@ -11,7 +11,9 @@ export const initState = {
     filterView : [{
         value: 0,
         label: "ทั้งหมด"
-    }]
+    }],
+    timetable: [],
+    date: "30-May"
 }
 
 const INIT_STATE = "INIT_STATE"

@@ -4,6 +4,8 @@ import { TouchableOpacity, View, Image, Text } from 'react-native'
 import Styles from '../styles/ViewProblemStyle'
 import ReportStyle from '../styles/reportProblemStyle'
 
+import dot from '../src/images/new-message.png'
+
 class ProblemCard extends Component {
     render() {
         return (
@@ -24,7 +26,9 @@ class ProblemCard extends Component {
                         {
                             this.props.data.is_solve || this.props.data.not_solve
                             ? <Text></Text>
-                            : <Text>[]</Text>
+                            : <Image
+                                source={dot}
+                            />
                         }
                     </View>
                     <View style={[Styles.column, Styles.flex4]}>
