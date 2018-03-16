@@ -5,6 +5,10 @@ const style = StyleSheet.create({
         backgroundColor: '#EFEFEF',
         flex: 1
     },
+    topicForAllView: {
+        fontWeight: 'bold',
+        fontSize: 18
+    },
     topic: {
         fontSize: 18
     },
@@ -50,7 +54,7 @@ const style = StyleSheet.create({
         paddingTop: 14,
         paddingBottom: 14,
     },
-    marginForTopicSwitch: {
+    marginTop5: {
         marginTop: 5
     }
 })

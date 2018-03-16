@@ -18,7 +18,7 @@ class ViewSwitch extends Component {
                     <Text
                         style={[
                             Styles.topic,
-                            Styles.marginForTopicSwitch
+                            Styles.marginTop5
                         ]}
                     >
                         {

@@ -22,7 +22,7 @@ class ProblemCard extends Component {
                             : ReportStyle.bgWhite
                     ]}
                 >
-                    <View style={[Styles.flex05, Styles.itemCenter]}>
+                    <View style={[Styles.flex05, Styles.itemCenter, Styles.marginTop5]}>
                         {
                             this.props.data.is_solve || this.props.data.not_solve
                             ? <Text></Text>
@@ -32,7 +32,7 @@ class ProblemCard extends Component {
                         }
                     </View>
                     <View style={[Styles.column, Styles.flex4]}>
-                        <Text style={Styles.topic}>
+                        <Text style={Styles.topicForAllView}>
                             {
                                 this.props.data.topic.lenght <= 25
                                 ? this.props.data.topic.substr(0, 25)
