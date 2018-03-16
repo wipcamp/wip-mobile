@@ -28,14 +28,15 @@ class ViewReporter extends Component {
                     ReportStyle.spacesTop,
                     ReportStyle.spacesBottom,
                     Styles.row,
+                    Styles.heightLabel,
                     Styles.border
                 ]}
             >
                 <View style={[Styles.flex1]}>
-                    <Text>Reporter</Text>
+                    <Text style={Styles.topic}>Reporter</Text>
                 </View>
                 <View style={[Styles.flex1, Styles.itemRight]}>
-                    <Text>{this.state.report}</Text>
+                    <Text style={Styles.description}>{this.state.report}</Text>
                 </View>
             </View>
         )
