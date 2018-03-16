@@ -48,7 +48,7 @@ class ProblemCard extends Component {
                         </Text>
                     </View>
                     <View style={[Styles.flex1, Styles.itemCenter]}>
-                        <Text style={Styles.date}>
+                        <Text style={[Styles.date, Styles.marginTop5]}>
                             {
                                 this.props.data.created_at
                                     .split(" ")[0]
