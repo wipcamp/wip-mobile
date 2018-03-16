@@ -25,14 +25,27 @@ class ViewCategory extends Component {
                     ReportStyle.bgWhite,
                     ReportStyle.inputPadding,
                     Styles.row,
+                    Styles.heightLabel,
                     Styles.border
                 ]}
             >
                 <View style={[Styles.flex1]}>
-                    <Text>Category</Text>
+                    <Text
+                        style={[
+                            Styles.topic
+                        ]}
+                    >
+                        Category
+                    </Text>
                 </View>
                 <View style={[Styles.flex1, Styles.itemRight]}>
-                    <Text>{this.__renderCategoryValue()}</Text>
+                    <Text
+                        style={[
+                            Styles.description
+                        ]}
+                    >
+                        {this.__renderCategoryValue()}
+                    </Text>
                 </View>
             </View>
         )

@@ -11,7 +11,7 @@ import Date from '../components/ConnectViewDateComponent'
 import Description from '../components/ConnectDescriptionInputComponent'
 import Reporter from '../components/ConnectViewReporterComponent'
 import SolveSwitch from '../components/ConnectViewSwitchComponent'
-import ReportStyle from '../styles/reportProblemStyle'
+import ViewProblemStyle from '../styles/ViewProblemStyle'
 
 const mapStateToProps = state => {
     return {
@@ -37,7 +37,7 @@ class ViewAProblem extends Component {
 
     render() {
         return (
-            <ScrollView style={ReportStyle.bg}>
+            <ScrollView style={ViewProblemStyle.bg}>
                 <Topic id={this.props.navigation.state.params.id} view={true} />
                 <Category id={this.props.navigation.state.params.id} />
                 <Date id={this.props.navigation.state.params.id} />
