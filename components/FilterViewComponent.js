@@ -20,7 +20,10 @@ class FilterView extends Component {
                     onChangeText={(value, index, data) => {
                         this.props.setFilter(value)
                     }}
-                    labelFontSize={20}
+                    labelFontSize={14}
+                    labelPadding={0}
+                    labelHeight={20}
+                    inputContainerPadding={5}
                     fontSize={18}
                     containerStyle={ReportStyles.inputPadding}
                 />
