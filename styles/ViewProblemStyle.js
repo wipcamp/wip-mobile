@@ -49,6 +49,9 @@ const style = StyleSheet.create({
     heightLabel: {
         paddingTop: 14,
         paddingBottom: 14,
+    },
+    marginForTopicSwitch: {
+        marginTop: 5
     }
 })
 
