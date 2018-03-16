@@ -5,6 +5,7 @@ import LoginPage from '../pages/LoginPage'
 import MainPage from '../pages/ConnectMainPage'
 import TimetableRolePage from '../pages/TimetableRolePage'
 import TimetablePage from '../pages/ConnectTimetablePage'
+import AllAnnouncePage from '../pages/ConnectAllAnnouncePage'
 import AllProblemPage from '../pages/ViewAllProblemPage'
 import AProblemPage from '../pages/ViewAProblemPage'
 import ReportProblemPage from '../pages/ReportProblemPage'
@@ -25,6 +26,9 @@ const MainNavigator = StackNavigator(
         Timetable: {
             path: 'timetable/:id',
             screen: TimetablePage
+        },
+        AllAnnounce: {
+            screen: AllAnnouncePage
         },
         AllProblem: {
             screen: AllProblemPage
