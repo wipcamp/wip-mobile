@@ -6,8 +6,7 @@ const style = StyleSheet.create({
         flex: 1
     },
     topic: {
-        fontSize: 18,
-        fontWeight: "bold"
+        fontSize: 18
     },
     description: {
         fontSize: 16

@@ -13,14 +13,15 @@ class ViewDate extends Component {
                     ReportStyle.inputPadding,
                     ReportStyle.spacesTop,
                     Styles.row,
+                    Styles.heightLabel,
                     Styles.border
                 ]}
             >
                 <View style={[Styles.flex1]}>
-                    <Text>Date</Text>
+                    <Text style={Styles.topic}>Date</Text>
                 </View>
                 <View style={[Styles.flex1, Styles.itemRight]}>
-                    <Text>{this.__renderDateValue()}</Text>
+                    <Text style={Styles.description}>{this.__renderDateValue()}</Text>
                 </View>
             </View>
         )

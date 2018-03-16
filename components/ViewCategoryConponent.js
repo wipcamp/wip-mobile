@@ -30,20 +30,12 @@ class ViewCategory extends Component {
                 ]}
             >
                 <View style={[Styles.flex1]}>
-                    <Text
-                        style={[
-                            Styles.topic
-                        ]}
-                    >
+                    <Text style={Styles.topic}>
                         Category
                     </Text>
                 </View>
                 <View style={[Styles.flex1, Styles.itemRight]}>
-                    <Text
-                        style={[
-                            Styles.description
-                        ]}
-                    >
+                    <Text style={Styles.description}>
                         {this.__renderCategoryValue()}
                     </Text>
                 </View>
