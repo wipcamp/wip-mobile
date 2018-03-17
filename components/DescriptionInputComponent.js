@@ -8,12 +8,10 @@ import Styles from '../styles/reportProblemStyle'
 class DescriptionInput extends Component {
     render() {
         return (
-            
             <ScrollView style={[Styles.bgWhite, Styles.spacesTop]}>
-                <TextField  
-                    multiline={true}
+                <TextField
                     label='Detail'
-                    value={this.__renderDescriptionValue()}
+                    value={this.props.description}
                     onChangeText={(text) => {
                         this.props.setDescription(text)
                     }}
@@ -27,24 +25,9 @@ class DescriptionInput extends Component {
                     inputContainerStyle={Styles.inputField}
                     containerStyle={Styles.inputPadding}
                     labelTextStyle={Styles.inputLabel}
-                    disabled={this.props.view ? true : false}
                 />
             </ScrollView>
-            
         )
-    }
-
-    __renderDescriptionValue() {
-        let descriptionValue
-        if(this.props.view) {
-            descriptionValue = this.props.problem
-                            .filter(problem => problem.id == this.props.id)
-                            [0].description
-        }
-        else {
-            descriptionValue = this.props.description
-        }
-        return descriptionValue 
     }
 }
 
