@@ -6,6 +6,7 @@ import MainPage from '../pages/ConnectMainPage'
 import TimetableRolePage from '../pages/TimetableRolePage'
 import TimetablePage from '../pages/ConnectTimetablePage'
 import AllAnnouncePage from '../pages/ConnectAllAnnouncePage'
+import AnnouncePage from '../pages/ConnectAnnouncePage'
 import AllProblemPage from '../pages/ViewAllProblemPage'
 import AProblemPage from '../pages/ViewAProblemPage'
 import ReportProblemPage from '../pages/ReportProblemPage'
@@ -29,6 +30,10 @@ const MainNavigator = StackNavigator(
         },
         AllAnnounce: {
             screen: AllAnnouncePage
+        },
+        Announce: {
+            path: 'announce/:id',
+            screen: AnnouncePage
         },
         AllProblem: {
             screen: AllProblemPage
