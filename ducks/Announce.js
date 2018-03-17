@@ -41,7 +41,7 @@ export const addAnnounce = announce => ({
     announce
 })
 
-export const setAnnounce = announce => ({
+export const updateAnnounce = announce => ({
     type: UPDATE_ANNOUNCE,
     announce
 })
