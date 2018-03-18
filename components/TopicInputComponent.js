@@ -10,7 +10,7 @@ class TopicInput extends Component {
             <View style={[Styles.bgWhite, Styles.spacesTop ]}>
                 <TextField
                     label ='Topic'
-                    value={this.__renderTopicValue()}
+                    value={this.props.topic}
                     onChangeText={(text) => {
                         this.props.setTopic(text)
                     }}
@@ -20,24 +20,9 @@ class TopicInput extends Component {
                     inputContainerPadding={5}
                     fontSize={18}
                     containerStyle={Styles.inputPadding}
-                    disabled={this.props.view ? true : false}
-                    multiline={this.props.view ? true : false}                    
                 />
             </View>
         )
-    }
-
-    __renderTopicValue() {
-        let topicValue
-        if(this.props.view) {
-            topicValue = this.props.problem
-                            .filter(problem => problem.id == this.props.id)
-                            [0].topic
-        }
-        else {
-            topicValue = this.props.topic
-        }
-        return topicValue 
     }
 }
 

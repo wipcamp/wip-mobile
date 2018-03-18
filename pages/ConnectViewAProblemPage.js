@@ -1,20 +1,23 @@
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
+import { updateProblem } from '../ducks/ReportProblem'
 import { getAllForCategory } from '../ducks/ProblemTypeAPI'
-import ViewCategory from './ViewCategoryConponent'
+
+import ViewAProblem from './ViewAProblemPage'
 
 const mapStateToProps = state => {
     return {
+        problem : state.ReportReducer.problem,
         categoryProblem : state.CategoryReducer.categoryProblem,
-        problem : state.ReportReducer.problem
     }
 }
 
 const mapDispatchToProps = dispatch => {
     return {
+        updateProblem : bindActionCreators(updateProblem, dispatch),
         problemTypeGetAllForCategory : bindActionCreators(getAllForCategory, dispatch)
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ViewCategory)
+export default connect(mapStateToProps, mapDispatchToProps)(ViewAProblem)
