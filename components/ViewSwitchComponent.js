@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { View, Text, Switch } from 'react-native'
 
 import { get as problemGet, put as problemPut } from '../utils/apiProblem'
+
 import Styles from '../styles/ViewProblemStyle'
 import ReportStyle from '../styles/reportProblemStyle'
 
