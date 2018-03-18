@@ -1,5 +1,16 @@
 {
   "expo": {
-    "sdkVersion": "23.0.0"
+    "name": "WIP Mobile",
+    "icon": "https://scontent.fbkk5-7.fna.fbcdn.net/v/t39.2081-6/c0.0.65.65/p64x64/27045579_1991578167537629_5739258870866378752_n.png?oh=49bc1125716da92aa0f938b1e3074ec2&oe=5B370FEC",
+    "version": "0.3.0",
+    "slug": "wip-mobile",
+    "sdkVersion": "23.0.0",
+    "ios": {
+      "bundleIdentifier": "com.yourcompany.yourappname"
+    },
+    "android": {
+      "package": "com.yourcompany.yourappname"
+    },
+    "description": "Application for WIP Camp use only in camp."
   }
 }
