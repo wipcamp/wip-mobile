@@ -7,6 +7,7 @@ import CategoryReducer from '../ducks/CategoryProblem'
 import FilterReducer from '../ducks/Filter'
 import TimetableReducer from '../ducks/Timetable'
 import DateReducer from '../ducks/Date'
+import AnnounceReducer from '../ducks/Announce'
 
 const combine = combineReducers({
     InitReducer,
@@ -15,7 +16,8 @@ const combine = combineReducers({
     CategoryReducer,
     FilterReducer,
     TimetableReducer,
-    DateReducer
+    DateReducer,
+    AnnounceReducer
 })
 
 export default combine
