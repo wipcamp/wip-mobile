@@ -56,6 +56,12 @@ const style = StyleSheet.create({
     },
     marginTop5: {
         marginTop: 5
+    },
+    bgLabel: {
+        backgroundColor: '#ffffff',
+    },
+    textInTopicLabel:{
+        color: '#000',
     }
 })
 
