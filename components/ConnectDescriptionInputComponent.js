@@ -6,8 +6,7 @@ import DescriptionInput from './DescriptionInputComponent'
 
 const mapStateToProps = state => {
     return {
-        description : state.NewProblemReducer.newProblem.description,
-        problem : state.ReportReducer.problem
+        description : state.NewProblemReducer.newProblem.description
     }
 }
 

@@ -6,8 +6,7 @@ import TopicInput from './TopicInputComponent'
 
 const mapStateToProps = state => {
     return {
-        topic : state.NewProblemReducer.newProblem.topic,
-        problem : state.ReportReducer.problem
+        topic : state.NewProblemReducer.newProblem.topic
     }
 }
 

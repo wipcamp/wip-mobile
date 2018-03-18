@@ -13,7 +13,8 @@ export const initState = {
         label: "ทั้งหมด"
     }],
     timetable: [],
-    date: "30-May"
+    date: "30-May",
+    announce: []
 }
 
 const INIT_STATE = "INIT_STATE"

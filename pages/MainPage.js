@@ -50,7 +50,7 @@ class MainPage extends Component {
                     leftFunction = {() => this.props.navigation.navigate('TimetableRole')}
                     rightIcon = { require('../src/images/megaphone.png') }
                     rightText = "ANNOUNCEMENT"
-                    rightFunction = {() => this.props.navigation.navigate('NotAvailable')}
+                    rightFunction = {() => this.props.navigation.navigate('AllAnnounce')}
                 />
                 <Menu
                     leftIcon = { require('../src/images/file.png') }
