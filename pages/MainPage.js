@@ -104,7 +104,10 @@ class MainPage extends Component {
     __renderProfileImg() {
         return <Image 
             source={{uri: this.state.userProfile.pic}}
-            style={Styles.profileImg}
+            style={[
+                Styles.profileImg,
+                Styles.borderRadius10
+            ]}
         />
     }
 }

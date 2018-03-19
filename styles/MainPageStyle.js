@@ -68,7 +68,10 @@ const style = StyleSheet.create({
     },
     marginRight10: {
         marginRight: 10
-    }
+    },
+    borderRadius10: {
+        borderRadius: 10,
+    },
 })
 
 export default style
