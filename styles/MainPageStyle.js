@@ -50,8 +50,8 @@ const style = StyleSheet.create({
         paddingTop: 20
     },
     profileImg: {
-        height: height * 0.1 - 40,
-        width: height * 0.1 - 40,
+        height: height * 0.11 - 40,
+        width: height * 0.11 - 40,
     },
     wipLogo: {
         resizeMode: Image.resizeMode.contain,
@@ -65,6 +65,9 @@ const style = StyleSheet.create({
     },
     marginBottom5: {
         marginBottom: 5
+    },
+    marginRight10: {
+        marginRight: 10
     }
 })
 
