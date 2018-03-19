@@ -55,13 +55,16 @@ const style = StyleSheet.create({
     },
     wipLogo: {
         resizeMode: Image.resizeMode.contain,
-        height: height * 0.12,
+        height: height * 0.15,
         width: 'auto'
     },
     menuIcon: {
         resizeMode: Image.resizeMode.contain,
         width: 100,
-        height: 100
+        height: height * 0.09
+    },
+    marginBottom5: {
+        marginBottom: 5
     }
 })
 
