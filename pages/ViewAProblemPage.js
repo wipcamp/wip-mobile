@@ -12,10 +12,6 @@ import SolveSwitch from '../components/ConnectViewSwitchComponent'
 import ReportStyle from '../styles/reportProblemStyle'
 
 class ViewAProblem extends Component {
-    static navigationOptions = {
-        title: 'Details'
-    }
-
     constructor(props) {
         super(props)
         this.state = {

@@ -13,10 +13,6 @@ import Styles from '../styles/TimetableStyle'
 import ReportStyles from '../styles/reportProblemStyle'
 
 class Timetable extends Component {
-    static navigationOptions = {
-        title: 'Time Schedule'
-    }
-
     constructor(props) {
         super(props)
         this.state = {

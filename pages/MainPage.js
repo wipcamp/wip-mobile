@@ -10,10 +10,6 @@ import ReportStyle from '../styles/reportProblemStyle'
 import WipLogo from '../src/images/Logo_WIPCamp.png'
 
 class MainPage extends Component {
-    static navigationOptions = {
-        header: null
-    }
-
     constructor(props) {
         super(props)
         this.state = {

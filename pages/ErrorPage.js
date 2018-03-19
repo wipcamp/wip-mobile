@@ -4,10 +4,6 @@ import { View, Text, StyleSheet,Button} from 'react-native'
 import Styles from '../styles/ErrorPageStyle'
 
 class ErrorPage extends Component {
-    static navigationOptions = {
-        title: ''
-    }
-    
     render() {
         return (
             <View style={Styles.container}>

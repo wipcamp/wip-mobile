@@ -4,10 +4,6 @@ import { View, Text } from 'react-native'
 import Styles from '../styles/ErrorPageStyle'
 
 class NotAvailable extends Component {
-    static navigationOptions = {
-        title: ''
-    }
-
     render() {
         return (
             <View style={Styles.container}>
