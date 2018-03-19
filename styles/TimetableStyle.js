@@ -28,8 +28,9 @@ const style = StyleSheet.create({
         borderBottomWidth: 1
     },
     arrow: {
-        height: '100%',
         resizeMode: Image.resizeMode.contain,
+        height: height * 0.03,
+        width: 10
     },
     currentDate: {
         backgroundColor: "#ff8214"

@@ -16,7 +16,7 @@ class TimetableRole extends Component {
 
     render() {
         return (
-            <View style={ReportStyles.bg}>
+            <View style={[ReportStyles.bg, ReportStyles.spacesTop]}>
                 <RoleCard
                     title="P'ITIM"
                     onPressFunction={async () => {
