@@ -4,11 +4,18 @@ import { View } from 'react-native'
 import DayBox from './ConnectDayBoxComponent'
 
 import Styles from '../styles/TimetableStyle'
+import ReportStyles from '../styles/reportProblemStyle'
+import ViewStyles from '../styles/ViewProblemStyle'
 
 class DayBar extends Component {
     render() {
         return (
-            <View style={[Styles.row]}>
+            <View 
+                style={[
+                    Styles.row,
+                    ReportStyles.spacesBottom,
+                ]}
+            >
                 <DayBox
                     day={30}
                     month="May"

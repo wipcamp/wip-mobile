@@ -33,11 +33,18 @@ const style = StyleSheet.create({
         width: 10
     },
     currentDate: {
-        backgroundColor: "#ff8214"
+        backgroundColor: "#ff8214",
     },
     dateBorder: {
         borderColor: "#ff8214",
-        borderRightWidth: 1
+        borderRightWidth: 1,
+        paddingTop: 14,
+        paddingBottom: 14,
+    },
+    dateBorderLast: {
+        borderColor: "#ff8214",
+        paddingTop: 14,
+        paddingBottom: 14,
     },
     hourHeight: {
         height: height*0.12

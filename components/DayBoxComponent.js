@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { TouchableOpacity, Text } from 'react-native'
 
 import Styles from '../styles/TimetableStyle'
+import ViewStyles from '../styles/ViewProblemStyle'
 
 class DayBox extends Component {
     render() {
@@ -23,6 +24,8 @@ class DayBox extends Component {
         ]
         if(!this.props.last) {
             style.push(Styles.dateBorder)
+        } else {
+            style.push(Styles.dateBorderLast)
         }
         if(this.props.date == `${this.props.day}-${this.props.month}`) {
             style.push(Styles.currentDate)
