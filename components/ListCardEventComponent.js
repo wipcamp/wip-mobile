@@ -9,7 +9,7 @@ import ViewStyles from '../styles/ViewProblemStyle'
 class ListCardEvent extends Component {
     render() {
         return (
-            <View style={[Styles.eventContainer, ViewStyles.itemRight]}>
+            <View style={[Styles.eventContainer]}>
                 {this._renderCardEvent()}
             </View>
         )

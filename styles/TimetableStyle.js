@@ -61,7 +61,7 @@ const style = StyleSheet.create({
         zIndex: 50
     },
     eventCard: {
-        backgroundColor: "#ff8214",
+        backgroundColor: "#ffb06b",
         marginLeft: width*0.1
     },
     paddingTop10: {
@@ -69,6 +69,17 @@ const style = StyleSheet.create({
     },
     paddingBottom10: {
         paddingBottom: 10
+    },
+    topic: {
+        fontSize: 16,
+        fontWeight: 'bold'
+    },
+    description: {
+        fontSize: 14
+    },
+    paddingLR5: {
+        paddingLeft: 5,
+        paddingRight:5
     }
 })
 
