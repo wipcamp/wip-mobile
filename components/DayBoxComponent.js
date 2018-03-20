@@ -20,13 +20,12 @@ class DayBox extends Component {
     _renderStyle() {
         let style = [
             Styles.flex1,
-            Styles.alignCenter
+            Styles.alignCenter,
+            Styles.dateBorderLast,
         ]
         if(!this.props.last) {
             style.push(Styles.dateBorder)
-        } else {
-            style.push(Styles.dateBorderLast)
-        }
+        } 
         if(this.props.date == `${this.props.day}-${this.props.month}`) {
             style.push(Styles.currentDate)
         }
