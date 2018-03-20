@@ -11,6 +11,7 @@
     "android": {
       "package": "com.yourcompany.yourappname"
     },
-    "description": "Application for WIP Camp use only in camp."
+    "description": "Application for WIP Camp use only in camp.",
+    "orientation": "portrait"
   }
 }
