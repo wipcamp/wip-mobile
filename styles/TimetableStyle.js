@@ -36,13 +36,10 @@ const style = StyleSheet.create({
         backgroundColor: "#ff8214",
     },
     dateBorder: {
-        borderColor: "#ff8214",
         borderRightWidth: 1,
-        paddingTop: 14,
-        paddingBottom: 14,
+        borderColor: "#ff8214",
     },
     dateBorderLast: {
-        borderColor: "#ff8214",
         paddingTop: 14,
         paddingBottom: 14,
     },
@@ -50,10 +47,10 @@ const style = StyleSheet.create({
         height: height*0.12
     },
     timeWidth: {
-        flex: 0.1
+        flex: 0.15
     },
     hourLine: {
-        flex: 0.9,
+        flex: 0.81,
         borderColor: "#aaa",
         borderTopWidth: 1,
         marginTop: 8
@@ -65,6 +62,12 @@ const style = StyleSheet.create({
     eventCard: {
         backgroundColor: "#ff8214",
         marginLeft: width*0.1
+    },
+    paddingTop10: {
+        paddingTop: 10
+    },
+    paddingBottom10: {
+        paddingBottom: 10
     }
 })
 

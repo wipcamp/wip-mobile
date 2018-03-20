@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { View, FlatList, Text, Dimension } from 'react-native'
 
 import Styles from '../styles/TimetableStyle'
+import ViewStyle from '../styles/ViewProblemStyle'
 
 class HourBG extends Component {
     render() {
@@ -12,10 +13,10 @@ class HourBG extends Component {
                     keyExtractor={(item, index) => index}
                     renderItem={({item}) =>  (
                         <View style={[Styles.hourHeight, Styles.row]}>
-                            <View style={Styles.timeWidth}>
+                            <View style={[Styles.timeWidth, Styles.alignCenter]}>
                                 <Text>{item.hour}</Text>
                             </View>
-                            <View style={Styles.hourLine}>
+                            <View style={[Styles.hourLine, ViewStyle.itemRight]}>
                             </View>
                         </View>
                     )}

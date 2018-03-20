@@ -41,7 +41,7 @@ class Timetable extends Component {
         return (
             <ScrollView style={ReportStyles.bg}>
                 <DayBar />
-                <View>
+                <View style={[ReportStyles.bgWhite, Styles.paddingTop10, Styles.paddingBottom10]}>
                     <HourBG
                         half = { this.state.roleWipper }
                     />
