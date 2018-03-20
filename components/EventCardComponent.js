@@ -38,7 +38,7 @@ class EventCard extends Component {
 
     _renderWidth() {
         const width = Dimensions.get('screen').width
-        return width * 0.9
+        return width * 0.81
     }
 
     _renderTop() {

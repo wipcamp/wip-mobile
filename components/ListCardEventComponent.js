@@ -4,11 +4,12 @@ import { View } from 'react-native'
 import EventCard from './EventCardComponent'
 
 import Styles from '../styles/TimetableStyle'
+import ViewStyles from '../styles/ViewProblemStyle'
 
 class ListCardEvent extends Component {
     render() {
         return (
-            <View style={Styles.eventContainer}>
+            <View style={[Styles.eventContainer, ViewStyles.itemRight]}>
                 {this._renderCardEvent()}
             </View>
         )

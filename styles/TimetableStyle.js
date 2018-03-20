@@ -57,6 +57,7 @@ const style = StyleSheet.create({
     },
     eventContainer: {
         position: "absolute",
+        marginLeft: '5%',
         zIndex: 50
     },
     eventCard: {
