@@ -36,10 +36,12 @@ class AllAnnounce extends Component {
     render() {
         return (
             <ScrollView style={ReportStyles.bg}>
-                { this.state.success
-                    ? <ListCardAnnounce navigation={this.props.navigation} />
-                    : <ActivityIndicator size="large" color="#ff8214" />
-                }
+                <View style={ReportStyles.spacesTop}>
+                    { this.state.success
+                        ? <ListCardAnnounce navigation={this.props.navigation} />
+                        : <ActivityIndicator size="large" color="#ff8214" />
+                    }
+                </View>
             </ScrollView>
         )
     }

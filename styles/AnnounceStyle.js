@@ -20,6 +20,9 @@ const style = StyleSheet.create({
         borderColor: "#aaa",
         borderBottomWidth: 1
     },
+    paddingLeft15: {
+        paddingLeft: 15
+    }
 })
 
 export default style
