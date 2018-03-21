@@ -31,8 +31,17 @@ class MainPage extends Component {
     render() {
         return (
             <View style={[ReportStyle.bg, Styles.column]}>
-                <View style={[Styles.row, Styles.flex01, Styles.justifyEnd, Styles.alignCenter, Styles.padTop20]}>
-                    <Text>{this.state.userProfile ? this.state.userProfile.nickname : null}</Text>
+                <View 
+                    style={[
+                        Styles.row,
+                        Styles.flex01,
+                        Styles.justifyEnd,
+                        Styles.alignCenter,
+                        Styles.padTop20,
+                        Styles.marginRight10
+                    ]}
+                >
+                    <Text style={Styles.marginRight10}>{this.state.userProfile ? this.state.userProfile.nickname : null}</Text>
                     { this.state.userProfile
                         ? this.__renderProfileImg()
                         : null
@@ -95,7 +104,10 @@ class MainPage extends Component {
     __renderProfileImg() {
         return <Image 
             source={{uri: this.state.userProfile.pic}}
-            style={Styles.profileImg}
+            style={[
+                Styles.profileImg,
+                Styles.borderRadius10
+            ]}
         />
     }
 }

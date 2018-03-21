@@ -50,19 +50,28 @@ const style = StyleSheet.create({
         paddingTop: 20
     },
     profileImg: {
-        height: height * 0.1 - 40,
-        width: height * 0.1 - 40,
+        height: height * 0.11 - 40,
+        width: height * 0.11 - 40,
     },
     wipLogo: {
         resizeMode: Image.resizeMode.contain,
-        height: height * 0.12,
+        height: height * 0.15,
         width: 'auto'
     },
     menuIcon: {
         resizeMode: Image.resizeMode.contain,
         width: 100,
-        height: 100
-    }
+        height: height * 0.09
+    },
+    marginBottom5: {
+        marginBottom: 5
+    },
+    marginRight10: {
+        marginRight: 10
+    },
+    borderRadius10: {
+        borderRadius: 10,
+    },
 })
 
 export default style
