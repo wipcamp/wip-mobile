@@ -28,35 +28,58 @@ const style = StyleSheet.create({
         borderBottomWidth: 1
     },
     arrow: {
-        height: '100%',
         resizeMode: Image.resizeMode.contain,
+        height: height * 0.03,
+        width: 10
     },
     currentDate: {
-        backgroundColor: "#ff8214"
+        backgroundColor: "#ff8214",
     },
     dateBorder: {
+        borderRightWidth: 1,
         borderColor: "#ff8214",
-        borderRightWidth: 1
+    },
+    dateBorderLast: {
+        paddingTop: 14,
+        paddingBottom: 14,
     },
     hourHeight: {
         height: height*0.12
     },
     timeWidth: {
-        flex: 0.1
+        flex: 0.15
     },
     hourLine: {
-        flex: 0.9,
+        flex: 0.81,
         borderColor: "#aaa",
         borderTopWidth: 1,
         marginTop: 8
     },
     eventContainer: {
         position: "absolute",
+        marginLeft: '5%',
         zIndex: 50
     },
     eventCard: {
-        backgroundColor: "#ff8214",
+        backgroundColor: "#ffb06b",
         marginLeft: width*0.1
+    },
+    paddingTop10: {
+        paddingTop: 10
+    },
+    paddingBottom10: {
+        paddingBottom: 10
+    },
+    topic: {
+        fontSize: 16,
+        fontWeight: 'bold'
+    },
+    description: {
+        fontSize: 14
+    },
+    paddingLR5: {
+        paddingLeft: 5,
+        paddingRight:5
     }
 })
 

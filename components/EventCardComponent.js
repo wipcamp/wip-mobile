@@ -16,9 +16,9 @@ class EventCard extends Component {
                     }              
                 ]}
             >
-                <Text>{this.props.data.event}</Text>
-                <Text>{this.props.data.description}</Text>
-                <Text>{this.props.data.location}</Text>
+                <Text style={[Styles.topic, Styles.paddingLR5]}>{this.props.data.event}</Text>
+                <Text style={[Styles.description, Styles.paddingLR5]}>{this.props.data.description}</Text>
+                <Text style={[Styles.description, Styles.paddingLR5]}>{this.props.data.location}</Text>
             </View>
         )
     }
@@ -38,7 +38,7 @@ class EventCard extends Component {
 
     _renderWidth() {
         const width = Dimensions.get('screen').width
-        return width * 0.9
+        return width * 0.81
     }
 
     _renderTop() {
