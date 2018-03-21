@@ -8,10 +8,6 @@ import ListCardAnnounce from '../components/ConnectListCardAnnounceComponent'
 import ReportStyles from '../styles/reportProblemStyle'
 
 class AllAnnounce extends Component {
-    static navigationOptions = {
-        title: 'Announcement'
-    }
-
     constructor(props) {
         super(props)
         this.state = {

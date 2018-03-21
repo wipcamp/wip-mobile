@@ -9,11 +9,6 @@ import Styles from '../styles/TimetableStyle'
 import ReportStyles from '../styles/reportProblemStyle'
 
 class TimetableRole extends Component {
-
-    static navigationOptions = {
-        title: 'Time Schedule'
-    }
-
     render() {
         return (
             <View style={[ReportStyles.bg, ReportStyles.spacesTop]}>

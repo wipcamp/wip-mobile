@@ -1,57 +1,106 @@
+import React from 'react'
 import { StackNavigator } from 'react-navigation'
-import { connect } from 'react-redux'
 
-import LoginPage from '../pages/LoginPage'
-import MainPage from '../pages/ConnectMainPage'
-import TimetableRolePage from '../pages/TimetableRolePage'
-import TimetablePage from '../pages/ConnectTimetablePage'
-import AllAnnouncePage from '../pages/ConnectAllAnnouncePage'
-import AnnouncePage from '../pages/ConnectAnnouncePage'
-import AllProblemPage from '../pages/ViewAllProblemPage'
-import AProblemPage from '../pages/ConnectViewAProblemPage'
-import ReportProblemPage from '../pages/ReportProblemPage'
+import LoginPage from '../pages/NetLoginPage'
+import MainPage from '../pages/NetMainPage'
+import TimetableRolePage from '../pages/NetTimetableRolePage'
+import TimetablePage from '../pages/NetTimetablePage'
+import AllAnnouncePage from '../pages/NetAllAnnouncePage'
+import AnnouncePage from '../pages/NetAnnouncePage'
+import AllProblemPage from '../pages/NetViewAllProblemPage'
+import AProblemPage from '../pages/NetViewAProblemPage'
+import ReportProblemPage from '../pages/NetReportProblemPage'
 import ErrorPage from '../pages/ErrorPage'
 import NotAvailablePage from '../pages/NotAvailablePage'
+import InternetNotFoundPage from '../pages/InternetNotFoundPage'
+
+import AddButton from '../components/ConnectAddButtonComponent'
 
 const MainNavigator = StackNavigator(
     {
         Login: {
-            screen: LoginPage
+            screen: LoginPage,
+            navigationOptions: {
+                header: null,
+                gesturesEnabled: false
+            }
         },
         Main: {
-            screen: MainPage
+            screen: MainPage,
+            navigationOptions: {
+                header: null,
+                gesturesEnabled: false
+            }
         },
         TimetableRole: {
-            screen: TimetableRolePage
+            screen: TimetableRolePage,
+            navigationOptions: {
+                title: 'Time Schedule'
+            }
         },
         Timetable: {
             path: 'timetable/:id',
-            screen: TimetablePage
+            screen: TimetablePage,
+            navigationOptions: {
+                title: 'Time Schedule',
+                gesturesEnabled: false
+            }
         },
         AllAnnounce: {
-            screen: AllAnnouncePage
+            screen: AllAnnouncePage,
+            navigationOptions: {
+                title: 'Announcement'
+            }
         },
         Announce: {
             path: 'announce/:id',
-            screen: AnnouncePage
+            screen: AnnouncePage,
+            navigationOptions: {
+                title: 'Announcement',
+                gesturesEnabled: false
+            }
         },
         AllProblem: {
-            screen: AllProblemPage
+            screen: AllProblemPage,
+            navigationOptions: {
+                title: 'Problem'
+            }
         },
         AProblem: {
             path: 'problem/:id',
-            screen: AProblemPage
+            screen: AProblemPage,
+            navigationOptions: {
+                title: 'Details',
+                gesturesEnabled: false
+            }
         },
         ReportProblem: {
-            screen: ReportProblemPage
+            screen: ReportProblemPage,
+            navigationOptions: ({ navigation }) => ({
+                title: 'ReportProblem',
+                headerRight: <AddButton navigation={navigation} />
+            })
         },
         Error: {
-            screen: ErrorPage
+            screen: ErrorPage,
+            navigationOptions: {
+                title: ''
+            }
         },
         NotAvailable: {
-            screen: NotAvailablePage
+            screen: NotAvailablePage,
+            navigationOptions: {
+                title: ''
+            }
+        },
+        InternetNotFound: {
+            screen: InternetNotFoundPage,
+            navigationOptions: {
+                header: null,
+                gesturesEnabled: false
+            }
         }
     }
 )
 
-export default connect()(MainNavigator)
+export default MainNavigator

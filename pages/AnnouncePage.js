@@ -9,10 +9,6 @@ import Description from '../components/ViewDescriptionComponent'
 import ReportStyle from '../styles/reportProblemStyle'
 
 class AnnouncePage extends Component {
-    static navigationOptions = {
-        title: 'Announcement'
-    }
-
     constructor(props) {
         super(props)
         this.state = {
