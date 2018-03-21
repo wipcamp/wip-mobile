@@ -11,15 +11,18 @@ class ViewData extends Component {
                 style={[
                     ReportStyle.bgWhite,
                     ReportStyle.inputPadding,
+                    ReportStyle.spacesTop,
                     Styles.row,
-                    Styles.border
+                    Styles.heightLabel,
+                    Styles.border,
+                    Styles.heightLabel
                 ]}
             >
                 <View style={[Styles.flex1]}>
-                    <Text>{this.props.left}</Text>
+                    <Text style={Styles.topic}>{this.props.left}</Text>
                 </View>
                 <View style={[Styles.flex1, Styles.itemRight]}>
-                    <Text>{this.props.right}</Text>
+                    <Text style={Styles.description}>{this.props.right}</Text>
                 </View>
             </View>
         )

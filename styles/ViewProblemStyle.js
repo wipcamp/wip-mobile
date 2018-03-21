@@ -1,9 +1,16 @@
 import { StyleSheet } from 'react-native'
 
 const style = StyleSheet.create({
+    bg: {
+        backgroundColor: '#EFEFEF',
+        flex: 1
+    },
+    topicForAllView: {
+        fontWeight: 'bold',
+        fontSize: 18
+    },
     topic: {
-        fontSize: 18,
-        fontWeight: "bold"
+        fontSize: 18
     },
     description: {
         fontSize: 16
@@ -42,6 +49,22 @@ const style = StyleSheet.create({
     },
     disable: {
         backgroundColor: '#E4E4E4'
+    },
+    heightLabel: {
+        paddingTop: 14,
+        paddingBottom: 14,
+    },
+    marginTop5: {
+        marginTop: 5
+    },
+    marginTop10: {
+        marginTop: 10
+    },
+    bgLabel: {
+        backgroundColor: '#ffffff',
+    },
+    textInTopicLabel:{
+        color: '#000',
     }
 })
 

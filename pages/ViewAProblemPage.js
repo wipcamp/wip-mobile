@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { ScrollView, View, ActivityIndicator } from 'react-native'
 
 import { get as problemGet } from '../utils/apiProblem'
+
 import { get as profileGet } from '../utils/apiProfile'
 
 import Topic from '../components/ViewTopicComponent'
@@ -70,10 +71,12 @@ class ViewAProblem extends Component {
                     }
                 />
                 <Description data={this.state.data} />
-                <Data
-                    left = "Reporter"
-                    right = { this.state.reporter }
-                />
+                <View style={ReportStyle.spacesBottom}>
+                    <Data
+                        left = "Reporter"
+                        right = { this.state.reporter }
+                    />
+                </View>
                 <SolveSwitch id={this.props.navigation.state.params.id} is_solve={true} />
                 <SolveSwitch id={this.props.navigation.state.params.id} not_solve={true} />
             </ScrollView>

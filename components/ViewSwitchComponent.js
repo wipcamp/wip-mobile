@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { View, Text, Switch } from 'react-native'
 
 import { get as problemGet, put as problemPut } from '../utils/apiProblem'
+
 import Styles from '../styles/ViewProblemStyle'
 import ReportStyle from '../styles/reportProblemStyle'
 
@@ -9,14 +10,24 @@ class ViewSwitch extends Component {
     render() {
         return (
             <View
-                style={this._renderStyle()}
+                style={[
+                    Styles.heightLabel,
+                    this._renderStyle()
+                ]}
             >
                 <View style={[Styles.flex1]}>
-                    <Text> {
-                        this.props.is_solve
-                        ? "is_solve"
-                        : "not_solve"
-                    } </Text>
+                    <Text
+                        style={[
+                            Styles.topic,
+                            Styles.marginTop5
+                        ]}
+                    >
+                        {
+                            this.props.is_solve
+                            ? "Is_solve"
+                            : "Not_solve"
+                        }
+                    </Text>
                 </View>
                 <View style={[Styles.flex1, Styles.itemRight]}>
                     <Switch
@@ -49,6 +60,7 @@ class ViewSwitch extends Component {
                                 }
                             }
                         }
+                        onTintColor={'#FF8214'}
                     />
                 </View>
             </View>
