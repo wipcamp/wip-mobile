@@ -13,7 +13,8 @@ class AddButton extends Component {
                     let topic = this.props.newproblem.topic
                     let problem_type_id = this.props.newproblem.problem_type_id
                     let description = this.props.newproblem.description
-                    if( topic != "" && problem_type_id != 0 && description != "") {
+                    let priority_id = this.props.newproblem.priority_id
+                    if( topic != "" && problem_type_id != 0 && description != "" && priority_id != 0) {
                         let result = await problemPost(this.props.newproblem)
                         if (result == 'true') {
                             this.props.navigation.navigate('ComingSoon')
