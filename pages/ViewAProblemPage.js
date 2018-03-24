@@ -44,10 +44,9 @@ class ViewAProblem extends Component {
         let user = await AsyncStorage.getItem('user')
         user = JSON.parse(user)
         
-        datas = await assignGetByProblemId(this.props.navigation.state.params.id)
-        console.log('assign data : ', datas)
-        let result = datas.find(data => data.assigned_id == user.user_id)
-        if (typeof result !== "undefined") {
+        let datas = await assignGetByProblemId(data.id)
+        let result = datas.findIndex(data => data.assigned_id == user.user_id)
+        if (result != -1) {
             this.setState({
                 assign: true
             })
