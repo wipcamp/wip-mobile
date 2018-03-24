@@ -74,7 +74,7 @@ class ViewAProblem extends Component {
     __renderData() {
         return (
             <ScrollView>
-                <Topic data={this.state.data} />
+                <Topic topic={this.state.data.topic} />
                 <Data
                     left = "Category"
                     right = { this.__renderCategory() }
@@ -87,7 +87,7 @@ class ViewAProblem extends Component {
                         .join("/")
                     }
                 />
-                <Description data={this.state.data} />
+                <Description description={this.state.data.description} />
                 <Data
                     left = "Priority"
                     right = { this.__renderPriority() }
