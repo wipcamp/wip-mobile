@@ -1,5 +1,4 @@
 export const initState = {
-    filter : 0, 
     problem : [], // for all problem in database
     newProblem : {
         topic: "",
@@ -10,10 +9,6 @@ export const initState = {
     }, // for report problem any input
     categoryProblem : [],
     priority : [],
-    filterView : [{
-        value: 0,
-        label: "ทั้งหมด"
-    }],
     timetable: [],
     date: "30-May",
     announce: []

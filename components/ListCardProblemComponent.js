@@ -8,15 +8,10 @@ class ListCardProblem extends Component {
         return (
             <FlatList
                 data={this.props.problem}
-                extraData={this.props.filter}
                 keyExtractor={(item) => item.id}
-                renderItem={({item}) => {
-                    if(this.props.filter == item.problem_type_id || this.props.filter == 0) {
-                        return (
-                            <ProblemCard key={item.id} data={item} navigation={this.props.navigation} />
-                        )
-                    }
-                }}
+                renderItem={({item}) => (
+                    <ProblemCard key={item.id} data={item} navigation={this.props.navigation} />
+                )}
             />
         )
     }
