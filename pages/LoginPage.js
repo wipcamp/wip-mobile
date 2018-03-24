@@ -3,12 +3,16 @@ import { View, Text, TouchableOpacity, Image, AsyncStorage } from 'react-native'
 import { Facebook } from 'expo'
 
 import env from '../config'
+
 import { auth } from '../utils/apiAuth'
 import { get as getUser } from '../utils/apiUser'
 import { get as getProfile } from '../utils/apiProfile'
 import { getByUserId as getRoleByUserId } from '../utils/apiUserRole'
+import { getByUserId as getRoleTeamByUserId } from '../utils/apiUserRoleTeam'
+
 import Styles from '../styles/LoginStyle'
 import ViewProblemStyle from '../styles/ViewProblemStyle'
+
 import WipLogo from '../src/images/Logo_WIPCamp.png'
 import FacebookLogo from '../src/images/facebook-logo.png'
 
@@ -74,10 +78,16 @@ class Login extends Component {
         
         profile.pic = userInfo.picture.data.url
         profile.roles = []
+        profile.roleteams = []
         
         let role = await getRoleByUserId(profile.user_id)
         role.map(data => {
             profile.roles.push(data.role_id)
+        })
+
+        let roleTeam = await getRoleTeamByUserId(profile.user_id)
+        roleTeam.map(data => {
+            profile.roleteams.push(data.role_team_id)
         })
 
         await AsyncStorage.setItem('user', JSON.stringify(profile))
