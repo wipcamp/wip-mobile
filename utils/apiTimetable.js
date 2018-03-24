@@ -15,6 +15,20 @@ export async function getAll() {
     return api.data
 }
 
+export async function get(id) {
+    let api
+    try {
+        api = await Api.get(`/timetables/${id}`, {Authorization: `Bearer ${await getToken()}`})
+    }
+    catch (error) {
+        if(error.status == 401) {
+            await refresh()
+            api = await Api.get(`/timetables/${id}`, {Authorization: `Bearer ${await getToken()}`})
+        }
+    }
+    return api.data
+}
+
 export async function getByRoleTeamId(roleTeamId) {
     let api
     try {
