@@ -1,10 +1,8 @@
 import React, { Component } from 'react'
-import { ScrollView, View } from 'react-native'
+import { ScrollView, View, Text } from 'react-native'
 
-import { getByName as roleTeamGetByName } from '../utils/apiRoleTeam'
-import { getAll as timetableGetAll } from '../utils/apiTimetable'
+import { getByDate as timetableGetByDate } from '../utils/apiTimetable'
 
-import DayBar from '../components/DayBarComponent'
 import HourBG from '../components/HourBGComponent'
 import ListCardEvent from '../components/ConnectListCardEventComponent'
 import EventCard from '../components/EventCardComponent'
@@ -16,18 +14,21 @@ class Timetable extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            roleWipper: false
+            date: ''
         }
     }
 
     async componentWillMount() {
-        let id = await roleTeamGetByName('WIPPER')
-        this.props.navigation.state.params.id == id
-            ? this.setState({ roleWipper: true })
-            : this.setState({ roleWipper: false })
-
-        let datas = await timetableGetAll()
+        let d = new Date(2018, 5, 1)
+        let year = d.getFullYear()
+        let month = d.getMonth() + 1 < 10 ? `0${d.getMonth() + 1}` : d.getMonth() + 1
+        let day = d.getDate() < 10 ? `0${d.getDate()}` : d.getDate()
+        let date = `${year}-${month}-${day}`
+        this.setState({
+            date: date
+        })
         this.props.resetTimetable()
+        let datas = await timetableGetByDate(date)
         datas.map(data => {
             this.props.addTimetable(data)
         })
@@ -36,15 +37,12 @@ class Timetable extends Component {
     render() {
         return (
             <ScrollView style={ReportStyles.bg}>
-                <DayBar />
+                <View>
+                    <Text>{this.state.date}</Text>
+                </View>
                 <View style={[ReportStyles.bgWhite, Styles.paddingTop10, Styles.paddingBottom10]}>
-                    <HourBG
-                        half = { this.state.roleWipper }
-                    />
-                    <ListCardEvent
-                        roleId = {this.props.navigation.state.params.id}
-                        half = { this.state.roleWipper }
-                    />
+                    <HourBG />
+                    <ListCardEvent />
                 </View>
             </ScrollView>
         )
