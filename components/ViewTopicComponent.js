@@ -11,7 +11,7 @@ class ViewTopic extends Component {
             <View style={[ReportStyles.bgWhite, ReportStyles.spacesTop]}>
                 <TextField
                     label ='Topic'
-                    value={this.props.data.topic}
+                    value={this.props.topic}
                     disabled={false}
                     editable={false}
                     multiline={true}
