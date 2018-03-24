@@ -42,7 +42,7 @@ class Timetable extends Component {
                 </View>
                 <View style={[ReportStyles.bgWhite, Styles.paddingTop10, Styles.paddingBottom10]}>
                     <HourBG />
-                    <ListCardEvent />
+                    <ListCardEvent navigation={this.props.navigation} />
                 </View>
             </ScrollView>
         )

@@ -33,7 +33,7 @@ class ListCardEvent extends Component {
     _renderCardEvent() {
         let datas = this.props.timetable.filter(data => this.state.roleteams.indexOf(data.role_team_id) >= 0)
         return datas.map(data => (
-            <EventCard key={data.id} data={data}/>
+            <EventCard key={data.id} data={data} navigation={this.props.navigation}/>
         ))
     }
 }

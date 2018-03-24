@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
-import { View, Dimensions, Text } from 'react-native'
+import { TouchableOpacity, Dimensions, Text } from 'react-native'
 
 import Styles from '../styles/TimetableStyle'
 
 class EventCard extends Component {
     render() {
         return(
-            <View
+            <TouchableOpacity
+                onPress={() => this.props.navigation.navigate('TimetableDetail', {id: this.props.data.id})}
                 style={[
                     Styles.eventCard,
                     {
@@ -17,7 +18,7 @@ class EventCard extends Component {
                 ]}
             >
                 <Text style={[Styles.topic, Styles.paddingLR5]}>{this.props.data.event}</Text>
-            </View>
+            </TouchableOpacity>
         )
     }
 
