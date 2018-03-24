@@ -17,8 +17,6 @@ class EventCard extends Component {
                 ]}
             >
                 <Text style={[Styles.topic, Styles.paddingLR5]}>{this.props.data.event}</Text>
-                <Text style={[Styles.description, Styles.paddingLR5]}>{this.props.data.description}</Text>
-                <Text style={[Styles.description, Styles.paddingLR5]}>{this.props.data.location}</Text>
             </View>
         )
     }
