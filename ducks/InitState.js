@@ -1,17 +1,14 @@
 export const initState = {
-    filter : 0, 
     problem : [], // for all problem in database
     newProblem : {
         topic: "",
         problem_type_id: 0,
         description: "",
-        report_id: null
+        report_id: null,
+        priority_id: 0
     }, // for report problem any input
     categoryProblem : [],
-    filterView : [{
-        value: 0,
-        label: "ทั้งหมด"
-    }],
+    priority : [],
     timetable: [],
     date: "30-May",
     announce: []

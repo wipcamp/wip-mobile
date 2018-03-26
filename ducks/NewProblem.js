@@ -4,6 +4,7 @@ const SET_NEW_TOPIC = "SET_NEW_TOPIC"
 const SET_NEW_TYPE = "SET_NEW_TYPE"
 const SET_NEW_DESCRIPTION = "SET_NEW_DESCRIPTION"
 const SET_NEW_REPORTID = "SET_NEW_REPORTID"
+const SET_NEW_PRIORITY = "SET_NEW_PRIORITY"
 
 export default function reducer (state = initState, action) {
     switch (action.type) {
@@ -35,6 +36,13 @@ export default function reducer (state = initState, action) {
                     report_id : action.id
                 }
             }
+        case SET_NEW_PRIORITY :
+            return {
+                newProblem : {
+                    ...state.newProblem,
+                    priority_id : action.id
+                }
+            }
         default : 
             return state
     }
@@ -57,5 +65,10 @@ export const setNewProblemDescription = description => ({
 
 export const setNewProblemReportId = id => ({
     type : SET_NEW_REPORTID,
+    id
+})
+
+export const setNewProblemPriorityId = id => ({
+    type : SET_NEW_PRIORITY,
     id
 })
