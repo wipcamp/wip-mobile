@@ -3,8 +3,8 @@ import { StackNavigator } from 'react-navigation'
 
 import LoginPage from '../pages/NetLoginPage'
 import MainPage from '../pages/NetMainPage'
-import TimetableRolePage from '../pages/NetTimetableRolePage'
 import TimetablePage from '../pages/NetTimetablePage'
+import TimetableDetailPage from '../pages/NetTimetableDetailPage'
 import AllAnnouncePage from '../pages/NetAllAnnouncePage'
 import AnnouncePage from '../pages/NetAnnouncePage'
 import AllProblemPage from '../pages/NetViewAllProblemPage'
@@ -32,17 +32,18 @@ const MainNavigator = StackNavigator(
                 gesturesEnabled: false
             }
         },
-        TimetableRole: {
-            screen: TimetableRolePage,
-            navigationOptions: {
-                title: 'Time Schedule'
-            }
-        },
         Timetable: {
-            path: 'timetable/:id',
             screen: TimetablePage,
             navigationOptions: {
                 title: 'Time Schedule',
+                gesturesEnabled: false
+            }
+        },
+        TimetableDetail: {
+            path: 'timetable/:id',
+            screen: TimetableDetailPage,
+            navigationOptions: {
+                title: 'Details',
                 gesturesEnabled: false
             }
         },

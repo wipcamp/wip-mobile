@@ -57,12 +57,13 @@ const style = StyleSheet.create({
     },
     eventContainer: {
         position: "absolute",
-        marginLeft: '5%',
         zIndex: 50
     },
     eventCard: {
+        position: "absolute",
         backgroundColor: "#ffb06b",
-        marginLeft: width*0.1
+        marginLeft: width*0.15,
+        overflow: 'hidden'
     },
     paddingTop10: {
         paddingTop: 10

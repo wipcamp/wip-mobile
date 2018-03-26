@@ -37,7 +37,12 @@ class MainPage extends Component {
                         Styles.marginRight10
                     ]}
                 >
-                    <Text style={Styles.marginRight10}>{this.state.userProfile ? this.state.userProfile.nickname : null}</Text>
+                    <Text style={Styles.marginRight10}>
+                        { this.state.userProfile 
+                            ? this.state.userProfile.nickname
+                            : null
+                        }
+                    </Text>
                     { this.state.userProfile
                         ? this.__renderProfileImg()
                         : null
@@ -52,7 +57,7 @@ class MainPage extends Component {
                 <Menu
                     leftIcon = { require('../src/images/calendar.png') }
                     leftText = "TIME SCHEDULE"
-                    leftFunction = {() => this.props.navigation.navigate('TimetableRole')}
+                    leftFunction = {() => this.props.navigation.navigate('Timetable')}
                     rightIcon = { require('../src/images/megaphone.png') }
                     rightText = "ANNOUNCEMENT"
                     rightFunction = {() => this.props.navigation.navigate('AllAnnounce')}
@@ -60,21 +65,7 @@ class MainPage extends Component {
                 <Menu
                     leftIcon = { require('../src/images/file.png') }
                     leftText = "VIEW PROBLEM"
-                    leftFunction = {async () => {
-                        let seniorId = await roleGetByName('camp_staffs_senior')
-                        let senior = false
-                        for (let i = 0; i < this.state.userProfile.roles.length; i++) {
-                            if (this.state.userProfile.roles[i] == seniorId) {                                
-                                senior = true
-                            }
-                        }
-                        if (senior) {
-                            this.props.navigation.navigate('AllProblem')    
-                        } 
-                        else {                            
-                            this.props.navigation.navigate('Error')
-                        }
-                    }}
+                    leftFunction = {() => this.props.navigation.navigate('AllProblem')}
                     rightIcon = { require('../src/images/pen.png') }
                     rightText = "REPORT PROBLEM"
                     rightFunction = {() => this.props.navigation.navigate('ReportProblem')}

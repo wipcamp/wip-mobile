@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { View, FlatList, Text, Dimension } from 'react-native'
 
 import Styles from '../styles/TimetableStyle'
-import ViewStyle from '../styles/ViewProblemStyle'
 
 class HourBG extends Component {
     render() {
@@ -16,7 +15,7 @@ class HourBG extends Component {
                             <View style={[Styles.timeWidth, Styles.alignCenter]}>
                                 <Text>{item.hour}</Text>
                             </View>
-                            <View style={[Styles.hourLine, ViewStyle.itemRight]}>
+                            <View style={Styles.hourLine}>
                             </View>
                         </View>
                     )}
@@ -27,30 +26,11 @@ class HourBG extends Component {
 
     _renderData() {
         let data = []
-        if(this.props.half) {
-            for (let i = 0; i < 48; i++) {
-                let temp = `${ i / 2 }`.split('.')
-                let time = {}
-                if(temp.length == 1) {
-                    temp[0].length == 1
-                        ? time = { hour: `0${temp[0]}:00` }
-                        : time = { hour: `${temp[0]}:00` }
-                }
-                else {
-                    temp[0].length == 1
-                        ? time = { hour: `0${temp[0]}:30` }
-                        : time = { hour: `${temp[0]}:30` }
-                }
-                data.push(time)
-            }
-        }
-        else {
-            for (let i = 0; i < 24; i++) {
-                let time = i < 10
-                        ? { hour: `0${i}:00` }
-                        : { hour: `${i}:00` }
-                data.push(time)
-            }
+        for (let i = 0; i < 24; i++) {
+            let time = i < 10
+                    ? { hour: `0${i}:00` }
+                    : { hour: `${i}:00` }
+            data.push(time)
         }
         return data
     }

@@ -10,7 +10,6 @@ export const initState = {
     categoryProblem : [],
     priority : [],
     timetable: [],
-    date: "30-May",
     announce: []
 }
 

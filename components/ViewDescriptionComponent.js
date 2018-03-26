@@ -11,7 +11,7 @@ class ViewDescription extends Component {
             <View style={ReportStyles.spacesTop}>
                 <TextField
                     label='Detail'
-                    value={this.props.data.description}
+                    value={this.props.description}
                     disabled={false}
                     editable={false}
                     multiline={true}
