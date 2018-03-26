@@ -59,7 +59,6 @@ class Login extends Component {
         )
 
         if (type !== 'success') {
-            alert('Uh oh, something went wrong')
             return
         }
         
