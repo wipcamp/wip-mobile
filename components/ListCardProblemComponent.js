@@ -5,7 +5,6 @@ import ProblemCard from './ProblemCardComponent'
 
 class ListCardProblem extends Component {
     render() {
-        console.log('assigns : ', this.props.assigns)
         return (
             <FlatList
                 data={this.props.problem}

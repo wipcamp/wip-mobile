@@ -8,7 +8,6 @@ import dot from '../src/images/new-message.png'
 
 class ProblemCard extends Component {
     render() {
-        console.log(`problems ${this.props.data.id} assign : ${this.props.assign}`)
         return (
             <TouchableOpacity
                 onPress={() => this.props.navigation.navigate('AProblem', {id: this.props.data.id})}
