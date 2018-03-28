@@ -4,13 +4,6 @@ import { FlatList } from 'react-native'
 import NotificationCard from './NotificationCardComponent'
 
 class ListCardNotification extends Component {
-    componentWillMount() {
-        console.log('will render noti card')
-    }
-    componentDidUpdate() {
-        console.log('noti : ', this.props.notification)
-    }
-
     render() {
         return (
             <FlatList
