@@ -5,8 +5,8 @@ import ReportReducer from '../ducks/ReportProblem'
 import NewProblemReducer from '../ducks/NewProblem'
 import CategoryReducer from '../ducks/CategoryProblem'
 import TimetableReducer from '../ducks/Timetable'
-import AnnounceReducer from '../ducks/Announce'
 import PriorityReducer from '../ducks/Priority'
+import NotificationReducer from '../ducks/Notification'
 
 const combine = combineReducers({
     InitReducer,
@@ -14,8 +14,8 @@ const combine = combineReducers({
     NewProblemReducer,
     CategoryReducer,
     TimetableReducer,
-    AnnounceReducer,
-    PriorityReducer
+    PriorityReducer,
+    NotificationReducer
 })
 
 export default combine
