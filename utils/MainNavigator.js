@@ -40,7 +40,7 @@ const MainNavigator = StackNavigator(
             }
         },
         TimetableDetail: {
-            path: 'timetable/:id',
+            path: 'timetable/:id/:noti',
             screen: TimetableDetailPage,
             navigationOptions: {
                 title: 'Details',
@@ -54,7 +54,7 @@ const MainNavigator = StackNavigator(
             }
         },
         Announce: {
-            path: 'announce/:id',
+            path: 'announce/:id/:noti',
             screen: AnnouncePage,
             navigationOptions: {
                 title: 'Announcement',
@@ -68,7 +68,7 @@ const MainNavigator = StackNavigator(
             }
         },
         AProblem: {
-            path: 'problem/:id',
+            path: 'problem/:id/:noti',
             screen: AProblemPage,
             navigationOptions: {
                 title: 'Details',
