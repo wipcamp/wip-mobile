@@ -10,7 +10,7 @@ export const initState = {
     categoryProblem : [],
     priority : [],
     timetable: [],
-    announce: []
+    notification: []
 }
 
 const INIT_STATE = "INIT_STATE"
