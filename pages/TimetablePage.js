@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { ScrollView, View, Text } from 'react-native'
+import { ScrollView, View, Text, RefreshControl } from 'react-native'
 
 import { getByDate as timetableGetByDate } from '../utils/apiTimetable'
 
@@ -14,11 +14,41 @@ class Timetable extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            date: ''
+            date: '',
+            loading: true
         }
     }
 
     async componentWillMount() {
+        await this.fetchTimetable()
+    }
+
+    render() {
+        return (
+            <ScrollView
+                style={ReportStyles.bg}
+                refreshControl={
+                    <RefreshControl
+                        refreshing={this.state.loading}
+                        onRefresh={async () => await this.fetchTimetable()}
+                        colors={["#ff8214"]}
+                        tintColor="#ff8214"
+                        size={RefreshControl.SIZE.LARGE}
+                    />
+                }    
+            >
+                <View>
+                    <Text>{this.state.date}</Text>
+                </View>
+                <View style={[ReportStyles.bgWhite, Styles.paddingTop10, Styles.paddingBottom10]}>
+                    <HourBG />
+                    <ListCardEvent navigation={this.props.navigation} />
+                </View>
+            </ScrollView>
+        )
+    }
+
+    async fetchTimetable() {
         let d = new Date(2018, 5, 1)
         let year = d.getFullYear()
         let month = d.getMonth() + 1 < 10 ? `0${d.getMonth() + 1}` : d.getMonth() + 1
@@ -32,20 +62,7 @@ class Timetable extends Component {
         datas.map(data => {
             this.props.addTimetable(data)
         })
-    }
-
-    render() {
-        return (
-            <ScrollView style={ReportStyles.bg}>
-                <View>
-                    <Text>{this.state.date}</Text>
-                </View>
-                <View style={[ReportStyles.bgWhite, Styles.paddingTop10, Styles.paddingBottom10]}>
-                    <HourBG />
-                    <ListCardEvent navigation={this.props.navigation} />
-                </View>
-            </ScrollView>
-        )
+        this.setState({loading: false})
     }
 }
 
