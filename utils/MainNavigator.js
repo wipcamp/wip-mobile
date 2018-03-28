@@ -5,7 +5,7 @@ import LoginPage from '../pages/NetLoginPage'
 import MainPage from '../pages/NetMainPage'
 import TimetablePage from '../pages/NetTimetablePage'
 import TimetableDetailPage from '../pages/NetTimetableDetailPage'
-import AllAnnouncePage from '../pages/NetAllAnnouncePage'
+import NotificationPage from '../pages/NetNotificationPage'
 import AnnouncePage from '../pages/NetAnnouncePage'
 import AllProblemPage from '../pages/NetViewAllProblemPage'
 import AProblemPage from '../pages/NetViewAProblemPage'
@@ -47,10 +47,10 @@ const MainNavigator = StackNavigator(
                 gesturesEnabled: false
             }
         },
-        AllAnnounce: {
-            screen: AllAnnouncePage,
+        Notification: {
+            screen: NotificationPage,
             navigationOptions: {
-                title: 'Announcement'
+                title: 'Notification'
             }
         },
         Announce: {
