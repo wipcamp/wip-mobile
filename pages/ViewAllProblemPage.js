@@ -72,17 +72,13 @@ class ViewAllProblem extends Component {
             }
         })
 
-        let problemCount =  await AsyncStorage.getItem('problemCount')
-        if(problemCount == null || problems.length >= parseInt(problemCount)) {
-            this.props.resetProblem()
-            await Promise.all(problems.map(async id => {
-                let data = await problemGet(id)
-                this.props.addProblem(data)
-            }))
-            this.props.sortProblem()
-            this.setState({loading: false})
-        }
-        await AsyncStorage.setItem('problemCount', `${problems.length}`)
+        this.props.resetProblem()
+        await Promise.all(problems.map(async id => {
+            let data = await problemGet(id)
+            this.props.addProblem(data)
+        }))
+        this.props.sortProblem()
+        this.setState({loading: false})
     }
 }
 
