@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { TouchableOpacity, View, Text } from 'react-native'
 
+import { get as assignGet } from '../utils/apiAssign'
 import checkDayLater from '../utils/DayLater'
 
 import Styles from '../styles/NotificationStyle'
@@ -8,8 +9,28 @@ import ReportStyles from '../styles/reportProblemStyle'
 import ViewStyles from '../styles/ViewProblemStyle'
 
 class NotificationCard extends Component {
-    componentWillMount() {
-        console.log('render noti card')
+    constructor(props) {
+        super(props)
+        this.state = {
+            route: [
+                {
+                    table: 'problems',
+                    navigate: 'AProblem'
+                },
+                {
+                    table: 'assigns',
+                    navigate: 'AProblem'
+                },
+                {
+                    table: 'timetables',
+                    navigate: 'TimetableDetail'
+                },
+                {
+                    table: 'announces',
+                    navigate: 'Announce'
+                }
+            ]
+        }
     }
 
     render() {
@@ -22,6 +43,22 @@ class NotificationCard extends Component {
                     ViewStyles.padTopBot10,
                     Styles.paddingLeft15
                 ]}
+                onPress={ async () => {
+                    let data = JSON.parse(this.props.data.data)
+                    this.state.route.map(async route => {
+                        if (route.table == data.table) {
+                            let id = 0
+                            if(route.navigate == 'assigns') {
+                                let assign = await assignGet(data.id)
+                                id = assign.problem_id
+                            }
+                            else {
+                                id = data.id
+                            }
+                            this.props.navigation.navigate(route.navigate, {id: id, noti: true})
+                        }
+                    })
+                }}
             >
                 <View style={[Styles.flex08, Styles.column]}>
                     <Text style={ViewStyles.topicForAllView}>
