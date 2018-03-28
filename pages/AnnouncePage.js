@@ -19,7 +19,6 @@ class AnnouncePage extends Component {
 
     async componentWillMount() {
         let data = await announceGet(this.props.navigation.state.params.id)
-        this.props.updateAnnounce(data)
         this.setState({
             data: data,
             loading: false
