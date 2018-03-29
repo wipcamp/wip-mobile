@@ -13,7 +13,6 @@ class ViewAllProblem extends Component {
         super(props)
         this.state = {
             loading: true,
-            assigns: []
         }
     }
 
@@ -37,7 +36,6 @@ class ViewAllProblem extends Component {
             >
                 <ListCardProblem
                     navigation={this.props.navigation}
-                    assigns={this.state.assigns}
                 />
             </ScrollView>
         )
@@ -65,19 +63,14 @@ class ViewAllProblem extends Component {
             if (problems.indexOf(problem_id) == -1) {
                 problems.push(problem_id)                    
             }
-            if (this.state.assigns.indexOf(problem_id) == -1) {
-                this.setState({
-                    assigns: [...this.state.assigns, problem_id]
-                })
-            }
         })
 
         this.props.resetProblem()
         await Promise.all(problems.map(async id => {
             let data = await problemGet(id)
             this.props.addProblem(data)
+            this.props.sortProblem()
         }))
-        this.props.sortProblem()
         this.setState({loading: false})
     }
 }
