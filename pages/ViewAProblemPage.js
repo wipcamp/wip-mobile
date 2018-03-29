@@ -25,7 +25,6 @@ class ViewAProblem extends Component {
     }
 
     async componentWillMount() {
-        console.log('navigate param', this.props.navigation.state.params)
         if (this.props.priority.length == 0) {
             let datas = await priorityGetAll()
             datas.map(data => {
