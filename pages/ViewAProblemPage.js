@@ -129,8 +129,14 @@ class ViewAProblem extends Component {
     __renderSwitch() {
         return (
             <View>
-                <SolveSwitch id={this.props.navigation.state.params.id} is_solve={true} />
-                <SolveSwitch id={this.props.navigation.state.params.id} not_solve={true} />
+                <SolveSwitch
+                    data={this.state.data}
+                    is_solve={true}
+                />
+                <SolveSwitch
+                    data={this.state.data}
+                    not_solve={true}
+                />
             </View>
         )
     }
