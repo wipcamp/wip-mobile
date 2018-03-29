@@ -16,7 +16,6 @@ class ListCardProblem extends Component {
                                 key={item.id}
                                 data={item}
                                 navigation={this.props.navigation}
-                                assign={this.props.assigns.indexOf(item.id) != -1}
                             />
                         )
                     }
