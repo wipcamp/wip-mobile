@@ -55,7 +55,7 @@ class NotificationCard extends Component {
                             else {
                                 id = data.id
                             }
-                            this.props.navigation.navigate(route.navigate, {id: id, noti: true})
+                            this.props.navigation.navigate(route.navigate, {id: id})
                         }
                     })
                 }}
