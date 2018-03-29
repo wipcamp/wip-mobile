@@ -51,7 +51,7 @@ class ViewAllProblem extends Component {
             let datas = await assignGetByRoleTeamId(roleteam)
             datas.map(data => {
                 let problem_id = data.problem_id
-                if (problems.indexOf(problem_id) == -1) {
+                if (data.assigned_id == null && problems.indexOf(problem_id) == -1) {
                     problems.push(problem_id)                    
                 }
             })
