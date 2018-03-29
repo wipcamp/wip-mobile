@@ -25,6 +25,7 @@ class ViewAProblem extends Component {
     }
 
     async componentWillMount() {
+        console.log('navigate param', this.props.navigation.state.params)
         if (this.props.priority.length == 0) {
             let datas = await priorityGetAll()
             datas.map(data => {
@@ -43,9 +44,18 @@ class ViewAProblem extends Component {
 
         let user = await AsyncStorage.getItem('user')
         user = JSON.parse(user)
+        let roleteams = user.roleteams
         
         let datas = await assignGetByProblemId(data.id)
-        let result = datas.findIndex(data => data.assigned_id == user.user_id)
+
+        let result = datas.findIndex(data => {
+            if (data.assigned_id == null) {
+                return roleteams.indexOf(data.role_team_id) != -1
+            }
+            else {
+                return data.assigned_id == user.user_id
+            }
+        })
         if (result != -1) {
             this.setState({
                 assign: true
