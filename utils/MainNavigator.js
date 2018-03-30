@@ -10,8 +10,6 @@ import AnnouncePage from '../pages/NetAnnouncePage'
 import AllProblemPage from '../pages/NetViewAllProblemPage'
 import AProblemPage from '../pages/NetViewAProblemPage'
 import ReportProblemPage from '../pages/NetReportProblemPage'
-import ErrorPage from '../pages/ErrorPage'
-import NotAvailablePage from '../pages/NotAvailablePage'
 import InternetNotFoundPage from '../pages/InternetNotFoundPage'
 
 import AddButton from '../components/ConnectAddButtonComponent'
@@ -81,18 +79,6 @@ const MainNavigator = StackNavigator(
                 title: 'ReportProblem',
                 headerRight: <AddButton navigation={navigation} />
             })
-        },
-        Error: {
-            screen: ErrorPage,
-            navigationOptions: {
-                title: ''
-            }
-        },
-        NotAvailable: {
-            screen: NotAvailablePage,
-            navigationOptions: {
-                title: ''
-            }
         },
         InternetNotFound: {
             screen: InternetNotFoundPage,
