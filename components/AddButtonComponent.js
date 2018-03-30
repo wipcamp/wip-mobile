@@ -2,13 +2,14 @@ import React, { Component } from 'react'
 import { Text, Alert } from 'react-native'
 
 import { post as problemPost } from '../utils/apiProblem'
-import Styles from '../styles/reportProblemStyle'
+
+import ComponentStyles from '../styles/ComponentStyle'
 
 class AddButton extends Component {
     render() {
         return (
             <Text
-                style={Styles.addButton}
+                style={ComponentStyles.addButton}
                 onPress={async () => {
                     let topic = this.props.newproblem.topic
                     let problem_type_id = this.props.newproblem.problem_type_id
@@ -17,7 +18,7 @@ class AddButton extends Component {
                     if( topic != "" && problem_type_id != 0 && description != "" && priority_id != 0) {
                         let result = await problemPost(this.props.newproblem)
                         if (result == 'true') {
-                            this.props.navigation.navigate('ComingSoon')
+                            this.props.navigation.navigate('Main')
                         }
                         else {
                             Alert.alert(
