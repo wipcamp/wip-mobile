@@ -13,6 +13,9 @@ const styles = StyleSheet.create({
     flex04: {
         flex: 0.4
     },
+    flex08: {
+        flex: 0.8
+    },
     flex1: {
         flex: 1
     },
@@ -50,8 +53,8 @@ const styles = StyleSheet.create({
     padT15: {
         paddingTop: 15
     },
-    padB17: {
-        paddingBottom: 17
+    padB15: {
+        paddingBottom: 15
     },
     padL10: {
         paddingLeft: 10

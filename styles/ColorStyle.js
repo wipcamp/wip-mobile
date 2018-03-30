@@ -10,9 +10,12 @@ const styles = StyleSheet.create({
     textWhite: {
         color: '#FFF'
     },
-    borderBotBlack062: {
-        borderColor: "#AAA",
-        borderBottomWidth: 0.62
+    textGray: {
+        color: '#858585'
+    },
+    borderBotBlack04: {
+        borderColor: "#C8C8C8",
+        borderBottomWidth: 0.40
     }
 })
 
