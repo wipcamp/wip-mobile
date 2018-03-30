@@ -7,6 +7,7 @@ import TimetablePage from '../pages/NetTimetablePage'
 import AllProblemPage from '../pages/NetViewAllProblemPage'
 import ReportProblemPage from '../pages/NetReportProblemPage'
 
+import NotiIcon from '../components/NotificationButtonComponent'
 import AddButton from '../components/ConnectAddButtonComponent'
 
 const d = new Date(2018, 5, 1)
@@ -19,27 +20,29 @@ const FeatureNavigation = TabNavigator(
     {
         Main: {
             screen: MainPage,
-            navigationOptions: {
-                headerRight: null,
+            navigationOptions: ({ navigation }) => ({
+                headerRight: <NotiIcon navigation={navigation} />,
                 tabBarLabel: 'Home',
-                tabBarIcon: () => <Icon ios='ios-home' android="md-home" style={{color: '#FFF'}} />
-            }
+                tabBarIcon: () => <Icon ios='ios-home' android='md-home' style={{color: '#FFF'}} />
+            })
         },
         AllProblem: {
             screen: AllProblemPage,
-            navigationOptions: {
+            navigationOptions: ({ navigation }) => ({
                 title: 'Problem',
+                headerRight: <NotiIcon navigation={navigation} />,
                 tabBarLabel: 'Problem',
-                tabBarIcon: () => <Icon ios='ios-search' android="md-search" style={{color: '#FFF'}} />
-            }
+                tabBarIcon: () => <Icon ios='ios-search' android='md-search' style={{color: '#FFF'}} />
+            })
         },
         Timetable: {
             screen: TimetablePage,
-            navigationOptions: {
+            navigationOptions: ({ navigation }) => ({
                 title: date,
+                headerRight: <NotiIcon navigation={navigation} />,
                 tabBarLabel: 'Timtetable',
-                tabBarIcon: () => <Icon ios='ios-calendar' android="md-calendar" style={{color: '#FFF'}} />
-            }
+                tabBarIcon: () => <Icon ios='ios-calendar' android='md-calendar' style={{color: '#FFF'}} />
+            })
         },
         ReportProblem: {
             screen: ReportProblemPage,
@@ -47,16 +50,17 @@ const FeatureNavigation = TabNavigator(
                 title: 'ReportProblem',
                 headerRight: <AddButton navigation={navigation} />,
                 tabBarLabel: 'Report',
-                tabBarIcon: () => <Icon ios='ios-create' android="md-create" style={{color: '#FFF'}} />                
+                tabBarIcon: () => <Icon ios='ios-create' android='md-create' style={{color: '#FFF'}} />                
             })
         },
         Profile: {
             screen: ReportProblemPage,
-            navigationOptions: {
+            navigationOptions: ({ navigation }) => ({
                 title: 'Profile',
+                headerRight: <NotiIcon navigation={navigation} />,
                 tabBarLabel: 'Profile',
-                tabBarIcon: () => <Icon ios='ios-contact' android="md-contact" style={{color: '#FFF'}} />
-            }
+                tabBarIcon: () => <Icon ios='ios-contact' android='md-contact' style={{color: '#FFF'}} />
+            })
         }
     },
     {

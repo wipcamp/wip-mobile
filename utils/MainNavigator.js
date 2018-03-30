@@ -9,6 +9,8 @@ import AnnouncePage from '../pages/NetAnnouncePage'
 import AProblemPage from '../pages/NetViewAProblemPage'
 import InternetNotFoundPage from '../pages/InternetNotFoundPage'
 
+import NotiIcon from '../components/NotificationButtonComponent'
+
 const MainNavigator = StackNavigator(
     {
         Feature: {
@@ -30,26 +32,26 @@ const MainNavigator = StackNavigator(
         TimetableDetail: {
             path: 'timetable/:id',
             screen: TimetableDetailPage,
-            navigationOptions: {
+            navigationOptions: ({ navigation }) => ({
                 title: 'Detail',
-                gesturesEnabled: false
-            }
+                headerRight: <NotiIcon navigation={navigation} />
+            })
         },
         Announce: {
             path: 'announce/:id',
             screen: AnnouncePage,
-            navigationOptions: {
+            navigationOptions: ({ navigation }) => ({
                 title: 'Detail',
-                gesturesEnabled: false
-            }
+                headerRight: <NotiIcon navigation={navigation} />
+            })
         },
         AProblem: {
             path: 'problem/:id',
             screen: AProblemPage,
-            navigationOptions: {
+            navigationOptions: ({ navigation }) => ({
                 title: 'Detail',
-                gesturesEnabled: false
-            }
+                headerRight: <NotiIcon navigation={navigation} />
+            })
         },
         InternetNotFound: {
             screen: InternetNotFoundPage,
