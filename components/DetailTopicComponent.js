@@ -22,7 +22,7 @@ class DetailTopic extends Component {
                         TextStyles.bold
                     ]}
                 >
-                    {this.props.topic}
+                    ปัญหา : {this.props.topic}
                 </Text>
             </View>
         )
