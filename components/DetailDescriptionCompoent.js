@@ -14,7 +14,7 @@ class DetailDescription extends Component {
                     LayoutStyles.padB15,
                     LayoutStyles.padLR10,
                     ColorStyles.bgWhite,
-                    ColorStyles.borderBotBlack062
+                    ColorStyles.borderBotBlack04
                 ]}
             >
                 <Text style={TextStyles.size18}>รายละเอียด :</Text>

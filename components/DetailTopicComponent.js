@@ -13,7 +13,7 @@ class DetailTopic extends Component {
                     LayoutStyles.padTB10,
                     LayoutStyles.padLR10,
                     ColorStyles.bgWhite,
-                    ColorStyles.borderBotBlack062
+                    ColorStyles.borderBotBlack04
                 ]}
             >
                 <Text

@@ -13,7 +13,7 @@ class DetailData extends Component {
                     LayoutStyles.padLR10,
                     LayoutStyles.row,
                     ColorStyles.bgWhite,
-                    ColorStyles.borderBotBlack062
+                    ColorStyles.borderBotBlack04
                 ]}
             >
                 {this.props.children}
