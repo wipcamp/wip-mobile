@@ -10,6 +10,9 @@ const styles = StyleSheet.create({
     flex21: {
         flex: 0.21
     },
+    flex04: {
+        flex: 0.4
+    },
     flex1: {
         flex: 1
     },
@@ -22,8 +25,11 @@ const styles = StyleSheet.create({
     alignCenter: {
         alignItems: 'center'
     },
-    alignTop: {
+    alignStart: {
         alignItems: 'flex-start'
+    },
+    alignEnd: {
+        alignItems: 'flex-end'
     },
     justifyStart: {
         justifyContent: 'flex-start'
@@ -31,8 +37,24 @@ const styles = StyleSheet.create({
     justifyCenter: {
         justifyContent: 'center'
     },
+    justifyAround: {
+        justifyContent: 'space-around'
+    },
     justifyEnd: {
         justifyContent: 'flex-end'
+    },
+    padTB10: {
+        paddingTop: 10,
+        paddingBottom: 10,
+    },
+    padT15: {
+        paddingTop: 15
+    },
+    padB17: {
+        paddingBottom: 17
+    },
+    padL10: {
+        paddingLeft: 10
     },
     padLR10: {
         paddingLeft: 10,
@@ -41,12 +63,12 @@ const styles = StyleSheet.create({
     maTop5: {
         marginTop: 5
     },
-    maTop35: {
-        marginTop: 35
+    maTop20: {
+        marginTop: 20
     },
     maBot35: {
         marginBottom: 35
-    },
+    }
 })
 
 export default styles

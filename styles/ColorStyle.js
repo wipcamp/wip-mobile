@@ -9,6 +9,10 @@ const styles = StyleSheet.create({
     },
     textWhite: {
         color: '#FFF'
+    },
+    borderBotBlack062: {
+        borderColor: "#AAA",
+        borderBottomWidth: 0.62
     }
 })
 
