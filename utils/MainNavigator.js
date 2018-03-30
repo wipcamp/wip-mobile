@@ -1,47 +1,23 @@
-import React from 'react'
 import { StackNavigator } from 'react-navigation'
 
-import LoginPage from '../pages/NetLoginPage'
-import MainPage from '../pages/NetMainPage'
-import TimetablePage from '../pages/NetTimetablePage'
-import TimetableDetailPage from '../pages/NetTimetableDetailPage'
-import NotificationPage from '../pages/NetNotificationPage'
-import AnnouncePage from '../pages/NetAnnouncePage'
-import AllProblemPage from '../pages/NetViewAllProblemPage'
-import AProblemPage from '../pages/NetViewAProblemPage'
-import ReportProblemPage from '../pages/NetReportProblemPage'
-import InternetNotFoundPage from '../pages/InternetNotFoundPage'
+import FeatureNavigator from './FeatureNavigation'
 
-import AddButton from '../components/ConnectAddButtonComponent'
+import LoginPage from '../pages/NetLoginPage'
+import NotificationPage from '../pages/NetNotificationPage'
+import TimetableDetailPage from '../pages/NetTimetableDetailPage'
+import AnnouncePage from '../pages/NetAnnouncePage'
+import AProblemPage from '../pages/NetViewAProblemPage'
+import InternetNotFoundPage from '../pages/InternetNotFoundPage'
 
 const MainNavigator = StackNavigator(
     {
+        Feature: {
+            screen: FeatureNavigator
+        },
         Login: {
             screen: LoginPage,
             navigationOptions: {
                 header: null,
-                gesturesEnabled: false
-            }
-        },
-        Main: {
-            screen: MainPage,
-            navigationOptions: {
-                header: null,
-                gesturesEnabled: false
-            }
-        },
-        Timetable: {
-            screen: TimetablePage,
-            navigationOptions: {
-                title: 'Time Schedule',
-                gesturesEnabled: false
-            }
-        },
-        TimetableDetail: {
-            path: 'timetable/:id',
-            screen: TimetableDetailPage,
-            navigationOptions: {
-                title: 'Details',
                 gesturesEnabled: false
             }
         },
@@ -51,34 +27,29 @@ const MainNavigator = StackNavigator(
                 title: 'Notification'
             }
         },
+        TimetableDetail: {
+            path: 'timetable/:id',
+            screen: TimetableDetailPage,
+            navigationOptions: {
+                title: 'Detail',
+                gesturesEnabled: false
+            }
+        },
         Announce: {
             path: 'announce/:id',
             screen: AnnouncePage,
             navigationOptions: {
-                title: 'Announcement',
+                title: 'Detail',
                 gesturesEnabled: false
-            }
-        },
-        AllProblem: {
-            screen: AllProblemPage,
-            navigationOptions: {
-                title: 'Problem'
             }
         },
         AProblem: {
             path: 'problem/:id',
             screen: AProblemPage,
             navigationOptions: {
-                title: 'Details',
+                title: 'Detail',
                 gesturesEnabled: false
             }
-        },
-        ReportProblem: {
-            screen: ReportProblemPage,
-            navigationOptions: ({ navigation }) => ({
-                title: 'ReportProblem',
-                headerRight: <AddButton navigation={navigation} />
-            })
         },
         InternetNotFound: {
             screen: InternetNotFoundPage,
