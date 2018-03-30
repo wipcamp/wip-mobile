@@ -11,7 +11,7 @@ class DetailDescription extends Component {
             <View
                 style={[
                     LayoutStyles.padTB10,
-                    LayoutStyles.padB17,
+                    LayoutStyles.padB15,
                     LayoutStyles.padLR10,
                     ColorStyles.bgWhite,
                     ColorStyles.borderBotBlack062
