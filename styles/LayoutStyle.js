@@ -71,6 +71,9 @@ const styles = StyleSheet.create({
     },
     maBot35: {
         marginBottom: 35
+    },
+    maR10: {
+        marginRight: 10
     }
 })
 
