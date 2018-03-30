@@ -21,13 +21,6 @@ import WipLogo from '../src/images/Logo_WIPCamp.png'
 import FacebookLogo from '../src/images/facebook-logo.png'
 
 class Login extends Component {
-    async componentWillMount() {
-        let user = await AsyncStorage.getItem('user')
-        if(user) {
-            this.props.navigation.navigate('Main')
-        }
-    }
-
     render() {
         return (
             <View
