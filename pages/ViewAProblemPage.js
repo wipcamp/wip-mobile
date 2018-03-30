@@ -1,17 +1,19 @@
 import React, { Component } from 'react'
-import { AsyncStorage, ScrollView, View, ActivityIndicator } from 'react-native'
+import { AsyncStorage, ActivityIndicator, ScrollView, View, Text } from 'react-native'
 
 import { get as problemGet } from '../utils/apiProblem'
 import { get as profileGet } from '../utils/apiProfile'
 import { getAll as priorityGetAll } from '../utils/apiPriority'
 import { getByProblemId as assignGetByProblemId } from '../utils/apiAssign'
 
-import Topic from '../components/ViewTopicComponent'
-import Description from '../components/ViewDescriptionComponent'
-import Data from '../components/ViewDataComponent'
-import SolveSwitch from '../components/ConnectViewSwitchComponent'
+import DetailTopic from '../components/DetailTopicComponent'
+import DetailData from '../components/DetailDataComponent'
+import DetailDescription from '../components/DetailDescriptionCompoent'
+import ProblemButton from '../components/ConnectProblemButtonComponent'
 
-import ReportStyle from '../styles/reportProblemStyle'
+import LayoutStyles from '../styles/LayoutStyle'
+import ColorStyles from '../styles/ColorStyle'
+import TextStyles from '../styles/TextStyles'
 
 class ViewAProblem extends Component {
     constructor(props) {
@@ -71,7 +73,12 @@ class ViewAProblem extends Component {
 
     render() {
         return (
-            <View style={ReportStyle.bg}>
+            <View
+                style={[
+                    LayoutStyles.flex1,
+                    ColorStyles.bgGrey
+                ]}
+            >
             { this.state.loading 
                 ? <ActivityIndicator size="large" color="#ff8214" />
                 : this.__renderData()
@@ -83,30 +90,16 @@ class ViewAProblem extends Component {
     __renderData() {
         return (
             <ScrollView>
-                <Topic topic={this.state.data.topic} />
-                <Data
-                    left = "Category"
-                    right = { this.__renderCategory() }
-                />
-                <Data
-                    left = "Date"
-                    right = { this.state.data.created_at
-                        .split(" ")[0]
-                        .split("-")
-                        .join("/")
-                    }
-                />
-                <Description description={this.state.data.description} />
-                <Data
-                    left = "Priority"
-                    right = { this.__renderPriority() }
-                />
-                <View style={ReportStyle.spacesBottom}>
-                    <Data
-                        left = "Reporter"
-                        right = { this.state.reporter }
-                    />
-                </View>
+                <DetailTopic topic={this.state.data.topic} />
+                <DetailData>
+                    <Text style={TextStyles.size16}>สำคัญ : {this.__renderPriority()}</Text>
+                </DetailData>
+                <DetailData>
+                    <Text style={TextStyles.size16}>ประเภท : {this.__renderCategory()}</Text>
+                </DetailData>
+                <DetailDescription>
+                    <Text style={TextStyles.size16}>{this.state.data.description}</Text>
+                </DetailDescription>
                 { !this.state.assign
                     ? null
                     : this.__renderSwitch()
@@ -128,14 +121,22 @@ class ViewAProblem extends Component {
 
     __renderSwitch() {
         return (
-            <View>
-                <SolveSwitch
-                    data={this.state.data}
-                    is_solve={true}
-                />
-                <SolveSwitch
+            <View
+                style={[
+                    LayoutStyles.padT15,
+                    LayoutStyles.row,
+                    LayoutStyles.justifyAround
+                ]}
+            >
+                <ProblemButton
                     data={this.state.data}
                     not_solve={true}
+                    navigation={this.props.navigation}
+                />
+                <ProblemButton
+                    data={this.state.data}
+                    is_solve={true}
+                    navigation={this.props.navigation}
                 />
             </View>
         )
