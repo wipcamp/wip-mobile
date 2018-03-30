@@ -13,6 +13,9 @@ const styles = StyleSheet.create({
     textGray: {
         color: '#858585'
     },
+    textOrange: {
+        color: '#FF8214'
+    },
     borderBotBlack04: {
         borderColor: "#C8C8C8",
         borderBottomWidth: 0.40
