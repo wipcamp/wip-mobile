@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { View, NetInfo } from 'react-native'
 
+import LayoutStyles from '../styles/LayoutStyle'
 const checknet = EnchangeComponent => class CheckNet extends Component {
     componentWillMount() {
         NetInfo.addEventListener(
@@ -15,7 +16,7 @@ const checknet = EnchangeComponent => class CheckNet extends Component {
 
     render() {
         return (
-            <View style={{flex: 1}}>
+            <View style={LayoutStyles.flex1}>
                 <EnchangeComponent {...this.props} />
             </View>
         )
