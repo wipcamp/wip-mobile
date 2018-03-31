@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
         color: '#FF8214'
     },
     textRed: {
-        color: '#5Cb85C'
+        color: '#D9534F'
     },
     textBlack: {
         color: '#000'
