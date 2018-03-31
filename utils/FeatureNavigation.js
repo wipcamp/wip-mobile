@@ -11,12 +11,6 @@ import NotiIcon from '../components/NotificationButtonComponent'
 import TabIcon from '../components/TabIconComponent'
 import AddButton from '../components/ConnectAddButtonComponent'
 
-const d = new Date(2018, 5, 1)
-let year = d.getFullYear()
-let month = d.getMonth() + 1 < 10 ? `0${d.getMonth() + 1}` : d.getMonth() + 1
-let day = d.getDate() < 10 ? `0${d.getDate()}` : d.getDate()
-let date = `${year}-${month}-${day}`
-
 const FeatureNavigation = TabNavigator(
     {
         Main: {
@@ -49,7 +43,7 @@ const FeatureNavigation = TabNavigator(
         Timetable: {
             screen: TimetablePage,
             navigationOptions: ({ navigation }) => ({
-                title: date,
+                title: 'TimeTable',
                 headerLeft: null,
                 headerRight: <NotiIcon navigation={navigation} />,
                 tabBarLabel: 'Timtetable',
