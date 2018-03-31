@@ -51,7 +51,7 @@ class AnnouncePage extends Component {
     __renderData() {
         return (
             <View>
-                <DetailTopic topic={this.state.data.topic} />
+                <DetailTopic topic={`เรื่อง ${this.state.data.topic}`} />
                 <DetailData>
                     <Text style={TextStyles.size16}>ถึง : {this.state.to}</Text>
                 </DetailData>
