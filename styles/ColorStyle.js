@@ -7,6 +7,9 @@ const styles = StyleSheet.create({
     bgWhite: {
         backgroundColor: '#FFF'
     },
+    bgOrange: {
+        backgroundColor: '#FF8214'
+    },
     textWhite: {
         color: '#FFF'
     },
@@ -15,6 +18,9 @@ const styles = StyleSheet.create({
     },
     textOrange: {
         color: '#FF8214'
+    },
+    textRed: {
+        color: '#5Cb85C'
     },
     textBlack: {
         color: '#000'
