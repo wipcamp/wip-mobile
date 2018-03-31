@@ -1,3 +1,4 @@
+import React from 'react'
 import { StackNavigator } from 'react-navigation'
 
 import FeatureNavigator from './FeatureNavigation'
@@ -14,7 +15,10 @@ import NotiIcon from '../components/NotificationButtonComponent'
 const MainNavigator = StackNavigator(
     {
         Feature: {
-            screen: FeatureNavigator
+            screen: FeatureNavigator,
+            navigationOptions: {
+                gesturesEnabled: true
+            }
         },
         Login: {
             screen: LoginPage,
@@ -26,7 +30,8 @@ const MainNavigator = StackNavigator(
         Notification: {
             screen: NotificationPage,
             navigationOptions: {
-                title: 'Notification'
+                title: 'Notification',
+                gesturesEnabled: true
             }
         },
         TimetableDetail: {
@@ -34,6 +39,7 @@ const MainNavigator = StackNavigator(
             screen: TimetableDetailPage,
             navigationOptions: ({ navigation }) => ({
                 title: 'Detail',
+                gesturesEnabled: true,
                 headerRight: <NotiIcon navigation={navigation} />
             })
         },
@@ -42,6 +48,7 @@ const MainNavigator = StackNavigator(
             screen: AnnouncePage,
             navigationOptions: ({ navigation }) => ({
                 title: 'Detail',
+                gesturesEnabled: true,
                 headerRight: <NotiIcon navigation={navigation} />
             })
         },
@@ -50,6 +57,7 @@ const MainNavigator = StackNavigator(
             screen: AProblemPage,
             navigationOptions: ({ navigation }) => ({
                 title: 'Detail',
+                gesturesEnabled: true,
                 headerRight: <NotiIcon navigation={navigation} />
             })
         },
