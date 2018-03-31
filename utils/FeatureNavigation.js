@@ -8,6 +8,7 @@ import AllProblemPage from '../pages/NetViewAllProblemPage'
 import ReportProblemPage from '../pages/NetReportProblemPage'
 
 import NotiIcon from '../components/NotificationButtonComponent'
+import TabIcon from '../components/TabIconComponent'
 import AddButton from '../components/ConnectAddButtonComponent'
 
 const d = new Date(2018, 5, 1)
@@ -21,45 +22,70 @@ const FeatureNavigation = TabNavigator(
         Main: {
             screen: MainPage,
             navigationOptions: ({ navigation }) => ({
+                headerLeft: null,
                 headerRight: <NotiIcon navigation={navigation} />,
                 tabBarLabel: 'Home',
-                tabBarIcon: () => <Icon ios='ios-home' android='md-home' style={{color: '#FFF'}} />
+                tabBarIcon: ({focused}) => <TabIcon 
+                    focus={focused}
+                    ios='ios-home-outline' fios='ios-home'
+                    android='md-home' fandroid='md-home'
+                />
             })
         },
         AllProblem: {
             screen: AllProblemPage,
             navigationOptions: ({ navigation }) => ({
                 title: 'Problem',
+                headerLeft: null,
                 headerRight: <NotiIcon navigation={navigation} />,
                 tabBarLabel: 'Problem',
-                tabBarIcon: () => <Icon ios='ios-search' android='md-search' style={{color: '#FFF'}} />
+                tabBarIcon: ({focused}) => <TabIcon
+                    focus={focused}
+                    ios='ios-search-outline' fios='ios-search'
+                    android='md-search' fandroid='md-search'
+                />
             })
         },
         Timetable: {
             screen: TimetablePage,
             navigationOptions: ({ navigation }) => ({
                 title: date,
+                headerLeft: null,
                 headerRight: <NotiIcon navigation={navigation} />,
                 tabBarLabel: 'Timtetable',
-                tabBarIcon: () => <Icon ios='ios-calendar' android='md-calendar' style={{color: '#FFF'}} />
+                tabBarIcon: ({focused}) => <TabIcon
+                    focus={focused}
+                    ios='ios-calendar-outline' fios='ios-calendar'
+                    android='md-calendar' fandroid='md-calendar'
+                />
             })
         },
         ReportProblem: {
             screen: ReportProblemPage,
             navigationOptions: ({ navigation }) => ({
                 title: 'ReportProblem',
+                headerLeft: null,
                 headerRight: <AddButton navigation={navigation} />,
                 tabBarLabel: 'Report',
-                tabBarIcon: () => <Icon ios='ios-create' android='md-create' style={{color: '#FFF'}} />                
+                tabBarIcon: ({focused}) => <TabIcon
+                    focus={focused}
+                    ios='ios-create-outline' fios='ios-create'
+                    android='md-create' fandroid='md-create'
+                />                
             })
         },
         Profile: {
             screen: ReportProblemPage,
             navigationOptions: ({ navigation }) => ({
                 title: 'Profile',
+                headerLeft: null,
                 headerRight: <NotiIcon navigation={navigation} />,
                 tabBarLabel: 'Profile',
-                tabBarIcon: () => <Icon ios='ios-contact' android='md-contact' style={{color: '#FFF'}} />
+                tabBarIcon: ({focused}) => <TabIcon
+                    focus={focused}
+                    ios='ios-contact-outline' fios='ios-contact'
+                    android='md-contact' fandroid='md-contact'
+                />
             })
         }
     },
@@ -71,10 +97,13 @@ const FeatureNavigation = TabNavigator(
         tabBarOptions: {
             showIcon: true,
             showLabel: true,
-            activeTintColor: '#FFF',
-            activeBackgroundColor: '#FF8214',
-            inactiveTintColor: '#FFF',
-            inactiveBackgroundColor: '#C8C8C8'
+            upperCaseLabel: false,
+            activeTintColor: '#FF8214',
+            inactiveTintColor: '#000',
+            style: {
+                backgroundColor: '#FFF',
+                paddingTop: 5
+            }
         }
     }
 )
