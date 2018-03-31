@@ -3,9 +3,6 @@ import { AsyncStorage, FlatList } from 'react-native'
 
 import EventCard from './EventCardComponent'
 
-import Styles from '../styles/TimetableStyle'
-import ViewStyles from '../styles/ViewProblemStyle'
-
 class ListCardEvent extends Component {
     constructor(props) {
         super(props)
