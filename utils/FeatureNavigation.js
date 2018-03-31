@@ -3,9 +3,10 @@ import { TabNavigator, TabBarBottom } from 'react-navigation'
 import { Icon } from 'native-base'
 
 import MainPage from '../pages/NetMainPage'
-import TimetablePage from '../pages/NetTimetablePage'
 import AllProblemPage from '../pages/NetViewAllProblemPage'
+import TimetablePage from '../pages/NetTimetablePage'
 import ReportProblemPage from '../pages/NetReportProblemPage'
+import ProfilePage from '../pages/ProfilePage'
 
 import NotiIcon from '../components/NotificationButtonComponent'
 import TabIcon from '../components/TabIconComponent'
@@ -69,7 +70,7 @@ const FeatureNavigation = TabNavigator(
             })
         },
         Profile: {
-            screen: ReportProblemPage,
+            screen: ProfilePage,
             navigationOptions: ({ navigation }) => ({
                 title: 'Profile',
                 headerLeft: null,
