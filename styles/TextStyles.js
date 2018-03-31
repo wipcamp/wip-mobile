@@ -16,6 +16,9 @@ const style = StyleSheet.create({
     size19: {
         fontSize: 19
     },
+    size24: {
+        fontSize: 24
+    },
     bold: {
         fontWeight: 'bold'
     },
