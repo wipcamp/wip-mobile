@@ -3,12 +3,12 @@ import { ScrollView, View, Text, RefreshControl } from 'react-native'
 
 import { getByDate as timetableGetByDate } from '../utils/apiTimetable'
 
-import HourBG from '../components/HourBGComponent'
 import ListCardEvent from '../components/ConnectListCardEventComponent'
 import EventCard from '../components/EventCardComponent'
 
-import Styles from '../styles/TimetableStyle'
-import ReportStyles from '../styles/reportProblemStyle'
+import LayoutStyles from '../styles/LayoutStyle'
+import ColorStyles from '../styles/ColorStyle'
+import TextStyles from '../styles/TextStyles'
 
 class Timetable extends Component {
     constructor(props) {
@@ -26,7 +26,10 @@ class Timetable extends Component {
     render() {
         return (
             <ScrollView
-                style={ReportStyles.bg}
+                style={[
+                    LayoutStyles.flex1,
+                    ColorStyles.bgGrey
+                ]}
                 refreshControl={
                     <RefreshControl
                         refreshing={this.state.loading}
@@ -37,13 +40,18 @@ class Timetable extends Component {
                     />
                 }    
             >
-                <View>
-                    <Text>{this.state.date}</Text>
-                </View>
-                <View style={[ReportStyles.bgWhite, Styles.paddingTop10, Styles.paddingBottom10]}>
-                    <HourBG />
-                    <ListCardEvent navigation={this.props.navigation} />
-                </View>
+                <Text
+                    style={[
+                        LayoutStyles.padTB10,
+                        ColorStyles.bgWhite,
+                        ColorStyles.borderBotBlack04,
+                        TextStyles.size18,
+                        TextStyles.center
+                    ]}
+                >
+                    {this.state.date}
+                </Text>
+                <ListCardEvent navigation={this.props.navigation} />
             </ScrollView>
         )
     }
@@ -59,9 +67,10 @@ class Timetable extends Component {
         })
         this.props.resetTimetable()
         let datas = await timetableGetByDate(date)
-        datas.map(data => {
+        await Promise.all(datas.map(data => 
             this.props.addTimetable(data)
-        })
+        ))
+        this.props.sortTimetable()
         this.setState({loading: false})
     }
 }
