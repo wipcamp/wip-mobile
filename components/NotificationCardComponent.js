@@ -1,84 +1,119 @@
 import React, { Component } from 'react'
-import { TouchableOpacity, View, Text } from 'react-native'
+import { TouchableOpacity, View, Text, Image } from 'react-native'
 
 import { get as assignGet } from '../utils/apiAssign'
-import checkDayLater from '../utils/DayLater'
 
-import Styles from '../styles/NotificationStyle'
-import ReportStyles from '../styles/reportProblemStyle'
-import ViewStyles from '../styles/ViewProblemStyle'
+import LayoutStyles from '../styles/LayoutStyle'
+import ColorStyles from '../styles/ColorStyle'
+import TextStyles from '../styles/TextStyles'
+import ImageStyles from '../styles/ImageStyle'
 
+import Problem from '../src/images/gear.png'
+import Timetable from '../src/images/calendar.png'
+import Announce from '../src/images/announce.png'
+
+const route = [
+    {
+        table: 'problems',
+        navigate: 'AProblem',
+        pic: Problem
+    },
+    {
+        table: 'assigns',
+        navigate: 'AProblem',
+        pic: Problem
+    },
+    {
+        table: 'timetables',
+        navigate: 'TimetableDetail',
+        pic: Timetable
+    },
+    {
+        table: 'announces',
+        navigate: 'Announce',
+        pic: Announce
+    }
+]
 class NotificationCard extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            route: [
-                {
-                    table: 'problems',
-                    navigate: 'AProblem'
-                },
-                {
-                    table: 'assigns',
-                    navigate: 'AProblem'
-                },
-                {
-                    table: 'timetables',
-                    navigate: 'TimetableDetail'
-                },
-                {
-                    table: 'announces',
-                    navigate: 'Announce'
-                }
-            ]
+            id: 0,
+            navigate: null,
+            pic: null
         }
+    }
+
+    async componentWillMount() {
+        let data = JSON.parse(this.props.data.data)
+        await Promise.all(route.map(async r => {
+            if (r.table == data.table) {
+                this.setState({
+                    navigate: r.navigate,
+                    pic: r.pic
+                })
+                if (r.navigate == 'assigns') {
+                    let assign = await assignGet(data.id)
+                    this.setState({
+                        id: assign.problem_id
+                    })
+                }
+                else {
+                    this.setState({
+                        id: data.id
+                    })
+                }
+            }
+        }))
     }
 
     render() {
         return (
             <TouchableOpacity
                 style={[
-                    Styles.row,
-                    Styles.border,
-                    ReportStyles.bgWhite,
-                    ViewStyles.padTopBot10,
-                    Styles.paddingLeft15
+                    LayoutStyles.row,
+                    LayoutStyles.padTB10,
+                    LayoutStyles.padLR10,
+                    ColorStyles.bgWhite,
+                    ColorStyles.borderBotBlack04
                 ]}
-                onPress={ async () => {
-                    let data = JSON.parse(this.props.data.data)
-                    this.state.route.map(async route => {
-                        if (route.table == data.table) {
-                            let id = 0
-                            if(route.navigate == 'assigns') {
-                                let assign = await assignGet(data.id)
-                                id = assign.problem_id
-                            }
-                            else {
-                                id = data.id
-                            }
-                            this.props.navigation.navigate(route.navigate, {id: id})
-                        }
-                    })
-                }}
+                onPress={ () => this.props.navigation.navigate(this.state.navigate, {id: this.state.id}) }
             >
-                <View style={[Styles.flex08, Styles.column]}>
-                    <Text style={ViewStyles.topicForAllView}>
-                        {
-                            this.props.data.title.lenght <= 25
-                            ? this.props.data.title.substr(0, 25)
-                            : this.props.data.title.substr(0, 25) + '...'
-                        }
-                    </Text>
-                    <Text style={ViewStyles.description}>
-                        {
-                            this.props.data.body <= 50
-                            ? this.props.data.body.substr(0, 50)
-                            : this.props.data.body.substr(0, 50) + '...'
-                        }
-                    </Text>
+                <View
+                    style={[
+                        LayoutStyles.flex02,
+                        LayoutStyles.alignCenter,
+                        LayoutStyles.justifyCenter
+                    ]}
+                >
+                    <Image
+                        style={ImageStyles.problemIcon}
+                        source={this.state.pic}
+                    />
                 </View>
-                <View style={[Styles.flex02, Styles.itemCenter]}>
-                    <Text style={[ViewStyles.date, ViewStyles.marginTop5]}>
-                        {checkDayLater(this.props.data.created_at)}
+                <View
+                    style={[
+                        LayoutStyles.column,
+                        LayoutStyles.flex08,
+                        LayoutStyles.justifyCenter
+                    ]}
+                >
+                    <Text
+                        style={TextStyles.size18}
+                        ellipsizeMode='tail'
+                        numberOfLines={1}
+                    >
+                        {this.props.data.title}
+                    </Text>
+                    <Text
+                        style={[
+                            TextStyles.size16,
+                            ColorStyles.textGray
+                        ]}
+                        ellipsizeMode='tail'
+                        numberOfLines={2}
+                    >
+                        {this.props.data.body}
                     </Text>
                 </View>
             </TouchableOpacity>
