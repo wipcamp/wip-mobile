@@ -18,6 +18,11 @@ const styles = StyleSheet.create({
         height: width * 0.2 - 20,
         width: width * 0.2 - 20,
         borderRadius: (width * 0.2 - 20) / 2
+    },
+    imgNoInternet: {
+        height : height * 0.25,
+        resizeMode: Image.resizeMode.contain,
+        right: width * -0.02
     }
 })
 
