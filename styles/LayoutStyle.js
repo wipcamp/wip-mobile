@@ -13,6 +13,12 @@ const styles = StyleSheet.create({
     flex04: {
         flex: 0.4
     },
+    flex06: {
+        flex: 0.6
+    },
+    flex07: {
+        flex: 0.7
+    },
     flex08: {
         flex: 0.8
     },
@@ -50,8 +56,17 @@ const styles = StyleSheet.create({
         paddingTop: 10,
         paddingBottom: 10,
     },
+    padT2: {
+        paddingTop: 2
+    },
+    padT8: {
+        paddingTop: 8
+    },
     padT15: {
         paddingTop: 15
+    },
+    padB4: {
+        paddingBottom: 4
     },
     padB15: {
         paddingBottom: 15
