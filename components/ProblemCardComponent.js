@@ -8,7 +8,7 @@ import ColorStyles from '../styles/ColorStyle'
 import TextStyles from '../styles/TextStyles'
 import ImageStyles from '../styles/ImageStyle'
 
-import Itim from '../src/images/food.png'
+import Itim from '../src/images/wippo_happy.png'
 
 class ProblemCard extends Component {
 
