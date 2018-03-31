@@ -12,6 +12,7 @@ class DetailData extends Component {
                     LayoutStyles.padTB10,
                     LayoutStyles.padLR10,
                     LayoutStyles.row,
+                    LayoutStyles.alignCenter,
                     ColorStyles.bgWhite,
                     ColorStyles.borderBotBlack04
                 ]}
