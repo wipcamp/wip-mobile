@@ -1,15 +1,17 @@
 import React, { Component } from 'react'
-import { Text, Alert } from 'react-native'
+import { TouchableOpacity, Alert } from 'react-native'
+import { Icon } from 'native-base'
 
 import { post as problemPost } from '../utils/apiProblem'
 
-import ComponentStyles from '../styles/ComponentStyle'
+import LayoutStyles from '../styles/LayoutStyle'
+import ColorStyle from '../styles/ColorStyle'
 
 class AddButton extends Component {
     render() {
         return (
-            <Text
-                style={ComponentStyles.addButton}
+            <TouchableOpacity
+                style={LayoutStyles.maR10}
                 onPress={async () => {
                     let topic = this.props.newproblem.topic
                     let problem_type_id = this.props.newproblem.problem_type_id
@@ -34,8 +36,8 @@ class AddButton extends Component {
                     }
                 }}
             >
-                ADD
-            </Text>
+                <Icon ios='ios-send' android='md-send' style={ColorStyle.textOrange} />
+            </TouchableOpacity>
         )
     }
 }
