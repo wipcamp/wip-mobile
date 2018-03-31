@@ -22,11 +22,12 @@ const styles = StyleSheet.create({
     solveButton: {
         backgroundColor: '#5Cb85C'
     },
-    addButton: {
-        color: '#1B94F1',
-        fontSize: 17,
-        marginRight: 10
-    },
+    point: {
+        height: 12,
+        width: 12,
+        borderRadius: 6,
+        backgroundColor: '#000'
+    }
 })
 
 export default styles
