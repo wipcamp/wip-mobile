@@ -84,7 +84,8 @@ class ProblemCard extends Component {
                 >
                     <Text
                         style={TextStyles.size18}
-                        ellipsizeMode='tail' numberOfLines={1}
+                        ellipsizeMode='tail'
+                        numberOfLines={1}
                     >
                         {this.props.data.topic}
                     </Text>
@@ -93,7 +94,8 @@ class ProblemCard extends Component {
                             TextStyles.size16,
                             ColorStyles.textGray
                         ]}
-                        ellipsizeMode='tail' numberOfLines={2}
+                        ellipsizeMode='tail'
+                        numberOfLines={2}
                     >
                         {this.props.data.description}
                     </Text>
