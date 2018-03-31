@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { AsyncStorage, View } from 'react-native'
+import { AsyncStorage, FlatList } from 'react-native'
 
 import EventCard from './EventCardComponent'
 
@@ -10,31 +10,35 @@ class ListCardEvent extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            roleteams: []
+            data: null
         }
     }
 
-    async componentWillMount() {
+    async componentDidUpdate() {
         let user = await AsyncStorage.getItem('user')
         user = JSON.parse(user)
+        let roleteam = user.roleteams
+
+        let data = this.props.timetable.filter(data => roleteam.indexOf(data.role_team_id) >= 0)
         this.setState({
-            roleteams: user.roleteams
+            data: data
         })
     }
 
     render() {
         return (
-            <View style={[Styles.eventContainer]}>
-                {this._renderCardEvent()}
-            </View>
+            <FlatList
+                data={this.state.data}
+                keyExtractor={(item) => item.id}
+                renderItem={({item}) => 
+                    <EventCard
+                        key={item.id}
+                        data={item}
+                        navigation={this.props.navigation}
+                    />
+                }
+            />
         )
-    }
-
-    _renderCardEvent() {
-        let datas = this.props.timetable.filter(data => this.state.roleteams.indexOf(data.role_team_id) >= 0)
-        return datas.map(data => (
-            <EventCard key={data.id} data={data} navigation={this.props.navigation}/>
-        ))
     }
 }
 
