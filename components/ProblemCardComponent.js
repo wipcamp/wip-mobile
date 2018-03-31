@@ -10,9 +10,6 @@ import ImageStyles from '../styles/ImageStyle'
 
 import Itim from '../src/images/food.png'
 
-import Styles from '../styles/ViewProblemStyle'
-import ReportStyle from '../styles/reportProblemStyle'
-
 class ProblemCard extends Component {
 
     constructor(props) {
@@ -59,7 +56,8 @@ class ProblemCard extends Component {
                 <View
                     style={[
                       LayoutStyles.flex02,
-                      LayoutStyles.alignCenter  
+                      LayoutStyles.alignCenter,
+                      LayoutStyles.justifyCenter 
                     ]}
                 >
                     {
