@@ -8,9 +8,6 @@ import ColorStyles from '../styles/ColorStyle'
 import TextStyles from '../styles/TextStyles'
 import ComponentStyles from '../styles/ComponentStyle'
 
-import Styles from '../styles/ViewProblemStyle'
-import ReportStyle from '../styles/reportProblemStyle'
-
 class ViewSwitch extends Component {
     render() {
         return (
