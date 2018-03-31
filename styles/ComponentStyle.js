@@ -1,4 +1,7 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet, Dimensions } from 'react-native'
+
+const height = Dimensions.get('screen').height
+const width = Dimensions.get('screen').width
 
 const styles = StyleSheet.create({
     facebookButton: {
@@ -27,6 +30,16 @@ const styles = StyleSheet.create({
         width: 12,
         borderRadius: 6,
         backgroundColor: '#000'
+    },
+    pointTimeline: {
+        height: 14,
+        width: 14,
+        borderRadius: 7,
+        backgroundColor: '#FF8214'
+    },
+    verticalLine: {
+        width: 2,
+        backgroundColor: '#FF8214'
     }
 })
 
