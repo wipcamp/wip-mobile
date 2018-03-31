@@ -90,7 +90,7 @@ class ViewAProblem extends Component {
     __renderData() {
         return (
             <ScrollView>
-                <DetailTopic topic={this.state.data.topic} />
+                <DetailTopic topic={`ปัญหา : ${this.state.data.topic}`} />
                 <DetailData>
                     <Text style={TextStyles.size16}>สำคัญ : {this.__renderPriority()}</Text>
                 </DetailData>
