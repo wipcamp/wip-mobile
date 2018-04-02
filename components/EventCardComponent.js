@@ -21,7 +21,7 @@ class EventCard extends Component {
             >
                 <View
                     style={[
-                        LayoutStyles.flex02,
+                        LayoutStyles.flex025,
                         LayoutStyles.column,
                         LayoutStyles.alignEnd,
                         LayoutStyles.justifyStart,
@@ -34,7 +34,10 @@ class EventCard extends Component {
                         { this.__renderTime() }
                     </Text>
                     <Text
-                        style={TextStyles.size12}
+                        style={[
+                            TextStyles.size10,
+                            ColorStyles.textGray
+                        ]}
                     >
                         { this.__renderDuration() }
                     </Text>
@@ -64,7 +67,7 @@ class EventCard extends Component {
                 </View>
                 <View
                     style={[
-                        LayoutStyles.flex07,
+                        LayoutStyles.flex065,
                         LayoutStyles.column,
                         LayoutStyles.alignStart,
                         LayoutStyles.justifyStart,
@@ -77,6 +80,8 @@ class EventCard extends Component {
                             TextStyles.size16,
                             TextStyles.bold
                         ]}
+                        ellipsizeMode='tail'
+                        numberOfLines={1}
                     >
                         {this.props.data.event}
                     </Text>
@@ -85,7 +90,8 @@ class EventCard extends Component {
                             TextStyles.size14,
                             ColorStyles.textGray
                         ]}
-                        ellipsizeMode='tail' numberOfLines={1}
+                        ellipsizeMode='tail'
+                        numberOfLines={1}
                     >
                         {this.props.data.description}
                     </Text>
