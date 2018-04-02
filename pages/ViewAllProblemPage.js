@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { AsyncStorage, ScrollView, View, ActivityIndicator } from 'react-native'
+import { AsyncStorage, ScrollView, View, ActivityIndicator, RefreshControl } from 'react-native'
 
 import { getByRoleTeamId as assignGetByRoleTeamId, getByAssignedId as assignGetByAssignedId } from '../utils/apiAssign'
 import { get as problemGet } from '../utils/apiProblem'
@@ -12,11 +12,38 @@ class ViewAllProblem extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            success: false
+            loading: true,
+            assigns: []
         }
     }
 
     async componentDidMount() {
+        await this.fetchProblem()
+    }
+
+    render() {
+        return (
+            <ScrollView
+                style={ReportStyle.bg}
+                refreshControl={
+                    <RefreshControl
+                      refreshing={this.state.loading}
+                      onRefresh={async () => await this.fetchProblem()}
+                      colors={["#ff8214"]}
+                      tintColor="#ff8214"
+                      size={RefreshControl.SIZE.LARGE}
+                    />
+                }
+            >
+                <ListCardProblem
+                    navigation={this.props.navigation}
+                    assigns={this.state.assigns}
+                />
+            </ScrollView>
+        )
+    }
+
+    async fetchProblem() {
         let user = await AsyncStorage.getItem('user')
         user = JSON.parse(user)
 
@@ -38,6 +65,11 @@ class ViewAllProblem extends Component {
             if (problems.indexOf(problem_id) == -1) {
                 problems.push(problem_id)                    
             }
+            if (this.state.assigns.indexOf(problem_id) == -1) {
+                this.setState({
+                    assigns: [...this.state.assigns, problem_id]
+                })
+            }
         })
 
         let problemCount =  await AsyncStorage.getItem('problemCount')
@@ -48,21 +80,9 @@ class ViewAllProblem extends Component {
                 this.props.addProblem(data)
             }))
             this.props.sortProblem()
-            this.setState({success: true})
+            this.setState({loading: false})
         }
         await AsyncStorage.setItem('problemCount', `${problems.length}`)
-
-    }
-
-    render() {
-        return (
-            <ScrollView style={ReportStyle.bg}>
-                { this.state.success
-                    ? <ListCardProblem navigation={this.props.navigation} />
-                    : <ActivityIndicator size="large" color="#ff8214" />
-                }
-            </ScrollView>
-        )
     }
 }
 

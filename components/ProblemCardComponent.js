@@ -24,11 +24,9 @@ class ProblemCard extends Component {
                 >
                     <View style={[Styles.flex05, Styles.itemCenter, Styles.marginTop5]}>
                         {
-                            this.props.data.is_solve || this.props.data.not_solve
-                            ? <Text></Text>
-                            : <Image
-                                source={dot}
-                            />
+                            this.props.assign
+                            ? <Image source={dot} />
+                            : null
                         }
                     </View>
                     <View style={[Styles.column, Styles.flex4]}>
