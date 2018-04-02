@@ -87,7 +87,7 @@ const FeatureNavigation = TabNavigator(
     {
         tabBarComponent: TabBarBottom,
         tabBarPosition: 'bottom',
-        swipeEnabled: true,
+        swipeEnabled: false,
         lazy: true,
         tabBarOptions: {
             showIcon: true,
