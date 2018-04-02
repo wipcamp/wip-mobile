@@ -7,14 +7,20 @@ const styles = StyleSheet.create({
     flex02: {
         flex: 0.2
     },
+    flex025: {
+        flex: 0.25
+    },
     flex21: {
         flex: 0.21
+    },
+    flex03: {
+        flex: 0.3
     },
     flex04: {
         flex: 0.4
     },
-    flex06: {
-        flex: 0.6
+    flex065: {
+        flex: 0.65
     },
     flex07: {
         flex: 0.7
