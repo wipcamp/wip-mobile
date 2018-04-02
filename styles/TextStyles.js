@@ -1,8 +1,8 @@
 import { StyleSheet } from 'react-native'
 
 const style = StyleSheet.create({
-    size12: {
-        fontSize: 12
+    size10: {
+        fontSize: 10
     },
     size14: {
         fontSize: 14
