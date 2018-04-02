@@ -36,6 +36,7 @@
     "enzyme-adapter-react-16": "^1.1.1",
     "expo": "^23.0.4",
     "jest-mock-axios": "^1.0.21",
+    "moment": "^2.22.0",
     "native-base": "^2.4.1",
     "react": "16.0.0",
     "react-dom": "^16.2.0",
