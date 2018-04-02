@@ -7,6 +7,22 @@ import Styles from '../styles/ViewProblemStyle'
 import ReportStyle from '../styles/reportProblemStyle'
 
 class ViewSwitch extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            solve: []
+        }
+    }
+
+    componentWillMount() {
+        this.props.data.is_solve == 0
+        ? this.setState({solve: [...this.state.solve, false]})
+        : this.setState({solve: [...this.state.solve, true]})
+        this.props.data.not_solve == 0
+        ? this.setState({solve: [...this.state.solve, false]})
+        : this.setState({solve: [...this.state.solve, true]})
+    }
+
     render() {
         return (
             <View
@@ -33,11 +49,11 @@ class ViewSwitch extends Component {
                     <Switch
                         value={
                             this.props.is_solve
-                            ? this._renderSolveValue()[0]
-                            : this._renderSolveValue()[1]
+                            ? this.state.solve[0]
+                            : this.state.solve[1]
                         }
                         disabled={
-                            this._renderSolveValue()[0] || this._renderSolveValue()[1]
+                            this.state.solve[0] || this.state.solve[1]
                             ? true
                             : false
                         }
@@ -67,20 +83,6 @@ class ViewSwitch extends Component {
         )
     }
 
-    _renderSolveValue() {
-        let is_solve = this.props.problem
-                        .filter(problem => problem.id == this.props.id)
-                        [0].is_solve
-        let not_solve = this.props.problem
-                        .filter(problem => problem.id == this.props.id)
-                        [0].not_solve
-        let solveValue = [
-            is_solve == 0 ? false : true
-            , not_solve == 0 ? false : true
-        ]
-        return solveValue
-    }
-
     _renderStyle() {
         let style = [
             ReportStyle.bgWhite,
@@ -88,11 +90,10 @@ class ViewSwitch extends Component {
             Styles.row,
             Styles.border,
         ]
-        let solve = this._renderSolveValue()
-        if(this.props.not_solve && solve[0]) {
+        if(this.props.not_solve && this.state.solve[0]) {
             style.push(Styles.disable)
         }
-        if(this.props.is_solve && solve[1]) {
+        if(this.props.is_solve && this.state.solve[1]) {
             style.push(Styles.disable)
         }
 

@@ -10,6 +10,8 @@ import { get as getProfile } from '../utils/apiProfile'
 import { getByUserId as getRoleByUserId } from '../utils/apiUserRole'
 import { getByUserId as getRoleTeamByUserId } from '../utils/apiUserRoleTeam'
 
+import { registerPushNotiAsync } from '../utils/Notification'
+
 import Styles from '../styles/LoginStyle'
 import ViewProblemStyle from '../styles/ViewProblemStyle'
 
@@ -74,6 +76,8 @@ class Login extends Component {
         
         let user = await getUser(userInfo.id, token)
         let profile = await getProfile(user.id)
+
+        await registerPushNotiAsync(profile.user_id)
         
         profile.pic = userInfo.picture.data.url
         profile.roles = []

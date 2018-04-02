@@ -43,9 +43,18 @@ class ViewAProblem extends Component {
 
         let user = await AsyncStorage.getItem('user')
         user = JSON.parse(user)
+        let roleteams = user.roleteams
         
         let datas = await assignGetByProblemId(data.id)
-        let result = datas.findIndex(data => data.assigned_id == user.user_id)
+
+        let result = datas.findIndex(data => {
+            if (data.assigned_id == null) {
+                return roleteams.indexOf(data.role_team_id) != -1
+            }
+            else {
+                return data.assigned_id == user.user_id
+            }
+        })
         if (result != -1) {
             this.setState({
                 assign: true
@@ -120,8 +129,14 @@ class ViewAProblem extends Component {
     __renderSwitch() {
         return (
             <View>
-                <SolveSwitch id={this.props.navigation.state.params.id} is_solve={true} />
-                <SolveSwitch id={this.props.navigation.state.params.id} not_solve={true} />
+                <SolveSwitch
+                    data={this.state.data}
+                    is_solve={true}
+                />
+                <SolveSwitch
+                    data={this.state.data}
+                    not_solve={true}
+                />
             </View>
         )
     }

@@ -13,7 +13,6 @@ class ViewAllProblem extends Component {
         super(props)
         this.state = {
             loading: true,
-            assigns: []
         }
     }
 
@@ -37,7 +36,6 @@ class ViewAllProblem extends Component {
             >
                 <ListCardProblem
                     navigation={this.props.navigation}
-                    assigns={this.state.assigns}
                 />
             </ScrollView>
         )
@@ -53,7 +51,7 @@ class ViewAllProblem extends Component {
             let datas = await assignGetByRoleTeamId(roleteam)
             datas.map(data => {
                 let problem_id = data.problem_id
-                if (problems.indexOf(problem_id) == -1) {
+                if (data.assigned_id == null && problems.indexOf(problem_id) == -1) {
                     problems.push(problem_id)                    
                 }
             })
@@ -65,24 +63,15 @@ class ViewAllProblem extends Component {
             if (problems.indexOf(problem_id) == -1) {
                 problems.push(problem_id)                    
             }
-            if (this.state.assigns.indexOf(problem_id) == -1) {
-                this.setState({
-                    assigns: [...this.state.assigns, problem_id]
-                })
-            }
         })
 
-        let problemCount =  await AsyncStorage.getItem('problemCount')
-        if(problemCount == null || problems.length >= parseInt(problemCount)) {
-            this.props.resetProblem()
-            await Promise.all(problems.map(async id => {
-                let data = await problemGet(id)
-                this.props.addProblem(data)
-            }))
+        this.props.resetProblem()
+        await Promise.all(problems.map(async id => {
+            let data = await problemGet(id)
+            this.props.addProblem(data)
             this.props.sortProblem()
-            this.setState({loading: false})
-        }
-        await AsyncStorage.setItem('problemCount', `${problems.length}`)
+        }))
+        this.setState({loading: false})
     }
 }
 

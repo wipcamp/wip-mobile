@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { createStore, applyMiddleware } from 'redux'
 import thunk from 'redux-thunk'
 import { Provider } from 'react-redux'
+import { Notifications } from 'expo'
 
 import MainNavigator from './utils/MainNavigator'
 import Reducers from './utils/Reducers'
@@ -13,10 +14,22 @@ const store = createStore(
 )
 store.dispatch(SET_INIT())
 
-const App = () => (
-  <Provider store={store}>
-    <MainNavigator />
-  </Provider>
-)
+class App extends Component {
+  componentWillMount() {
+    this._notificationSubscription = Notifications.addListener(this._handleNotification)
+  }
+
+  _handleNotification = (notification) => {
+    console.log('notification : ', notification)
+  }
+
+  render() {
+    return (
+      <Provider store={store}>
+        <MainNavigator />
+      </Provider>
+    )
+  }
+}
 
 export default App

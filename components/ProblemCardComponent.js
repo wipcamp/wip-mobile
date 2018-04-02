@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
-import { TouchableOpacity, View, Image, Text } from 'react-native'
+import { TouchableOpacity, View, Image, Text, AsyncStorage } from 'react-native'
+
+import { getByProblemId as assignGetByProblemId } from '../utils/apiAssign'
 
 import Styles from '../styles/ViewProblemStyle'
 import ReportStyle from '../styles/reportProblemStyle'
@@ -7,6 +9,36 @@ import ReportStyle from '../styles/reportProblemStyle'
 import dot from '../src/images/new-message.png'
 
 class ProblemCard extends Component {
+
+    constructor(props) {
+        super(props)
+        this.state = {
+            assign: false
+        }
+    }
+
+    async componentWillMount() {
+        let user = await AsyncStorage.getItem('user')
+        user = JSON.parse(user)
+        let roleteams = user.roleteams
+        
+        let datas = await assignGetByProblemId(this.props.data.id)
+
+        let result = datas.findIndex(data => {
+            if (data.assigned_id == null) {
+                return roleteams.indexOf(data.role_team_id) != -1
+            }
+            else {
+                return data.assigned_id == user.user_id
+            }
+        })
+        if (result != -1) {
+            this.setState({
+                assign: true
+            })
+        }
+    }
+
     render() {
         return (
             <TouchableOpacity
@@ -24,7 +56,7 @@ class ProblemCard extends Component {
                 >
                     <View style={[Styles.flex05, Styles.itemCenter, Styles.marginTop5]}>
                         {
-                            this.props.assign
+                            this.state.assign
                             ? <Image source={dot} />
                             : null
                         }

@@ -22,6 +22,9 @@ class MainPage extends Component {
         user = JSON.parse(user)
         this.setState({userProfile: user})
         this.props.setReportId(this.state.userProfile.user_id)
+
+        let token = await AsyncStorage.getItem('apiToken')
+        console.log('token : ', token)
     }
 
     render() {
@@ -59,8 +62,8 @@ class MainPage extends Component {
                     leftText = "TIME SCHEDULE"
                     leftFunction = {() => this.props.navigation.navigate('Timetable')}
                     rightIcon = { require('../src/images/megaphone.png') }
-                    rightText = "ANNOUNCEMENT"
-                    rightFunction = {() => this.props.navigation.navigate('AllAnnounce')}
+                    rightText = "NOTIFICATION"
+                    rightFunction = {() => this.props.navigation.navigate('Notification')}
                 />
                 <Menu
                     leftIcon = { require('../src/images/file.png') }
