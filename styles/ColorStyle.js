@@ -27,7 +27,11 @@ const styles = StyleSheet.create({
     },
     borderBotBlack04: {
         borderColor: "#C8C8C8",
-        borderBottomWidth: 0.40
+        borderBottomWidth: 0.4
+    },
+    borderBotBlack05: {
+        borderColor: "#C8C8C8",
+        borderBottomWidth: 0.5
     }
 })
 
