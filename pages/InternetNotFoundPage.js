@@ -7,8 +7,6 @@ import TextStyles from '../styles/TextStyles'
 import ImageStyles from '../styles/ImageStyle'
 import ComponentStyles from '../styles/ComponentStyle'
 
-import Styles from '../styles/ErrorPageStyle'
-
 import NoInternet from '../src/images/wippo_sad.png'
 
 class InternetNotFound extends Component {
