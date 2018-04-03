@@ -1,4 +1,6 @@
-import { StyleSheet } from 'react-native'
+import { StyleSheet, Dimensions } from 'react-native'
+
+const width = Dimensions.get('screen').width
 
 const styles = StyleSheet.create({
     flex01: {
@@ -10,14 +12,17 @@ const styles = StyleSheet.create({
     flex025: {
         flex: 0.25
     },
-    flex21: {
-        flex: 0.21
+    flex0275: {
+        flex: 0.275
     },
     flex03: {
         flex: 0.3
     },
     flex04: {
         flex: 0.4
+    },
+    flex045: {
+        flex: 0.45
     },
     flex065: {
         flex: 0.65
@@ -27,6 +32,9 @@ const styles = StyleSheet.create({
     },
     flex08: {
         flex: 0.8
+    },
+    flex09: {
+        flex: 0.9
     },
     flex1: {
         flex: 1
@@ -52,6 +60,9 @@ const styles = StyleSheet.create({
     justifyCenter: {
         justifyContent: 'center'
     },
+    justifyBetween: {
+        justifyContent: 'space-between'
+    },
     justifyAround: {
         justifyContent: 'space-around'
     },
@@ -65,8 +76,14 @@ const styles = StyleSheet.create({
     padT2: {
         paddingTop: 2
     },
+    padT5: {
+        paddingTop: 5
+    },
     padT8: {
         paddingTop: 8
+    },
+    padT10: {
+        paddingTop: 10
     },
     padT15: {
         paddingTop: 15
@@ -74,11 +91,21 @@ const styles = StyleSheet.create({
     padB4: {
         paddingBottom: 4
     },
+    padB5: {
+        paddingBottom: 5
+    },
+    padB10: {
+        paddingBottom: 10
+    },
     padB15: {
         paddingBottom: 15
     },
     padL10: {
         paddingLeft: 10
+    },
+    padLR05P: {
+        paddingLeft: width * 0.05,
+        paddingRight: width * 0.05
     },
     padLR10: {
         paddingLeft: 10,
@@ -95,7 +122,19 @@ const styles = StyleSheet.create({
     },
     maR10: {
         marginRight: 10
-    }
+    },
+    radius: {
+        borderRadius: width * 0.4 / 10
+    },
+    left95: {
+        left: 9.5
+    },
+    right95: {
+        right: 9.5
+    },
+    overHid: {
+        overflow: 'hidden'
+    },
 })
 
 export default styles
