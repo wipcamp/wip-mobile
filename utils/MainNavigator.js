@@ -10,6 +10,7 @@ import AnnouncePage from '../pages/NetAnnouncePage'
 import AProblemPage from '../pages/NetViewAProblemPage'
 import InternetNotFoundPage from '../pages/InternetNotFoundPage'
 
+import BackButton from '../components/BackButtonComponent'
 import NotiIcon from '../components/NotificationButtonComponent'
 
 const MainNavigator = StackNavigator(
@@ -29,10 +30,11 @@ const MainNavigator = StackNavigator(
         },
         Notification: {
             screen: NotificationPage,
-            navigationOptions: {
+            navigationOptions: ({ navigation }) => ({
                 title: 'Notification',
-                gesturesEnabled: true
-            }
+                gesturesEnabled: true,
+                headerLeft: <BackButton navigation={navigation} />
+            })
         },
         TimetableDetail: {
             path: 'timetable/:id',
@@ -40,6 +42,7 @@ const MainNavigator = StackNavigator(
             navigationOptions: ({ navigation }) => ({
                 title: 'Detail',
                 gesturesEnabled: true,
+                headerLeft: <BackButton navigation={navigation} />,
                 headerRight: <NotiIcon navigation={navigation} />
             })
         },
@@ -49,6 +52,7 @@ const MainNavigator = StackNavigator(
             navigationOptions: ({ navigation }) => ({
                 title: 'Detail',
                 gesturesEnabled: true,
+                headerLeft: <BackButton navigation={navigation} />,
                 headerRight: <NotiIcon navigation={navigation} />
             })
         },
@@ -58,6 +62,7 @@ const MainNavigator = StackNavigator(
             navigationOptions: ({ navigation }) => ({
                 title: 'Detail',
                 gesturesEnabled: true,
+                headerLeft: <BackButton navigation={navigation} />,
                 headerRight: <NotiIcon navigation={navigation} />
             })
         },
