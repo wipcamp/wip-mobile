@@ -8,9 +8,9 @@ import ColorStyles from '../styles/ColorStyle'
 import TextStyles from '../styles/TextStyles'
 import ImageStyles from '../styles/ImageStyle'
 
-import Problem from '../src/images/gear.png'
-import Timetable from '../src/images/calendar.png'
-import Announce from '../src/images/announce.png'
+import Problem from '../src/images/noti-problem.png'
+import Timetable from '../src/images/noti-calendar.png'
+import Announce from '../src/images/noti-announce.png'
 
 const route = [
     {
