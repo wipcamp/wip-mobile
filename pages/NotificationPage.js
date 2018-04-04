@@ -50,9 +50,14 @@ class Notification extends Component {
 
         let datas = await notificationGetByUserId(user.user_id)
         
-        this.props.resetNotification()
-        datas.map(data => this.props.addNotification(data))
-        this.props.reverseNotification()
+        await Promise.all(
+            this.props.resetNotification(),
+            datas.map(data => {
+                this.props.addNotification(data)
+                this.props.reverseNotification()
+            })
+        )
+        
         this.setState({loading: false})
     }
 }
