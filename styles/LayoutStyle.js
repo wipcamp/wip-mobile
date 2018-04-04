@@ -1,5 +1,6 @@
 import { StyleSheet, Dimensions } from 'react-native'
 
+const height = Dimensions.get('screen').height
 const width = Dimensions.get('screen').width
 
 const styles = StyleSheet.create({
@@ -91,9 +92,6 @@ const styles = StyleSheet.create({
     padB4: {
         paddingBottom: 4
     },
-    padB5: {
-        paddingBottom: 5
-    },
     padB10: {
         paddingBottom: 10
     },
@@ -102,6 +100,9 @@ const styles = StyleSheet.create({
     },
     padL10: {
         paddingLeft: 10
+    },
+    padL15: {
+        paddingLeft: 15
     },
     padLR05P: {
         paddingLeft: width * 0.05,
@@ -116,6 +117,9 @@ const styles = StyleSheet.create({
     },
     maTop20: {
         marginTop: 20
+    },
+    maBot5: {
+        marginBottom: 5
     },
     maBot35: {
         marginBottom: 35
@@ -135,6 +139,14 @@ const styles = StyleSheet.create({
     overHid: {
         overflow: 'hidden'
     },
+    f03w100h75: {
+        width: width,
+        height: height * 0.3 * 0.75
+    },
+    f03w100h25: {
+        width: width,
+        height: height * 0.3 * 0.25
+    }
 })
 
 export default styles
