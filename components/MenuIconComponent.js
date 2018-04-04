@@ -63,7 +63,7 @@ class MenuIcon extends Component {
         }
         else {
             styles = [
-                LayoutStyles.padB5,
+                LayoutStyles.maBot5,
                 ImageStyles.mainIconS
             ]
         }
