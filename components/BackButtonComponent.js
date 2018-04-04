@@ -5,7 +5,7 @@ import { Icon } from 'native-base'
 import LayoutStyles from '../styles/LayoutStyle'
 import ColorStyle from '../styles/ColorStyle'
 
-class BackButton extends Component {
+class BackButton extends Component { 
     render() {
         return (
             <TouchableOpacity
