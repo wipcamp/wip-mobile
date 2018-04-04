@@ -86,7 +86,12 @@ class Profile extends Component {
                     ]}
                 >
                     <DetailData>
-                        <Text style={TextStyles.size16}>
+                        <Text
+                            style={[
+                                TextStyles.kanit,
+                                TextStyles.size16
+                            ]}
+                        >
                             ชื่อ-สกุล : { this.state.user
                                 ? `${this.state.user.first_name} ${this.state.user.last_name}`
                                 : null
@@ -94,7 +99,12 @@ class Profile extends Component {
                         </Text>
                     </DetailData>
                     <DetailData>
-                        <Text style={TextStyles.size16}>
+                        <Text
+                            style={[
+                                TextStyles.kanit,
+                                TextStyles.size16
+                            ]}
+                        >
                             ชื่อเล่น : { this.state.user
                                 ? this.state.user.nickname
                                 : null
@@ -131,6 +141,7 @@ class Profile extends Component {
                         <Text
                             style={[
                                 LayoutStyles.padL15,
+                                TextStyles.kanit,
                                 TextStyles.size18,
                                 ColorStyles.textRed
                             ]}
@@ -153,6 +164,7 @@ class Profile extends Component {
                     <Text
                         style={[
                             LayoutStyles.padL10,
+                            TextStyles.kanit,
                             TextStyles.size16
                         ]}
                         key={i}

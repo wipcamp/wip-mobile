@@ -73,6 +73,13 @@ const MainNavigator = StackNavigator(
                 gesturesEnabled: false
             }
         }
+    },
+    {
+        navigationOptions: {
+            headerTitleStyle: {
+                fontFamily: 'Kanit'
+            }
+        }
     }
 )
 

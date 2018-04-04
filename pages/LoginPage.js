@@ -15,6 +15,7 @@ import { registerPushNotiAsync } from '../utils/Notification'
 import LayoutStyles from '../styles/LayoutStyle'
 import ColorStyles from '../styles/ColorStyle'
 import ImageStyles from '../styles/ImageStyle'
+import TextStyles from '../styles/TextStyles'
 import ComponentStyles from '../styles/ComponentStyle'
 
 import WipLogo from '../src/images/Logo_WIPCamp.png'
@@ -50,7 +51,8 @@ class Login extends Component {
                     <Text
                         style={[
                             LayoutStyles.maTop5,
-                            ColorStyles.textWhite
+                            ColorStyles.textWhite,
+                            TextStyles.kanit
                         ]}
                     >
                         Facebook Login

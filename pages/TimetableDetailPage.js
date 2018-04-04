@@ -61,7 +61,14 @@ class TimetableDetail extends Component {
             <View>
                 <DetailTopic topic={`กิจกรรม ${this.state.data.event}`} />
                 <DetailData>
-                    <Text style={TextStyles.size16}>ถึง : {this.state.role}</Text>
+                    <Text
+                        style={[
+                            TextStyles.kanit,
+                            TextStyles.size16
+                        ]}
+                    >
+                        ถึง : {this.state.role}
+                    </Text>
                 </DetailData>
                 <DetailData>
                     <Icon
@@ -71,6 +78,7 @@ class TimetableDetail extends Component {
                     <Text
                         style={[
                             LayoutStyles.padL10,
+                            TextStyles.kanit,
                             TextStyles.size16
                         ]}
                     >
@@ -107,6 +115,7 @@ class TimetableDetail extends Component {
                 <Text
                     style={[
                         LayoutStyles.padL10,
+                        TextStyles.kanit,
                         TextStyles.size16
                     ]}
                 >
@@ -144,6 +153,7 @@ class TimetableDetail extends Component {
                             <Text
                                 style={[
                                     LayoutStyles.padL10,
+                                    TextStyles.kanit,
                                     TextStyles.size16
                                 ]}
                             >

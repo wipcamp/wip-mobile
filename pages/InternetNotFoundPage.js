@@ -45,6 +45,7 @@ class InternetNotFound extends Component {
                 <Text
                     style={[
                         LayoutStyles.padTB10,
+                        TextStyles.kanit,
                         TextStyles.size24,
                         TextStyles.center,
                         ColorStyles.textWhite
@@ -63,6 +64,7 @@ class InternetNotFound extends Component {
                 >
                     <Text
                         style={[
+                            TextStyles.kanit,
                             TextStyles.size18,
                             ColorStyles.textOrange
                         ]}

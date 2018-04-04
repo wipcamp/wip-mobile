@@ -29,12 +29,16 @@ class EventCard extends Component {
                     ]}
                 >
                     <Text
-                        style={TextStyles.size19}
+                        style={[
+                            TextStyles.kanit,
+                            TextStyles.size19
+                        ]}
                     >
                         { this.__renderTime() }
                     </Text>
                     <Text
                         style={[
+                            TextStyles.kanit,
                             TextStyles.size10,
                             ColorStyles.textGray
                         ]}
@@ -77,6 +81,7 @@ class EventCard extends Component {
                 >
                     <Text
                         style={[
+                            TextStyles.kanit,
                             TextStyles.size16,
                             TextStyles.bold
                         ]}
@@ -87,6 +92,7 @@ class EventCard extends Component {
                     </Text>
                     <Text
                         style={[
+                            TextStyles.kanit,
                             TextStyles.size14,
                             ColorStyles.textGray
                         ]}

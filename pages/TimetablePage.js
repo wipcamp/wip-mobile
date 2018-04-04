@@ -74,6 +74,7 @@ class Timetable extends Component {
                         LayoutStyles.padTB10,
                         ColorStyles.bgWhite,
                         ColorStyles.borderBotBlack04,
+                        TextStyles.kanit,
                         TextStyles.size18,
                         TextStyles.center
                     ]}

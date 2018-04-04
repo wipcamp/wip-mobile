@@ -99,7 +99,10 @@ class NotificationCard extends Component {
                     ]}
                 >
                     <Text
-                        style={TextStyles.size18}
+                        style={[
+                            TextStyles.kanit,
+                            TextStyles.size18
+                        ]}
                         ellipsizeMode='tail'
                         numberOfLines={1}
                     >
@@ -107,6 +110,7 @@ class NotificationCard extends Component {
                     </Text>
                     <Text
                         style={[
+                            TextStyles.kanit,
                             TextStyles.size16,
                             ColorStyles.textGray
                         ]}

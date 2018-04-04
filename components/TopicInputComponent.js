@@ -4,6 +4,7 @@ import { TextField } from 'react-native-material-textfield'
 
 import LayoutStyles from '../styles/LayoutStyle'
 import ColorStyles from '../styles/ColorStyle'
+import TextStyles from '../styles/TextStyles'
 
 class TopicInput extends Component {
     render() {

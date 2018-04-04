@@ -18,6 +18,7 @@ class DetailTopic extends Component {
             >
                 <Text
                     style={[
+                        TextStyles.kanit,
                         TextStyles.size18,
                         TextStyles.bold
                     ]}

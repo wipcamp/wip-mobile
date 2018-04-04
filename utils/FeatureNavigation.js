@@ -98,6 +98,9 @@ const FeatureNavigation = TabNavigator(
             style: {
                 backgroundColor: '#FFF',
                 paddingTop: 5
+            },
+            labelStyle: {
+                fontFamily: 'Kanit'
             }
         }
     }

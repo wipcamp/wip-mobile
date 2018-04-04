@@ -92,10 +92,24 @@ class ViewAProblem extends Component {
             <ScrollView>
                 <DetailTopic topic={`ปัญหา : ${this.state.data.topic}`} />
                 <DetailData>
-                    <Text style={TextStyles.size16}>สำคัญ : {this.__renderPriority()}</Text>
+                    <Text
+                        style={[
+                            TextStyles.kanit,
+                            TextStyles.size16
+                        ]}
+                    >
+                        สำคัญ : {this.__renderPriority()}
+                    </Text>
                 </DetailData>
                 <DetailData>
-                    <Text style={TextStyles.size16}>ประเภท : {this.__renderCategory()}</Text>
+                    <Text
+                        style={[
+                            TextStyles.kanit,
+                            TextStyles.size16
+                        ]}
+                    >
+                        ประเภท : {this.__renderCategory()}
+                    </Text>
                 </DetailData>
                 <DetailDescription>
                     <Text style={TextStyles.size16}>{this.state.data.description}</Text>

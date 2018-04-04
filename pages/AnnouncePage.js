@@ -53,10 +53,24 @@ class AnnouncePage extends Component {
             <View>
                 <DetailTopic topic={`เรื่อง ${this.state.data.topic}`} />
                 <DetailData>
-                    <Text style={TextStyles.size16}>ถึง : {this.state.to}</Text>
+                    <Text
+                        style={[
+                            TextStyles.kanit,
+                            TextStyles.size16
+                        ]}
+                    >
+                        ถึง : {this.state.to}
+                    </Text>
                 </DetailData>
                 <DetailDescription>
-                    <Text style={TextStyles.size16}>{this.state.data.description}</Text>
+                    <Text
+                        style={[
+                            TextStyles.kanit,
+                            TextStyles.size16
+                        ]}
+                    >
+                        {this.state.data.description}
+                    </Text>
                 </DetailDescription>
             </View>
         )

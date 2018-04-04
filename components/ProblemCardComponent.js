@@ -83,7 +83,10 @@ class ProblemCard extends Component {
                     ]}
                 >
                     <Text
-                        style={TextStyles.size18}
+                        style={[
+                            TextStyles.kanit,
+                            TextStyles.size18
+                        ]}
                         ellipsizeMode='tail'
                         numberOfLines={1}
                     >
@@ -91,6 +94,7 @@ class ProblemCard extends Component {
                     </Text>
                     <Text
                         style={[
+                            TextStyles.kanit,
                             TextStyles.size16,
                             ColorStyles.textGray
                         ]}

@@ -71,20 +71,23 @@ class MenuIcon extends Component {
     }
 
     __renderTextStyle() {
-        let styles = []
+        let styles = [
+            TextStyles.kanit
+        ]
+        let styles2 = []
         if (this.props.two) {
-            styles = [
+            styles2 = [
                 LayoutStyles.right95,
                 TextStyles.size25
             ]
         }
         else {
-            styles = [
+            styles2 = [
                 LayoutStyles.padT5,
                 TextStyles.size16
             ]
         }
-        return styles
+        return [...styles, ...styles2]
     }
 }
 

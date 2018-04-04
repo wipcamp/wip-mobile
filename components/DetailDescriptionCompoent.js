@@ -17,7 +17,14 @@ class DetailDescription extends Component {
                     ColorStyles.borderBotBlack04
                 ]}
             >
-                <Text style={TextStyles.size18}>รายละเอียด :</Text>
+                <Text
+                    style={[
+                        TextStyles.kanit,
+                        TextStyles.size18
+                    ]}
+                >
+                    รายละเอียด :
+                </Text>
                 {this.props.children}
             </View>
         )
