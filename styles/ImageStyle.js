@@ -22,8 +22,9 @@ const styles = StyleSheet.create({
         height: width * 0.25
     },
     mainIconS: {
-        width: width * 0.19,
-        height: width * 0.19
+        // width: width * 0.19,
+        height: width * 0.19,
+        resizeMode: Image.resizeMode.contain,
     },
     problemIcon: {
         height: width * 0.2 - 20,
@@ -36,17 +37,18 @@ const styles = StyleSheet.create({
         right: width * -0.02
     },
     profileBanner: {
-        height: (height * 0.21) + (width * 0.3 / 2),
-        resizeMode: Image.resizeMode.cover,
+        height: height * 0.3 * 0.75,
+        width: width,
+        resizeMode: Image.resizeMode.cover
     },
     profileImg: {
-        height: width * 0.3,
-        width: width * 0.3,
-        borderRadius: width * 0.3 / 2,
+        height: height * 0.3 * 0.5,
+        width: height * 0.3 * 0.5,
+        borderRadius: height * 0.3 * 0.5 / 2,
         position: 'absolute',
         zIndex: 100,
         bottom: 0,
-        left: (width / 2) - (width * 0.3 / 2)
+        left: (width / 2) - (height * 0.3 * 0.5 / 2)
     }
 })
 
