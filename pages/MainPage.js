@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { AsyncStorage, View, Text, Image } from 'react-native'
+import { AsyncStorage, View, Text, Image, Alert } from 'react-native'
 
 import { get as roleteamGet } from '../utils/apiRoleTeam'
 
@@ -98,8 +98,11 @@ class MainPage extends Component {
 
     __renderQr() {
         return (
-            <MenuIcon>
-            </MenuIcon>
+            <MenuIcon
+                icon={ require('../src/images/qr.png') }
+                text='แสกน QR'
+                function={ () => Alert.alert('not avaliable') }
+            />
         )
     }
 }
