@@ -4,14 +4,62 @@ import { Icon } from 'native-base'
 
 import { get as roleteamGet } from '../utils/apiRoleTeam'
 
-import DetailData from '../components/DetailDataComponent'
+import RoleCard from '../components/RoleCardComponent'
 
 import LayoutStyles from '../styles/LayoutStyle'
 import ColorStyles from '../styles/ColorStyle'
 import TextStyles from '../styles/TextStyles'
 import ImageStyles from '../styles/ImageStyle'
 
-import Banner from '../src/images/Logo_WIPCamp.png'
+import Banner from '../src/images/bannerWIPXS.png'
+
+const role = [
+    {
+        name: 'พี่ไอติม',
+        ios: 'ios-ice-cream',
+        android: 'md-ice-cream'
+    },
+    {
+        name: 'พี่วิชาการ',
+        ios: 'ios-school',
+        android: 'md-school'
+    },
+    {
+        name: 'พี่สวัสดิการ',
+        ios: 'ios-restaurant',
+        android: 'md-restaurant'
+    },
+    {
+        name: 'พี่สถานที่',
+        ios: 'ios-pin',
+        android: 'md-pin'
+    },
+    {
+        name: 'พี่MC',
+        ios: 'ios-microphone',
+        android: 'md-microphone'
+    },
+    {
+        name: 'กองอำนวยการ',
+        ios: 'ios-megaphone',
+        android: 'md-megaphone'
+    },
+    {
+        name: 'คนนำทางน้อง',
+        ios: 'ios-compass',
+        android: 'md-compass'
+    },
+    {
+        name: 'พี่พยาบาล',
+        ios: 'ios-medkit',
+        android: 'md-medkit'
+    },
+    {
+        name: 'พี่ตากล้อง',
+        ios: 'ios-camera',
+        android: 'md-camera'
+    }
+]
 
 class Profile extends Component {
     constructor(props) {
@@ -25,7 +73,6 @@ class Profile extends Component {
     async componentWillMount() {
         let user = await AsyncStorage.getItem('user')
         user = JSON.parse(user)
-        console.log(user)
         this.setState({
             user: user
         })
@@ -56,14 +103,13 @@ class Profile extends Component {
                     <View
                         style={[
                             LayoutStyles.f03w100h75,
-                            LayoutStyles.overHid,
-                            ColorStyles.bgOrange
+                            LayoutStyles.overHid
                         ]}
                     >
-                        {/* <Image
+                        <Image
                             source={Banner}
                             style={ImageStyles.profileBanner}
-                        /> */}
+                        />
                     </View>
                     <View
                         style={[
@@ -85,38 +131,49 @@ class Profile extends Component {
                         LayoutStyles.column
                     ]}
                 >
-                    <DetailData>
+                    <View
+                        style={[
+                            LayoutStyles.padT10,
+                            LayoutStyles.row,
+                            LayoutStyles.justifyCenter,
+                            ColorStyles.bgWhite,
+                        ]}
+                    >
                         <Text
                             style={[
                                 TextStyles.kanit,
                                 TextStyles.size16
                             ]}
                         >
-                            ชื่อ-สกุล : { this.state.user
+                            { this.state.user
                                 ? `${this.state.user.first_name} ${this.state.user.last_name}`
                                 : null
                             }
                         </Text>
-                    </DetailData>
-                    <DetailData>
+                    </View>
+                    <View
+                        style={[
+                            LayoutStyles.row,
+                            LayoutStyles.justifyCenter,
+                            ColorStyles.bgWhite,
+                        ]}
+                    >
                         <Text
                             style={[
                                 TextStyles.kanit,
                                 TextStyles.size16
                             ]}
                         >
-                            ชื่อเล่น : { this.state.user
-                                ? this.state.user.nickname
+                            { this.state.user
+                                ? `(${this.state.user.nickname})`
                                 : null
                             }
                         </Text>
-                    </DetailData>
-                    <DetailData>
-                        { this.state.user
-                            ? this.__renderRoleteam()
-                            : null
-                        }
-                    </DetailData>
+                    </View>
+                    { this.state.user
+                        ? this.__renderRoleteam()
+                        : null
+                    }
                     <TouchableOpacity
                         style={[
                             LayoutStyles.row,
@@ -157,21 +214,57 @@ class Profile extends Component {
     __renderRoleteam() {
         return (
             <View
-                style={LayoutStyles.column}
+                style={[
+                    LayoutStyles.padTB10,
+                    LayoutStyles.padLR10,
+                    LayoutStyles.column,
+                    LayoutStyles.justifyCenter,
+                    ColorStyles.bgWhite
+                ]}
             >
-                <Text style={TextStyles.size16}>หน้าที่ :</Text>
-                { this.state.role.map( (r, i) => 
-                    <Text
-                        style={[
-                            LayoutStyles.padL10,
-                            TextStyles.kanit,
-                            TextStyles.size16
-                        ]}
-                        key={i}
-                    >
-                        - {r}
-                    </Text>
-                ) }
+                <View
+                    style={LayoutStyles.row}
+                >
+                    <View style={LayoutStyles.flex02} />
+                    <View style={LayoutStyles.flex03}>
+                        <Text
+                            style={[
+                                LayoutStyles.padR07P,
+                                LayoutStyles.maBot5,
+                                TextStyles.kanit,
+                                TextStyles.size16,
+                                TextStyles.center
+                            ]}
+                        >
+                            ตำแหน่ง :
+                        </Text>
+                    </View>
+                    <View style={LayoutStyles.flex05} />
+                </View>
+                
+                { this.state.role.map( (r, i) => {
+                    let index = role.findIndex( ro => ro.name == r)
+                    if( index != -1 ) {
+                        return (
+                            <RoleCard
+                                key={i}
+                                ios={role[index].ios}
+                                android={role[index].android}
+                                role={r}
+                            />
+                        )
+                    }
+                    else {
+                        return (
+                            <RoleCard
+                                key={i}
+                                ios='ios-person'
+                                android='md-person'
+                                role={r}
+                            />
+                        )
+                    }
+                }) }
             </View>
         )
     }
