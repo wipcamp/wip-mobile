@@ -6,6 +6,7 @@ import { get as profileGet } from '../utils/apiProfile'
 import Banner from '../components/ProfileBannerComponent'
 import FullName from '../components/FullNameComponent'
 import Nickname from '../components/NicknameComponent'
+import ProfileData from '../components/ProfileDataComponent'
 
 import LayoutStyles from '../styles/LayoutStyle'
 import ColorStyles from '../styles/ColorStyle'
@@ -36,7 +37,7 @@ class ProfileCamp extends Component {
                 style={[
                     LayoutStyles.column,
                     LayoutStyles.flex1,
-                    ColorStyles.bgGrey
+                    ColorStyles.bgWhite
                 ]}
             >
                 <Banner
@@ -60,27 +61,35 @@ class ProfileCamp extends Component {
                             : null
                         }
                     </Nickname>
-                    <Text>โรคประจำตัว</Text>
-                    <Text>
-                        { this.state.profile
+                    <ProfileData
+                        title="กรุ๊ปเลือด"
+                        detail={ this.state.profile
+                            ? this.state.profile.blood_group
+                            : null
+                        }
+                        first
+                    />
+                    <ProfileData
+                        title="โรคประจำตัว"
+                        detail={ this.state.profile
                             ? this.state.profile.congenital_diseases
                             : null
                         }
-                    </Text>
-                    <Text>แพ้อาหาร</Text>
-                    <Text>
-                        { this.state.profile
+                    />
+                    <ProfileData
+                        title="แพ้อาหาร"
+                        detail={ this.state.profile
                             ? this.state.profile.allergic_foods
                             : null
                         }
-                    </Text>
-                    <Text>แพ้ยา</Text>
-                    <Text>
-                        { this.state.profile
+                    />
+                    <ProfileData
+                        title="แพ้ยา"
+                        detail={ this.state.profile
                             ? this.state.profile.congenital_drugs
                             : null
                         }
-                    </Text>
+                    />
                 </View>
             </ScrollView>
         )
