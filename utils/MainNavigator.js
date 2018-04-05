@@ -8,6 +8,8 @@ import NotificationPage from '../pages/NetNotificationPage'
 import TimetableDetailPage from '../pages/NetTimetableDetailPage'
 import AnnouncePage from '../pages/NetAnnouncePage'
 import AProblemPage from '../pages/NetViewAProblemPage'
+import QrScanPage from '../pages/QrScanPage'
+import ProfileCampPage from '../pages/NetProfileCampPage'
 import InternetNotFoundPage from '../pages/InternetNotFoundPage'
 
 import BackButton from '../components/BackButtonComponent'
@@ -31,7 +33,7 @@ const MainNavigator = StackNavigator(
         Notification: {
             screen: NotificationPage,
             navigationOptions: ({ navigation }) => ({
-                title: 'Notification',
+                title: 'การแจ้งเตือน',
                 gesturesEnabled: true,
                 headerLeft: <BackButton navigation={navigation} />
             })
@@ -40,7 +42,7 @@ const MainNavigator = StackNavigator(
             path: 'timetable/:id',
             screen: TimetableDetailPage,
             navigationOptions: ({ navigation }) => ({
-                title: 'Detail',
+                title: 'รายละเอียด',
                 gesturesEnabled: true,
                 headerLeft: <BackButton navigation={navigation} />,
                 headerRight: <NotiIcon navigation={navigation} />
@@ -50,7 +52,7 @@ const MainNavigator = StackNavigator(
             path: 'announce/:id',
             screen: AnnouncePage,
             navigationOptions: ({ navigation }) => ({
-                title: 'Detail',
+                title: 'รายละเอียด',
                 gesturesEnabled: true,
                 headerLeft: <BackButton navigation={navigation} />,
                 headerRight: <NotiIcon navigation={navigation} />
@@ -60,7 +62,26 @@ const MainNavigator = StackNavigator(
             path: 'problem/:id',
             screen: AProblemPage,
             navigationOptions: ({ navigation }) => ({
-                title: 'Detail',
+                title: 'รายละเอียด',
+                gesturesEnabled: true,
+                headerLeft: <BackButton navigation={navigation} />,
+                headerRight: <NotiIcon navigation={navigation} />
+            })
+        },
+        QrScan: {
+            screen: QrScanPage,
+            navigationOptions: ({ navigation }) => ({
+                title: 'Scan QR Code',
+                gesturesEnabled: true,
+                headerLeft: <BackButton navigation={navigation} />,
+                headerRight: <NotiIcon navigation={navigation} />
+            })
+        },
+        ProfileCamp: {
+            path: 'profile/:id',
+            screen: ProfileCampPage,
+            navigationOptions: ({ navigation }) => ({
+                title: 'ประวัติน้อง',
                 gesturesEnabled: true,
                 headerLeft: <BackButton navigation={navigation} />,
                 headerRight: <NotiIcon navigation={navigation} />
