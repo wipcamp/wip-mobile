@@ -31,6 +31,9 @@ const style = StyleSheet.create({
     right: {
         textAlign: 'right'
     },
+    left: {
+        textAlign: 'left'
+    },
     kanit: {
         fontFamily: 'Kanit'
     }
