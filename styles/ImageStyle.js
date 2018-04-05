@@ -15,6 +15,8 @@ const styles = StyleSheet.create({
         marginRight: 20,
     },
     bannerMain: {
+        height: height * 0.45,
+        width: width,
         resizeMode: Image.resizeMode.cover
     },
     mainIcon: {
@@ -22,7 +24,6 @@ const styles = StyleSheet.create({
         height: width * 0.25
     },
     mainIconS: {
-        // width: width * 0.19,
         height: width * 0.19,
         resizeMode: Image.resizeMode.contain,
     },
