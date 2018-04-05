@@ -40,6 +40,12 @@ const styles = StyleSheet.create({
     verticalLine: {
         width: 2,
         backgroundColor: '#FF8214'
+    },
+    qrCamera: {
+        width: width * 0.8,
+        height: width * 0.8,
+        marginTop: height * 0.05,
+        marginBottom: height * 0.15
     }
 })
 
