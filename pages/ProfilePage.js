@@ -4,14 +4,14 @@ import { Icon } from 'native-base'
 
 import { get as roleteamGet } from '../utils/apiRoleTeam'
 
+import Banner from '../components/ProfileBannerComponent'
+import FullName from '../components/FullNameComponent'
+import Nickname from '../components/NicknameComponent'
 import RoleCard from '../components/RoleCardComponent'
 
 import LayoutStyles from '../styles/LayoutStyle'
 import ColorStyles from '../styles/ColorStyle'
 import TextStyles from '../styles/TextStyles'
-import ImageStyles from '../styles/ImageStyle'
-
-import Banner from '../src/images/bannerWIPXS.png'
 
 const role = [
     {
@@ -93,87 +93,34 @@ class Profile extends Component {
                     ColorStyles.bgGrey
                 ]}
             >
-                <View
-                    style={[
-                        LayoutStyles.flex03,
-                        LayoutStyles.column,
-                        ColorStyles.bgWhite
-                    ]}
-                >
-                    <View
-                        style={[
-                            LayoutStyles.f03w100h75,
-                            LayoutStyles.overHid
-                        ]}
-                    >
-                        <Image
-                            source={Banner}
-                            style={ImageStyles.profileBanner}
-                        />
-                    </View>
-                    <View
-                        style={[
-                            LayoutStyles.f03w100h25,
-                            ColorStyles.bgWhite
-                        ]}
-                    />
-                    <Image
-                        source={ this.state.user
-                            ? {uri: this.state.user.pic}
-                            : null
-                        }
-                        style={ImageStyles.profileImg}
-                    />
-                </View>
+                <Banner
+                    profile={ this.state.user
+                        ? {uri: this.state.user.pic}
+                        : null
+                    }
+                />
                 <View
                     style={[
                         LayoutStyles.flex07,
                         LayoutStyles.column
                     ]}
                 >
-                    <View
-                        style={[
-                            LayoutStyles.padT10,
-                            LayoutStyles.row,
-                            LayoutStyles.justifyCenter,
-                            ColorStyles.bgWhite,
-                        ]}
-                    >
-                        <Text
-                            style={[
-                                TextStyles.kanit,
-                                TextStyles.size16
-                            ]}
-                        >
-                            { this.state.user
-                                ? `${this.state.user.first_name} ${this.state.user.last_name}`
-                                : null
-                            }
-                        </Text>
-                    </View>
-                    <View
-                        style={[
-                            LayoutStyles.row,
-                            LayoutStyles.justifyCenter,
-                            ColorStyles.bgWhite,
-                        ]}
-                    >
-                        <Text
-                            style={[
-                                TextStyles.kanit,
-                                TextStyles.size16
-                            ]}
-                        >
-                            { this.state.user
-                                ? `(${this.state.user.nickname})`
-                                : null
-                            }
-                        </Text>
-                    </View>
-                    { this.state.user
-                        ? this.__renderRoleteam()
-                        : null
-                    }
+                    <FullName>
+                        { this.state.user
+                            ? `${this.state.user.first_name} ${this.state.user.last_name}`
+                            : null
+                        }
+                    </FullName>
+                    <Nickname>
+                        { this.state.user
+                            ? `(${this.state.user.nickname})`
+                            : null
+                        }
+                    </Nickname>
+                        { this.state.user
+                            ? this.__renderRoleteam()
+                            : null
+                        }
                     <TouchableOpacity
                         style={[
                             LayoutStyles.row,
