@@ -25,8 +25,14 @@ const styles = StyleSheet.create({
     flex045: {
         flex: 0.45
     },
+    flex05: {
+        flex: 0.5
+    },
     flex065: {
         flex: 0.65
+    },
+    flex06: {
+        flex: 0.6
     },
     flex07: {
         flex: 0.7
@@ -103,6 +109,12 @@ const styles = StyleSheet.create({
     },
     padL15: {
         paddingLeft: 15
+    },
+    padL06P: {
+        paddingLeft: width * 0.06
+    },
+    padR07P: {
+        paddingRight: width * 0.07
     },
     padLR05P: {
         paddingLeft: width * 0.05,
