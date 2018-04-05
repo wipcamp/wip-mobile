@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { AsyncStorage, View, Text, Image, Alert, Dimensions } from 'react-native'
+import { AsyncStorage, View, Text, Image } from 'react-native'
 
 import { get as roleteamGet } from '../utils/apiRoleTeam'
 
@@ -24,7 +24,6 @@ class MainPage extends Component {
     }
 
     async componentWillMount() {
-        console.log('height : ', Dimensions.get('screen').height)
         let user = await AsyncStorage.getItem('user')
         if(!user) {
             this.props.navigation.navigate('Login')
