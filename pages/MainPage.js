@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { AsyncStorage, View, Text, Image, Alert } from 'react-native'
+import { AsyncStorage, View, Text, Image, Alert, Dimensions } from 'react-native'
 
 import { get as roleteamGet } from '../utils/apiRoleTeam'
 
@@ -12,7 +12,7 @@ import TextStyles from '../styles/TextStyles'
 import ImageStyles from '../styles/ImageStyle'
 import ComponentStyles from '../styles/ComponentStyle'
 
-import Banner from '../src/images/Logo_WIPCamp.png'
+import Banner from '../src/images/bannerWIPX.png'
 
 class MainPage extends Component {
     constructor(props) {
@@ -24,6 +24,7 @@ class MainPage extends Component {
     }
 
     async componentWillMount() {
+        console.log('height : ', Dimensions.get('screen').height)
         let user = await AsyncStorage.getItem('user')
         if(!user) {
             this.props.navigation.navigate('Login')
@@ -57,16 +58,13 @@ class MainPage extends Component {
                 <View
                     style={[
                         LayoutStyles.flex045,
-                        LayoutStyles.overHid,
-                        {
-                            backgroundColor: '#F00'
-                        }
+                        LayoutStyles.overHid
                     ]}
                 >
-                    {/* <Image
+                    <Image
                         source = { Banner }
                         style = { ImageStyles.bannerMain }
-                    /> */}
+                    />
                 </View>
                 <MenuBar top>
                     <MenuIcon
@@ -101,7 +99,7 @@ class MainPage extends Component {
             <MenuIcon
                 icon={ require('../src/images/qr.png') }
                 text='แสกน QR'
-                function={ () => Alert.alert('not avaliable') }
+                function={ () => this.props.navigation.navigate('QrScan') }
             />
         )
     }
