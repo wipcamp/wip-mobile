@@ -30,7 +30,7 @@ const FeatureNavigation = TabNavigator(
         AllProblem: {
             screen: AllProblemPage,
             navigationOptions: ({ navigation }) => ({
-                title: 'Problem',
+                title: 'ปัญหา',
                 headerLeft: null,
                 headerRight: <NotiIcon navigation={navigation} />,
                 tabBarLabel: 'Problem',
@@ -44,7 +44,7 @@ const FeatureNavigation = TabNavigator(
         Timetable: {
             screen: TimetablePage,
             navigationOptions: ({ navigation }) => ({
-                title: 'TimeTable',
+                title: 'ตารางเวลา',
                 headerLeft: null,
                 headerRight: <NotiIcon navigation={navigation} />,
                 tabBarLabel: 'Timtetable',
@@ -58,7 +58,7 @@ const FeatureNavigation = TabNavigator(
         ReportProblem: {
             screen: ReportProblemPage,
             navigationOptions: ({ navigation }) => ({
-                title: 'ReportProblem',
+                title: 'แจ้งปัญหา',
                 headerLeft: null,
                 headerRight: <AddButton navigation={navigation} />,
                 tabBarLabel: 'Report',
@@ -72,7 +72,7 @@ const FeatureNavigation = TabNavigator(
         Profile: {
             screen: ProfilePage,
             navigationOptions: ({ navigation }) => ({
-                title: 'Profile',
+                title: 'ประวัติส่วนตัว',
                 headerLeft: null,
                 headerRight: <NotiIcon navigation={navigation} />,
                 tabBarLabel: 'Profile',
