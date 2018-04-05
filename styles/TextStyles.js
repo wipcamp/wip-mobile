@@ -28,6 +28,9 @@ const style = StyleSheet.create({
     center: {
         textAlign: 'center'
     },
+    right: {
+        textAlign: 'right'
+    },
     kanit: {
         fontFamily: 'Kanit'
     }
