@@ -1,4 +1,4 @@
-[![codecov](https://codecov.io/gh/wipcamp/wip-mobile/branch/master/graph/badge.svg)](https://codecov.io/gh/wipcamp/wip-mobile)
+[![codecov](https://codecov.io/gh/wipcamp/wip-mobile/branch/master/graph/badge.svg?branch=feature/test)](https://codecov.io/gh/wipcamp/wip-mobile?branch=feature/test)
 # WIP Mobile
 ## Prepare your code after clone this project.
 1. install node module with this command.
