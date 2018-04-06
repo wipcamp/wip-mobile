@@ -3,39 +3,24 @@
  */
 
 import React from 'react'
-import configureStore from 'redux-mock-store'
-import { shallow } from 'enzyme'
+import renderer from 'react-test-renderer'
 
-import { problem, filter } from '../../mocks/data'
+import mockStore from '../../mocks/redux-mock-store'
+import { problem } from '../../mocks/data'
+
 import ConnectListCardProblem from '../../components/ConnectListCardProblemComponent'
 
-describe('rendering', () => {
-    const mockStore = configureStore()
-    const storeStateMock = {
-        ReportReducer: { problem },
-        FilterReducer: { filter }
-    }
-    describe('container', () => {
-        let props
-        let wrapper
-        beforeEach(() => {
-            props = {
-                store: mockStore(storeStateMock)
-            }
-            wrapper = shallow(<ConnectListCardProblem {...props} />)
-        })
-        it('should have ListCardProblem', () => {
-            expect(wrapper.find('ListCardProblem')).toHaveLength(1)
-        })
-        it('problem props should match with initState', () => {
-            expect(wrapper.prop('problem')).toEqual(
-                problem
-            )
-        })
-        it('filter props should matches with initState', () => {
-            expect(wrapper.prop('filter')).toEqual(
-                filter
-            )
-        })
-    })
+it('rendering', () => {
+    const tree = renderer
+        .create(
+            <ConnectListCardProblem
+                store={
+                    mockStore({
+                        ReportReducer: { problem }
+                    })
+                }
+            />
+        )
+        .toJSON()
+    expect(tree).toMatchSnapshot()
 })
