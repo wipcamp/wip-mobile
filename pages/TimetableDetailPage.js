@@ -21,23 +21,32 @@ class TimetableDetail extends Component {
             data: null,
             role: null,
             isNavi: false,
-            loading: true
+            loading: true,
+            delete: false
         }
     }
 
     async componentWillMount() {
         let data = await timetableGet(this.props.navigation.state.params.id)
-        this.props.updateTimetable(data)
-        this.setState({
-            data: data
-        })
-        data = await roleteamGet(data.role_team_id)
-        let isNavi = data.display_name == 'NAVIGATOR' ? true : false
-        this.setState({
-            role: data.display_name,
-            isNavi: isNavi,
-            loading: false
-        })
+        if (data.length == 0) {
+            this.setState({
+                delete: true,
+                loading: false
+            })
+        }
+        else {
+            this.props.updateTimetable(data)
+            this.setState({
+                data: data
+            })
+            data = await roleteamGet(data.role_team_id)
+            let isNavi = data.display_name == 'NAVIGATOR' ? true : false
+            this.setState({
+                role: data.display_name,
+                isNavi: isNavi,
+                loading: false
+            })
+        }
     }
     
     render() {
@@ -57,46 +66,70 @@ class TimetableDetail extends Component {
     }
 
     __renderData() {
-        return (
-            <View>
-                <DetailTopic topic={`กิจกรรม ${this.state.data.event}`} />
-                <DetailData>
+        if (this.state.delete) {
+            return (
+                <View
+                    style={[
+                        LayoutStyles.flex1,
+                        LayoutStyles.alignCenter,
+                        LayoutStyles.justifyCenter,
+                        ColorStyles.bgOrange
+                    ]}
+                >
                     <Text
                         style={[
                             TextStyles.kanit,
-                            TextStyles.size16
+                            TextStyles.size24,
+                            ColorStyles.textWhite
                         ]}
                     >
-                        ถึง : {this.state.role}
+                        ตารางเวลานี้ถูกลบแล้วไป
                     </Text>
-                </DetailData>
-                <DetailData>
-                    <Icon
-                        ios='ios-pin'
-                        android='md-pin'
-                    />
-                    <Text
-                        style={[
-                            LayoutStyles.padL10,
-                            TextStyles.kanit,
-                            TextStyles.size16
-                        ]}
-                    >
-                        { this.state.data.location }
-                    </Text>
-                </DetailData>
-                { this.state.isNavi
-                    ? null
-                    : this.__renderTime()
-                }
-                <DetailDescription>
+                </View>
+            )
+        }
+        else {
+            return (
+                <View>
+                    <DetailTopic topic={`กิจกรรม ${this.state.data.event}`} />
+                    <DetailData>
+                        <Text
+                            style={[
+                                TextStyles.kanit,
+                                TextStyles.size16
+                            ]}
+                        >
+                            ถึง : {this.state.role}
+                        </Text>
+                    </DetailData>
+                    <DetailData>
+                        <Icon
+                            ios='ios-pin'
+                            android='md-pin'
+                        />
+                        <Text
+                            style={[
+                                LayoutStyles.padL10,
+                                TextStyles.kanit,
+                                TextStyles.size16
+                            ]}
+                        >
+                            { this.state.data.location }
+                        </Text>
+                    </DetailData>
                     { this.state.isNavi
-                        ? this.__renderDescription()
-                        : <Text >{ this.state.data.description }</Text>
+                        ? null
+                        : this.__renderTime()
                     }
-                </DetailDescription>                
-            </View>
-        )
+                    <DetailDescription>
+                        { this.state.isNavi
+                            ? this.__renderDescription()
+                            : <Text >{ this.state.data.description }</Text>
+                        }
+                    </DetailDescription>                
+                </View>
+            )
+        }
     }
 
     __renderTime() {
