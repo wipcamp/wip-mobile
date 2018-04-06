@@ -12,6 +12,7 @@ export const problem = [
         description: "Test Description 1",
         problem_type_id: 1,
         report_id: 1,
+        priority_id: 1,
         is_solve: false,
         not_solve: false,
         created_at: "2018-02-02 17:50:01",
@@ -23,6 +24,7 @@ export const problem = [
         description: "Test Description 2",
         problem_type_id: 2,
         report_id: 2,
+        priority_id: 2,
         is_solve: false,
         not_solve: false,
         created_at: "2018-02-02 17:50:02",
@@ -41,19 +43,61 @@ export const categoryProblem = [
     }
 ]
 
-export const filter = 0
+export const timetable = [
+    {
+        id: 1,
+        topic: "Test timetable 1",
+        description: "Test Description 1",
+        locaion: "1",
+        start_on: "2018-01-01 17:00:00",
+        finish_on: "2018-01-01 17:50:00",
+        created_id: 1,
+        role_team_id: 1,
+        created_at: "2018-02-02 17:50:01",
+        updated_at: "2018-02-02 17:50:01"
+    },
+    {
+        id: 2,
+        topic: "Test timetable 2",
+        description: "Test Description 2",
+        locaion: "2",
+        start_on: "2018-01-02 17:00:00",
+        finish_on: "2018-01-02 17:50:00",
+        created_id: 2,
+        role_team_id: 2,
+        created_at: "2018-02-02 17:50:01",
+        updated_at: "2018-02-02 17:50:01"
+    }
+]
 
-export const filterView = [
+export const priority = [
     {
-        value: 0,
-        label: "ทั้งหมด"
+        value: 1,
+        label: "hight"
     },
     {
-        label: 1,
-        value: "Test 1"
+        value: 2,
+        label: "medium"
+    }
+]
+
+export const notification = [
+    {
+        id: 1,
+        user_id: 1,
+        title: "Test noti 1",
+        body: "Test body 1",
+        data: "{'table':'test','id':1}",
+        created_at: "2018-02-02 17:50:01",
+        updated_at: "2018-02-02 17:50:01"
     },
     {
-        label: 2,
-        value: "Test 2"
+        id: 2,
+        user_id: 2,
+        title: "Test noti 2",
+        body: "Test body 2",
+        data: "{'table':'test','id':2}",
+        created_at: "2018-02-02 17:50:01",
+        updated_at: "2018-02-02 17:50:01"
     }
 ]
