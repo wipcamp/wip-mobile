@@ -2,7 +2,7 @@
   "expo": {
     "name": "WIP Mobile",
     "icon": "./src/images/WIPX.png",
-    "version": "0.3.0",
+    "version": "1.0.0",
     "slug": "wip-mobile",
     "sdkVersion": "23.0.0",
     "ios": {
@@ -11,7 +11,7 @@
     "android": {
       "package": "sit.kmutt.wipmobile"
     },
-    "description": "Application for WIP Camp use only in camp.",
+    "description": "Application for WIP Camp use only in camp.\nThis app will have 4 features : \n- Timetable\n- Notification\n- Report Problem\n- View Problem",
     "orientation": "portrait"
   }
 }
