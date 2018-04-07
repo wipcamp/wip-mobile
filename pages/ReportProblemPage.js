@@ -3,7 +3,7 @@ import { View } from 'react-native'
 
 import TopicInput from '../components/ConnectTopicInputComponent'
 import Category from '../components/ConnectCategoryComponent'
-import Priority from '../components/ConnectPriorityComoponent'
+import Priority from '../components/ConnectPriorityComponent'
 import Desciption from '../components/ConnectDescriptionInputComponent'
 
 import LayoutStyles from '../styles/LayoutStyle'
