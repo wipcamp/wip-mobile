@@ -1,24 +1,26 @@
 import React, { Component } from 'react'
-import { View,Text } from 'react-native'
+import { View } from 'react-native'
 
-import AddButton from '../components/ConnectAddButtonComponent'
 import TopicInput from '../components/ConnectTopicInputComponent'
-import Category from '../components/ConnectCategoryCoponent'
+import Category from '../components/ConnectCategoryComponent'
+import Priority from '../components/ConnectPriorityComoponent'
 import Desciption from '../components/ConnectDescriptionInputComponent'
 
-import Styles from '../styles/reportProblemStyle'
+import LayoutStyles from '../styles/LayoutStyle'
+import ColorStyles from '../styles/ColorStyle'
 
 class ReportProblem extends Component {
-    static navigationOptions = ({ navigation }) => ({
-        title: 'ReportProblem',
-        headerRight: <AddButton navigation={navigation} />
-    })
-
     render() {
         return (
-            <View style={Styles.bg}>
+            <View
+                style={[
+                    LayoutStyles.flex1,
+                    ColorStyles.bgGrey
+                ]}
+            >
                 <TopicInput />
                 <Category />
+                <Priority />
                 <Desciption />
             </View>
         )

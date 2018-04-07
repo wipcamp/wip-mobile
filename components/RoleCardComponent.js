@@ -1,22 +1,45 @@
 import React, { Component } from 'react'
-import { TouchableOpacity, Text, Image } from 'react-native'
+import { View, Text } from 'react-native'
+import { Icon } from 'native-base'
 
-import Styles from '../styles/TimetableStyle'
-import arrow from '../src/images/arrow-right.png'
+import LayoutStyles from '../styles/LayoutStyle'
+import ColorStyles from '../styles/ColorStyle'
+import TextStyles from '../styles/TextStyles'
 
 class RoleCard extends Component {
     render() {
         return (
-            <TouchableOpacity
-                style={[Styles.row, Styles.alignCenter, Styles.justifySpaceBet, Styles.card]}
-                onPress={this.props.onPressFunction}
+            <View
+                style={LayoutStyles.row}
+                key={this.props.key}
             >
-                <Text>{this.props.title}</Text>
-                <Image
-                    source={arrow}
-                    style={Styles.arrow}
-                />
-            </TouchableOpacity>
+                <View style={LayoutStyles.flex02} />
+                <View
+                    style={LayoutStyles.flex02}
+                >
+                    <Icon
+                        ios={this.props.ios}
+                        android={this.props.android}
+                        style={[
+                            TextStyles.right,
+                            ColorStyles.textOrange
+                        ]}
+                    />
+                </View>
+                <View
+                    style={LayoutStyles.flex06}
+                >
+                    <Text
+                        style={[
+                            LayoutStyles.padL06P,
+                            TextStyles.size16,
+                            TextStyles.kanit
+                        ]}
+                    >
+                        {this.props.role}
+                    </Text>
+                </View>
+            </View>
         )
     }
 }

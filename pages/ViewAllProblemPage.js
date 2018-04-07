@@ -1,66 +1,82 @@
 import React, { Component } from 'react'
-import { AsyncStorage, ScrollView, View, ActivityIndicator } from 'react-native'
-import { bindActionCreators } from 'redux'
-import { connect } from 'react-redux'
+import { AsyncStorage, ScrollView, View, ActivityIndicator, RefreshControl } from 'react-native'
 
-import { addProblem, reverseProblem, resetProblem } from '../ducks/ReportProblem'
-import { getAll as problemGetAll } from '../utils/apiProblem'
-import FilterView from '../components/ConnectFilterViewComponent'
+import { getByRoleTeamId as assignGetByRoleTeamId, getByAssignedId as assignGetByAssignedId } from '../utils/apiAssign'
+import { get as problemGet } from '../utils/apiProblem'
+
 import ListCardProblem from '../components/ConnectListCardProblemComponent'
-import ReportStyle from '../styles/reportProblemStyle'
 
-const mapStateToProps = state => {
-    return {
-        problem : state.ReportReducer.problem,
-        filter : state.FilterReducer.filter
-    }
-}
-
-const mapDispatchToProps = dispatch => {
-    return {
-        addProblem : bindActionCreators(addProblem, dispatch),
-        reverseProblem : bindActionCreators(reverseProblem, dispatch),
-        resetProblem : bindActionCreators(resetProblem, dispatch)
-    }
-}
+import LayoutStyles from '../styles/LayoutStyle'
+import ColorStyles from '../styles/ColorStyle'
 
 class ViewAllProblem extends Component {
-    static navigationOptions = {
-        title: 'Problem'
-    }
-
     constructor(props) {
         super(props)
         this.state = {
-            success: false
+            loading: true,
         }
     }
 
-    async componentWillMount() {
-        let datas = await problemGetAll()
-        let problemCount =  await AsyncStorage.getItem('problemCount')
-        if(problemCount == null | datas.length >= parseInt(problemCount)) {
-            this.props.resetProblem()
-            datas.map(data => {
-                this.props.addProblem(data)
-            })
-            this.props.reverseProblem()
-            this.setState({success: true})
-        }
-        await AsyncStorage.setItem('problemCount', `${datas.length}`)
+    async componentDidMount() {
+        await this.fetchProblem()
     }
 
     render() {
         return (
-            <ScrollView style={ReportStyle.bg}>
-                <FilterView />
-                { this.state.success
-                    ? <ListCardProblem navigation={this.props.navigation} />
-                    : <ActivityIndicator size="large" color="#ff8214" />
+            <ScrollView
+                style={[
+                    LayoutStyles.flex1,
+                    ColorStyles.bgGrey
+                ]}
+                refreshControl={
+                    <RefreshControl
+                      refreshing={this.state.loading}
+                      onRefresh={async () => await this.fetchProblem()}
+                      colors={["#ff8214"]}
+                      tintColor="#ff8214"
+                      size={RefreshControl.SIZE.LARGE}
+                    />
                 }
+            >
+                <ListCardProblem
+                    navigation={this.props.navigation}
+                />
             </ScrollView>
         )
     }
+
+    async fetchProblem() {
+        let user = await AsyncStorage.getItem('user')
+        user = JSON.parse(user)
+
+        let problems = []
+        let roleteams = user.roleteams
+        roleteams.map(async roleteam => {
+            let datas = await assignGetByRoleTeamId(roleteam)
+            datas.map(data => {
+                let problem_id = data.problem_id
+                if (data.assigned_id == null && problems.indexOf(problem_id) == -1) {
+                    problems.push(problem_id)                    
+                }
+            })
+        })
+        
+        let datas = await assignGetByAssignedId(user.user_id)
+        datas.map(data => {
+            let problem_id = data.problem_id
+            if (problems.indexOf(problem_id) == -1) {
+                problems.push(problem_id)                    
+            }
+        })
+
+        this.props.resetProblem()
+        await Promise.all(problems.map(async id => {
+            let data = await problemGet(id)
+            this.props.addProblem(data)
+            this.props.sortProblem()
+        }))
+        this.setState({loading: false})
+    }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ViewAllProblem)
+export default ViewAllProblem

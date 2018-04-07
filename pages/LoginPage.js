@@ -3,43 +3,60 @@ import { View, Text, TouchableOpacity, Image, AsyncStorage } from 'react-native'
 import { Facebook } from 'expo'
 
 import env from '../config'
+
 import { auth } from '../utils/apiAuth'
 import { get as getUser } from '../utils/apiUser'
 import { get as getProfile } from '../utils/apiProfile'
 import { getByUserId as getRoleByUserId } from '../utils/apiUserRole'
-import Styles from '../styles/LoginStyle'
-import ViewProblemStyle from '../styles/ViewProblemStyle'
+import { getByUserId as getRoleTeamByUserId } from '../utils/apiUserRoleTeam'
+
+import { registerPushNotiAsync } from '../utils/Notification'
+
+import LayoutStyles from '../styles/LayoutStyle'
+import ColorStyles from '../styles/ColorStyle'
+import ImageStyles from '../styles/ImageStyle'
+import TextStyles from '../styles/TextStyles'
+import ComponentStyles from '../styles/ComponentStyle'
+
 import WipLogo from '../src/images/Logo_WIPCamp.png'
 import FacebookLogo from '../src/images/facebook-logo.png'
 
 class Login extends Component {
-    static navigationOptions = {
-        header: null
-    }
-
-    async componentWillMount() {
-        let user = await AsyncStorage.getItem('user')
-        if(user) {
-            this.props.navigation.navigate('Main')
-        }
-    }
-
     render() {
         return (
-            <View style = { Styles.container }>
+            <View
+                style={[
+                    LayoutStyles.flex1,
+                    LayoutStyles.justifyCenter,
+                    LayoutStyles.alignCenter,
+                    ColorStyles.bgGrey
+                ]}
+            >
                 <Image 
-                    source = { WipLogo }
-                    style = { Styles.logo }
+                    source={ WipLogo }
+                    style={ ImageStyles.wipLogo }
                 />
                 <TouchableOpacity
-                    style = { [Styles.facebookButton, Styles.viewFBButton, ViewProblemStyle.row] }
+                    style={[
+                        ComponentStyles.facebookButton,
+                        LayoutStyles.justifyStart,
+                        LayoutStyles.row
+                    ]}
                     onPress={ this._handlePressAsync } 
                 >
                     <Image
                         source = { FacebookLogo }
-                        style = { [Styles.facebookLogo]}
+                        style = { ImageStyles.facebookLogo }
                     />
-                    <Text style={ [Styles.loginText] }>Facebook Login</Text>
+                    <Text
+                        style={[
+                            LayoutStyles.maTop5,
+                            ColorStyles.textWhite,
+                            TextStyles.kanit
+                        ]}
+                    >
+                        Facebook Login
+                    </Text>
                 </TouchableOpacity>
             </View>
         )
@@ -55,7 +72,6 @@ class Login extends Component {
         )
 
         if (type !== 'success') {
-            alert('Uh oh, something went wrong')
             return
         }
         
@@ -71,13 +87,21 @@ class Login extends Component {
         
         let user = await getUser(userInfo.id, token)
         let profile = await getProfile(user.id)
+
+        await registerPushNotiAsync(profile.user_id)
         
         profile.pic = userInfo.picture.data.url
         profile.roles = []
+        profile.roleteams = []
         
         let role = await getRoleByUserId(profile.user_id)
         role.map(data => {
             profile.roles.push(data.role_id)
+        })
+
+        let roleTeam = await getRoleTeamByUserId(profile.user_id)
+        roleTeam.map(data => {
+            profile.roleteams.push(data.role_team_id)
         })
 
         await AsyncStorage.setItem('user', JSON.stringify(profile))

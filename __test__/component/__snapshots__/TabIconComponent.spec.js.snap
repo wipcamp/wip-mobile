@@ -1,0 +1,79 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`render focus 1`] = `
+<Text
+  accessible={true}
+  allowFontScaling={false}
+  android="test"
+  ellipsizeMode="tail"
+  ios="test"
+  style={
+    Array [
+      Object {
+        "color": undefined,
+        "fontSize": 12,
+      },
+      Array [
+        Object {
+          "color": "#000",
+          "fontSize": 30,
+        },
+        Object {
+          "color": "#000",
+          "fontSize": 30,
+        },
+        Object {
+          "color": "#FF8214",
+        },
+      ],
+      Object {
+        "fontFamily": "Ionicons",
+        "fontStyle": "normal",
+        "fontWeight": "normal",
+      },
+    ]
+  }
+  virtual={undefined}
+>
+  ?
+</Text>
+`;
+
+exports[`render not focus 1`] = `
+<Text
+  accessible={true}
+  allowFontScaling={false}
+  android="test"
+  ellipsizeMode="tail"
+  ios="test"
+  style={
+    Array [
+      Object {
+        "color": undefined,
+        "fontSize": 12,
+      },
+      Array [
+        Object {
+          "color": "#000",
+          "fontSize": 30,
+        },
+        Object {
+          "color": "#000",
+          "fontSize": 30,
+        },
+        Object {
+          "color": "#000",
+        },
+      ],
+      Object {
+        "fontFamily": "Ionicons",
+        "fontStyle": "normal",
+        "fontWeight": "normal",
+      },
+    ]
+  }
+  virtual={undefined}
+>
+  ?
+</Text>
+`;

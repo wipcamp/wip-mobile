@@ -1,102 +1,106 @@
 import React, { Component } from 'react'
 import { AsyncStorage, View, Text, Image } from 'react-native'
 
-import { getByName as roleGetByName } from '../utils/apiRole'
+import { get as roleteamGet } from '../utils/apiRoleTeam'
 
-import Menu from '../components/MenuComponent'
-import Styles from '../styles/MainPageStyle'
-import ReportStyle from '../styles/reportProblemStyle'
+import MenuBar from '../components/MenuBarComponent'
+import MenuIcon from '../components/MenuIconComponent'
 
-import WipLogo from '../src/images/Logo_WIPCamp.png'
+import LayoutStyles from '../styles/LayoutStyle'
+import ColorStyles from '../styles/ColorStyle'
+import TextStyles from '../styles/TextStyles'
+import ImageStyles from '../styles/ImageStyle'
+import ComponentStyles from '../styles/ComponentStyle'
+
+import Banner from '../src/images/bannerWIPX.png'
 
 class MainPage extends Component {
-    static navigationOptions = {
-        header: null
-    }
-
     constructor(props) {
         super(props)
         this.state = {
-            userProfile: null
+            userProfile: null,
+            isNurse: false
         }
     }
 
     async componentWillMount() {
         let user = await AsyncStorage.getItem('user')
+        if(!user) {
+            this.props.navigation.navigate('Login')
+        }
         user = JSON.parse(user)
+        let roleteams = user.roleteams
+        roleteams.map(async roleteam => {
+            let data = await roleteamGet(roleteam)
+            if (data.display_name == 'NURSE') {
+                this.setState({
+                    isNurse: true
+                })
+            }
+        })
         this.setState({userProfile: user})
         this.props.setReportId(this.state.userProfile.user_id)
+
+        let token = await AsyncStorage.getItem('apiToken')
+        console.log('token : ', token)
     }
 
     render() {
         return (
-            <View style={[ReportStyle.bg, Styles.column]}>
-                <View style={[Styles.row, Styles.flex01, Styles.justifyEnd, Styles.alignCenter, Styles.padTop20]}>
-                    <Text>{this.state.userProfile ? this.state.userProfile.nickname : null}</Text>
-                    { this.state.userProfile
-                        ? this.__renderProfileImg()
-                        : null
-                    }
-                </View>
-                <View style={Styles.flex21}>
+            <View
+                style={[
+                    LayoutStyles.flex1,
+                    LayoutStyles.column,
+                    ColorStyles.bgGrey
+                ]}
+            >
+                <View
+                    style={[
+                        LayoutStyles.flex045,
+                        LayoutStyles.overHid
+                    ]}
+                >
                     <Image
-                        source = { WipLogo }
-                        style = { Styles.wipLogo }
+                        source = { Banner }
+                        style = { ImageStyles.bannerMain }
                     />
                 </View>
-                <Menu
-                    leftIcon = { require('../src/images/calendar.png') }
-                    leftText = "TIME SCHEDULE"
-                    leftFunction = {() => this.props.navigation.navigate('TimetableRole')}
-                    rightIcon = { require('../src/images/megaphone.png') }
-                    rightText = "ANNOUNCEMENT"
-                    rightFunction = {() => this.props.navigation.navigate('NotAvailable')}
-                />
-                <Menu
-                    leftIcon = { require('../src/images/file.png') }
-                    leftText = "VIEW PROBLEM"
-                    leftFunction = {async () => {
-                        let seniorId = await roleGetByName('camp_staffs_senior')
-                        let senior = false
-                        for (let i = 0; i < this.state.userProfile.roles.length; i++) {
-                            if (this.state.userProfile.roles[i] == seniorId) {                                
-                                senior = true
-                            }
-                        }
-                        if (senior) {
-                            this.props.navigation.navigate('AllProblem')    
-                        } 
-                        else {                            
-                            this.props.navigation.navigate('Error')
-                        }
-                    }}
-                    rightIcon = { require('../src/images/pen.png') }
-                    rightText = "REPORT PROBLEM"
-                    rightFunction = {() => this.props.navigation.navigate('ReportProblem')}
-                />
-                <Menu
-                    leftIcon = { require('../src/images/gear.png') }
-                    leftText = "SETTING"
-                    leftFunction = {() => this.props.navigation.navigate('NotAvailable')}
-                    rightIcon = { require('../src/images/log-out.png') }
-                    rightText = "LOGOUT"
-                    rightFunction = {async () => {
-                        await AsyncStorage.removeItem('user')
-                        await AsyncStorage.removeItem('loginFBID')
-                        await AsyncStorage.removeItem('loginFBToken')
-                        this.props.navigation.navigate('Login')
-                    }}
-                    end
-                />
+                <MenuBar top>
+                    <MenuIcon
+                        icon={ require('../src/images/calendar.png') }
+                        text='ตารางเวลา'
+                        function={ () => this.props.navigation.navigate('Timetable') }
+                        two={!this.state.isNurse}
+                    />
+                    {this.state.isNurse
+                        ? this.__renderQr()
+                        : null
+                    }
+                </MenuBar>
+                <MenuBar>
+                    <MenuIcon
+                        icon={ require('../src/images/file.png') }
+                        text='ดูปัญหา'
+                        function={() => this.props.navigation.navigate('AllProblem')}
+                    />
+                    <MenuIcon
+                        icon={ require('../src/images/pen.png') }
+                        text='แจ้งปัญหา'
+                        function={ () => this.props.navigation.navigate('ReportProblem') }
+                    />
+                </MenuBar>
             </View>
         )
     }
 
-    __renderProfileImg() {
-        return <Image 
-            source={{uri: this.state.userProfile.pic}}
-            style={Styles.profileImg}
-        />
+    __renderQr() {
+        return (
+            <MenuIcon
+                icon={ require('../src/images/qr.png') }
+                text='แสกน QR'
+                function={ () => this.props.navigation.navigate('QrScan') }
+            />
+        )
     }
 }
 

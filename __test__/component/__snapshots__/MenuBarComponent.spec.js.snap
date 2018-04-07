@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`rendering 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "flex": 0.275,
+      },
+      Object {
+        "flexDirection": "row",
+      },
+      Object {
+        "justifyContent": "space-between",
+      },
+      Object {
+        "paddingTop": 10,
+      },
+      Object {
+        "paddingBottom": 15,
+      },
+      Object {
+        "paddingLeft": 5,
+        "paddingRight": 5,
+      },
+    ]
+  }
+>
+  Test
+</View>
+`;
+
+exports[`rendering top 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "flex": 0.275,
+      },
+      Object {
+        "flexDirection": "row",
+      },
+      Object {
+        "justifyContent": "space-around",
+      },
+      Object {
+        "paddingTop": 15,
+      },
+      Object {
+        "paddingBottom": 10,
+      },
+    ]
+  }
+>
+  Test
+</View>
+`;

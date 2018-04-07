@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import { View } from 'react-native'
 import { Dropdown } from 'react-native-material-dropdown'
 
-import Styles from '../styles/reportProblemStyle'
+import LayoutStyles from '../styles/LayoutStyle'
+import ColorStyles from '../styles/ColorStyle'
 
 class Category extends Component {
 
@@ -12,7 +13,7 @@ class Category extends Component {
 
     render() {
         return (
-            <View style={Styles.bgWhite}>
+            <View style={ColorStyles.bgWhite}>
                 <Dropdown
                     label="Category"
                     data={this.props.categoryProblem}
@@ -24,7 +25,7 @@ class Category extends Component {
                     labelHeight={20}
                     inputContainerPadding={5}
                     fontSize={18}
-                    containerStyle={Styles.inputPadding}
+                    containerStyle={LayoutStyles.padLR10}
                 />
             </View>
         )

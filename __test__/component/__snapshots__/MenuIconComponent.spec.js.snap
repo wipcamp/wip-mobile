@@ -1,0 +1,141 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`rendering 1`] = `
+<View
+  accessibilityComponentType={undefined}
+  accessibilityLabel={undefined}
+  accessibilityTraits={undefined}
+  accessible={true}
+  collapsable={undefined}
+  hitSlop={undefined}
+  isTVSelectable={true}
+  nativeID={undefined}
+  onLayout={undefined}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#FFF",
+      "borderBottomWidth": 0.5,
+      "borderColor": "#C8C8C8",
+      "borderRadius": 4,
+      "flex": 0.45,
+      "flexDirection": "column",
+      "justifyContent": "center",
+      "opacity": 1,
+    }
+  }
+  testID={undefined}
+  tvParallaxProperties={undefined}
+>
+  <Image
+    source={Object {}}
+    style={
+      Array [
+        Object {
+          "marginBottom": 5,
+        },
+        Object {
+          "height": 19,
+          "resizeMode": "contain",
+        },
+      ]
+    }
+  />
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Array [
+        Object {
+          "fontFamily": "Kanit",
+        },
+        Object {
+          "paddingTop": 5,
+        },
+        Object {
+          "fontSize": 16,
+        },
+      ]
+    }
+  >
+    test
+  </Text>
+</View>
+`;
+
+exports[`rendering two 1`] = `
+<View
+  accessibilityComponentType={undefined}
+  accessibilityLabel={undefined}
+  accessibilityTraits={undefined}
+  accessible={true}
+  collapsable={undefined}
+  hitSlop={undefined}
+  isTVSelectable={true}
+  nativeID={undefined}
+  onLayout={undefined}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "#FFF",
+      "borderBottomWidth": 0.5,
+      "borderColor": "#C8C8C8",
+      "borderRadius": 4,
+      "flex": 0.9,
+      "flexDirection": "row",
+      "justifyContent": "space-around",
+      "opacity": 1,
+    }
+  }
+  testID={undefined}
+  tvParallaxProperties={undefined}
+>
+  <Image
+    source={Object {}}
+    style={
+      Array [
+        Object {
+          "left": 9.5,
+        },
+        Object {
+          "height": 25,
+          "width": 25,
+        },
+      ]
+    }
+  />
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Array [
+        Object {
+          "fontFamily": "Kanit",
+        },
+        Object {
+          "right": 9.5,
+        },
+        Object {
+          "fontSize": 25,
+        },
+      ]
+    }
+  >
+    test
+  </Text>
+</View>
+`;

@@ -4,7 +4,6 @@ import ListCardEvent from './ListCardEventComponent'
 
 const mapStateToProps = state => {
     return {
-        date : state.DateReducer.date,
         timetable : state.TimetableReducer.timetable
     }
 }

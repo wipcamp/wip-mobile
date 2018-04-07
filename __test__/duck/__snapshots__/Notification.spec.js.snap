@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`action addNotification 1`] = `
+Object {
+  "notification": Object {
+    "body": "Test body 1",
+    "created_at": "2018-02-02 17:50:01",
+    "data": "{'table':'problems','id':1}",
+    "id": 1,
+    "title": "Test noti 1",
+    "updated_at": "2018-02-02 17:50:01",
+    "user_id": 1,
+  },
+  "type": "ADD_NOTIFICATION",
+}
+`;
+
+exports[`action resetNotification 1`] = `
+Object {
+  "type": "RESET_NOTIFICATION",
+}
+`;
+
+exports[`action reverseNotification 1`] = `
+Object {
+  "type": "REVERSE_NOTIFICATION",
+}
+`;
+
+exports[`reducer ADD_NOTIFICATION 1`] = `
+Object {
+  "notification": Array [
+    Object {
+      "body": "Test body 1",
+      "created_at": "2018-02-02 17:50:01",
+      "data": "{'table':'problems','id':1}",
+      "id": 1,
+      "title": "Test noti 1",
+      "updated_at": "2018-02-02 17:50:01",
+      "user_id": 1,
+    },
+  ],
+}
+`;
+
+exports[`reducer RESET_NOTIFICATION 1`] = `
+Object {
+  "notification": Array [],
+}
+`;
+
+exports[`reducer REVERSE_NOTIFICATION 1`] = `
+Object {
+  "notification": Array [],
+}
+`;
+
+exports[`reducer default 1`] = `
+Object {
+  "categoryProblem": Array [],
+  "newProblem": Object {
+    "description": "",
+    "priority_id": 0,
+    "problem_type_id": 0,
+    "report_id": null,
+    "topic": "",
+  },
+  "notification": Array [],
+  "priority": Array [],
+  "problem": Array [],
+  "timetable": Array [],
+}
+`;

@@ -1,0 +1,113 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`action setNewProblemDescription 1`] = `
+Object {
+  "description": "Test",
+  "type": "SET_NEW_DESCRIPTION",
+}
+`;
+
+exports[`action setNewProblemPriorityId 1`] = `
+Object {
+  "id": 1,
+  "type": "SET_NEW_PRIORITY",
+}
+`;
+
+exports[`action setNewProblemReportId 1`] = `
+Object {
+  "id": 1,
+  "type": "SET_NEW_REPORTID",
+}
+`;
+
+exports[`action setNewProblemTopic 1`] = `
+Object {
+  "topic": "Test",
+  "type": "SET_NEW_TOPIC",
+}
+`;
+
+exports[`action setNewProblemType 1`] = `
+Object {
+  "category": 1,
+  "type": "SET_NEW_TYPE",
+}
+`;
+
+exports[`reducer SET_NEW_DESCRIPTION 1`] = `
+Object {
+  "newProblem": Object {
+    "description": "Test",
+    "priority_id": 0,
+    "problem_type_id": 0,
+    "report_id": null,
+    "topic": "",
+  },
+}
+`;
+
+exports[`reducer SET_NEW_PRIORITY 1`] = `
+Object {
+  "newProblem": Object {
+    "description": "",
+    "priority_id": 1,
+    "problem_type_id": 0,
+    "report_id": null,
+    "topic": "",
+  },
+}
+`;
+
+exports[`reducer SET_NEW_REPORTID 1`] = `
+Object {
+  "newProblem": Object {
+    "description": "",
+    "priority_id": 0,
+    "problem_type_id": 0,
+    "report_id": 1,
+    "topic": "",
+  },
+}
+`;
+
+exports[`reducer SET_NEW_TOPIC 1`] = `
+Object {
+  "newProblem": Object {
+    "description": "",
+    "priority_id": 0,
+    "problem_type_id": 0,
+    "report_id": null,
+    "topic": "Test",
+  },
+}
+`;
+
+exports[`reducer SET_NEW_TYPE 1`] = `
+Object {
+  "newProblem": Object {
+    "description": "",
+    "priority_id": 0,
+    "problem_type_id": 1,
+    "report_id": null,
+    "topic": "",
+  },
+}
+`;
+
+exports[`reducer default 1`] = `
+Object {
+  "categoryProblem": Array [],
+  "newProblem": Object {
+    "description": "",
+    "priority_id": 0,
+    "problem_type_id": 0,
+    "report_id": null,
+    "topic": "",
+  },
+  "notification": Array [],
+  "priority": Array [],
+  "problem": Array [],
+  "timetable": Array [],
+}
+`;

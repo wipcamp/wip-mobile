@@ -1,47 +1,41 @@
 import React, { Component } from 'react'
-import { View } from 'react-native'
+import { AsyncStorage, FlatList } from 'react-native'
 
 import EventCard from './EventCardComponent'
 
-import Styles from '../styles/TimetableStyle'
-
 class ListCardEvent extends Component {
-    render() {
-        return (
-            <View style={Styles.eventContainer}>
-                {this._renderCardEvent()}
-            </View>
-        )
+    constructor(props) {
+        super(props)
+        this.state = {
+            data: null
+        }
     }
 
-    _renderCardEvent() {
-        datas = this.props.timetable.filter(data => this.props.roleId == data.role_team_id)
-        return datas.map(data => {
-            if(this.checkdate(this.props.date, data.start_on)) {
-                return <EventCard key={data.id} data={data} half={this.props.half} />
-            }
+    async componentDidUpdate() {
+        let user = await AsyncStorage.getItem('user')
+        user = JSON.parse(user)
+        let roleteam = user.roleteams
+
+        let data = this.props.timetable.filter(data => roleteam.indexOf(data.role_team_id) >= 0)
+        this.setState({
+            data: data
         })
     }
 
-    checkdate(stateDate, timestamp) {
-        let date = stateDate.split('-')
-
-        switch (date[1]) {
-            case "May":
-                date[1] = 5
-                break;
-            case "Jun":
-                date[1] = 6
-                break;
-            default:
-                break;
-        }
-
-        timestamp = timestamp.split(' ')[0].split('-')
-        let result = (parseInt(date[0]) == parseInt(timestamp[2])) && (date[1] == parseInt(timestamp[1]))
-            ? true
-            : false
-        return result
+    render() {
+        return (
+            <FlatList
+                data={this.state.data}
+                keyExtractor={(item) => item.id}
+                renderItem={({item}) => 
+                    <EventCard
+                        key={item.id}
+                        data={item}
+                        navigation={this.props.navigation}
+                    />
+                }
+            />
+        )
     }
 }
 

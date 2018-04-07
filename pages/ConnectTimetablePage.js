@@ -1,7 +1,7 @@
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
-import { addTimetable, resetTimetable } from '../ducks/Timetable'
+import { addTimetable, sortTimetable, resetTimetable } from '../ducks/Timetable'
 import TimetablePage from './TimetablePage'
 
 const mapStateToProps = state => {
@@ -11,6 +11,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         addTimetable : bindActionCreators(addTimetable, dispatch),
+        sortTimetable : bindActionCreators(sortTimetable, dispatch),
         resetTimetable : bindActionCreators(resetTimetable, dispatch)
     }
 }

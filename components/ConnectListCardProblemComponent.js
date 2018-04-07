@@ -4,8 +4,7 @@ import ListCardProblem from './ListCardProblemComponent'
 
 const mapStateToProps = state => {
     return {
-        problem : state.ReportReducer.problem,
-        filter : state.FilterReducer.filter
+        problem : state.ReportReducer.problem
     }
 }
 
