@@ -1,0 +1,67 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`rendering 1`] = `
+<RCTScrollView
+  DEPRECATED_sendUpdatedChildFrames={false}
+  alwaysBounceHorizontal={false}
+  alwaysBounceVertical={true}
+  data={null}
+  disableVirtualization={false}
+  getItem={[Function]}
+  getItemCount={[Function]}
+  horizontal={false}
+  initialNumToRender={10}
+  keyExtractor={[Function]}
+  maxToRenderPerBatch={10}
+  numColumns={1}
+  onContentSizeChange={null}
+  onEndReachedThreshold={2}
+  onLayout={[Function]}
+  onMomentumScrollBegin={[Function]}
+  onMomentumScrollEnd={[Function]}
+  onResponderGrant={[Function]}
+  onResponderReject={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={undefined}
+  onResponderTerminationRequest={[Function]}
+  onScroll={[Function]}
+  onScrollBeginDrag={[Function]}
+  onScrollEndDrag={[Function]}
+  onScrollShouldSetResponder={[Function]}
+  onStartShouldSetResponder={[Function]}
+  onStartShouldSetResponderCapture={[Function]}
+  onTouchEnd={[Function]}
+  onTouchMove={[Function]}
+  onTouchStart={[Function]}
+  renderItem={[Function]}
+  scrollEventThrottle={50}
+  sendMomentumEvents={true}
+  stickyHeaderIndices={Array []}
+  style={
+    Array [
+      Object {
+        "flexDirection": "column",
+        "flexGrow": 1,
+        "flexShrink": 1,
+        "overflow": "scroll",
+      },
+      undefined,
+    ]
+  }
+  updateCellsBatchingPeriod={50}
+  viewabilityConfigCallbackPairs={Array []}
+  windowSize={21}
+>
+  <RCTScrollContentView
+    collapsable={false}
+    onLayout={[Function]}
+    removeClippedSubviews={undefined}
+    style={
+      Array [
+        false,
+        undefined,
+      ]
+    }
+  />
+</RCTScrollView>
+`;

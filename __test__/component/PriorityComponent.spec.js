@@ -5,13 +5,15 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
 
-import DescriptionInput from '../../components/DescriptionInputComponent'
+import { priority } from '../../mocks/data'
+
+import Priority from '../../components/PriorityComponent'
 
 it('rendering', () => {
     const tree = renderer
         .create(
-            <DescriptionInput
-                description="test"
+            <Priority
+                priorityAll={priority}
             />
         )
         .toJSON()

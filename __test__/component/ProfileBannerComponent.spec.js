@@ -5,14 +5,12 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
 
-import DescriptionInput from '../../components/DescriptionInputComponent'
+import ProfileBanner from '../../components/ProfileBannerComponent'
 
 it('rendering', () => {
     const tree = renderer
         .create(
-            <DescriptionInput
-                description="test"
-            />
+            <ProfileBanner />
         )
         .toJSON()
     expect(tree).toMatchSnapshot()

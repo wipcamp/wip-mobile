@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`rendering 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "paddingTop": 10,
+      },
+      Object {
+        "flexDirection": "row",
+      },
+      Object {
+        "justifyContent": "center",
+      },
+      Object {
+        "backgroundColor": "#FFF",
+      },
+    ]
+  }
+>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Array [
+        Object {
+          "fontFamily": "Kanit",
+        },
+        Object {
+          "fontSize": 16,
+        },
+      ]
+    }
+  >
+    Test
+  </Text>
+</View>
+`;

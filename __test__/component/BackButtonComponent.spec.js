@@ -5,15 +5,11 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
 
-import DescriptionInput from '../../components/DescriptionInputComponent'
+import BackButton from '../../components/BackButtonComponent'
 
 it('rendering', () => {
     const tree = renderer
-        .create(
-            <DescriptionInput
-                description="test"
-            />
-        )
+        .create(<BackButton />)
         .toJSON()
     expect(tree).toMatchSnapshot()
 })

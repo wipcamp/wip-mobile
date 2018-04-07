@@ -5,13 +5,16 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
 
-import DescriptionInput from '../../components/DescriptionInputComponent'
+import { timetable } from '../../mocks/data'
+
+import ListCardEvent from '../../components/ListCardEventComponent'
 
 it('rendering', () => {
     const tree = renderer
         .create(
-            <DescriptionInput
-                description="test"
+            <ListCardEvent
+                timetable={timetable}
+                navigation={{}}
             />
         )
         .toJSON()

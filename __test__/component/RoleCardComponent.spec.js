@@ -5,13 +5,16 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
 
-import DescriptionInput from '../../components/DescriptionInputComponent'
+import RoleCard from '../../components/RoleCardComponent'
 
 it('rendering', () => {
     const tree = renderer
         .create(
-            <DescriptionInput
-                description="test"
+            <RoleCard
+                key={1}
+                ios="test"
+                android="test"
+                role="test"
             />
         )
         .toJSON()

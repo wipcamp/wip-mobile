@@ -5,13 +5,13 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
 
-import DescriptionInput from '../../components/DescriptionInputComponent'
+import DetailTopic from '../../components/DetailTopicComponent'
 
 it('rendering', () => {
     const tree = renderer
         .create(
-            <DescriptionInput
-                description="test"
+            <DetailTopic
+                topic="test"
             />
         )
         .toJSON()

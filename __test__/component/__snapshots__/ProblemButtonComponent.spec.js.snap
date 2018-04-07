@@ -1,0 +1,111 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`rendering reject 1`] = `
+<View
+  accessibilityComponentType={undefined}
+  accessibilityLabel={undefined}
+  accessibilityTraits={undefined}
+  accessible={true}
+  collapsable={undefined}
+  hitSlop={undefined}
+  isTVSelectable={true}
+  nativeID={undefined}
+  onLayout={undefined}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "backgroundColor": "#D9534F",
+      "borderRadius": 10,
+      "flex": 0.4,
+      "opacity": 1,
+      "paddingBottom": 10,
+      "paddingLeft": 16,
+      "paddingRight": 16,
+      "paddingTop": 10,
+    }
+  }
+  testID={undefined}
+  tvParallaxProperties={undefined}
+>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Array [
+        Object {
+          "fontSize": 18,
+        },
+        Object {
+          "textAlign": "center",
+        },
+        Object {
+          "color": "#FFF",
+        },
+      ]
+    }
+  >
+    Reject
+  </Text>
+</View>
+`;
+
+exports[`rendering solve 1`] = `
+<View
+  accessibilityComponentType={undefined}
+  accessibilityLabel={undefined}
+  accessibilityTraits={undefined}
+  accessible={true}
+  collapsable={undefined}
+  hitSlop={undefined}
+  isTVSelectable={true}
+  nativeID={undefined}
+  onLayout={undefined}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "backgroundColor": "#5Cb85C",
+      "borderRadius": 10,
+      "flex": 0.4,
+      "opacity": 1,
+      "paddingBottom": 10,
+      "paddingLeft": 16,
+      "paddingRight": 16,
+      "paddingTop": 10,
+    }
+  }
+  testID={undefined}
+  tvParallaxProperties={undefined}
+>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Array [
+        Object {
+          "fontSize": 18,
+        },
+        Object {
+          "textAlign": "center",
+        },
+        Object {
+          "color": "#FFF",
+        },
+      ]
+    }
+  >
+    Solve
+  </Text>
+</View>
+`;

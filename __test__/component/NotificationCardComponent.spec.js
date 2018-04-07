@@ -5,13 +5,15 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
 
-import DescriptionInput from '../../components/DescriptionInputComponent'
+import { notification } from '../../mocks/data'
+
+import NotificationCard from '../../components/NotificationCardComponent'
 
 it('rendering', () => {
     const tree = renderer
         .create(
-            <DescriptionInput
-                description="test"
+            <NotificationCard
+                data={notification[0]}
             />
         )
         .toJSON()

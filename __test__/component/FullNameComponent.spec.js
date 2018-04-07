@@ -5,14 +5,12 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
 
-import DescriptionInput from '../../components/DescriptionInputComponent'
+import FullName from '../../components/FullNameComponent'
 
 it('rendering', () => {
     const tree = renderer
         .create(
-            <DescriptionInput
-                description="test"
-            />
+            <FullName>Test</FullName>
         )
         .toJSON()
     expect(tree).toMatchSnapshot()

@@ -5,13 +5,14 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
 
-import DescriptionInput from '../../components/DescriptionInputComponent'
+import ProfileData from '../../components/ProfileDataComponent'
 
 it('rendering', () => {
     const tree = renderer
         .create(
-            <DescriptionInput
-                description="test"
+            <ProfileData
+                title="Test"
+                detail="Test"
             />
         )
         .toJSON()
