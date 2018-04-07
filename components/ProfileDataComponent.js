@@ -19,7 +19,6 @@ class ProfileData extends Component {
                 <View style={LayoutStyles.flex03}>
                     <Text
                         style={[
-                            // LayoutStyles.padR07P,
                             TextStyles.kanit,
                             TextStyles.size16,
                             TextStyles.left
