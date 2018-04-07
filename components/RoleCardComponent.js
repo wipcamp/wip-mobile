@@ -11,7 +11,7 @@ class RoleCard extends Component {
         return (
             <View
                 style={LayoutStyles.row}
-                key={this.props.keys}
+                key={this.props.key}
             >
                 <View style={LayoutStyles.flex02} />
                 <View
