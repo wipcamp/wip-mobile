@@ -87,7 +87,7 @@ class Timetable extends Component {
     }
 
     async fetchTimetable() {
-        let m = moment('2018-06-01')
+        let m = moment()
         let cday = 0
         campDay.map( cd => {
             let campday = m.format('DD-MM')
