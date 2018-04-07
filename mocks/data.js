@@ -87,7 +87,7 @@ export const notification = [
         user_id: 1,
         title: "Test noti 1",
         body: "Test body 1",
-        data: "{'table':'test','id':1}",
+        data: "{'table':'problems','id':1}",
         created_at: "2018-02-02 17:50:01",
         updated_at: "2018-02-02 17:50:01"
     },
@@ -96,7 +96,25 @@ export const notification = [
         user_id: 2,
         title: "Test noti 2",
         body: "Test body 2",
-        data: "{'table':'test','id':2}",
+        data: "{'table':'announces','id':1}",
+        created_at: "2018-02-02 17:50:01",
+        updated_at: "2018-02-02 17:50:01"
+    },
+    {
+        id: 3,
+        user_id: 3,
+        title: "Test noti 3",
+        body: "Test body 3",
+        data: "{'table':'assigns','id':1}",
+        created_at: "2018-02-02 17:50:01",
+        updated_at: "2018-02-02 17:50:01"
+    },
+    {
+        id: 4,
+        user_id: 4,
+        title: "Test noti 4",
+        body: "Test body 4",
+        data: "{'table':'timetables','id':1}",
         created_at: "2018-02-02 17:50:01",
         updated_at: "2018-02-02 17:50:01"
     }
