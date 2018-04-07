@@ -3,28 +3,19 @@
  */
 
 import React from 'react'
-import { shallow } from 'enzyme'
+import renderer from 'react-test-renderer'
 
 import { problem } from '../../mocks/data'
-import ProblemCard from '../../components/ProblemCardComponent'
-// import styles from '../../styles/ViewProblemStyle'
-// import reportStyle from '../../styles/reportProblemStyle'
 
-describe('rendering', () => {
-    describe('container', () => {
-        let props
-        let wrapper
-        beforeEach(() => {
-            props = {
-                data: problem[0],
-                navigation: jest.fn()
-            }
-            wrapper = shallow(<ProblemCard {...props} />)
-        })
-        it('should have TouchableOpacity', () => {
-            expect(wrapper.find('TouchableOpacity')).toHaveLength(1)
-            // console.log(wrapper)
-            // expect(wrapper.length).toBe(1)
-        })
-    })
+import ProblemCard from '../../components/ProblemCardComponent'
+
+it('rendering', () => {
+    const tree = renderer
+        .create(
+            <ProblemCard
+                data={problem[0]}
+            />
+        )
+        .toJSON()
+    expect(tree).toMatchSnapshot()
 })
