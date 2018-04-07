@@ -1,14 +1,43 @@
 import React, { Component } from 'react'
 import { ScrollView, View, Text, RefreshControl } from 'react-native'
+import moment from 'moment'
 
 import { getByDate as timetableGetByDate } from '../utils/apiTimetable'
 
-import HourBG from '../components/HourBGComponent'
 import ListCardEvent from '../components/ConnectListCardEventComponent'
 import EventCard from '../components/EventCardComponent'
 
-import Styles from '../styles/TimetableStyle'
-import ReportStyles from '../styles/reportProblemStyle'
+import LayoutStyles from '../styles/LayoutStyle'
+import ColorStyles from '../styles/ColorStyle'
+import TextStyles from '../styles/TextStyles'
+
+const months = [
+    'มกราคม', 'กุมภาพันธ์', 'มีนาคม', 'เมษายน', 'พฤษภาคม', 'มิถุนายน',
+    'กรกฎาคม', 'สิงหาคม', 'กันยายน', 'ตุลาคม', 'พฤศจิกายน', 'ธันวาคม'
+]
+
+const campDay = [
+    {
+        day: '30-05',
+        count: 1
+    },
+    {
+        day: '31-05',
+        count: 2
+    },
+    {
+        day: '01-06',
+        count: 3
+    },
+    {
+        day: '02-06',
+        count: 4
+    },
+    {
+        day: '03-06',
+        count: 5
+    }
+]
 
 class Timetable extends Component {
     constructor(props) {
@@ -26,7 +55,10 @@ class Timetable extends Component {
     render() {
         return (
             <ScrollView
-                style={ReportStyles.bg}
+                style={[
+                    LayoutStyles.flex1,
+                    ColorStyles.bgGrey
+                ]}
                 refreshControl={
                     <RefreshControl
                         refreshing={this.state.loading}
@@ -37,32 +69,46 @@ class Timetable extends Component {
                     />
                 }    
             >
-                <View>
-                    <Text>{this.state.date}</Text>
-                </View>
-                <View style={[ReportStyles.bgWhite, Styles.paddingTop10, Styles.paddingBottom10]}>
-                    <HourBG />
-                    <ListCardEvent navigation={this.props.navigation} />
-                </View>
+                <Text
+                    style={[
+                        LayoutStyles.padTB10,
+                        ColorStyles.bgWhite,
+                        ColorStyles.borderBotBlack04,
+                        TextStyles.kanit,
+                        TextStyles.size18,
+                        TextStyles.center
+                    ]}
+                >
+                    {this.state.date}
+                </Text>
+                <ListCardEvent navigation={this.props.navigation} />
             </ScrollView>
         )
     }
 
     async fetchTimetable() {
-        let d = new Date(2018, 5, 1)
-        let year = d.getFullYear()
-        let month = d.getMonth() + 1 < 10 ? `0${d.getMonth() + 1}` : d.getMonth() + 1
-        let day = d.getDate() < 10 ? `0${d.getDate()}` : d.getDate()
-        let date = `${year}-${month}-${day}`
-        this.setState({
-            date: date
+        let m = moment('2018-06-01')
+        let cday = 0
+        campDay.map( cd => {
+            let campday = m.format('DD-MM')
+            if (cd.day == campday) {
+                cday = cd.count
+            }
         })
+        this.setState({
+            date: `${m.date()} ${months[m.month()]} ${m.year() + 543} (ค่ายวันที่ ${cday})`
+        })
+        let date = m.format('YYYY-MM-DD')
         this.props.resetTimetable()
         let datas = await timetableGetByDate(date)
-        datas.map(data => {
+        await Promise.all(datas.map(data => 
             this.props.addTimetable(data)
+        ))
+        this.props.sortTimetable()
+        
+        this.setState({
+            loading: false
         })
-        this.setState({loading: false})
     }
 }
 

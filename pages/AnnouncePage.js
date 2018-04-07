@@ -1,18 +1,23 @@
 import React, { Component } from 'react'
-import { View, ActivityIndicator } from 'react-native'
+import { ActivityIndicator, View, Text } from 'react-native'
 
 import { get as announceGet } from '../utils/apiAnnounce'
+import { get as roleteamGet } from '../utils/apiRoleTeam'
 
-import Topic from '../components/ViewTopicComponent'
-import Description from '../components/ViewDescriptionComponent'
+import DetailTopic from '../components/DetailTopicComponent'
+import DetailData from '../components/DetailDataComponent'
+import DetailDescription from '../components/DetailDescriptionCompoent'
 
-import ReportStyle from '../styles/reportProblemStyle'
+import LayoutStyles from '../styles/LayoutStyle'
+import ColorStyles from '../styles/ColorStyle'
+import TextStyles from '../styles/TextStyles'
 
 class AnnouncePage extends Component {
     constructor(props) {
         super(props)
         this.state = {
             data: null,
+            to: null,
             loading: true
         }
     }
@@ -21,13 +26,20 @@ class AnnouncePage extends Component {
         let data = await announceGet(this.props.navigation.state.params.id)
         this.setState({
             data: data,
-            loading: false
+        })
+        data = await roleteamGet(data.role_team_id)
+        this.setState({
+            to: data.description,
+            loading: false            
         })
     }
 
     render() {
         return (
-            <View style={ReportStyle.bg}>
+            <View style={[
+                LayoutStyles.flex1,
+                ColorStyles.bgGrey
+            ]}>
             { this.state.loading 
                 ? <ActivityIndicator size="large" color="#ff8214" />
                 : this.__renderData()
@@ -39,8 +51,27 @@ class AnnouncePage extends Component {
     __renderData() {
         return (
             <View>
-                <Topic data={this.state.data} />
-                <Description data={this.state.data} />
+                <DetailTopic topic={`เรื่อง ${this.state.data.topic}`} />
+                <DetailData>
+                    <Text
+                        style={[
+                            TextStyles.kanit,
+                            TextStyles.size16
+                        ]}
+                    >
+                        ถึง : {this.state.to}
+                    </Text>
+                </DetailData>
+                <DetailDescription>
+                    <Text
+                        style={[
+                            TextStyles.kanit,
+                            TextStyles.size16
+                        ]}
+                    >
+                        {this.state.data.description}
+                    </Text>
+                </DetailDescription>
             </View>
         )
     }

@@ -26,7 +26,12 @@ export async function get(id) {
             api = await Api.get(`/timetables/${id}`, {Authorization: `Bearer ${await getToken()}`})
         }
     }
-    return api.data
+    if (typeof api == "undefined") {
+        return ""
+    }
+    else {
+        return api.data
+    }
 }
 
 export async function getByRoleTeamId(roleTeamId) {

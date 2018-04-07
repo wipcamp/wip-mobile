@@ -5,7 +5,8 @@ import { getByUserId as notificationGetByUserId } from '../utils/apiNotification
 
 import ListCardNotification from '../components/ConnectListCardNotificationComponent'
 
-import ReportStyle from '../styles/reportProblemStyle'
+import LayoutStyles from '../styles/LayoutStyle'
+import ColorStyles from '../styles/ColorStyle'
 
 class Notification extends Component {
     constructor(props) {
@@ -22,7 +23,10 @@ class Notification extends Component {
     render() {
         return (
             <ScrollView
-                style={ReportStyle.bg}
+                style={[
+                    LayoutStyles.flex1,
+                    ColorStyles.bgGrey
+                ]}
                 refreshControl={
                     <RefreshControl
                         refreshing={this.state.loading}
@@ -46,9 +50,14 @@ class Notification extends Component {
 
         let datas = await notificationGetByUserId(user.user_id)
         
-        this.props.resetNotification()
-        datas.map(data => this.props.addNotification(data))
-        this.props.reverseNotification()
+        await Promise.all(
+            this.props.resetNotification(),
+            datas.map(data => {
+                this.props.addNotification(data)
+                this.props.reverseNotification()
+            })
+        )
+        
         this.setState({loading: false})
     }
 }

@@ -1,23 +1,28 @@
 import React from 'react'
 import { StackNavigator } from 'react-navigation'
 
+import FeatureNavigator from './FeatureNavigation'
+
 import LoginPage from '../pages/NetLoginPage'
-import MainPage from '../pages/NetMainPage'
-import TimetablePage from '../pages/NetTimetablePage'
-import TimetableDetailPage from '../pages/NetTimetableDetailPage'
 import NotificationPage from '../pages/NetNotificationPage'
+import TimetableDetailPage from '../pages/NetTimetableDetailPage'
 import AnnouncePage from '../pages/NetAnnouncePage'
-import AllProblemPage from '../pages/NetViewAllProblemPage'
 import AProblemPage from '../pages/NetViewAProblemPage'
-import ReportProblemPage from '../pages/NetReportProblemPage'
-import ErrorPage from '../pages/ErrorPage'
-import NotAvailablePage from '../pages/NotAvailablePage'
+import QrScanPage from '../pages/QrScanPage'
+import ProfileCampPage from '../pages/NetProfileCampPage'
 import InternetNotFoundPage from '../pages/InternetNotFoundPage'
 
-import AddButton from '../components/ConnectAddButtonComponent'
+import BackButton from '../components/BackButtonComponent'
+import NotiIcon from '../components/NotificationButtonComponent'
 
 const MainNavigator = StackNavigator(
     {
+        Feature: {
+            screen: FeatureNavigator,
+            navigationOptions: {
+                gesturesEnabled: true
+            }
+        },
         Login: {
             screen: LoginPage,
             navigationOptions: {
@@ -25,80 +30,75 @@ const MainNavigator = StackNavigator(
                 gesturesEnabled: false
             }
         },
-        Main: {
-            screen: MainPage,
-            navigationOptions: {
-                header: null,
-                gesturesEnabled: false
-            }
-        },
-        Timetable: {
-            screen: TimetablePage,
-            navigationOptions: {
-                title: 'Time Schedule',
-                gesturesEnabled: false
-            }
+        Notification: {
+            screen: NotificationPage,
+            navigationOptions: ({ navigation }) => ({
+                title: 'การแจ้งเตือน',
+                gesturesEnabled: true,
+                headerLeft: <BackButton navigation={navigation} />
+            })
         },
         TimetableDetail: {
             path: 'timetable/:id',
             screen: TimetableDetailPage,
-            navigationOptions: {
-                title: 'Details',
-                gesturesEnabled: false
-            }
-        },
-        Notification: {
-            screen: NotificationPage,
-            navigationOptions: {
-                title: 'Notification'
-            }
+            navigationOptions: ({ navigation }) => ({
+                title: 'รายละเอียด',
+                gesturesEnabled: true,
+                headerLeft: <BackButton navigation={navigation} />,
+                headerRight: <NotiIcon navigation={navigation} />
+            })
         },
         Announce: {
             path: 'announce/:id',
             screen: AnnouncePage,
-            navigationOptions: {
-                title: 'Announcement',
-                gesturesEnabled: false
-            }
-        },
-        AllProblem: {
-            screen: AllProblemPage,
-            navigationOptions: {
-                title: 'Problem'
-            }
+            navigationOptions: ({ navigation }) => ({
+                title: 'รายละเอียด',
+                gesturesEnabled: true,
+                headerLeft: <BackButton navigation={navigation} />,
+                headerRight: <NotiIcon navigation={navigation} />
+            })
         },
         AProblem: {
             path: 'problem/:id',
             screen: AProblemPage,
-            navigationOptions: {
-                title: 'Details',
-                gesturesEnabled: false
-            }
-        },
-        ReportProblem: {
-            screen: ReportProblemPage,
             navigationOptions: ({ navigation }) => ({
-                title: 'ReportProblem',
-                headerRight: <AddButton navigation={navigation} />
+                title: 'รายละเอียด',
+                gesturesEnabled: true,
+                headerLeft: <BackButton navigation={navigation} />,
+                headerRight: <NotiIcon navigation={navigation} />
             })
         },
-        Error: {
-            screen: ErrorPage,
-            navigationOptions: {
-                title: ''
-            }
+        QrScan: {
+            screen: QrScanPage,
+            navigationOptions: ({ navigation }) => ({
+                title: 'Scan QR Code',
+                gesturesEnabled: true,
+                headerLeft: <BackButton navigation={navigation} />,
+                headerRight: <NotiIcon navigation={navigation} />
+            })
         },
-        NotAvailable: {
-            screen: NotAvailablePage,
-            navigationOptions: {
-                title: ''
-            }
+        ProfileCamp: {
+            path: 'profile/:id',
+            screen: ProfileCampPage,
+            navigationOptions: ({ navigation }) => ({
+                title: 'ประวัติน้อง',
+                gesturesEnabled: true,
+                headerLeft: <BackButton navigation={navigation} />,
+                headerRight: <NotiIcon navigation={navigation} />
+            })
         },
         InternetNotFound: {
             screen: InternetNotFoundPage,
             navigationOptions: {
                 header: null,
                 gesturesEnabled: false
+            }
+        }
+    },
+    {
+        navigationOptions: {
+            headerTitleStyle: {
+                fontFamily: 'Kanit'
             }
         }
     }

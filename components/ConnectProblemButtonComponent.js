@@ -2,7 +2,7 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
 import { updateProblem } from '../ducks/ReportProblem'
-import ViewSwitch from './ViewSwitchComponent'
+import ProblemButton from './ProblemButtonComponent'
 
 const mapStateToProps = state => {
     return {
@@ -16,4 +16,4 @@ const mapDispatchToProps = dispatch => {
     }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(ViewSwitch)
+export default connect(mapStateToProps, mapDispatchToProps)(ProblemButton)

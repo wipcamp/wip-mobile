@@ -2,13 +2,15 @@ import React, { Component } from 'react'
 import { ScrollView, View } from 'react-native'
 import { TextField } from 'react-native-material-textfield'
 
-import Styles from '../styles/reportProblemStyle'
-
+import LayoutStyles from '../styles/LayoutStyle'
+import ColorStyles from '../styles/ColorStyle'
 
 class DescriptionInput extends Component {
     render() {
         return (
-            <ScrollView style={[Styles.bgWhite, Styles.spacesTop]}>
+            <ScrollView
+                style={ColorStyles.bgWhite}
+            >
                 <TextField
                     label='Detail'
                     value={this.props.description}
@@ -22,9 +24,7 @@ class DescriptionInput extends Component {
                     fontSize={18}
                     multiline={true}
                     numberOfLine={5}
-                    inputContainerStyle={Styles.inputField}
-                    containerStyle={Styles.inputPadding}
-                    labelTextStyle={Styles.inputLabel}
+                    containerStyle={LayoutStyles.padLR10}
                 />
             </ScrollView>
         )

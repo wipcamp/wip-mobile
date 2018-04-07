@@ -12,40 +12,51 @@ import { getByUserId as getRoleTeamByUserId } from '../utils/apiUserRoleTeam'
 
 import { registerPushNotiAsync } from '../utils/Notification'
 
-import Styles from '../styles/LoginStyle'
-import ViewProblemStyle from '../styles/ViewProblemStyle'
+import LayoutStyles from '../styles/LayoutStyle'
+import ColorStyles from '../styles/ColorStyle'
+import ImageStyles from '../styles/ImageStyle'
+import TextStyles from '../styles/TextStyles'
+import ComponentStyles from '../styles/ComponentStyle'
 
 import WipLogo from '../src/images/Logo_WIPCamp.png'
 import FacebookLogo from '../src/images/facebook-logo.png'
 
 class Login extends Component {
-    static navigationOptions = {
-        header: null
-    }
-
-    async componentWillMount() {
-        let user = await AsyncStorage.getItem('user')
-        if(user) {
-            this.props.navigation.navigate('Main')
-        }
-    }
-
     render() {
         return (
-            <View style = { Styles.container }>
+            <View
+                style={[
+                    LayoutStyles.flex1,
+                    LayoutStyles.justifyCenter,
+                    LayoutStyles.alignCenter,
+                    ColorStyles.bgGrey
+                ]}
+            >
                 <Image 
-                    source = { WipLogo }
-                    style = { Styles.logo }
+                    source={ WipLogo }
+                    style={ ImageStyles.wipLogo }
                 />
                 <TouchableOpacity
-                    style = { [Styles.facebookButton, Styles.viewFBButton, ViewProblemStyle.row] }
+                    style={[
+                        ComponentStyles.facebookButton,
+                        LayoutStyles.justifyStart,
+                        LayoutStyles.row
+                    ]}
                     onPress={ this._handlePressAsync } 
                 >
                     <Image
                         source = { FacebookLogo }
-                        style = { [Styles.facebookLogo]}
+                        style = { ImageStyles.facebookLogo }
                     />
-                    <Text style={ [Styles.loginText] }>Facebook Login</Text>
+                    <Text
+                        style={[
+                            LayoutStyles.maTop5,
+                            ColorStyles.textWhite,
+                            TextStyles.kanit
+                        ]}
+                    >
+                        Facebook Login
+                    </Text>
                 </TouchableOpacity>
             </View>
         )

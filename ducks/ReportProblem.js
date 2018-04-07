@@ -21,7 +21,7 @@ export default function reducer (state = initState, action) {
                     if(compare == 0) {
                         return a.priority_id - b.priority_id
                     }
-                    return compare * -1;
+                    return compare * -1
                 })
             }
         case UPDATE_PROBLEM :

@@ -6,7 +6,8 @@ import { get as problemGet } from '../utils/apiProblem'
 
 import ListCardProblem from '../components/ConnectListCardProblemComponent'
 
-import ReportStyle from '../styles/reportProblemStyle'
+import LayoutStyles from '../styles/LayoutStyle'
+import ColorStyles from '../styles/ColorStyle'
 
 class ViewAllProblem extends Component {
     constructor(props) {
@@ -23,7 +24,10 @@ class ViewAllProblem extends Component {
     render() {
         return (
             <ScrollView
-                style={ReportStyle.bg}
+                style={[
+                    LayoutStyles.flex1,
+                    ColorStyles.bgGrey
+                ]}
                 refreshControl={
                     <RefreshControl
                       refreshing={this.state.loading}

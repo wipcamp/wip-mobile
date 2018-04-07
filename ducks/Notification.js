@@ -15,7 +15,7 @@ export default function reducer (state = initState, action) {
             }
         case REVERSE_NOTIFICATION:
             return {
-                notification: state.notification.reverse()
+                notification: state.notification.sort((a, b) =>  a.created_at.localeCompare(b.created_at) * -1)
             }
         case RESET_NOTIFICATION:
             return {

@@ -2,12 +2,16 @@ import React, { Component } from 'react'
 import { View } from 'react-native'
 import { TextField } from 'react-native-material-textfield'
 
-import Styles from '../styles/reportProblemStyle'
+import LayoutStyles from '../styles/LayoutStyle'
+import ColorStyles from '../styles/ColorStyle'
+import TextStyles from '../styles/TextStyles'
 
 class TopicInput extends Component {
     render() {
         return (
-            <View style={[Styles.bgWhite, Styles.spacesTop ]}>
+            <View
+                style={ColorStyles.bgWhite}
+            >
                 <TextField
                     label ='Topic'
                     value={this.props.topic}
@@ -19,7 +23,7 @@ class TopicInput extends Component {
                     labelHeight={20}
                     inputContainerPadding={5}
                     fontSize={18}
-                    containerStyle={Styles.inputPadding}
+                    containerStyle={LayoutStyles.padLR10}
                 />
             </View>
         )
