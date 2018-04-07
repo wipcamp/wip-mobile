@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`action addCategory 1`] = `
+Object {
+  "category": Object {
+    "label": "Test 1",
+    "value": 1,
+  },
+  "type": "ADD_CATEGORY",
+}
+`;
+
+exports[`action resetCategory 1`] = `
+Object {
+  "type": "RESET_CATEGORY",
+}
+`;
+
+exports[`reducer ADD_CATEGORY 1`] = `
+Object {
+  "categoryProblem": Array [
+    Object {
+      "label": "Test 1",
+      "value": 1,
+    },
+  ],
+}
+`;
+
+exports[`reducer RESET_CATEGORY 1`] = `
+Object {
+  "categoryProblem": Array [],
+}
+`;
+
+exports[`reducer default 1`] = `
+Object {
+  "categoryProblem": Array [],
+  "newProblem": Object {
+    "description": "",
+    "priority_id": 0,
+    "problem_type_id": 0,
+    "report_id": null,
+    "topic": "",
+  },
+  "notification": Array [],
+  "priority": Array [],
+  "problem": Array [],
+  "timetable": Array [],
+}
+`;

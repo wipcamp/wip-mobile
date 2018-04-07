@@ -1,0 +1,103 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`action addProblem 1`] = `
+Object {
+  "problem": Object {
+    "created_at": "2018-02-02 17:50:01",
+    "description": "Test Description 1",
+    "id": 1,
+    "is_solve": false,
+    "not_solve": false,
+    "priority_id": 1,
+    "problem_type_id": 1,
+    "report_id": 1,
+    "topic": "Test Problem 1",
+    "updated_at": "2018-02-02 17:50:01",
+  },
+  "type": "ADD_PROBLEM",
+}
+`;
+
+exports[`action resetProblem 1`] = `
+Object {
+  "type": "RESET_PROBLEM",
+}
+`;
+
+exports[`action sortProblem 1`] = `
+Object {
+  "type": "SORT_PROBLEM",
+}
+`;
+
+exports[`action updateProblem 1`] = `
+Object {
+  "problem": Object {
+    "created_at": "2018-02-02 17:50:01",
+    "description": "Test Description 1",
+    "id": 1,
+    "is_solve": false,
+    "not_solve": false,
+    "priority_id": 1,
+    "problem_type_id": 1,
+    "report_id": 1,
+    "topic": "Test Problem 1",
+    "updated_at": "2018-02-02 17:50:01",
+  },
+  "type": "UPDATE_PROBLEM",
+}
+`;
+
+exports[`reducer ADD_PROBLEM 1`] = `
+Object {
+  "problem": Array [
+    Object {
+      "created_at": "2018-02-02 17:50:01",
+      "description": "Test Description 1",
+      "id": 1,
+      "is_solve": false,
+      "not_solve": false,
+      "priority_id": 1,
+      "problem_type_id": 1,
+      "report_id": 1,
+      "topic": "Test Problem 1",
+      "updated_at": "2018-02-02 17:50:01",
+    },
+  ],
+}
+`;
+
+exports[`reducer RESET_PROBLEM 1`] = `
+Object {
+  "problem": Array [],
+}
+`;
+
+exports[`reducer SORT_PROBLEM 1`] = `
+Object {
+  "problem": Array [],
+}
+`;
+
+exports[`reducer UPDATE_PROBLEM 1`] = `
+Object {
+  "problem": Array [],
+}
+`;
+
+exports[`reducer default 1`] = `
+Object {
+  "categoryProblem": Array [],
+  "newProblem": Object {
+    "description": "",
+    "priority_id": 0,
+    "problem_type_id": 0,
+    "report_id": null,
+    "topic": "",
+  },
+  "notification": Array [],
+  "priority": Array [],
+  "problem": Array [],
+  "timetable": Array [],
+}
+`;
