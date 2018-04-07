@@ -6,7 +6,7 @@ import { get as timetableGet } from '../utils/apiTimetable'
 import { get as roleteamGet } from '../utils/apiRoleTeam'
 
 import DetailTopic from '../components/DetailTopicComponent'
-import DetailDescription from '../components/DetailDescriptionCompoent'
+import DetailDescription from '../components/DetailDescriptionComponent'
 import DetailData from '../components/DetailDataComponent'
 
 import LayoutStyles from '../styles/LayoutStyle'
