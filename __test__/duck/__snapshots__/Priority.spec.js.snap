@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`action addPriority 1`] = `
+Object {
+  "priority": Object {
+    "label": "hight",
+    "value": 1,
+  },
+  "type": "ADD_PRIORITY",
+}
+`;
+
+exports[`reducer ADD_PRIORITY 1`] = `
+Object {
+  "priority": Array [
+    Object {
+      "label": "hight",
+      "value": 1,
+    },
+  ],
+}
+`;
+
+exports[`reducer default 1`] = `
+Object {
+  "categoryProblem": Array [],
+  "newProblem": Object {
+    "description": "",
+    "priority_id": 0,
+    "problem_type_id": 0,
+    "report_id": null,
+    "topic": "",
+  },
+  "notification": Array [],
+  "priority": Array [],
+  "problem": Array [],
+  "timetable": Array [],
+}
+`;

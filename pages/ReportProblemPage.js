@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import { View } from 'react-native'
 
 import TopicInput from '../components/ConnectTopicInputComponent'
-import Category from '../components/ConnectCategoryCoponent'
-import Priority from '../components/ConnectPriorityCoponent'
+import Category from '../components/ConnectCategoryComponent'
+import Priority from '../components/ConnectPriorityComoponent'
 import Desciption from '../components/ConnectDescriptionInputComponent'
 
 import LayoutStyles from '../styles/LayoutStyle'

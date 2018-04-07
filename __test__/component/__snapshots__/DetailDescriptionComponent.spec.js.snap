@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`rendering 1`] = `
+<View
+  style={
+    Array [
+      Object {
+        "paddingBottom": 10,
+        "paddingTop": 10,
+      },
+      Object {
+        "paddingBottom": 15,
+      },
+      Object {
+        "paddingLeft": 10,
+        "paddingRight": 10,
+      },
+      Object {
+        "backgroundColor": "#FFF",
+      },
+      Object {
+        "borderBottomWidth": 0.4,
+        "borderColor": "#C8C8C8",
+      },
+    ]
+  }
+>
+  <Text
+    accessible={true}
+    allowFontScaling={true}
+    ellipsizeMode="tail"
+    style={
+      Array [
+        Object {
+          "fontFamily": "Kanit",
+        },
+        Object {
+          "fontSize": 18,
+        },
+      ]
+    }
+  >
+    รายละเอียด :
+  </Text>
+  Test
+</View>
+`;

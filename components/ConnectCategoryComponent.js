@@ -7,8 +7,7 @@ import Category from './CategoryComponent'
 
 const mapStateToProps = state => {
     return {
-        categoryProblem : state.CategoryReducer.categoryProblem,
-        category : state.NewProblemReducer.newProblem.problem_type_id
+        categoryProblem : state.CategoryReducer.categoryProblem
     }
 }
 

@@ -6,7 +6,7 @@ import { get as roleteamGet } from '../utils/apiRoleTeam'
 
 import DetailTopic from '../components/DetailTopicComponent'
 import DetailData from '../components/DetailDataComponent'
-import DetailDescription from '../components/DetailDescriptionCompoent'
+import DetailDescription from '../components/DetailDescriptionComponent'
 
 import LayoutStyles from '../styles/LayoutStyle'
 import ColorStyles from '../styles/ColorStyle'

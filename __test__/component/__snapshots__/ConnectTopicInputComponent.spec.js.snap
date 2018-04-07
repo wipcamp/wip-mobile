@@ -1,0 +1,178 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`rendering 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#FFF",
+    }
+  }
+>
+  <View
+    onResponderRelease={[Function]}
+    onStartShouldSetResponder={[Function]}
+    pointerEvents="auto"
+    style={
+      Object {
+        "paddingLeft": 10,
+        "paddingRight": 10,
+      }
+    }
+  >
+    <View
+      collapsable={undefined}
+      style={
+        Object {
+          "backgroundColor": "transparent",
+          "borderBottomColor": "rgba(0, 0, 0, 0.38)",
+          "borderBottomWidth": NaN,
+          "height": 52,
+          "paddingBottom": 5,
+          "paddingTop": 20,
+        }
+      }
+    >
+      <View
+        collapsable={undefined}
+        style={
+          Object {
+            "position": "absolute",
+            "top": 6,
+          }
+        }
+      >
+        <Text
+          accessible={true}
+          allowFontScaling={true}
+          collapsable={undefined}
+          ellipsizeMode="tail"
+          numberOfLines={1}
+          style={
+            Object {
+              "color": "rgba(0, 0, 0, 0.38)",
+              "fontSize": 14,
+            }
+          }
+        >
+          Topic
+        </Text>
+      </View>
+      <View
+        style={
+          Object {
+            "flexDirection": "row",
+          }
+        }
+      >
+        <TextInput
+          allowFontScaling={true}
+          autoCapitalize="sentences"
+          disableFullscreenUI={true}
+          editable={true}
+          onBlur={[Function]}
+          onChange={[Function]}
+          onChangeText={[Function]}
+          onContentSizeChange={[Function]}
+          onFocus={[Function]}
+          selectionColor="rgb(0, 145, 234)"
+          style={
+            Array [
+              Object {
+                "flex": 1,
+                "margin": 0,
+                "padding": 0,
+                "top": 2,
+              },
+              Object {
+                "color": "rgba(0, 0, 0, .87)",
+                "fontSize": 18,
+                "height": 27,
+                "textAlign": "left",
+              },
+              undefined,
+            ]
+          }
+          underlineColorAndroid="transparent"
+          value="Test new problem"
+        />
+      </View>
+    </View>
+    <View
+      collapsable={undefined}
+      style={
+        Object {
+          "flexDirection": "row",
+          "height": 8,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "flex": 1,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "flex-start",
+              "bottom": 0,
+              "left": 0,
+              "paddingVertical": 4,
+              "position": "absolute",
+              "right": 0,
+              "top": 0,
+            }
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            collapsable={undefined}
+            ellipsizeMode="tail"
+            numberOfLines={1}
+            style={
+              Object {
+                "backgroundColor": "transparent",
+                "color": "rgb(213, 0, 0)",
+                "fontSize": 0,
+                "opacity": 0,
+              }
+            }
+          />
+        </View>
+        <View
+          style={
+            Object {
+              "alignItems": "flex-start",
+              "bottom": 0,
+              "left": 0,
+              "paddingVertical": 4,
+              "position": "absolute",
+              "right": 0,
+              "top": 0,
+            }
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            collapsable={undefined}
+            ellipsizeMode="tail"
+            numberOfLines={1}
+            style={
+              Object {
+                "backgroundColor": "transparent",
+                "color": "rgba(0, 0, 0, .38)",
+                "fontSize": 12,
+                "opacity": 1,
+              }
+            }
+          />
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
+`;

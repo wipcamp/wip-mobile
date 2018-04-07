@@ -8,7 +8,7 @@ import { getByProblemId as assignGetByProblemId } from '../utils/apiAssign'
 
 import DetailTopic from '../components/DetailTopicComponent'
 import DetailData from '../components/DetailDataComponent'
-import DetailDescription from '../components/DetailDescriptionCompoent'
+import DetailDescription from '../components/DetailDescriptionComponent'
 import ProblemButton from '../components/ConnectProblemButtonComponent'
 
 import LayoutStyles from '../styles/LayoutStyle'
