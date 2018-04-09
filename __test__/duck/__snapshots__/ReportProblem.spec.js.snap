@@ -75,13 +75,87 @@ Object {
 
 exports[`reducer SORT_PROBLEM 1`] = `
 Object {
-  "problem": Array [],
+  "problem": Array [
+    Object {
+      "created_at": "2018-02-02 17:50:03",
+      "description": "Test Description 3",
+      "id": 3,
+      "is_solve": false,
+      "not_solve": false,
+      "priority_id": 3,
+      "problem_type_id": 3,
+      "report_id": 3,
+      "topic": "Test Problem 3",
+      "updated_at": "2018-02-02 17:50:03",
+    },
+    Object {
+      "created_at": "2018-02-02 17:50:01",
+      "description": "Test Description 1",
+      "id": 1,
+      "is_solve": false,
+      "not_solve": false,
+      "priority_id": 1,
+      "problem_type_id": 1,
+      "report_id": 1,
+      "topic": "Test Problem 1",
+      "updated_at": "2018-02-02 17:50:01",
+    },
+    Object {
+      "created_at": "2018-02-02 17:50:01",
+      "description": "Test Description 2",
+      "id": 2,
+      "is_solve": false,
+      "not_solve": false,
+      "priority_id": 2,
+      "problem_type_id": 2,
+      "report_id": 2,
+      "topic": "Test Problem 2",
+      "updated_at": "2018-02-02 17:50:01",
+    },
+  ],
 }
 `;
 
 exports[`reducer UPDATE_PROBLEM 1`] = `
 Object {
-  "problem": Array [],
+  "problem": Array [
+    Object {
+      "created_at": "2018-02-02 17:50:03",
+      "description": "Test Description 3",
+      "id": 3,
+      "is_solve": false,
+      "not_solve": false,
+      "priority_id": 3,
+      "problem_type_id": 3,
+      "report_id": 3,
+      "topic": "Test Problem 3",
+      "updated_at": "2018-02-02 17:50:03",
+    },
+    Object {
+      "created_at": "2018-02-02 17:50:01",
+      "description": "Test Description 1",
+      "id": 1,
+      "is_solve": false,
+      "not_solve": false,
+      "priority_id": 1,
+      "problem_type_id": 1,
+      "report_id": 1,
+      "topic": "Test Problem 1",
+      "updated_at": "2018-02-02 17:50:01",
+    },
+    Object {
+      "created_at": "2018-02-02 17:50:01",
+      "description": "Test Description 2",
+      "id": 2,
+      "is_solve": false,
+      "not_solve": false,
+      "priority_id": 2,
+      "problem_type_id": 2,
+      "report_id": 2,
+      "topic": "Test Problem 2",
+      "updated_at": "2018-02-02 17:50:01",
+    },
+  ],
 }
 `;
 
