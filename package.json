@@ -34,12 +34,12 @@
   },
   "dependencies": {
     "axios": "^0.17.1",
+    "axios-mock-adapter": "^1.15.0",
     "babel-jest": "^22.4.3",
     "babel-preset-react-native": "^4.0.0",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "expo": "^23.0.4",
-    "jest-mock-axios": "^1.0.21",
     "moment": "^2.22.0",
     "native-base": "^2.4.1",
     "react": "16.0.0",
