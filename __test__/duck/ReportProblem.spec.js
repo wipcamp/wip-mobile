@@ -36,11 +36,11 @@ describe('reducer', () => {
     })
 
     it('SORT_PROBLEM', () => {
-        expect(reducer(initState, sortProblem())).toMatchSnapshot()
+        expect(reducer({problem: problem}, sortProblem())).toMatchSnapshot()
     })
 
     it('UPDATE_PROBLEM', () => {
-        expect(reducer(initState, updateProblem(problem[0]))).toMatchSnapshot()
+        expect(reducer({problem: problem}, updateProblem(problem[0]))).toMatchSnapshot()
     })
 
     it('RESET_PROBLEM', () => {
