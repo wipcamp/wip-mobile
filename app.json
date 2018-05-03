@@ -1,8 +1,8 @@
 {
   "expo": {
     "name": "WIP Mobile",
-    "icon": "./src/images/WIPX.png",
-    "version": "1.0.0",
+    "icon": "./src/images/WIPX_ios.png",
+    "version": "1.0.1",
     "slug": "wip-mobile",
     "sdkVersion": "23.0.0",
     "ios": {
