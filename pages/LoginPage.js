@@ -106,7 +106,7 @@ class Login extends Component {
 
         await AsyncStorage.setItem('user', JSON.stringify(profile))
 
-        this.props.navigation.navigate('Main')
+        this.props.navigation.navigate('app')
     }
 }
 
