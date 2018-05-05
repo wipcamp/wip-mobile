@@ -134,7 +134,7 @@ class Profile extends Component {
                             await AsyncStorage.removeItem('user')
                             await AsyncStorage.removeItem('loginFBID')
                             await AsyncStorage.removeItem('loginFBToken')
-                            this.props.navigation.navigate('Login')
+                            this.props.navigation.navigate('auth')
                         }}
                     >
                         <Icon

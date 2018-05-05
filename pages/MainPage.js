@@ -25,9 +25,6 @@ class MainPage extends Component {
 
     async componentWillMount() {
         let user = await AsyncStorage.getItem('user')
-        if(!user) {
-            this.props.navigation.navigate('Login')
-        }
         user = JSON.parse(user)
         let roleteams = user.roleteams
         roleteams.map(async roleteam => {
