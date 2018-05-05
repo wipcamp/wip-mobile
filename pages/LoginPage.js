@@ -80,8 +80,13 @@ class Login extends Component {
         )
         
         const userInfo = await response.json()
-        await auth(userInfo.id, token)
-
+        try {
+            await auth(userInfo.id, token)
+        }
+        catch (error) {
+            alert('You may not be a part of WIP Camp')
+            return
+        }
         await AsyncStorage.setItem('loginFBID', `${userInfo.id}`)
         await AsyncStorage.setItem('loginFBToken', `${token}`)
         
