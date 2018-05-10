@@ -9,11 +9,12 @@
       "bundleIdentifier": "sit.kmutt.wipmobile"
     },
     "android": {
-      "package": "sit.kmutt.wipmobile"
+      "package": "sit.kmutt.wipmobile",
+      "versionCode": 2
     },
     "description": "Application for WIP Camp use only in camp.\nThis app will have 4 features : \n- Timetable\n- Notification\n- Report Problem\n- View Problem",
     "orientation": "portrait",
-    "facebookScheme": "Fb119399881422143",
+    "facebookScheme": "fb119399881422143",
     "facebookAppId": "119399881422143",
     "facebookDisplayName": "WIP either Camp, # 10"
   }
