@@ -89,7 +89,7 @@ class Login extends Component {
         }
         await AsyncStorage.setItem('loginFBID', `${userInfo.id}`)
         await AsyncStorage.setItem('loginFBToken', `${token}`)
-        
+
         let user = await getUser(userInfo.id, token)
         let profile = await getProfile(user.id)
 
@@ -98,16 +98,16 @@ class Login extends Component {
         profile.pic = userInfo.picture.data.url
         profile.roles = []
         profile.roleteams = []
-        
+
         let role = await getRoleByUserId(profile.user_id)
-        role.map(data => {
+        await Promise.all(role.map(data => {
             profile.roles.push(data.role_id)
-        })
+        }))
 
         let roleTeam = await getRoleTeamByUserId(profile.user_id)
-        roleTeam.map(data => {
+        await Promise.all(roleTeam.map(data => {
             profile.roleteams.push(data.role_team_id)
-        })
+        }))
 
         await AsyncStorage.setItem('user', JSON.stringify(profile))
         this.props.navigation.navigate('app')
